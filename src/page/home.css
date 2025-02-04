@@ -1,0 +1,33 @@
+.carouselContainer{
+    height: 500px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.Carousel_image{
+    height: 500px;
+   width: 900px;
+   border-radius: 10px;
+
+}
+.BarreDemenu{
+    height: 100px;
+    width: 100%;
+    margin-top: 200px;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+}
+.ImageDeMenu{
+    height: 90px;
+    width: 90px;
+}
+
+.SousTitre{
+    text-align: left;
+}
+.LesCartes{
+    width: 100%;
+    height: auto;
+
+}
