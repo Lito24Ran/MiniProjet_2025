@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../component/navbar";
 import frite from "../image/frite.png";
 import image2 from "../image/image2.png";
@@ -17,6 +17,12 @@ import  Stack  from "react-bootstrap/Stack";
 import MenuBurger from "../AutreMenu/Burger.jsx";
 import CarteCrudite from "../AutreMenu/Cruditee.jsx";
 import imgCrudité from "../image/imgCrudité.jpeg";
+import Footer from "../component/footer.jsx";
+import Riz from "../AutreMenu/Riz.jsx";
+import Jus from "../AutreMenu/Jus.jsx";
+import buttonDecounteur from "../Bouton/BoutonDecontite.jsx";
+import SignePlus from "../assets/SignePlus.svg";
+import SigneMoin from "../assets/SigneMoin.svg";
 
 function Home(){
   const navigate = useNavigate();
@@ -32,6 +38,23 @@ function Home(){
   const handeclic2 = () =>{
     navigate("/Cruditee");
   }
+  const handeclic3 = () =>{
+    navigate("/Riz");
+  }
+  const handeclic4 = () =>{
+    navigate("/Jus");
+  }
+  const [count, setCount] = useState(0);
+
+  const [apparence, setApparence] = useState(true);
+
+  const Bouttonincrmente = () =>{
+    setCount (count+1);
+  }
+  const BouttonDecrmentation = () =>{
+    setCount (count-1);
+  }
+
   const prix = 12000;
 
     return(
@@ -42,22 +65,21 @@ function Home(){
          </header>
 
     
-    <main className="mt-4" >
+    <section className="mt-4" >
       
         <Routes>
           <Route path="/Soupe" element = {<Soupe/>}/>
           <Route path="/Burger" element = {<MenuBurger/>}/>
           <Route path="/Cruditee" element = {<CarteCrudite/>}/>
+          <Route path="/Riz" element ={<Riz/>}/>
+          <Route path="/Jus" element ={<Jus/>}/>
+
         </Routes>
         <Container className="BarreDeMenu" >
       <Row>
         <Col xs={4} md={2} lg={2}>
-          <Image className="ImageDeMenu" src={frite}  roundedCircle/> 
-          <p className="SousTitre text-align-center" >Frite</p>
-        </Col>
-        <Col xs={4} md={2} lg={2}>
-        <Image className="ImageDeMenu" src={image2} onClick={handeclic}  roundedCircle/> 
-          <p className="SousTitre" >Mine-sao</p>
+        <Image className="ImageDeMenu" src={image2} onClick={handeclic4}   roundedCircle/> 
+          <p className="SousTitre" >Jus</p>
         </Col>
         <Col xs={4} md={2} lg={2}>
           <Image className="ImageDeMenu" src={Burger} onClick={handeclic1} roundedCircle />
@@ -68,12 +90,12 @@ function Home(){
           <p className="SousTitre" >crudité</p>
         </Col>
         <Col xs={4} md={2} lg={2}>
-          <Image className="ImageDeMenu" src={image2} roundedCircle />
+          <Image className="ImageDeMenu" src={image2} onClick={handeclic} roundedCircle />
           <p className="SousTitre" >Soupe</p>
         </Col>
         <Col xs={4} md={2} lg={2}>
-          <Image className="ImageDeMenu" src={image2} roundedCircle />
-          <p className="SousTitre" >Soupe</p>
+          <Image className="ImageDeMenu" src={image2} onClick={handeclic3} roundedCircle />
+          <p className="SousTitre" >Riz</p>
         </Col>
       </Row>
     </Container>
@@ -101,6 +123,19 @@ function Home(){
     </Col>
     <Col direction="horizontal"   xs={12} md={6} lg={3} xl= {3}>
     <Carte titre="Soupe Legume" image={Burger}  >
+      <div className="Boutton"> 
+        <button 
+          type="boutton"
+          onClick={BouttonDecrmentation}
+        ><img src={SigneMoin} alt="SigneMoin" /></button> 
+        <p className="Chiffre">{count}</p>
+        <button 
+          type="boutton"
+          onClick={Bouttonincrmente}
+        ><img src={SignePlus} alt="SignePlus" /></button>
+         
+       
+      </div>
         <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong> Ar</p>
         <p>Je suis une soupe 0</p>
     </Carte>
@@ -137,10 +172,12 @@ function Home(){
       </Stack>
       </Container>
     </div>
-    </main>
+    </section>
+    <footer>
+      <Footer/>
+    </footer>
     
-    
-    
+   
         </>
 
 ) ;

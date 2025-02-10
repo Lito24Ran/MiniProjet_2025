@@ -6,6 +6,8 @@ import Home from './page/home.jsx';
 import Soupe from './AutreMenu/Soupe.jsx';
 import MenuBurger from './AutreMenu/Burger.jsx';
 import CarteCrudite from './AutreMenu/Cruditee.jsx';
+import Riz from './AutreMenu/Riz.jsx';
+import Jus from './AutreMenu/Jus.jsx';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
         path:"/Cruditee",
         element:<CarteCrudite/>
       },
+      {
+        path:"/Riz",
+        element:<Riz/>
+      },
+      {
+        path:"/Jus",
+        element:<Jus/>
+      }
     ]
 }
 ])

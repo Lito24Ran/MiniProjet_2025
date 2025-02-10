@@ -1,8 +1,14 @@
 import React from "react";
-
+import "./footer.css"
 function Footer(){
     return(
-        <div>Je suis un footer!</div>
+        <footer className="StyleFooter">
+            <div>
+                <div className="Facebook"><img src="" alt="" />Facebook</div>
+                <div className="Email d-flex align-item-center">Email</div>
+
+            </div>
+        </footer>
     );
 }
 export default Footer;
