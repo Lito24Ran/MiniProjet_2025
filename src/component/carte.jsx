@@ -4,6 +4,7 @@ import  Row  from "react-bootstrap/Row";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import  Col  from "react-bootstrap/Col";
+import "./Carte.css";
 
 
  function Carte(props)  {
@@ -12,7 +13,7 @@ import  Col  from "react-bootstrap/Col";
         <Row>
         <Col xs = {1} md= {4} lg= {2}>
        <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top"  src={props.image}/> 
+            <Card.Img className="Image_Carte" variant="top"  src={props.image}/> 
             <Card.Body>
              <Card.Title>{props.titre}</Card.Title>
              <Card.Text>

@@ -1,11 +1,18 @@
 import React from "react";
-import "./footer.css"
+import "./footer.css";
+
 function Footer(){
     return(
         <footer className="StyleFooter">
             <div>
-                <div className="Facebook"><img src="" alt="" />Facebook</div>
-                <div className="Email d-flex align-item-center">Email</div>
+                <div className="Facebook"><img src="" alt="" />
+                    <p className="Composant1_footer">Facebook</p>
+                    <p className="Composant1_footer">Email</p>
+                    <p className="Composant2_footer">Contact</p>
+                    <p className="Composant2_footer">Lieu</p>
+                    
+                </div>
+                
 
             </div>
         </footer>
