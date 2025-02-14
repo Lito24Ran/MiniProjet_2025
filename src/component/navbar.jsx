@@ -17,7 +17,7 @@ function customerNavbar() {
            <Navbar.Toggle aria-controls="basic-navbar-nav" />
            <Navbar.Collapse id="basic-navbar-nav">
              <Nav className="ms-auto">
-               <Nav.Link href="#home" className="me-5">Home</Nav.Link>
+               <Nav.Link  className=" Navbar_text text-center me-5">Home</Nav.Link>
                <Nav.Link href="#link">Lien</Nav.Link>
              </Nav>
            </Navbar.Collapse>

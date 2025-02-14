@@ -1,3 +1,8 @@
 .Barre_Menu{
     background-color:#474645 ;
 }   
+
+.Navbar_text{
+    display: flex;
+    align-items: center;
+}
