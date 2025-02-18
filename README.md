@@ -4,9 +4,6 @@ Ce document détaille les étapes d'installation et les tâches à réaliser pou
 
 ## Installation
 
-1. **Installer React + Vite :**
-   - Ouvrez votre terminal et exécutez la commande suivante : `npm create vite@latest`
-   - Suivez les instructions à l'écran et sélectionnez JavaScript comme langage.
 
 2. **Installer React Bootstrap :**
    - Toujours dans le terminal, exécutez la commande suivante : `npm install react-bootstrap bootstrap`
