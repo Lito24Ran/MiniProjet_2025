@@ -22,7 +22,7 @@ Les tâches sont réparties entre les équipes suivantes :
 
 - **Tâche :** Écriture et gestion des images.
 
-### Équipe 2 : Hyancent & Victorio
+### Équipe 2 : Hyacinthe & Victorio
 
 - **Tâche :** Conception et design de l'application.
 
