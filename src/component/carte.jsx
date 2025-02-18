@@ -19,7 +19,7 @@ import "./Carte.css";
              <Card.Text>
                {props.children}
              </Card.Text>
-             <Button variant="primary">Confirme</Button>
+             <Button variant="primary">Comander</Button>
             </Card.Body>
         </Card>
         </Col>

@@ -20,7 +20,6 @@ import imgCrudité from "../image/imgCrudité.jpeg";
 import Footer from "../component/footer.jsx";
 import Riz from "../AutreMenu/Riz.jsx";
 import Jus from "../AutreMenu/Jus.jsx";
-import buttonDecounteur from "../Bouton/BoutonDecontite.jsx";
 import SignePlus from "../assets/SignePlus.svg";
 import SigneMoin from "../assets/SigneMoin.svg";
 
@@ -79,7 +78,7 @@ function Home(){
       <Row>
         <Col xs={4} md={2} lg={2}>
         <Image className="ImageDeMenu" src={image2} onClick={handeclic4}   roundedCircle/> 
-          <p className="SousTitre" >Jus</p>
+          <p className="SousTitre" >Jus</p>s
         </Col>
         <Col xs={4} md={2} lg={2}>
           <Image className="ImageDeMenu" src={Burger} onClick={handeclic1} roundedCircle />
