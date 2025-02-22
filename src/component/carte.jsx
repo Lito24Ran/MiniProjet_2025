@@ -12,7 +12,7 @@ import "./Carte.css";
     <div className="mt-4 ms-3 inline-bloc">
         <Row>
         <Col xs = {1} md= {4} lg= {2}>
-       <Card style={{ width: '18rem' }}>
+       <Card className="body_card" style={{ width: '18rem' }}>
             <Card.Img className="Image_Carte" variant="top"  src={props.image}/> 
             <Card.Body>
              <Card.Title>{props.titre}</Card.Title>
