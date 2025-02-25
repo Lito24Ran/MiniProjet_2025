@@ -1,30 +1,39 @@
 .carouselContainer{
     height: 500px;
-    width: 100%;
+    width: 900px;
     display: flex;
     justify-content: center;
+    position: relative;
+    left: 300PX;
+    
 }
 .Carousel_image{
-    height: 500px;
-   width: 900px;
+    height: 550px;
+   width: 1000px;
    border-radius: 10px;
+   image-resolution: 100px;
+   margin-top: 20px;
+
 
 }
 .BarreDemenu{
     height: 100px;
-    width: 100%;
     margin-top: 200px;
     display: flex;
     align-items: center;
-    justify-content: end;
+    
 }
 .ImageDeMenu{
-    height: 90px;
-    width: 90px;
+    height: 100px;
+    width: 100px;
+    position: relative;
+    left: 150px;
 }
 
 .SousTitre{
-    text-align: left;
+    text-align: center;
+    
+    font-style: italic;
 }
 .LesCartes{
     width: 100%;
@@ -41,4 +50,9 @@
 .Chiffre {
     background-color: beige;
     margin: 10px;
+}
+.carousel{
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
 }

@@ -45,7 +45,6 @@ function Home(){
   }
   const [count, setCount] = useState(0);
 
-  const [apparence, setApparence] = useState(true);
 
   const Bouttonincrmente = () =>{
     setCount (count+1);
@@ -60,9 +59,10 @@ function Home(){
         <>       
          <Navbar/>
          <header>
+            <div className = "carousel">
             <SystemeCrousel/>
+            </div>
          </header>
-
     
     <section className="mt-4" >
       
@@ -74,6 +74,7 @@ function Home(){
           <Route path="/Jus" element ={<Jus/>}/>
 
         </Routes>
+        
         <Container className="BarreDeMenu" >
       <Row>
         <Col xs={4} md={2} lg={2}>
@@ -102,25 +103,25 @@ function Home(){
     <div className=" LesCartes mt-5">
       <Container>
       <Row>
-        <Col direction="horizontal"  xs={12} md={6} lg={4} xl= {3}>
+        <Col direction="horizontal"  xs={12} md={4} lg={2} xl= {3}>
         <Carte titre="Soupe Legume" image={Burger} >
             <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong> Ar</p>
             <p>Je suis une soupe 0</p>
         </Carte>
         </Col>
-        <Col direction="horizontal"  xs={12} md={6} lg={4} xl= {3}>
+        <Col direction="horizontal"  xs={12} md={4} lg={2} xl= {3}>
         <Carte titre="Soupe Legume" image={frite}  >
             <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong>Ar</p>
             <p>Je suis une soupe 0</p>
         </Carte>
         </Col>
-        <Col direction="horizontal"   xs={12} md={6} lg={4} xl= {3}>
+        <Col direction="horizontal"   xs={12} md={4} lg={2} xl= {3}>
         <Carte titre="Soupe Legume" image={image2}  >
             <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong> Ar</p>
             <p>Je suis une soupe 0</p>
         </Carte>
         </Col>
-        <Col direction="horizontal"   xs={12} md={6} lg={3} xl= {3}>
+        <Col direction="horizontal"   xs={12} md={4} lg={2} xl= {3}>
         <Carte titre="Soupe Legume" image={Burger}  >
           <div className="Boutton"> 
             <button 
@@ -130,7 +131,7 @@ function Home(){
             <p className="Chiffre">{count}</p>
             <button 
               type="boutton"
-              onClick={Bouttonincrmente}
+              onClick={Bouttonincrmente}QW
             ><img src={SignePlus} alt="SignePlus" /></button>
          
        
@@ -219,7 +220,8 @@ function Home(){
         </Carte>
     </Col>
     </Row>
-      </Container>
+      
+    </Container>
     </div>
     </section>
     <footer>
@@ -227,8 +229,8 @@ function Home(){
     </footer>
     
    
+        
         </>
-
 ) ;
 }
 

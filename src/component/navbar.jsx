@@ -11,13 +11,13 @@ function customerNavbar() {
     const color  = "gray";
     return(
         <>
-           <Navbar className="Barre_Menu">
+          <Navbar className="Barre_Menu">
          <Container>
            <Navbar.Brand as={Link} to="/">React-Bootstrap</Navbar.Brand>
            <Navbar.Toggle aria-controls="basic-navbar-nav" />
            <Navbar.Collapse id="basic-navbar-nav">
+            <p className="Navbar_text">Menu</p>
              <Nav className="ms-auto">
-               <Nav.Link  className=" Navbar_text text-center me-5">Home</Nav.Link>
                <Nav.Link href="#link">Lien</Nav.Link>
              </Nav>
            </Navbar.Collapse>

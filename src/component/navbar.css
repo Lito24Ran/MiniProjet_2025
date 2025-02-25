@@ -1,12 +1,12 @@
 .Barre_Menu{
-    background-color:#474645 ;
-}
-.navbar-brand, .nav-link {
-    color: white !important;
-}
-  
+    background-color:white;
+    box-shadow: 0 0 20px plum;
+}   
 
 .Navbar_text{
-    display: flex;
-    align-items: center;
+    margin-top: 2px;
+   text-align: center;
+   position: relative;
+   left: 300px;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
