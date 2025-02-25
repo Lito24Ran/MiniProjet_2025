@@ -1,6 +1,10 @@
 .Barre_Menu{
     background-color:#474645 ;
-}   
+}
+.navbar-brand, .nav-link {
+    color: white !important;
+}
+  
 
 .Navbar_text{
     display: flex;
