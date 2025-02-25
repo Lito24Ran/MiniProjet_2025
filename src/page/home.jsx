@@ -50,7 +50,9 @@ function Home(){
     setCount (count+1);
   }
   const BouttonDecrmentation = () =>{
-    setCount (count-1);
+    if (count > 0) {
+      setCount (count-1);
+    }
   }
 
   const prix = 12000;
