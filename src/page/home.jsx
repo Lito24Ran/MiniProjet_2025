@@ -79,7 +79,7 @@ function Home(){
       <Row>
         <Col xs={4} md={2} lg={2}>
         <Image className="ImageDeMenu" src={image2} onClick={handeclic4}   roundedCircle/> 
-          <p className="SousTitre" >Jus</p>
+          <p className="SousTitre" >Jus</p>s
         </Col>
         <Col xs={4} md={2} lg={2}>
           <Image className="ImageDeMenu" src={Burger} onClick={handeclic1} roundedCircle />

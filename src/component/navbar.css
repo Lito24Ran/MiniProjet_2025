@@ -4,6 +4,9 @@
 }   
 
 .Navbar_text{
-    display: flex;
-    align-items: center;
+    margin-top: 2px;
+   text-align: center;
+   position: relative;
+   left: 300px;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

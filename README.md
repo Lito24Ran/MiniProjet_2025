@@ -1,26 +1,37 @@
-# Tâche Mini project
-=> Rehefa azonareo ity code ity dia mila :
-    .Installer React + vite ao @ ny Terminal @ ny alalan' ity hoe : npm create vite@latest
-        Ato @ ity misy etape ah dia mila Javascript fotsn no safidina.
+# Tâche Mini-projet
 
-    .Installer React Bootstrap ao @ ny teminal ihany @ ny hoe : npm install react-bootstrap bootstrap
+Ce document détaille les étapes d'installation et les tâches à réaliser pour le mini-projet.
 
-    Rehefa vita ireo a dia mila alefa @ izay ilay izy dia tapez ny comande hoe : npm run dev
+## Installation
 
-Tâche à faire 
-Equipe1 : 
-    Danilo
-    Princia
-Tâche: Ecriture et les images
 
-Equipe 2 :
-    Hyancent
-    Victorio
-Tâche : Designe 
+2. **Installer React Bootstrap :**
+   - Toujours dans le terminal, exécutez la commande suivante : `npm install react-bootstrap bootstrap`
 
-Equipe 3 : 
-    Azaria
-    Najoro
-Tâche : Boutton et payement
 
-//Rehefa vita aloha ny an' ny sasany dia manapy an' izay ts nahavita.
+3. **Lancer le projet :**
+   - Une fois les installations terminées, lancez le projet avec la commande : `npm run dev`
+
+## Tâches à réaliser
+
+Les tâches sont réparties entre les équipes suivantes :
+
+### Équipe 1 : Danilo & Princia
+
+- **Tâche :** Écriture et gestion des images.
+
+### Équipe 2 : Hyacinthe & Victorio
+
+- **Tâche :** Conception et design de l'application.
+
+### Équipe 3 : Azaria & Najoro
+
+- **Tâche :** Création des boutons et intégration du système de paiement.
+
+## Consignes supplémentaires
+
+- Chaque équipe est responsable de la réalisation de sa tâche.
+- Si une équipe rencontre des difficultés, elle peut demander de l'aide aux autres équipes.
+- Une fois les tâches terminées, chaque équipe devra s'assurer du bon fonctionnement de son travail.
+
+Ce README a pour but de faciliter le démarrage et la réalisation du mini-projet. N'hésitez pas à le consulter en cas de besoin.
