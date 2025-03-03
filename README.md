@@ -7,11 +7,6 @@
 
     Rehefa vita ireo a dia mila alefa @ izay ilay izy dia tapez ny comande hoe : npm run dev
 
-Tâche à faire 
-Equipe1 : 
-    Danilo
-    Princia
-Tâche: Ecriture et les images
 
 Equipe 2 :
     Hyancent
