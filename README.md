@@ -18,9 +18,8 @@ Equipe 2 :
     Victorio
 Tâche : Designe 
 
-Equipe 3 : 
-    Azaria
-    Najoro
-Tâche : Boutton et payement
+
+3. **Lancer le projet :**
+   - Une fois les installations terminées, lancez le projet avec la commande : `npm run dev`
 
 //Rehefa vita aloha ny an' ny sasany dia manapy an' izay ts nahavita.
