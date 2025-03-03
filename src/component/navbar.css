@@ -1,8 +1,45 @@
+@font-face{
+    font-family: "bauh";
+    src: url(../fonts/BAUHS93.TTF);
+}
 .Barre_Menu{
-    background-color:#474645 ;
+    background-color:white;
+    box-shadow: 0 0 20px plum;
+    height: 100px;
+    display: flex;
+
 }   
 
 .Navbar_text{
-    display: flex;
-    align-items: center;
+   text-align: center;
+   position: relative;
+   left: 600px;
+   font-family: "bauh", sans-serif;
+   font-size: 30px;
+   font-weight: 500;
+   margin-top: 20px;
+   cursor: context-menu;
+}
+.Navbar_text::after{
+    content: '';
+    width: 0;
+    height: 2px;
+    background: rgb(228, 89, 186);
+    display: block;
+    transition: 0.2s linear;
+
+}
+.Navbar_text:hover::after{
+    width: 100%;
+}
+.logonav {
+    image-resolution: 100%;
+    width: 170px;
+    height: 160px;
+    margin: -200px;
+    
+}
+.ms-auto{
+    position: absolute;
+    left:90vw;
 }
