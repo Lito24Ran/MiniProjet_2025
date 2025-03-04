@@ -15,11 +15,11 @@ import "./Carte.css";
        <Card className="body_card" style={{ width: '18rem' }}>
             <Card.Img className="Image_Carte" variant="top"  src={props.image}/> 
             <Card.Body>
-             <Card.Title>{props.titre}</Card.Title>
+             <Card.Title className="Titre">{props.titre}</Card.Title>
              <Card.Text>
                {props.children}
              </Card.Text>
-             <Button variant="primary">Comander</Button>
+             <Button className="boutton" variant="primary">Comander</Button>
             </Card.Body>
         </Card>
         </Col>

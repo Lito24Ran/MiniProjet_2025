@@ -1,8 +1,11 @@
 .StyleFooter{
+    position: relative;
     width: 100%;
     height: 200px;
-    background-color: aqua;
+    background-color: rgb(47, 9, 1);
     margin-top:20px ;
+    border-radius: -20px;
+    clip-path: polygon(0%,20%,0%,20%);
 }
 .Composant1_footer {
     margin-left: 20px;
@@ -10,7 +13,12 @@
     align-items: end;
 }
 .Composant2_footer {
+    margin-left: 20px;
     display: flex;
     align-items:start ;
 
+}
+.style2{
+    position: relative;
+    right: 90%;
 }
