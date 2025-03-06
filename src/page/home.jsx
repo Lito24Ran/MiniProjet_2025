@@ -75,7 +75,7 @@ function Home(){
 
         </Routes>
         
-        <Container className="BarreDeMenu" >
+        <Container  className="BarreDeMenu" >
       <Row>
         <Col xs={4} md={2} lg={2}>
         <Image className="ImageDeMenu" src={image2} onClick={handeclic4}   roundedCircle/> 
@@ -99,30 +99,38 @@ function Home(){
         </Col>
       </Row>
     </Container>
-
-    <div className=" LesCartes mt-5">
+     <img src="src\image\ligne.png" alt="ligne" className="ligne" />
+    <div >
       <Container>
       <Row>
-        <Col direction="horizontal"  xs={12} md={4} lg={2} xl= {3}>
-        <Carte titre="Soupe Legume" image={Burger} >
+        <Col className="carte" direction="horizontal"  xs={12} md={4} lg={2} xl= {3}>
+        <Carte>
+            
+            <img src={Burger} alt="burger" className="carteimage" />
+            <h1 className="titre">Soupe Legume</h1>
             <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong> Ar</p>
             <p>Je suis une soupe 0</p>
         </Carte>
         </Col>
-        <Col direction="horizontal"  xs={12} md={4} lg={2} xl= {3}>
-        <Carte titre="Soupe Legume" image={frite}  >
+        <Col className="carte" direction="horizontal"  xs={12} md={4} lg={2} xl= {3}>
+        <Carte> <img src={frite} alt="burger" className="carteimage" /><h1 className="titre">Soupe Legume</h1>
+        
             <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong>Ar</p>
             <p>Je suis une soupe 0</p>
         </Carte>
         </Col>
-        <Col direction="horizontal"   xs={12} md={4} lg={2} xl= {3}>
-        <Carte titre="Soupe Legume" image={image2}  >
+        <Col className="carte" direction="horizontal"   xs={12} md={4} lg={2} xl= {3}>
+        <Carte > <img src={image2} alt="burger" className="carteimage" />
+        <h1 className="titre">Soupe Legume</h1>
+       
             <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong> Ar</p>
             <p>Je suis une soupe 0</p>
         </Carte>
         </Col>
-        <Col direction="horizontal"   xs={12} md={4} lg={2} xl= {3}>
-        <Carte titre="Soupe Legume" image={Burger}  >
+        <Col className="carte" direction="horizontal"   xs={12} md={4} lg={2} xl= {3}>
+        <Carte> <img src={Burger} alt="burger" className="carteimage" /> 
+          <h1 className="titre">Soupe Legume</h1>
+          
           <div className="Boutton"> 
             <button 
               type="boutton"
@@ -144,25 +152,30 @@ function Home(){
     
     <Row>
         <Col direction="horizontal"  xs={12} md={8} lg={4} xl= {3}>
-        <Carte titre="Soupe Legume" image={Burger} >
+        <Carte> <img src={Burger} alt="burger" className="carteimage" />
+          <h1 className="titre">Soupe Legume</h1>
+          
             <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong> Ar</p>
             <p>Je suis une soupe 0</p>
         </Carte>
         </Col>
         <Col direction="horizontal"  xs={12} md={8} lg={4} xl= {3}>
-        <Carte titre="Soupe Legume" image={frite}  >
+        <Carte><h1 className="titre">Soupe Legume</h1>
+         <img src={frite} alt="burger" className="carteimage" />  
             <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong>Ar</p>
             <p>Je suis une soupe 0</p>
         </Carte>
         </Col>
         <Col direction="horizontal"   xs={12} md={8} lg={4} xl= {3}>
-        <Carte titre="Soupe Legume" image={image2}  >
+        <Carte> <img src={image2} alt="burger" className="carteimage" /> <h1 className="titre">Soupe Legume</h1>
+        
             <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong> Ar</p>
             <p>Je suis une soupe 0</p>
         </Carte>
         </Col>
         <Col direction="horizontal"   xs={12} md={8} lg={4} xl= {3}>
-        <Carte titre="Soupe Legume" image={Burger}  >
+        <Carte><img src={Burger} alt="burger" className="carteimage" />  <h1 className="titre">Soupe Legume</h1> 
+        
           <div className="Boutton"> 
             <button 
               type="boutton"
@@ -183,25 +196,30 @@ function Home(){
     </Row>
     <Row>
         <Col direction="horizontal"  xs={12} md={6} lg={4} xl= {3}>
-        <Carte titre="Soupe Legume" image={Burger} >
+        <Carte> <img src={Burger} alt="burger" className="carteimage" />
+          <h1 className="titre">Soupe Legume</h1>
+           
             <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong> Ar</p>
             <p>Je suis une soupe 0</p>
         </Carte>
         </Col>
         <Col direction="horizontal"  xs={12} md={6} lg={4} xl= {3}>
-        <Carte titre="Soupe Legume" image={frite}  >
+        <Carte><img src={frite} alt="burger" className="carteimage" />  <h1 className="titre">Soupe Legume</h1> 
+        
             <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong>Ar</p>
             <p>Je suis une soupe 0</p>
         </Carte>
         </Col>
         <Col direction="horizontal"   xs={12} md={5} lg={4} xl= {3}>
-        <Carte titre="Soupe Legume" image={image2}  >
+        <Carte> <img src={image2} alt="burger" className="carteimage" /><h1 className="titre">Soupe Legume</h1>
+        
             <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong> Ar</p>
             <p>Je suis une soupe 0</p>
         </Carte>
         </Col>
         <Col direction="horizontal"   xs={12} md={6} lg={4} xl= {3}>
-        <Carte titre="Soupe Legume" image={Burger}  >
+        <Carte><img src={Burger} alt="burger" className="carteimage" />  <h1 className="titre">Soupe Legume</h1>
+         
           <div className="Boutton"> 
             <button 
               type="boutton"
