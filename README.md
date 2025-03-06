@@ -14,7 +14,6 @@ Equipe 2 :
 Tâche : Designe 
 
 
-
 3. **Lancer le projet :**
    - Une fois les installations terminées, lancez le projet avec la commande : `npm run dev`
 
