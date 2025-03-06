@@ -1,16 +1,35 @@
 .StyleFooter{
     width: 100%;
-    height: 200px;
-    background-color: aqua;
-    margin-top:20px ;
+    height: 350px;
+    background-color: rgb(252, 182, 182);
+    margin-top:40px ;
+    padding-top: 5px;
 }
-.Composant1_footer {
-    margin-left: 20px;
-    display: flex;
-    align-items: end;
+.footer_image {
+    width: 30px;
+    height: auto;
+    margin-right: 10px;
+    border-radius: 15px;
 }
-.Composant2_footer {
+.texte_ftr{
+    padding-inline: 20px;
+    padding-block: 20px;
+}
+.item_ftr {
     display: flex;
-    align-items:start ;
-
+    padding: -20px;
+    align-items: center;
+}
+.bouton_ftr {
+    padding: 20px 200PX;
+    font-size: 15px;
+    margin-top: 22px;
+    background-color: rgb(252, 182, 182);
+    color: black;
+    border: lch(light hue hue);
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.bouton_ftr:hover {
+    cursor: green;
 }
