@@ -55,4 +55,19 @@
     margin-top: 50px;
     display: flex;
     align-items: center;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+.btn{
+    background-color: #ffff;
+    color: #070202;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.btn:hover{
+    background-color: orange;
 }
