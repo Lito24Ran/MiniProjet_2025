@@ -8,7 +8,7 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Image from'react-bootstrap/Image';
-import Burger from '../image/Burger.png';
+import Burger from '../image/burger.png';
 import Soupe from "../AutreMenu/Soupe";
 import { BrowserRouter as Router, Routes ,Route,useNavigate } from "react-router-dom";
 import Carte from "../component/carte.jsx";
