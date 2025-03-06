@@ -8,10 +8,10 @@ function Jus () {
     return(
         <>        
         <Navbar/>
-       <Carte Titre="Jus Naturel" >
-             <p style={{color:"orange"}}><strong>{prix}</strong></p>
-             <p>Je suis un Jus</p>
-        </Carte>
+        <Carte titre="jus naturel">
+        <p style={{color:"orange"}}><strong>{prix}</strong></p>
+        <p>Je suis un jus</p>
+    </Carte>
         </>
 
     );
