@@ -1,18 +1,11 @@
 .StyleFooter{
     position: relative;
     width: 100%;
-<<<<<<< HEAD
-    height: 350px;
-    background-color: rgb(252, 182, 182);
-    margin-top:40px ;
-    padding-top: 5px;
-=======
     height: 200px;
     background-color: rgb(47, 9, 1);
     margin-top:20px ;
     border-radius: -20px;
     clip-path: polygon(0%,20%,0%,20%);
->>>>>>> c1b63fd... modification des cartes
 }
 .footer_image {
     width: 30px;
@@ -24,25 +17,6 @@
     padding-inline: 20px;
     padding-block: 20px;
 }
-<<<<<<< HEAD
-.item_ftr {
-    display: flex;
-    padding: -20px;
-    align-items: center;
-}
-.bouton_ftr {
-    padding: 20px 200PX;
-    font-size: 15px;
-    margin-top: 22px;
-    background-color: rgb(252, 182, 182);
-    color: black;
-    border: lch(light hue hue);
-    cursor: pointer;
-    transition: background 0.3s;
-}
-.bouton_ftr:hover {
-    cursor: green;
-=======
 .Composant2_footer {
     margin-left: 20px;
     display: flex;
@@ -52,5 +26,4 @@
 .style2{
     position: relative;
     right: 90%;
->>>>>>> c1b63fd... modification des cartes
 }
