@@ -49,13 +49,9 @@ function Home(){
     setCount (count+1);
   }
   const BouttonDecrmentation = () =>{
-<<<<<<< HEAD
-    setCount (count-1);
-=======
     if (count>0){
     setCount (count-1);
   }
->>>>>>> c723f1b... commit lavareny
   }
 
   const prix = 12000;
