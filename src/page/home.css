@@ -113,15 +113,19 @@
    
     display: flex;
     align-items: center;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
 }
-html, body{
-    overflow-x: hidden;
-    width: 100%;
+.btn{
+    background-color: #ffff;
+    color: #070202;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
-@media screen and (max-width: 1024px) {
-    body{
-        width: 100vw;
-        overflow-x: hidden;
-    }
-    
+.btn:hover{
+    background-color: orange;
 }

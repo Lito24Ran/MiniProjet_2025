@@ -1,4 +1,13 @@
 .Image_Carte{
     height: 180px;
     width: 100%;
+    border-top-left-radius: 30px;
+}
+.body_card{
+    border-top-left-radius: 30px;
+    border-color:orange;
+    box-shadow: 20px;
+    border-bottom-right-radius: 30px;
+    border-top-left-radius: 30px;
+
 }

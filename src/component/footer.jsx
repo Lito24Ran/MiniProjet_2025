@@ -8,6 +8,7 @@ import iconcontact from "../image/icon_contact.jpg";
 function Footer(){
     return(
         <footer className="StyleFooter">
+<<<<<<< HEAD
             <div className="footer_container">
                 <div className="item_ftr">
                        <img src={iconFacebook} alt="facebook" className="footer_image" />
@@ -29,6 +30,22 @@ function Footer(){
                 <button className="bouton_ftr">: about us </button>
         
             </div>    
+=======
+            
+                <div className="Facebook"><img src="" alt="" />
+                    <p className="Composant1_footer">Facebook</p>
+                    <p className="Composant1_footer">Email</p>
+                  
+                </div>
+                <div className="Style2">
+                    <p className="Composant2_footer">Contact</p>
+                    <p className="Composant2_footer">Lieu</p>
+                    
+                </div>
+                <img src="bolognaise.png" alt="facebook" />
+                <img src="bolognaise.png" alt="gmail" />
+                <img src="bolognaise.png" alt="instagrame" />
+>>>>>>> c1b63fd... modification des cartes
         </footer>
     );
 }
