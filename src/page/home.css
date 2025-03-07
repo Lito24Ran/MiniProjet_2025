@@ -18,22 +18,28 @@
 }
 .BarreDemenu{
     height: 100px;
-    margin-top: 200px;
-    display: flex;
-    align-items: center;
+    margin-top: 65px;
+  
     
 }
 .ImageDeMenu{
     height: 100px;
     width: 100px;
     position: relative;
-    left: 150px;
+    left: 150px; 
+    transition: 0.3s;
+}
+.ImageDeMenu:hover{
+   transform: scale('y: -1.3em');
 }
 
 .SousTitre{
     text-align: center;
-    
-    font-style: italic;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: relative;
+    left: 90px;
+    bottom: 50px;
+    color: black;
 }
 .LesCartes{
     width: 100%;
@@ -52,7 +58,7 @@
     margin: 10px;
 }
 .carousel{
-    margin-top: 50px;
+    margin-top: 30px;
     display: flex;
     align-items: center;
     border-top-left-radius: 30px;
@@ -70,4 +76,9 @@
 }
 .btn:hover{
     background-color: orange;
+}
+.texts{
+    position: relative;
+    left: 95px;
+    margin: 0px;
 }

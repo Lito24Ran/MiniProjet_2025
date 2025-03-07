@@ -53,6 +53,9 @@ function Home(){
     setCount (count-1);
   }
   }
+  
+  //EE VICTORIO TS ATO LAH NO MIASA RAHA ANOVA AN' LE CARTE FA AO ANATY carte.jsx
+  //DE JEREO AO FA EFA MISY CLASSE MARO2 AO D RENY SISA NO ANTSOIN'LAH RAHA TE ANOVA AN' LE BORDER LAH
 
   const prix = 12000;
 
@@ -76,9 +79,11 @@ function Home(){
 
         </Routes>
         
-        <Container className="BarreDeMenu" >
+       <div className="BarreDemenu">
+       <Container>
       <Row>
-        
+        <p className="texts">Voici Les listes de menu</p><br />
+        <p className="texts">Nous avons plusieur type de menu dans cet section</p>
         <Col xs={4} md={2} lg={2}>
         <Image className="ImageDeMenu" src={image2} onClick={handeclic4}   roundedCircle/> 
           <p className="SousTitre" >Jus</p>
@@ -101,8 +106,10 @@ function Home(){
           <p className="SousTitre" >Riz</p>
         </Col>
       </Row>
-      
-    </Container>
+     
+      </Container>
+      </div>
+    
 
     <div className=" LesCartes mt-5">
       <Container>
