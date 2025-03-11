@@ -8,6 +8,7 @@ import MenuBurger from './AutreMenu/Burger.jsx';
 import CarteCrudite from './AutreMenu/Cruditee.jsx';
 import Riz from './AutreMenu/Riz.jsx';
 import Jus from './AutreMenu/Jus.jsx';
+import Panier from './page/Panier.jsx';
 
 const router = createBrowserRouter([
   {
@@ -37,7 +38,11 @@ const router = createBrowserRouter([
       {
         path:"/Jus",
         element:<Jus/>
-      }
+      },
+      {
+        path: '/panier',
+        element: <Panier />,
+      },
     ]
 }
 ])

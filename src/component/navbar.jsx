@@ -24,9 +24,11 @@ function customerNavbar() {
            <Navbar.Toggle aria-controls="basic-navbar-nav" />
            <Navbar.Collapse id="basic-navbar-nav">
             <p className="Navbar_text">Menu</p>
-             <Nav className="ms-auto">
-               <Nav.Link href="#link">Lien</Nav.Link>
-             </Nav>
+            <Nav className="ms-auto">
+              <Nav.Link as={Link} to="/panier">
+                Panier
+              </Nav.Link>
+            </Nav>
            </Navbar.Collapse>
          </Container>
         </Navbar>
