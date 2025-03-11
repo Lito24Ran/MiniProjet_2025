@@ -5,6 +5,7 @@
 .Barre_Menu{
     background-color:white;
     box-shadow: 0 0 20px plum;
+<<<<<<< HEAD
     height: 100px;
     display: flex;
 
@@ -42,4 +43,14 @@
 .ms-auto{
     position: absolute;
     left:90vw;
+=======
+}   
+
+.Navbar_text{
+    margin-top: 2px;
+   text-align: center;
+   position: relative;
+   left: 300px;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+>>>>>>> c1b63fd45519172f00d1b54af3739e429d0e9772
 }
