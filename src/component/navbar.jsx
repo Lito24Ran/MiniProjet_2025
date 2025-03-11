@@ -11,7 +11,7 @@ function customerNavbar() {
     const color  = "gray";
     return(
         <>
-           <Navbar className="Barre_Menu">
+          <Navbar className="Barre_Menu">
          <Container>
            <Navbar.Brand as={Link} to="/"><img
            src="src\image\ikaly.png"
@@ -23,7 +23,9 @@ function customerNavbar() {
            </Navbar.Brand>
            <Navbar.Toggle aria-controls="basic-navbar-nav" />
            <Navbar.Collapse id="basic-navbar-nav">
+            <p className="Navbar_text">Menu</p>
              <Nav className="ms-auto">
+<<<<<<< HEAD
                <Nav.Link href="#link">
                 <img
                 src="src\image\panier.png"
@@ -33,6 +35,9 @@ function customerNavbar() {
                 className="panier"
                 />
                </Nav.Link>
+=======
+               <Nav.Link href="#link">Lien</Nav.Link>
+>>>>>>> c1b63fd45519172f00d1b54af3739e429d0e9772
              </Nav>
            </Navbar.Collapse>
          </Container>

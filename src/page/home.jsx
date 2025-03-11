@@ -76,7 +76,11 @@ function Home(){
 
         </Routes>
         
+<<<<<<< HEAD
         <Container  className="BarreDeMenu" >
+=======
+        <Container className="BarreDeMenu" >
+>>>>>>> c1b63fd45519172f00d1b54af3739e429d0e9772
       <Row>
         
         <Col xs={4} md={2} lg={2}>
@@ -107,34 +111,54 @@ function Home(){
     <div >
       <Container>
       <Row>
+<<<<<<< HEAD
         <Col className="carte" direction="horizontal"  xs={12} md={4} lg={2} xl= {3}>
         <Carte>
             
             <img src={Burger} alt="burger" className="carteimage" />
             <h1 className="titre">Soupe Legume</h1>
+=======
+        <Col direction="horizontal"  xs={12} md={4} lg={2} xl= {3}>
+        <Carte titre="Soupe Legume" image={Burger} >
+>>>>>>> c1b63fd45519172f00d1b54af3739e429d0e9772
             <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong> Ar</p>
             <p>Je suis une soupe 0</p>
         </Carte>
         </Col>
+<<<<<<< HEAD
         <Col className="carte" direction="horizontal"  xs={12} md={4} lg={2} xl= {3}>
         <Carte> <img src={frite} alt="burger" className="carteimage" /><h1 className="titre">Soupe Legume</h1>
         
+=======
+        <Col direction="horizontal"  xs={12} md={4} lg={2} xl= {3}>
+        <Carte titre="Soupe Legume" image={frite}  >
+>>>>>>> c1b63fd45519172f00d1b54af3739e429d0e9772
             <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong>Ar</p>
             <p>Je suis une soupe 0</p>
         </Carte>
         </Col>
+<<<<<<< HEAD
         <Col className="carte" direction="horizontal"   xs={12} md={4} lg={2} xl= {3}>
         <Carte > <img src={image2} alt="burger" className="carteimage" />
         <h1 className="titre">Soupe Legume</h1>
        
+=======
+        <Col direction="horizontal"   xs={12} md={4} lg={2} xl= {3}>
+        <Carte titre="Soupe Legume" image={image2}  >
+>>>>>>> c1b63fd45519172f00d1b54af3739e429d0e9772
             <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong> Ar</p>
             <p>Je suis une soupe 0</p>
         </Carte>
         </Col>
+<<<<<<< HEAD
         <Col className="carte" direction="horizontal"   xs={12} md={4} lg={2} xl= {3}>
         <Carte> <img src={Burger} alt="burger" className="carteimage" /> 
           <h1 className="titre">Soupe Legume</h1>
           
+=======
+        <Col direction="horizontal"   xs={12} md={4} lg={2} xl= {3}>
+        <Carte titre="Soupe Legume" image={Burger}  >
+>>>>>>> c1b63fd45519172f00d1b54af3739e429d0e9772
           <div className="Boutton"> 
             <button 
               type="boutton"

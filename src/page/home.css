@@ -8,15 +8,26 @@
 
 }
 .carouselContainer{
+<<<<<<< HEAD
 
     display: flex;
     justify-content: center;
     position: relative;
  
+=======
+    height: 500px;
+    width: 900px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    left: 300PX;
+    
+>>>>>>> c1b63fd45519172f00d1b54af3739e429d0e9772
 }
 .Carousel_image{
     height: 550px;
    width: 1000px;
+<<<<<<< HEAD
    border-radius: 20px;
    image-resolution: 100px;
    margin-top: 8px;
@@ -67,6 +78,32 @@
     margin: 10px;
     box-shadow: 0 0 20px palevioletred;
     
+=======
+   border-radius: 10px;
+   image-resolution: 100px;
+   margin-top: 20px;
+
+
+}
+.BarreDemenu{
+    height: 100px;
+    margin-top: 200px;
+    display: flex;
+    align-items: center;
+    
+}
+.ImageDeMenu{
+    height: 100px;
+    width: 100px;
+    position: relative;
+    left: 150px;
+}
+
+.SousTitre{
+    text-align: center;
+    
+    font-style: italic;
+>>>>>>> c1b63fd45519172f00d1b54af3739e429d0e9772
 }
 .carteimage{
     width: 300px;  
@@ -110,7 +147,11 @@
     margin: 10px;
 }
 .carousel{
+<<<<<<< HEAD
    
+=======
+    margin-top: 50px;
+>>>>>>> c1b63fd45519172f00d1b54af3739e429d0e9772
     display: flex;
     align-items: center;
     border-top-left-radius: 30px;
