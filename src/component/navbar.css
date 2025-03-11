@@ -5,45 +5,6 @@
 .Barre_Menu{
     background-color:white;
     box-shadow: 0 0 20px plum;
-<<<<<<< HEAD
-    height: 100px;
-    display: flex;
-
-}   
-
-.Navbar_text{
-   text-align: center;
-   position: relative;
-   left: 600px;
-   font-family: "bauh", sans-serif;
-   font-size: 30px;
-   font-weight: 500;
-   margin-top: 20px;
-   cursor: context-menu;
-}
-.Navbar_text::after{
-    content: '';
-    width: 0;
-    height: 2px;
-    background: rgb(228, 89, 186);
-    display: block;
-    transition: 0.2s linear;
-
-}
-.Navbar_text:hover::after{
-    width: 100%;
-}
-.logonav {
-    image-resolution: 100%;
-    width: 170px;
-    height: 160px;
-    margin: -200px;
-    
-}
-.ms-auto{
-    position: absolute;
-    left:90vw;
-=======
 }   
 
 .Navbar_text{
@@ -52,5 +13,4 @@
    position: relative;
    left: 300px;
    font-family: Verdana, Geneva, Tahoma, sans-serif;
->>>>>>> c1b63fd45519172f00d1b54af3739e429d0e9772
 }
