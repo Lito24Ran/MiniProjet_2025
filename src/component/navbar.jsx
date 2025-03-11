@@ -25,19 +25,7 @@ function customerNavbar() {
            <Navbar.Collapse id="basic-navbar-nav">
             <p className="Navbar_text">Menu</p>
              <Nav className="ms-auto">
-<<<<<<< HEAD
-               <Nav.Link href="#link">
-                <img
-                src="src\image\panier.png"
-                alt="panier"
-                width="30"
-                height="30"
-                className="panier"
-                />
-               </Nav.Link>
-=======
                <Nav.Link href="#link">Lien</Nav.Link>
->>>>>>> c1b63fd45519172f00d1b54af3739e429d0e9772
              </Nav>
            </Navbar.Collapse>
          </Container>

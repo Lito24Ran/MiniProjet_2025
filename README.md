@@ -8,12 +8,6 @@ Ce document détaille les étapes d'installation et les tâches à réaliser pou
 2. **Installer React Bootstrap :**
    - Toujours dans le terminal, exécutez la commande suivante : `npm install react-bootstrap bootstrap`
 
-<<<<<<< HEAD
-
-3. **Lancer le projet :**
-   - Une fois les installations terminées, lancez le projet avec la commande : `npm run dev`
-=======
->>>>>>> c1b63fd45519172f00d1b54af3739e429d0e9772
 
 3. **Lancer le projet :**
    - Une fois les installations terminées, lancez le projet avec la commande : `npm run dev`
