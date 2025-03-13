@@ -21,8 +21,10 @@ import Riz from "../AutreMenu/Riz.jsx";
 import Jus from "../AutreMenu/Jus.jsx";
 import SignePlus from "../assets/SignePlus.svg";
 import SigneMoin from "../assets/SigneMoin.svg";
+import list from '../data';
+import Cards from '../component/Card';
 
-function Home(){
+function Home({handleClick}){
   const navigate = useNavigate();
 
   const handeclic = () =>{
@@ -58,7 +60,7 @@ function Home(){
 
     return(
         <>       
-         <Navbar/>
+         <Navbar size={6}/>
          <header>
             <div className = "carousel">
             <SystemeCrousel/>
@@ -102,139 +104,20 @@ function Home(){
         </Col>
       </Row>
       
-    </Container>
-     <img src="src\image\ligne.png" alt="ligne" className="ligne" />
-    <div >
-      <Container>
-      <Row>
-        <Col direction="horizontal"  xs={12} md={4} lg={2} xl= {3}>
-        <Carte titre="Soupe Legume" image={Burger} >
-            <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong> Ar</p>
-            <p>Je suis une soupe 0</p>
-        </Carte>
-        </Col>
-        <Col direction="horizontal"  xs={12} md={4} lg={2} xl= {3}>
-        <Carte titre="Soupe Legume" image={frite}  >
-            <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong>Ar</p>
-            <p>Je suis une soupe 0</p>
-        </Carte>
-        </Col>
-        <Col direction="horizontal"   xs={12} md={4} lg={2} xl= {3}>
-        <Carte titre="Soupe Legume" image={image2}  >
-            <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong> Ar</p>
-            <p>Je suis une soupe 0</p>
-        </Carte>
-        </Col>
-        <Col direction="horizontal"   xs={12} md={4} lg={2} xl= {3}>
-        <Carte titre="Soupe Legume" image={Burger}  >
-          <div className="Boutton"> 
-            <button 
-              type="boutton"
-              onClick={BouttonDecrmentation}
-            ><img src={SigneMoin} alt="SigneMoin" /></button> 
-            <p className="Chiffre">{count}</p>
-            <button 
-              type="boutton"
-              onClick={Bouttonincrmente}
-            ><img src={SignePlus} alt="SignePlus" /></button>
-         
-       
-          </div>
-            <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong> Ar</p>
-            <p>Je suis une soupe 0</p>
-        </Carte>
-    </Col>
-    </Row>
-    
-    <Row>
-        <Col direction="horizontal"  xs={12}  lg={6} xl= {3} >
-        <Carte titre="Soupe Legume" image={Burger} >
-            <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong> Ar</p>
-            <p>Je suis une soupe 0</p>
-        </Carte>
-        </Col>
-        <Col direction="horizontal"  xs={12}  lg={6} xl= {3}>
-        <Carte titre="Soupe Legume" image={frite}  >
-            <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong>Ar</p>
-            <p>Je suis une soupe 0</p>
-        </Carte>
-        </Col>
-        <Col direction="horizontal"   xs={12} md={6} lg={4} xl= {3}>
-        <Carte titre="Soupe Legume" image={image2}  >
-            <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong> Ar</p>
-            <p>Je suis une soupe 0</p>
-        </Carte>
-        </Col>
-        <Col direction="horizontal"   xs={12}  lg={6} xl= {3}>
-        <Carte titre="Soupe Legume" image={Burger}  >
-          <div className="Boutton"> 
-            <button 
-              type="boutton"
-              onClick={BouttonDecrmentation}
-              className="btn"
-            >-</button> 
-            <p className="Chiffre">{count}</p>
-            <button 
-              type="boutton"
-              onClick={Bouttonincrmente}
-            >+</button>
-         
-       
-          </div>
-            <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong> Ar</p>
-            <p>Je suis une soupe 0</p>
-        </Carte>
-    </Col>
-    </Row>
-    <Row>
-        <Col direction="horizontal"  xs={12} md={4} lg={4} xl= {3}>
-        <Carte titre="Soupe Legume" image={Burger} >
-            <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong> Ar</p>
-            <p>Je suis une soupe 0</p>
-        </Carte>
-        </Col>
-        <Col direction="horizontal"  xs={12} md={4} lg={4} xl= {3}>
-        <Carte titre="Soupe Legume" image={frite}  >
-            <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong>Ar</p>
-            <p>Je suis une soupe 0</p>
-        </Carte>
-        </Col>
-        <Col direction="horizontal"   xs={12} md={4} lg={4} xl= {3}>
-        <Carte titre="Soupe Legume" image={image2}  >
-            <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong> Ar</p>
-            <p>Je suis une soupe 0</p>
-        </Carte>
-        </Col>
-        <Col direction="horizontal"   xs={12} md={4} lg={4} xl= {3}>
-        <Carte titre="Soupe Legume" image={Burger}  >
-          <div className="Boutton"> 
-            <button 
-              type="boutton"
-              onClick={BouttonDecrmentation}
-            ><img src={SigneMoin} alt="SigneMoin" /></button> 
-            <p className="Chiffre">{count}</p>
-            <button 
-              type="boutton"
-              onClick={Bouttonincrmente}
-            ><img src={SignePlus} alt="SignePlus" /></button>
-         
-       
-          </div>
-            <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong> Ar</p>
-            <p>Je suis une soupe 0</p>
-        </Carte>
-    </Col>
-    </Row>
       
     </Container>
-    </div>
+     <img src="src\image\ligne.png" alt="ligne" className="ligne" />
     </section>
+    <div className="All_Cards">
+        {
+            list.map((item)=>(
+                <Cards item={item} key={item.id} />
+            ))
+        }
+    </div>
     <footer>
       <Footer/>
     </footer>
-    
-   
-        
         </>
 ) ;
 }

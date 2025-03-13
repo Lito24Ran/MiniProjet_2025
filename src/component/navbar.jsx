@@ -6,7 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from "react-router-dom";
 import "./navbar.css";
 
-function customerNavbar() {
+function customerNavbar({size}) {
   
     const color  = "gray";
     return(
@@ -28,6 +28,7 @@ function customerNavbar() {
               <Nav.Link as={Link} to="/panier">
                 Panier
               </Nav.Link>
+              <span className="span" >{size}</span>
             </Nav>
            </Navbar.Collapse>
          </Container>

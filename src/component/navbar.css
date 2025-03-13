@@ -20,3 +20,12 @@
    left: 300px;
    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+.span {
+    padding: 0 8px;
+    margin-bottom: 1vw;
+    background-color: rgb(237, 7, 116);
+    color: white;
+    font-weight: bold;
+    border-radius: 20vw;
+}
