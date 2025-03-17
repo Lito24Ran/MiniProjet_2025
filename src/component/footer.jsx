@@ -1,5 +1,9 @@
 import React from "react";
 import "./footer.css";
+import iconFacebook from "../image/icon_facebook.png";
+import iconmail from "../image/icon_mail.png";
+import iconlieu from "../image/icon_lieu.jpg";
+import iconcontact from "../image/icon_contact.jpg";
 
 function Footer(){
     return(

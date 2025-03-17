@@ -1,3 +1,12 @@
+@font-face {
+    font-family: "harlowsi";
+    src: url(../fonts/HARLOWSI.TTF);
+}
+    @font-face {
+        font-family: "comic";
+        src: url(../fonts/COMIC.TTF);
+
+}
 .carouselContainer{
     height: 500px;
     width: 900px;
@@ -36,16 +45,39 @@
 .SousTitre{
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    position: relative;
-    left: 90px;
-    bottom: 50px;
+  
     color: black;
 }
-.LesCartes{
-    width: 100%;
-    height: auto;
+.carteimage{
+    width: 300px;  
+    height: 250px;
+    object-fit: cover;
+    object-position: center;    
+    margin-top: -210px;
 
+    transform: translateX(-30px);  
+    overflow: hidden;
+    transition: 0.3s; 
+    
+    
 }
+.carteimage:hover{
+      transform: translateX(-30px) scale(1.1);
+}   
+.titre{
+    font-size: 30px;
+    margin-top: 15px;
+    font-family: "comic";
+}  
+.ligne{
+    width: 100vw;
+    height: 1000px;
+    image-resolution: 100%;
+    margin-top: -500px;
+    position: relative;
+    margin-bottom: ;
+}
+
 .Boutton {
    display: flex;
    align-items: center;
@@ -54,7 +86,7 @@
    
 }
 .Chiffre {
-    background-color: beige;
+    background-color: rgba(255, 255, 255, 0.151);
     margin: 10px;
 }
 .carousel{
@@ -81,4 +113,16 @@
     position: relative;
     left: 95px;
     margin: 0px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+.All_Cards{
+    margin-top:40px ;
+    border-color: orange;
+  position: relative;
+  top: 300px;
+}
+.SousTitre{
+   position: relative;
+   left: 100px;
 }
