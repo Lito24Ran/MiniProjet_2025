@@ -1,7 +1,17 @@
+@font-face{
+    font-family: "bauh";
+    src: url(../fonts/BAUHS93.TTF);
+}
 .Barre_Menu{
     background-color:white;
     box-shadow: 0 0 20px plum;
-}   
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 10px 0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}     
 
 .Navbar_text{
     margin-top: 2px;
@@ -9,4 +19,13 @@
    position: relative;
    left: 300px;
    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.span {
+    padding: 0 8px;
+    margin-bottom: 1vw;
+    background-color: rgb(237, 7, 116);
+    color: white;
+    font-weight: bold;
+    border-radius: 20vw;
 }

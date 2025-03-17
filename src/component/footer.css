@@ -7,10 +7,15 @@
     border-radius: -20px;
     clip-path: polygon(0%,20%,0%,20%);
 }
-.Composant1_footer {
-    margin-left: 20px;
-    display: flex;
-    align-items: end;
+.footer_image {
+    width: 30px;
+    height: auto;
+    margin-right: 10px;
+    border-radius: 15px;
+}
+.texte_ftr{
+    padding-inline: 20px;
+    padding-block: 20px;
 }
 .Composant2_footer {
     margin-left: 20px;

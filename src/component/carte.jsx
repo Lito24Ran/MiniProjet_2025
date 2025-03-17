@@ -9,7 +9,7 @@ import "./Carte.css";
 
  function Carte(props)  {
     return(
-    <div className="mt-4 ms-3 inline-bloc">
+    <div className="mt-5 ms-1 inline-bloc">
         <Row>
         <Col xs = {1} md= {4} lg= {2}>
        <Card className="body_card" style={{ width: '18rem' }}>
