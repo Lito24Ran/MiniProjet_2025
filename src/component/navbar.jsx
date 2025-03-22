@@ -13,7 +13,7 @@ function customerNavbar({size}) {
         <>
           <Navbar style={{color}} className="Barre_Menu">
          <Container>
-           <Navbar.Brand as={Link} to="/"><img
+           <Navbar.Brand  as={Link} to="/"><img
            src="src\image\ikaly.png"
            alt="logo"
            width="30"
@@ -25,8 +25,13 @@ function customerNavbar({size}) {
            <Navbar.Collapse id="basic-navbar-nav">
             <p className="Navbar_text">Menu</p>
             <Nav className="ms-auto">
-              <Nav.Link as={Link} to="/panier">
-                Panier
+              <Nav.Link as={Link} to="/panier"><img
+              src="src\image\panier.png"
+              alt="panier"
+              width="30"
+              height="30"
+              className="panier"
+              />
               </Nav.Link>
               <span className="span" >{size}</span>
             </Nav>

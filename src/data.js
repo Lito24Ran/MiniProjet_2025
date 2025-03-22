@@ -1,7 +1,7 @@
 const list = [
     {
       id: 1,
-      nom: "Soupe Legume",
+      nom: "hamburger",
       description: "lorem ipsum dolor sit amet",
       prix: 20000,
       img: "/src/image/Burger.png",
@@ -9,7 +9,7 @@ const list = [
     },
     {
       id: 2,
-      nom: "Soupe Legume",
+      nom: "Pizza",
       description: "lorem ipsum dolor sit amet",
       prix: 20000,
       img: "/src/image/Pizzaimage.jpg",
@@ -71,31 +71,31 @@ const list = [
       img: "/src/image/Bolonaise.jpg",
       amount: 1,
     },
-    {
-      id: 10,
-      nom: "Soupe Legume",
-      description: "lorem ipsum dolor sit amet",
-      prix: 20000,
-      img: "/src/image/Bolonaise.jpg",
-      amount: 1,
-    },
-    {
-      id: 11,
-      nom: "Soupe Legume",
-      description: "lorem ipsum dolor sit amet",
-      prix: 20000,
-      img: "/src/image/Bolonaise.jpg",
-      amount: 1,
-    },
-    {
-      id: 12,
-      nom: "Soupe Legume",
-      description: "lorem ipsum dolor sit amet",
-      prix: 20000,
-      img: "/src/image/Bolonaise.jpg",
-      amount: 1,
-    },
+//     {
+//       id: 10,
+//       nom: "Soupe Legume",
+//       description: "lorem ipsum dolor sit amet",
+//       prix: 20000,
+//       img: "/src/image/Bolonaise.jpg",
+//       amount: 1,
+//     },
+//     {
+//       id: 11,
+//       nom: "Soupe Legume",
+//       description: "lorem ipsum dolor sit amet",
+//       prix: 20000,
+//       img: "/src/image/Bolonaise.jpg",
+//       amount: 1,
+//     },
+//     {
+//       id: 12,
+//       nom: "Soupe Legume",
+//       description: "lorem ipsum dolor sit amet",
+//       prix: 20000,
+//       img: "/src/image/Bolonaise.jpg",
+//       amount: 1,
+//     },
     
-];
+ ];
 
 export default list;
