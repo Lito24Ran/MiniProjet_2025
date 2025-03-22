@@ -1,27 +1,30 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import './cards.css';
-import { Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Panier from '../page/Panier';
+import produitContext from '../page/home'
 
-
-export const varyContext = createContext();
-
-
- const Cards = ({item}) => {
+ const Cards = ({handleClick,item}) => {
     const {nom, description, prix, img} = item;
-    const [article, setarticle] = useState([]);
-    console.log(item);
-    console.log(article);
-    
-    
-    function handleClick(item) {
-      setarticle(s =>[...s,item])
-    } 
+    const receiveValue = useContext(produitContext)
+
 
   return (
     
     <> 
+    {
+      <ul>
+      {Array.isArray(receiveValue) && receiveValue.length > 0 ? (
+        produit.map((prod, index) => (
+          <li key={index}>{prod.nom} - {prod.prix} Ariary</li>
+        ))
+      ) : (
+        <p>Aucun produit ajouté</p>
+      )}
+    </ul>
+    }
 
+    
     <div className='cards_container'>
     
       <div className='card'>
@@ -31,15 +34,11 @@ export const varyContext = createContext();
               <p className='titre' >{nom}</p>
               <p className='description'>{description}</p>
               <p className='prix'>Prix - {prix} Ariary</p>
-              <varyContext.Provider value={article}>
-                  <button onClick={()=>handleClick({item})} >Commander</button>
-              </varyContext.Provider>
+              <button onClick={()=>handleClick(item)} >Commander</button>
+              
         </div>
-     
       </div>
-      
     </div>
-     
     </>
     
   )
