@@ -28,11 +28,11 @@ export const varyContext = createContext();
       
         <img className="carteimage" src={img} alt="Image" />
         <div className='card_text'> 
-              <p className='titre' >{nom}</p>
+              <p className='titre_card' >{nom}</p>
               <p className='description'>{description}</p>
-              <p className='prix'>Prix - {prix} Ariary</p>
-              <varyContext.Provider value={article}>
-                  <button onClick={()=>handleClick({item})} >Commander</button>
+              <p className='prix'>{prix} Ar</p>
+              <varyContext.Provider value={article} className="bouttonA"> 
+                  <button onClick={()=>handleClick({item})} className='boutton'>Ajouter au panier</button>
               </varyContext.Provider>
         </div>
      

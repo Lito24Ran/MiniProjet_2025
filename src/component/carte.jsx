@@ -12,6 +12,7 @@ import "./Carte.css";
     <div className="mt-5 ms-1 inline-bloc">
         <Row>
         <Col xs = {1} md= {4} lg= {2}>
+        
        <Card className="body_card" style={{ width: '18rem' }}>
             <Card.Img className="Image_Carte" variant="top"  src={props.image}/> 
             <Card.Body>
@@ -19,7 +20,7 @@ import "./Carte.css";
              <Card.Text>
                {props.children}
              </Card.Text>
-             <Button className="boutton" variant="primary">Comander</Button>
+             <Button className="button" variant="primary">Comander</Button>
             </Card.Body>
         </Card>
         </Col>

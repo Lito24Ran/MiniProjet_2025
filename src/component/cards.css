@@ -6,42 +6,76 @@
 .All_Cards{
     width: 80%;
     margin: auto;
-    margin-top: 5%;
+    margin-top: 350px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
 }
 
 .carteimage {
-    width: 300px;  
-    height: 250px;
+    max-width: 100%;
+    image-resolution: 100%;  
+    max-height: 500px;
+    padding: 10px;
+    overflow: hidden;
     object-fit: cover;
-    object-position: center;
+    position: relative;
+    margin-top: 0px;
+    border-top-right-radius: 100px;
+    border-top-left-radius: 100px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    left: 9%;
 }   
 .cards_container{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 150px;
-    border-color:orange;
+
+    margin-bottom: 100px;
 }
 .card {   
     height: 400px;
-    width: 325px;
-    border-radius: 10px;
+    width: 300px;
+    border: .1px solid rgb(0, 0, 0);
+    border-radius: 100px;
     overflow: hidden;
-    box-shadow: 0px 2px 4px  black;
-    margin: 20px;    
-    border-color: orange;
+    box-shadow: 0px 4px 8px  black;
+    margin: 5px;    
+    border-color: rgb(255, 255, 254);
     margin-bottom: 20px;
-}
-.card img{    
-    height: 180px;
-    width: 100%;
-    border-top-left-radius: 30px;
-}
-.card_text{
-   position: relative;
-   top: 30%;
+    background-color: #fdd1794f;
+  
 }
 
+.card_text{   
+ text-align: center;
+ padding-bottom: 10px;
+ position: relative;
+ text-decoration:lab(from color l a b);
+}
+.titre_card{
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: left;
+    padding-left: 15px;
+}
+.description{
+    font-size: 10;
+    font-family: Arial, Helvetica, sans-serif ;
+    text-align: left;
+    padding-left: 10px;
+}
+.prix{
+    font-size: 20px;
+    color: #383802;
+    padding-left: 25px;
+    text-align: left;
+}
+.boutton{
+   border-radius: 100px;
+   background-color: #D6976B;
+   padding: 5px;
+   font-family: 'Times New Roman', Times, serif;
+   
+}

@@ -11,6 +11,7 @@ function Riz() {
     return(
         <>
         <Navbar/>
+        <h1 className="nom_categorie">Boisson</h1>
         <Row>
             <Col xs = {12} md = {4} lg = {3} >
         <Carte Titre="Riz contonais" >

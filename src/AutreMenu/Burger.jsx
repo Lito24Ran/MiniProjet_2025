@@ -10,6 +10,7 @@ function  MenuBurger (){
    return(
     <>
     <Navbar/>
+    <h1 className="nom_categorie">Snack</h1>
     <Stack direction="horizontal" gap={2}>
     
     <Carte titre="Soupe Legume" image= {Burger} >

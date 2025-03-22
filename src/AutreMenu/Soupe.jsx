@@ -6,11 +6,13 @@ import  Row  from "react-bootstrap/Row";
 import  Col  from "react-bootstrap/Col";
 import Stack from 'react-bootstrap/Stack';
 
+
 function  Soupe (){
     const prix = 12000;
    return(
     <>
     <Navbar/>
+    <h1 className="nom_categorie">Riz</h1>
     <Stack direction="horizontal" gap={2}>
     
     <Carte titre="Soupe Legume" >
