@@ -15,10 +15,21 @@ import imgCrudité from "../image/imgCrudité.jpeg";
 import Footer from "../component/footer.jsx";
 import list from '../data';
 import Cards from '../component/Card';
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext.jsx";
 
 
 function Home(){
   const navigate = useNavigate();
+  const { cart, setCart } = useContext(CartContext);
+  
+
+  const handleClick = (item) => {
+    if (!cart.some((produit) => produit.id === item.id)) {
+        setCart([...cart, item]);
+    }
+    console.log(item);
+};
 
   const handleClic = (path) => {
     navigate(path);
@@ -32,7 +43,7 @@ function Home(){
 
     return(
         <>       
-         <Navbar size={6}/>
+         <Navbar size={cart.length}/>
          <header>
             <div className = "carousel">
             <SystemeCrousel/>
@@ -101,7 +112,7 @@ function Home(){
     <div className="All_Cards">
         {
             list.map((item)=>(
-                <Cards item={item} key={item.id} />
+                <Cards handleClick={handleClick} item={item} key={item.id} />
             ))
         }
     </div>
