@@ -3,10 +3,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
 import "./navbar.css";
 
 function customerNavbar({size}) {
+  const { cart } = useContext(CartContext);
   
     const color  = "gray";
     return(

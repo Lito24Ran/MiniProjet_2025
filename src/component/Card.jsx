@@ -4,24 +4,14 @@ import { Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-export const varyContext = createContext();
+{/*export const varyContext = createContext();*/}
 
 
- const Cards = ({item}) => {
+ const Cards = ({item, handleClick}) => {
     const {nom, description, prix, img} = item;
     const [article, setarticle] = useState([]);
-    console.log(item);
-    console.log(article);
-    
-    
-    function handleClick(item) {
-      setarticle(s =>[...s,item])
-    } 
 
   return (
-    
-    <> 
-
     <div className='cards_container'>
     
       <div className='card'>
@@ -31,16 +21,14 @@ export const varyContext = createContext();
               <p className='titre_card' >{nom}</p>
               <p className='description'>{description}</p>
               <p className='prix'>{prix} Ar</p>
-              <varyContext.Provider value={article} className="bouttonA"> 
-                  <button onClick={()=>handleClick({item})} className='boutton'>Ajouter au panier</button>
-              </varyContext.Provider>
+              {/*<varyContext.Provider value={article} className="bouttonA"> */}
+                  <button onClick={()=>handleClick(item)} className='boutton'>Ajouter au panier</button>
+              {/*</varyContext.Provider>*/}
         </div>
      
       </div>
       
     </div>
-     
-    </>
     
   )
 }

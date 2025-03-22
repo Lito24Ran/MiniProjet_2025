@@ -9,6 +9,7 @@ import CarteCrudite from './AutreMenu/Cruditee.jsx';
 import Riz from './AutreMenu/Riz.jsx';
 import Jus from './AutreMenu/Jus.jsx';
 import Panier from './page/Panier.jsx';
+import { CartProvider } from './context/CartContext.jsx';
 
 const router = createBrowserRouter([
   {
@@ -48,7 +49,9 @@ const router = createBrowserRouter([
 ])
 
 createRoot(document.getElementById('root')).render(
-  <React.StrictMode>  
-    <RouterProvider router={router}/>
+  <React.StrictMode>
+    <CartProvider>
+      <RouterProvider router={router}/>
+    </CartProvider>
   </React.StrictMode>,
 )
