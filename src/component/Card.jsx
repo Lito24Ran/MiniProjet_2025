@@ -8,8 +8,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
  const Cards = ({item, handleClick}) => {
-    const {nom, description, prix, img} = item;
+    const {id, nom, description, prix, img} = item;
     const [article, setarticle] = useState([]);
+    const [quantity, setQuantity] = useState(1);
+
+    const increment = () => setQuantity(quantity + 1);
+    const decrement = () => {
+      if (quantity > 1) setQuantity(quantity - 1)
+    };
 
   return (
     <div className='cards_container'>
@@ -21,11 +27,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
               <p className='titre_card' >{nom}</p>
               <p className='description'>{description}</p>
               <p className='prix'>{prix} Ar</p>
+              <div className="quantity-controls">
+                <button onClick={decrement}>-</button>
+                <span>{quantity}</span>
+                <button onClick={increment}>+</button>
+                
+              </div>
               {/*<varyContext.Provider value={article} className="bouttonA"> */}
-                  <button onClick={()=>handleClick(item)} className='boutton'>Ajouter au panier</button>
+                  <button onClick={()=>handleClick({ ...item, quantity})} className='boutton'>Ajouter au panier</button>
               {/*</varyContext.Provider>*/}
         </div>
-     
+
       </div>
       
     </div>
