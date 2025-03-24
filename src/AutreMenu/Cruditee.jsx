@@ -9,6 +9,7 @@ function  CarteCrudite (){
    return(
     <>
     <Navbar/>
+    <h1 className="nom_categorie">Dessert</h1>
     <Stack direction="horizontal" gap={2}>
     
     <Carte titre="Soupe Legume" >
@@ -17,7 +18,7 @@ function  CarteCrudite (){
     </Carte>
     <Carte titre="Soupe Citron" >
         <p style={{color:"orange"}}><strong>{prix}</strong></p>
-        <p>Je suis une soupe 1</p>
+        <p>Je suis une soupe 4</p>
     </Carte>
     <Carte titre="Soupe Tongo-tromby">
         <p style={{color:"orange"}}><strong>{prix}</strong></p>
