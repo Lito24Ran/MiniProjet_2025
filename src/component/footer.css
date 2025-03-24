@@ -1,36 +1,79 @@
+
 .StyleFooter{
     position: relative;
     width: 100%;
-    height: 350px;
-    background-color: rgb(252, 182, 182);
+    height: 400px;
+    background-color: #A38772;
     margin-top:40px ;
     padding-top: 5px;
+    margin-left: 0px;
 }
-.footer_image {
-    width: 30px;
+.logo_ftr {
+    height: 130px;
+    width: auto;
+    margin-left: 50px;
+    border-radius: 15px;
+}
+hr {
+    border: none;
+    height: 2px;
+    background-color: #c4c3c3;
+    width: 80%;
+    margin-top: 67px ;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: -30px;
+}
+.item_ftr {
+    display: flex;
+    gap: 700px;
+}
+.icon_ftr {
+    width: 40px;
     height: auto;
-    margin-right: 10px;
     border-radius: 15px;
 }
 .texte_ftr{
     padding-inline: 20px;
     padding-block: 20px;
-}
-.item_ftr {
-    display: flex;
-    padding: -20px;
-    align-items: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 17px;
+    color: #FBCFD0;
 }
 .bouton_ftr {
-    padding: 20px 200PX;
-    font-size: 15px;
-    margin-top: 22px;
-    background-color: rgb(252, 182, 182);
-    color: black;
-    border: lch(light hue hue);
+    color: beige;
+    position: relative;
+    box-shadow: 3xp beige;
+    background-color: transparent;
+    margin-top: 70px;
+    margin-right: 10px;
+    height: 70px;
+    width:  350px ;
+    border: 1px solid transparent;
     cursor: pointer;
-    transition: background 0.3s;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 17px;
+    transition: border-color 0.3s ease;
+    border-radius: 60px;
 }
 .bouton_ftr:hover {
-    cursor: green;
+    border-color: #c4c3c3;
+    color: #c4c3c3;
+    background-color: #D6976B;
+}
+.slogon_ftr {
+    text-align: justify;
+    padding: 20px;
+    background: none;
+    color: beige;
+    font-size: 17px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 20px;
+}
+.StyleFooter p {
+    margin-top: 40px;
+    margin-right: 50px;
+    line-height: 1.2;
+    margin-left: 10px;
+    color: #FBCFD0;
 }

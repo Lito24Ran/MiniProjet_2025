@@ -16,10 +16,8 @@ import "./Carte.css";
             <Card.Img className="Image_Carte" variant="top"  src={props.image}/> 
             <Card.Body>
              <Card.Title className="Titre">{props.titre}</Card.Title>
-             <Card.Text>
-               {props.children}
-             </Card.Text>
-             <Button className="boutton" variant="primary">Comander</Button>
+             <Card.Text className="text">{props.children}</Card.Text>
+             <Button className="boutton">Comander</Button>
             </Card.Body>
         </Card>
         </Col>

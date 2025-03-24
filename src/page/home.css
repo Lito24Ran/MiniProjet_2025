@@ -21,6 +21,8 @@
     margin-top: 200px;
     display: flex;
     align-items: center;
+    position: relative;
+    bottom: 10px;
     
 }
 .ImageDeMenu{
@@ -28,6 +30,10 @@
     width: 100px;
     position: relative;
     left: 150px;
+    transition: 0.3s;
+}
+.ImageDeMenu:hover{
+   transform: translateY(-15PX);
 }
 
 .SousTitre{
@@ -59,15 +65,19 @@
     border-bottom-right-radius: 30px;
 }
 .btn{
-    background-color: #ffff;
+    background-color:orange;
     color: #070202;
     border: none;
     padding: 5px;
     border-radius: 5px;
     font-size: 1.2rem;
     cursor: pointer;
+
     transition: background-color 0.3s ease;
 }
 .btn:hover{
-    background-color: orange;
+    background-color: rgb(78, 252, 252);
+}
+.text1 {
+    color: blue;
 }

@@ -110,7 +110,7 @@ function Home(){
         <Col direction="horizontal"  xs={12} md={4} lg={2} xl= {3}>
         <Carte titre="Soupe Legume" image={Burger} >
             <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong> Ar</p>
-            <p>Je suis une soupe 0</p>
+            <p className="text1">Je suis une soupe 0</p>
         </Carte>
         </Col>
         <Col direction="horizontal"  xs={12} md={4} lg={2} xl= {3}>

@@ -2,6 +2,10 @@
     height: 180px;
     width: 100%;
     border-top-left-radius: 30px;
+    transition: 0.3s;
+}
+.Image_Carte:hover {
+    transform: scale(1.1);
 }
 .body_card{
     border-top-left-radius: 30px;
@@ -9,5 +13,29 @@
     box-shadow: 20px;
     border-bottom-right-radius: 30px;
     border-top-left-radius: 30px;
-
+}
+.boutton {
+    color: #e98502;
+    position: relative;
+    box-shadow: 3xp beige;
+    background-color: transparent;
+    margin-top: 70px;
+    margin-right: 10px;
+    height: 40px;
+    width:  100px ;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 17px;
+    transition: border-color 0.3s ease;
+    border-radius: 60px;
+    border-color: orange;
+}
+.bouton :hover {
+    border-color: #c4c3c3;
+    color: #c4c3c3;
+    background-color: #D6976B;   
+}
+.Titre {
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
