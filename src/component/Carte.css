@@ -9,10 +9,11 @@
 }
 .body_card{
     border-top-left-radius: 30px;
-    border-color:orange;
+    border-color:rgb(190, 186, 179);
     box-shadow: 20px;
     border-bottom-right-radius: 30px;
     border-top-left-radius: 30px;
+<<<<<<< HEAD
 }
 .boutton {
     color: #e98502;
@@ -38,4 +39,12 @@
 }
 .Titre {
     font-family: Georgia, 'Times New Roman', Times, serif;
+=======
+
+}
+.nom_categorie{
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+>>>>>>> 56bb52035565ed15763bf0129706e024e44928f9
 }

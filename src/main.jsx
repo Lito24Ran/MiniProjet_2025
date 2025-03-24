@@ -8,6 +8,8 @@ import MenuBurger from './AutreMenu/Burger.jsx';
 import CarteCrudite from './AutreMenu/Cruditee.jsx';
 import Riz from './AutreMenu/Riz.jsx';
 import Jus from './AutreMenu/Jus.jsx';
+import Panier from './page/Panier.jsx';
+import { CartProvider } from './context/CartContext.jsx';
 
 const router = createBrowserRouter([
   {
@@ -15,7 +17,7 @@ const router = createBrowserRouter([
     element: <App/>,
     children: [
       {
-        path:"/",
+        path:"",
         element:<Home/>
       },
       {
@@ -37,13 +39,19 @@ const router = createBrowserRouter([
       {
         path:"/Jus",
         element:<Jus/>
-      }
+      },
+      {
+        path: '/panier',
+        element: <Panier />,
+      },
     ]
 }
 ])
 
 createRoot(document.getElementById('root')).render(
-  <React.StrictMode>  
-    <RouterProvider router={router}/>
+  <React.StrictMode>
+    <CartProvider>
+      <RouterProvider router={router}/>
+    </CartProvider>
   </React.StrictMode>,
 )
