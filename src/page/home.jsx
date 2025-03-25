@@ -15,24 +15,30 @@ import imgCrudité from "../image/imgCrudité.jpeg";
 import Footer from "../component/footer.jsx";
 import list from '../data';
 import Cards from '../component/Card';
-import Panier from "./Panier.jsx";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext.jsx";
 
 export const produitContext = createContext();
 
 function Home(){
   const navigate = useNavigate();
+  
+  const { cart, setCart } = useContext(CartContext);
+  
 
-const [produit, setproduit] = useState([]);
+  const handleClick = (item) => {
+    if (!cart.some((produit) => produit.id === item.id)) {
+        setCart([...cart, item]);
+    }
+    console.log(item);
+};
+
+
 
   const handleClic = (path) => {
     navigate(path);
   };
 
- const hanleclicAddproduct = (item) =>{
-  setproduit([...produit,item]);
-  console.log(produit);
-  
- }
   //EE VICTORIO TS ATO LAH NO MIASA RAHA ANOVA AN' LE CARTE FA AO ANATY carte.jsx
   //DE JEREO AO FA EFA MISY CLASSE MARO2 AO D RENY SISA NO ANTSOIN'LAH RAHA TE ANOVA AN' LE BORDER LAH
 
@@ -41,47 +47,65 @@ const [produit, setproduit] = useState([]);
 
     return(
         <>       
-         <Navbar size={6}/>
+         <Navbar size={cart.length}/>
          <header>
             <div className = "carousel">
             <SystemeCrousel/>
             </div>
          </header>  
       
-    
     <section className="mt-4" >
        <div className="BarreDemenu">
     <Container>
 
       <Row>
-        <p className="texts">Voici Les listes de menu</p><br />
-        <p className="texts">Nous avons plusieur type de menu dans cet section</p>
-
-        <Col xs={4} md={2} lg={2}>
-        <Image className="ImageDeMenu" src={image2} onClick={()=>handleClic("/Jus")}   roundedCircle/> 
-          <p className="SousTitre" >Jus</p>
+        <p className="text">Explorer notre menu</p><br />
+        <p className="texts">Choisissez parmi notre menu varie, compose d'une selection de plats savoreux. Notre mission est de satisfaire vos envies et d'elever votre experience culinaire</p>
+        
+        <div className="contenairMenu">
+        
+         <div className="menu">
+          <div>
+        <Image className="imagemenu" src="src\image\pates.png" 
+          onMouseOver={(e) => (e.currentTarget.src = "src/image/pates1.png")} 
+          onMouseOut={(e) => (e.currentTarget.src = "src/image/pates.png")} 
+          onClick={()=>handleClic("/Jus")}   roundedCircle/> 
+        </div>
+          <span className="SousTitre">Pates</span>
+          </div>
           
-        </Col>
-
-        <Col xs={4} md={2} lg={2}>
-          <Image className="ImageDeMenu" src={Burger}  onClick={()=>handleClic("/Burger")} roundedCircle />
-          <p className="SousTitre" >Burger</p>
-        </Col>
-
-        <Col xs={4} md={2} lg={2}>
-          <Image className="ImageDeMenu" src={imgCrudité} onClick={()=>handleClic("/soupe")} roundedCircle />
-          <p className="SousTitre" >crudité</p>
-        </Col>
-
-        <Col xs={4} md={2} lg={2}>
-          <Image className="ImageDeMenu" src={image2} onClick={()=>handleClic("/Soupe")} roundedCircle />
-          <p className="SousTitre" >Soupe</p>
-        </Col>
-
-        <Col xs={4} md={2} lg={2}>
-          <Image className="ImageDeMenu" src={image2} onClick={()=>handleClic("/Riz")} roundedCircle />
-          <p className="SousTitre" >Riz</p>
-        </Col>
+        <div className="menu">
+          <Image className="imagemenu" src="src\image\snack.png"
+          onMouseOver={(e) => (e.currentTarget.src = "src/image/snack1.png")} 
+          onMouseOut={(e) => (e.currentTarget.src = "src/image/snack.png")} 
+           onClick={()=>handleClic("/Burger")} roundedCircle />
+          <span className="SousTitre">Snack</span>
+          </div>
+        
+        <div className="menu">
+          <Image className="imagemenu" src="src\image\riz.png" 
+          onMouseOver={(e) => (e.currentTarget.src = "src/image/riz1.png")} 
+          onMouseOut={(e) => (e.currentTarget.src = "src/image/riz.png")} 
+           onClick={()=>handleClic("/soupe")} roundedCircle />
+          <span className="SousTitre">riz</span>
+          </div>
+     
+        <div className="menu">
+          <Image className="imagemenu" src="src\image\dessert.png" 
+           onMouseOver={(e) => (e.currentTarget.src = "src/image/dessert1.png")} 
+           onMouseOut={(e) => (e.currentTarget.src = "src/image/dessert.png")} 
+           onClick={()=>handleClic("/Soupe")} roundedCircle />
+          <span className="SousTitre">Dessert</span>
+          </div>
+      
+        <div className="menu">
+          <Image className="imagemenu" src="src\image\boisson.png" 
+           onMouseOver={(e) => (e.currentTarget.src = "src/image/boisson1.png")} 
+           onMouseOut={(e) => (e.currentTarget.src = "src/image/boisson.png")} 
+           onClick={()=>handleClic("/Riz")} roundedCircle />
+          <span className="SousTitre">Boisson</span>
+          </div>
+        </div>
       </Row>
       <hr />
     </Container>
@@ -91,16 +115,13 @@ const [produit, setproduit] = useState([]);
     
  
     </section>
-      <produitContext.Provider value={produit}>
-        <div className="All_Cards">
-          {
-             list.map((item)=>(
-               <Cards handleClick={hanleclicAddproduct} item={item} key={item.id} />
-             ))
-          }
-          <Panier/>
-        </div>
-      </produitContext.Provider>
+    <div className="All_Cards">
+        {
+            list.map((item)=>(
+                <Cards handleClick={handleClick} item={item} key={item.id} />
+            ))
+        }
+    </div>
     <footer>
       <Footer/>
     </footer>
