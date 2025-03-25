@@ -1,48 +1,62 @@
-import { useContext, useState} from "react";
+import { createContext, useContext, useState} from "react";
 import { CartContext } from "../context/CartContext";
 import Navbar from '../component/navbar';
+import './panier.css';
+import Modal from "../component/modal";
+import { createPortal } from "react-dom";
 
+//export const MOdalContext =createContext();
 
 function Panier () {
     const { cart, setCart } = useContext(CartContext);
-    const [count,setCount] = useState(0)
+    const [show,setshow] = useState(false);
+
+    const increase = (id) => {
+        setCart(cart.map(item =>
+                item.id === id ? { ...item, quantity: item.quantity +1} : item
+            ));
+    }
+
+    const ConditionalFunc =() => {
+        if (cart.length !== 0) {
+            alert('Votre commande est enregitrer veullez patientez !')
+        }
+    }
+
+    const decrease = (id) => {
+        setCart(cart.map(item =>
+                item.id === id && item.quantity > 1 ? { ...item, quantity: item.quantity -1} : item
+            ));
+    };
+
+    const removeItem = (id) => {
+        setCart(cart.filter(item => item.id !==id));
+    }
+
     let total = 0;
-  {
-    cart.map((item)=>(
-      total += item.prix * item.amount+1
-    ))
-  }
-  function handleclicRemove (index){
-    const sup =  cart.filter((item)=> item.id !== index);
-    setCart(sup);
-  }
-  function incrementProduct(inc){
-   let c = inc;
-   c += 1
-   inc = c
-   console.log(inc);
-  }
+    for (let i =0; i<cart.length; i++) {
+       total = total + (cart[i].prix * cart[i].quantity)
+    }
 
     return ( <>
                 <Navbar size={cart.length} /> 
-<div>
+            <div className="panier_container"> 
                 <h1>Votre panier {cart.length === 0 ? "est vide" : "contient des articles"}.</h1>
-     <article>
-              {
-                  cart?.map((item)=>(
-                    <div className="cart_box" key={item.id}>
-                      <div className="cart_img">
+                <article>
+        {cart.map((item)=>(
+                <div className="cart_box" key={item.id}>
+                    <div className="cart_img">
                         <img src={item.img} />
-                        <p>{item.title}</p>
-                      </div>
-                    <div>
-                        <button > - </button>
-                          <p>{item.amount}</p>
-                        <button onClick={()=>incrementProduct(item.amount)}> + </button>
+                        <p>{item.nom}</p>
                     </div>
                     <div>
-                        <span>{item.price}</span>
-                        <button onClick={() =>handleclicRemove(item.id)} >Remove</button>
+                        <button onClick={() => decrease(item.id)}> - </button>
+                        <span>{item.quantity}</span>
+                        <button onClick={() => increase(item.id)}> + </button>
+                    </div>
+                    <div>
+                        <span>{item.prix * item.quantity} Ariary</span>
+                        <button onClick={() => removeItem(item.id)}>supprimer</button>
                     </div>
                     
                   </div>
@@ -50,8 +64,18 @@ function Panier () {
                ))}
             <p><b>Le total est :</b>{total} Ariary</p>
     </article>
-    
-</div>
+    <div>
+        <h1>Total du commande : {total} Ariary</h1>
+        <button style={{color : 'white' , backgroundColor: 'green', borderRadius : '20px', width : '200px'}} onClick={() =>setshow(true)}> Confirmer</button>
+        
+          {
+           show && createPortal(<Modal oneclose = {() => setshow(false)} condition = {()=>ConditionalFunc()}  />, document.body)
+          }
+        {/*<MOdalContext.Provider value={show}>
+        </MOdalContext.Provider>*/}
+    </div>
+  </div>
+            
             </> 
     );         
 }

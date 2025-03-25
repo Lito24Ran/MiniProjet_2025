@@ -12,24 +12,27 @@
     src: url(../fonts/GABRIOLA.TTF);
 }
 .carouselContainer{
-   margin-top: 110px;
-    height: 50vh;
-    padding-left: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    height: 100%;
+}
+.Carousel{
+    margin-top: 110px;
+    width: 55%;
+    overflow: hidden;
+    position: relative;
     border-radius: 30px;
-
-
 }
+
 .Carousel_background{
-    height: 600px;
-   width: 1200px;
-   border-radius: 10px;
-   image-resolution: 100%;
-   margin-top: 20px;
-   z-index: 3;
+    height: 100%;
+   width: 100%;
+   z-index: 0;
+   display: block;
 }
+
 .caroussel_text{
     top: 50%;
     left: 50%;
@@ -38,9 +41,34 @@
     top: 50%;
     right: 50%;
 }
+.backcaroussel{
+    position: absolute;
+  top: 50%;
+  right: 200px;
+  transform: translateX(50%);
+  z-index: 1;
+
+}
+@keyframes float {
+    0% {transform: translateY(0) translateX(0);}
+    50% { transform: translateY(-20%) translateX(0);}
+    100% {transform: translateY(0) translateX(0);}
+}
+.backimage {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    left: 150px;
+    z-index: 0;
+    animation: float 4s ease-in-out infinite;
+    
+}
+.backimage:hover{
+    animation-play-state: paused;
+}
 .BarreDemenu{
     height: 100px;
-    margin-top: 65px;
+    margin-top: -40px;
 } 
 .ImageDeMenu{
     height: 100px;
@@ -53,14 +81,13 @@
    transform: scale(1.1);
 }
 .imagemenu:hover + .SousTitre {
-  text-shadow: 0 0 5px rgb(214, 130, 4), 0  25px rgb(0, 0, 0);
   animation: float 1s ease-in-out infinite;
 }
 
 
 .SousTitre{
    position: relative;
-   margin-top: -50p;
+   margin-top: -50px;
 }
 .carteimage{
     width: 300px;  
@@ -130,13 +157,7 @@
     background-color: rgba(255, 255, 255, 0.151);
     margin: 10px;
 }
-.carousel{
-    margin-top: 30px;
-    display: flex;
-    align-items: center;
-    border-top-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-}
+
 /* .btn{
     background-color: #ffff;
     color: #a81313;
@@ -223,30 +244,3 @@ html, body {
     margin-top: -70px;
     
 }
-
-
-
-.backcaroussel{
-    position: absolute;
-  top: 50%;
-  right: 200px;
-  transform: translateX(50%);
-}
-@keyframes float {
-    0% {transform: translateY(0) translateX(0);}
-    50% { transform: translateY(-20%) translateX(0);}
-    100% {transform: translateY(0) translateX(0);}
-}
-.backimage {
-    width: 500px;
-    height: 500px;
-    object-fit: cover;
-    left: 150px;
-    z-index: 0;
-    animation: float 4s ease-in-out infinite;
-    
-}
-.backimage:hover{
-    animation-play-state: paused;
-}
-
