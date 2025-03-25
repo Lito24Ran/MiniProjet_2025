@@ -1,0 +1,44 @@
+.panier_container{
+    margin-top: 5px;
+    padding: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.panier_container h1 {
+   font-size: 24px;
+   margin-bottom: 50px;
+}
+.cart_box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #4b1903;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+.pan_image{
+    width: 100px;
+    height: 100px;
+    display: flex;
+    margin-right: 10px;
+    align-items: center;
+}
+.name{
+  margin: 0;
+  font-size: 20px;
+  color: black;
+}
+.remove{
+    width: 50px;
+    height: 50px;
+    right: -20px;;
+}
+.prix_pan{
+    font-size: 25px;
+    padding-right: 200px;
+}
+.cart_img{
+    align-items: baseline;
+    justify-content: space-between;
+}

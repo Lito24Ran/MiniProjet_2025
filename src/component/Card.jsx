@@ -12,7 +12,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
     const [article, setarticle] = useState([]);
 
   return (
+    
     <div className='cards_container'>
+      <img src="src\image\font.png" alt="font" className='font' />
+      
     
       <div className='card'>
       

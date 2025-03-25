@@ -61,13 +61,12 @@ function Home(){
         <div className="contenairMenu">
         
          <div className="menu">
-          <div>
+          
         <Image className="imagemenu" src="src\image\pates.png" 
           onMouseOver={(e) => (e.currentTarget.src = "src/image/pates1.png")} 
           onMouseOut={(e) => (e.currentTarget.src = "src/image/pates.png")} 
           onClick={()=>handleClic("/Jus")}   roundedCircle/> 
-        </div>
-          <span className="SousTitre">Pates</span>
+        <span className="SousTitre">Pates</span>
           </div>
           
         <div className="menu">
