@@ -4,27 +4,50 @@
 }
 .Barre_Menu{
     background-color:white;
-    box-shadow: 0 0 20px plum;
-    position: sticky;
+    box-shadow: 0 0 30px #A38772;
+    position: fixed;
+    height: 80px;
+    width: 100%;
     top: 0;
     z-index: 1000;
     padding: 10px 0;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    background-color: #f8edd5;
+    justify-content: center;
+    display: flex;
 }     
 
 .Navbar_text{
-    margin-top: 2px;
-   text-align: center;
-   position: relative;
-   left: 300px;
-   font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 20px;
+  padding-left: 600px; 
+   font-family: "bauh";
+   font-size: 30px;
+   color: black;
+   
+   
+}
+.Navbar_text::after {
+    content: '';
+    width: auto;
+    height: 2px;
+    background: #fdd273;
+    display: block;
+}
+.Navbar_text:hover{
+    color: #fdd273;
+}
+.logonav {
+    width: auto;
+    height: 130px;
+    left: 30px;
+    position: relative;
 }
 
 .span {
-    padding: 0 8px;
-    margin-bottom: 1vw;
-    background-color: rgb(237, 7, 116);
+    padding: 0 5px;
+    margin-bottom: 2vw;
+    background-color: rgb(233, 8, 8);
     color: white;
     font-weight: bold;
     border-radius: 20vw;
