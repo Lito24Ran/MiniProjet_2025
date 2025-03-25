@@ -27,8 +27,16 @@ function Home(){
   
 
   const handleClick = (item) => {
-    if (!cart.some((produit) => produit.id === item.id)) {
-        setCart([...cart, item]);
+    // handleClick doit gerer le quantite alefa any am panier
+    const existItem = cart.find(produit => produit.id === item.id);
+
+    if(existItem) {
+      // atao Maj le quantite raha efa misy
+      setCart(cart.map(produit =>
+          produit.id === item.id ? { ...produit, quantity: produit.quantity + item.quantity} : produit
+        ));
+    } else {
+      setCart([...cart, item]);
     }
     console.log(item);
 };
@@ -65,13 +73,12 @@ function Home(){
         <div className="contenairMenu">
         
          <div className="menu">
-          <div>
+          
         <Image className="imagemenu" src="src\image\pates.png" 
           onMouseOver={(e) => (e.currentTarget.src = "src/image/pates1.png")} 
           onMouseOut={(e) => (e.currentTarget.src = "src/image/pates.png")} 
           onClick={()=>handleClic("/Jus")}   roundedCircle/> 
-        </div>
-          <span className="SousTitre">Pates</span>
+        <span className="SousTitre">Pates</span>
           </div>
           
         <div className="menu">
