@@ -5,7 +5,6 @@ const list = [
       description: "lorem ipsum dolor sit amet",
       prix: 20000,
       img: "/src/image/Burger.png",
-      amount: 1,
     },
     {
       id: 2,
@@ -13,7 +12,6 @@ const list = [
       description: "lorem ipsum dolor sit amet",
       prix: 20000,
       img: "/src/image/Pizzaimage.jpg",
-      amount: 1,
     },
     {
       id: 3,
@@ -21,7 +19,6 @@ const list = [
       description: "lorem ipsum dolor sit amet",
       prix: 20000,
       img: "/src/image/imgCrudité.jpeg",
-      amount: 1,
     },
     {
       id: 4,
@@ -29,7 +26,6 @@ const list = [
       description: "lorem ipsum dolor sit amet",
       prix: 20000,
       img: "/src/image/Bolonaise.jpg",
-      amount: 1,
     },
     {
       id: 5,
@@ -37,7 +33,6 @@ const list = [
       description: "lorem ipsum dolor sit amet",
       prix: 20000,
       img: "/src/image/Bolonaise.jpg",
-      amount: 1,
     },
     {
       id: 6,
@@ -45,7 +40,6 @@ const list = [
       description: "lorem ipsum dolor sit amet",
       prix: 20000,
       img: "/src/image/Bolonaise.jpg",
-      amount: 1,
     },
     {
       id: 7,
@@ -53,7 +47,6 @@ const list = [
       description: "lorem ipsum dolor sit amet",
       prix: 20000,
       img: "/src/image/Bolonaise.jpg",
-      amount: 1,
     },
     {
       id: 8,
@@ -61,7 +54,6 @@ const list = [
       description: "lorem ipsum dolor sit amet",
       prix: 20000,
       img: "/src/image/Bolonaise.jpg",
-      amount: 1,
     },
     {
       id: 9,
@@ -69,7 +61,6 @@ const list = [
       description: "lorem ipsum dolor sit amet",
       prix: 8200000,
       img: "/src/image/Bolonaise.jpg",
-      amount: 1,
     },
 //     {
 //       id: 10,
@@ -77,7 +68,6 @@ const list = [
 //       description: "lorem ipsum dolor sit amet",
 //       prix: 20000,
 //       img: "/src/image/Bolonaise.jpg",
-//       amount: 1,
 //     },
 //     {
 //       id: 11,
@@ -85,7 +75,6 @@ const list = [
 //       description: "lorem ipsum dolor sit amet",
 //       prix: 20000,
 //       img: "/src/image/Bolonaise.jpg",
-//       amount: 1,
 //     },
 //     {
 //       id: 12,
@@ -93,7 +82,6 @@ const list = [
 //       description: "lorem ipsum dolor sit amet",
 //       prix: 20000,
 //       img: "/src/image/Bolonaise.jpg",
-//       amount: 1,
 //     },
     
  ];
