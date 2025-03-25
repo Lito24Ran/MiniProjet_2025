@@ -13,9 +13,9 @@ return(
     <div className="backcaroussel">
       <img src="src\image\back.png" alt="back" className="backimage"/>
     </div>  
-         <Carousel>
+         <Carousel className='Carousel'>
 
-      <Carousel.Item >
+      <Carousel.Item className='Les_Carousel'>
         <img className="Carousel_background" src="src\image\car snack.jpg" alt="snack" />
         <Carousel.Caption className='caroussel_text_1'>
           <h3 className='titre'>Snack</h3>
@@ -31,7 +31,7 @@ return(
         </Carousel.Caption>
       </Carousel.Item>
 
-      <Carousel.Item className="Les_Carousel ">
+      <Carousel.Item className="Les_Carousel">
         <img className="Carousel_background" src="src\image\car boisson.jpg" alt="soupe" />
         <Carousel.Caption className='caroussel_text_1'>
           <h3 className='titre'>Soupe </h3>
