@@ -21,6 +21,7 @@ function Panier () {
         if (cart.length !== 0) {
             alert('Votre commande est enregitrer veullez patientez !')
         }
+        else alert ('veulliez entrez des produits!')
     }
 
     const decrease = (id) => {
