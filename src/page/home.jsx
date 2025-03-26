@@ -78,6 +78,7 @@ function Home(){
           onMouseOver={(e) => (e.currentTarget.src = "src/image/pates1.png")} 
           onMouseOut={(e) => (e.currentTarget.src = "src/image/pates.png")} 
           onClick={()=>handleClic("/Jus")}   roundedCircle/> 
+          
         <span className="SousTitre">Pates</span>
           </div>
           
@@ -86,6 +87,7 @@ function Home(){
           onMouseOver={(e) => (e.currentTarget.src = "src/image/snack1.png")} 
           onMouseOut={(e) => (e.currentTarget.src = "src/image/snack.png")} 
            onClick={()=>handleClic("/Burger")} roundedCircle />
+
           <span className="SousTitre">Snack</span>
           </div>
         
@@ -94,6 +96,7 @@ function Home(){
           onMouseOver={(e) => (e.currentTarget.src = "src/image/riz1.png")} 
           onMouseOut={(e) => (e.currentTarget.src = "src/image/riz.png")} 
            onClick={()=>handleClic("/soupe")} roundedCircle />
+
           <span className="SousTitre">riz</span>
           </div>
      
@@ -102,6 +105,7 @@ function Home(){
            onMouseOver={(e) => (e.currentTarget.src = "src/image/dessert1.png")} 
            onMouseOut={(e) => (e.currentTarget.src = "src/image/dessert.png")} 
            onClick={()=>handleClic("/Soupe")} roundedCircle />
+
           <span className="SousTitre">Dessert</span>
           </div>
       
@@ -110,6 +114,7 @@ function Home(){
            onMouseOver={(e) => (e.currentTarget.src = "src/image/boisson1.png")} 
            onMouseOut={(e) => (e.currentTarget.src = "src/image/boisson.png")} 
            onClick={()=>handleClic("/Riz")} roundedCircle />
+
           <span className="SousTitre">Boisson</span>
           </div>
         </div>

@@ -19,9 +19,11 @@ function Panier () {
 
     const ConditionalFunc =() => {
         if (cart.length !== 0) {
-            alert('Votre commande est enregitrer veullez patientez !')
+            alert('Votre commande est enregitrer veullez patientez !');
+            setshow(false);
         }
-        else alert ('veulliez entrez des produits!')
+        else alert ('veulliez entrez des produits!');
+        setshow(false);
     }
 
     const decrease = (id) => {
@@ -70,8 +72,10 @@ function Panier () {
         <button style={{color : 'white' , backgroundColor: 'green', borderRadius : '20px', width : '200px'}} onClick={() =>setshow(true)}> Confirmer</button>
         
           {
-           show && createPortal(<Modal oneclose = {() => setshow(false)} condition = {()=>ConditionalFunc()}  />, document.body)
-          }
+           show && createPortal(
+           <Modal oneclose = {() => setshow(false)} condition = {()=>ConditionalFunc()}  />, 
+           document.body
+        )}
         {/*<MOdalContext.Provider value={show}>
         </MOdalContext.Provider>*/}
     </div>
