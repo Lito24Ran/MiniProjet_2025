@@ -42,23 +42,23 @@ function Panier () {
         {cart.map((item)=>(
                 <div className="cart_box" key={item.id}>
                     <div className="cart_img">
-                        <img src={item.img} />
-                        <p>{item.nom}</p>
+                        <img src={item.img}  className="pan_image"/>
+                        <p className="name">{item.nom}</p>
+                    </div>
+                    <div >
+                        <button className="bouttons" onClick={() => decrease(item.id)}> - </button>
+                        <span className="quantity" >{item.quantity}</span>
+                        <button className="bouttons" onClick={() => increase(item.id)}> + </button>
                     </div>
                     <div>
-                        <button onClick={() => decrease(item.id)}> - </button>
-                        <span>{item.quantity}</span>
-                        <button onClick={() => increase(item.id)}> + </button>
-                    </div>
-                    <div>
-                        <span>{item.prix * item.quantity} Ariary</span>
-                        <button onClick={() => removeItem(item.id)}>supprimer</button>
+                        <span className="prix_pan">{item.prix * item.quantity} Ar</span>
+                        <img src="src\image\remove.png" alt="supp" className="remove" onClick={() => removeItem(item.id)}/> 
                     </div>
                 </div>
             ))}
     </article>
     <div>
-        <h1>Total du commande : {total} Ariary</h1>
+        <h1 className="total">Total : {total} Ariary</h1>
     </div>
             </div>
             </> 
