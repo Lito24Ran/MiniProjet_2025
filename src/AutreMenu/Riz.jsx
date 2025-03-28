@@ -1,10 +1,10 @@
 import React from "react";
 import  Row  from "react-bootstrap/Row";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Carte from "../component/carte.jsx";
 import  Col  from "react-bootstrap/Col";
 import Navbar from "../component/navbar";
-
+import rizlist from './Datariz.js'
+import Cards from "../component/Card.jsx";
 
 function Riz() {
     const prix = 12000;
@@ -13,21 +13,16 @@ function Riz() {
         <Navbar/>
         <h1 className="nom_categorie">Boisson</h1>
         <Row>
-            <Col xs = {12} md = {4} lg = {3} >
-        <Carte Titre="Riz contonais" >
-             <p style={{color:"orange"}}><strong>{prix}</strong></p>
-             <p>Je suis une soupe 0</p>
-        </Carte>
-        </Col>
-        <Col>
-        <Carte Titre="Riz contonais">
-             <p style={{color:"orange"}}><strong>{prix}</strong></p>
-             <p>Je suis une soupe 0</p>
-        </Carte>
+            <Col lg={6} xs={12} >
+        {
+            rizlist.map((item)=>(
+                <Cards item={item} key={item.id}/>
+            ))
+        }
             </Col>
         </Row>
-        </>
-    );
+       </>
+    )
 }
 
 export default Riz;
