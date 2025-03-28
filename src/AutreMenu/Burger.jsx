@@ -6,24 +6,24 @@ import Stack from 'react-bootstrap/Stack';
 import Burger from '../image/Burger.png'
 
 function  MenuBurger (){
-    const prix = 12000;
+    var prix ;
    return(
     <>
     <Navbar/>
     <h1 className="nom_categorie">Snack</h1>
     <Stack direction="horizontal" gap={2}>
     
-    <Carte titre="Soupe Legume" image= {Burger} >
-        <p style={{color:"orange"}}><strong>{prix}</strong></p>
-        <p>Je suis une soupe 0</p>
+    <Carte titre="Soupe Legume" image= {Burger} 
+        texte="Je suis une soupe 0"
+        prix="3000Ar"  >
     </Carte>
-    <Carte titre="Soupe Citron" >
-        <p style={{color:"orange"}}><strong>{prix}</strong></p>
-        <p>Je suis une soupe 1</p>
+    <Carte titre="Soupe Citron" image= {Burger} 
+        texte="Je suis une soupe 1"
+        prix="3000Ar"  >
     </Carte>
-    <Carte titre="Soupe Tongo-tromby">
-        <p style={{color:"orange"}}><strong>{prix}</strong></p>
-        <p>Je suis une soupe 2</p>
+    <Carte titre=" Tongo-tromby"image= {Burger} 
+        texte="Je suis une soupe 2"
+        prix="3000Ar"  >
     </Carte>
     </Stack>
     </>

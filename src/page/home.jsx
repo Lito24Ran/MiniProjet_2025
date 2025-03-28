@@ -9,13 +9,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Image from'react-bootstrap/Image';
 import Burger from '../image/burger.png';
-<<<<<<< HEAD
-import Soupe from "../AutreMenu/Soupe";
-import { BrowserRouter, Routes ,Route,useNavigate } from "react-router-dom";
-import Carte from "../component/carte.jsx";
-=======
 import { Routes ,Route,useNavigate } from "react-router-dom";
->>>>>>> 56bb52035565ed15763bf0129706e024e44928f9
 import SystemeCrousel from "../component/Carousel.jsx";
 import imgCrudité from "../image/imgCrudité.jpeg";
 import Footer from "../component/footer.jsx";
@@ -120,135 +114,8 @@ function Home(){
       <hr />
     </Container>
 
-<<<<<<< HEAD
-    <div className=" LesCartes mt-5">
-      <Container>
-      <Row>
-        <Col direction="horizontal"  xs={12} md={4} lg={2} xl= {3}>
-        <Carte titre="Soupe Legume" image={Burger} >
-            <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong> Ar</p>
-            <p className="text1">Je suis une soupe 0</p>
-        </Carte>
-        </Col>
-        <Col direction="horizontal"  xs={12} md={4} lg={2} xl= {3}>
-        <Carte titre="Soupe Legume" image={frite}  >
-            <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong>Ar</p>
-            <p>Je suis une soupe 0</p>
-        </Carte>
-        </Col>
-        <Col direction="horizontal"   xs={12} md={4} lg={2} xl= {3}>
-        <Carte titre="Soupe Legume" image={image2}  >
-            <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong> Ar</p>
-            <p>Je suis une soupe 0</p>
-        </Carte>
-        </Col>
-        <Col direction="horizontal"   xs={12} md={4} lg={2} xl= {3}>
-        <Carte titre="Soupe Legume" image={Burger}  >
-          <div className="Boutton"> 
-            <button 
-              type="boutton"
-              onClick={BouttonDecrmentation}
-            ><img src={SigneMoin} alt="SigneMoin" /></button> 
-            <p className="Chiffre">{count}</p>
-            <button 
-              type="boutton"
-              onClick={Bouttonincrmente}
-            ><img src={SignePlus} alt="SignePlus" /></button>
-         
-       
-          </div>
-            <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong> Ar</p>
-            <p>Je suis une soupe 0</p>
-        </Carte>
-    </Col>
-    </Row>
-    
-    <Row>
-        <Col direction="horizontal"  xs={12}  lg={6} xl= {3} >
-        <Carte titre="Soupe Legume" image={Burger} >
-            <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong> Ar</p>
-            <p>Je suis une soupe 0</p>
-        </Carte>
-        </Col>
-        <Col direction="horizontal"  xs={12}  lg={6} xl= {3}>
-        <Carte titre="Soupe Legume" image={frite}  >
-            <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong>Ar</p>
-            <p>Je suis une soupe 0</p>
-        </Carte>
-        </Col>
-        <Col direction="horizontal"   xs={12} md={6} lg={4} xl= {3}>
-        <Carte titre="Soupe Legume" image={image2}  >
-            <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong> Ar</p>
-            <p>Je suis une soupe 0</p>
-        </Carte>
-        </Col>
-        <Col direction="horizontal"   xs={12}  lg={6} xl= {3}>
-        <Carte titre="Soupe Legume" image={Burger}  >
-          <div className="Boutton"> 
-            <button 
-              type="boutton"
-              onClick={BouttonDecrmentation}
-              className="btn"
-            >-</button> 
-            <p className="Chiffre">{count}</p>
-            <button 
-              type="boutton"
-              onClick={Bouttonincrmente}
-            >+</button>
-         
-       
-          </div>
-            <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong> Ar</p>
-            <p>Je suis une soupe 0</p>
-        </Carte>
-    </Col>
-    </Row>
-    <Row>
-        <Col direction="horizontal"  xs={12} md={4} lg={4} xl= {3}>
-        <Carte titre="Soupe Legume" image={Burger} >
-            <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong> Ar</p>
-            <p>Je suis une soupe 0</p>
-        </Carte>
-        </Col>
-        <Col direction="horizontal"  xs={12} md={4} lg={4} xl= {3}>
-        <Carte titre="Soupe Legume" image={frite}  >
-            <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong>Ar</p>
-            <p>Je suis une soupe 0</p>
-        </Carte>
-        </Col>
-        <Col direction="horizontal"   xs={12} md={4} lg={4} xl= {3}>
-        <Carte titre="Soupe Legume" image={image2}  >
-            <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong> Ar</p>
-            <p>Je suis une soupe 0</p>
-        </Carte>
-        </Col>
-        <Col direction="horizontal"   xs={12} md={4} lg={4} xl= {3}>
-        <Carte titre="Soupe Legume" image={Burger}  >
-          <div className="Boutton"> 
-            <button 
-              type="boutton"
-              onClick={BouttonDecrmentation}
-            ><img src={SigneMoin} alt="SigneMoin" /></button> 
-            <p className="Chiffre">{count}</p>
-            <button 
-              type="boutton"
-              onClick={Bouttonincrmente}
-            ><img src={SignePlus} alt="SignePlus" /></button>
-         
-       
-          </div>
-            <p  style={{color:"orange"}}><span style={{color:"black"}}>Prix : </span><strong>{prix}</strong> Ar</p>
-            <p>Je suis une soupe 0</p>
-        </Carte>
-    </Col>
-    </Row>
-      
-    </Container>
-    </div>
-=======
     </div>  
  
->>>>>>> 56bb52035565ed15763bf0129706e024e44928f9
     </section>
     <div className="All_Cards">
         {

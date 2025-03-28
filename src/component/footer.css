@@ -8,7 +8,6 @@
     padding-top: 5px;
     margin-left: 0px;
 }
-<<<<<<< HEAD
 .logo_ftr {
     height: 130px;
     width: auto;
@@ -20,6 +19,7 @@ hr {
     height: 2px;
     background-color: #c4c3c3;
     width: 80%;
+    box-shadow: bisque;
     margin-top: 67px ;
     margin-left: auto;
     margin-right: auto;
@@ -28,17 +28,6 @@ hr {
 .item_ftr {
     display: flex;
     gap: 700px;
-=======
-.footer_image {
-    width: 30px;
-    height: auto;
-    margin-right: 10px;
-    border-radius: 15px;
-}
-.texte_ftr{
-    padding-inline: 20px;
-    padding-block: 20px;
->>>>>>> 56bb52035565ed15763bf0129706e024e44928f9
 }
 .icon_ftr {
     width: 40px;
@@ -55,14 +44,12 @@ hr {
 .bouton_ftr {
     color: beige;
     position: relative;
-    box-shadow: 3xp beige;
     background-color: transparent;
     margin-top: 70px;
     margin-right: 10px;
     height: 70px;
     width:  350px ;
     border: 1px solid transparent;
-    cursor: pointer;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 17px;
     transition: border-color 0.3s ease;
@@ -71,16 +58,18 @@ hr {
 .bouton_ftr:hover {
     border-color: #c4c3c3;
     color: #c4c3c3;
+    box-shadow: 20xp beige;
     background-color: #D6976B;
 }
 .slogon_ftr {
-    text-align: justify;
+    text-align: center;
     padding: 20px;
     background: none;
     color: beige;
     font-size: 17px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia, 'Times New Roman',   Times, serif;
     margin-bottom: 20px;
+    
 }
 .StyleFooter p {
     margin-top: 40px;
