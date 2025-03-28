@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { createContext, useState } from "react";
 import Navbar from "../component/navbar";
 import frite from "../image/frite.png";
 import image2 from "../image/image2.png";
@@ -9,7 +9,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Image from'react-bootstrap/Image';
 import Burger from '../image/burger.png';
-import { Routes ,Route,useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import SystemeCrousel from "../component/Carousel.jsx";
 import imgCrudité from "../image/imgCrudité.jpeg";
 import Footer from "../component/footer.jsx";
@@ -18,9 +18,11 @@ import Cards from '../component/Card';
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext.jsx";
 
+export const produitContext = createContext();
 
 function Home(){
   const navigate = useNavigate();
+  
   const { cart, setCart } = useContext(CartContext);
   
 
@@ -39,10 +41,12 @@ function Home(){
     console.log(item);
 };
 
+
+
   const handleClic = (path) => {
     navigate(path);
   };
- 
+
   //EE VICTORIO TS ATO LAH NO MIASA RAHA ANOVA AN' LE CARTE FA AO ANATY carte.jsx
   //DE JEREO AO FA EFA MISY CLASSE MARO2 AO D RENY SISA NO ANTSOIN'LAH RAHA TE ANOVA AN' LE BORDER LAH
 
@@ -74,6 +78,7 @@ function Home(){
           onMouseOver={(e) => (e.currentTarget.src = "src/image/pates1.png")} 
           onMouseOut={(e) => (e.currentTarget.src = "src/image/pates.png")} 
           onClick={()=>handleClic("/Jus")}   roundedCircle/> 
+          
         <span className="SousTitre">Pates</span>
           </div>
           
@@ -82,6 +87,7 @@ function Home(){
           onMouseOver={(e) => (e.currentTarget.src = "src/image/snack1.png")} 
           onMouseOut={(e) => (e.currentTarget.src = "src/image/snack.png")} 
            onClick={()=>handleClic("/Burger")} roundedCircle />
+
           <span className="SousTitre">Snack</span>
           </div>
         
@@ -90,6 +96,7 @@ function Home(){
           onMouseOver={(e) => (e.currentTarget.src = "src/image/riz1.png")} 
           onMouseOut={(e) => (e.currentTarget.src = "src/image/riz.png")} 
            onClick={()=>handleClic("/soupe")} roundedCircle />
+
           <span className="SousTitre">riz</span>
           </div>
      
@@ -98,6 +105,7 @@ function Home(){
            onMouseOver={(e) => (e.currentTarget.src = "src/image/dessert1.png")} 
            onMouseOut={(e) => (e.currentTarget.src = "src/image/dessert.png")} 
            onClick={()=>handleClic("/Soupe")} roundedCircle />
+
           <span className="SousTitre">Dessert</span>
           </div>
       
@@ -106,6 +114,7 @@ function Home(){
            onMouseOver={(e) => (e.currentTarget.src = "src/image/boisson1.png")} 
            onMouseOut={(e) => (e.currentTarget.src = "src/image/boisson.png")} 
            onClick={()=>handleClic("/Riz")} roundedCircle />
+
           <span className="SousTitre">Boisson</span>
           </div>
         </div>
@@ -114,6 +123,8 @@ function Home(){
     </Container>
 
     </div>  
+
+    
  
     </section>
     <div className="All_Cards">

@@ -1,7 +1,8 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import './cards.css';
-import { Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Panier from '../page/Panier';
+import produitContext from '../page/home'
 
 
 {/*export const varyContext = createContext();*/}
@@ -40,9 +41,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
                   <button onClick={()=>handleClick({ ...item, quantity})} className='boutton'>Ajouter au panier</button>
               {/*</varyContext.Provider>*/}
         </div>
-
       </div>
-      
     </div>
     
   )
