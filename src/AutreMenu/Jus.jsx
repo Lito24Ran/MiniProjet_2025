@@ -1,18 +1,21 @@
 import React from "react";
-import Carte from "../component/carte.jsx";
 import Navbar from "../component/navbar";
-
-
+import boissonlist from './Databoisson.js';
+import Cards from "../component/Card.jsx";
 function Jus () {
     const prix = 2000
     return(
         <>        
-        <Navbar/>
+        <Navbar/> 
         <h1 className="nom_categorie">Pates</h1>
-        <Carte titre="jus naturel">
-        <p style={{color:"orange"}}><strong>{prix}</strong></p>
-        <p>Je suis un jus</p>
-    </Carte>
+        <div className="Container_cards">
+        {
+            boissonlist.map((item)=>(
+               <Cards item={item} key={item.id}/>
+            ))
+        }
+       </div>
+        
         </>
 
     );
