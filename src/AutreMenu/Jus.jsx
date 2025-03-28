@@ -8,10 +8,7 @@ function Jus () {
     return(
         <>        
         <Navbar/>
-<<<<<<< Foot
-=======
         <h1 className="nom_categorie">Pates</h1>
->>>>>>> 56bb52035565ed15763bf0129706e024e44928f9
         <Carte titre="jus naturel">
         <p style={{color:"orange"}}><strong>{prix}</strong></p>
         <p>Je suis un jus</p>

@@ -6,34 +6,34 @@ import Card from 'react-bootstrap/Card';
 import  Col  from "react-bootstrap/Col";
 import "./Carte.css";
 
+const increment = () => setQuantity(quantity + 1);
+const decrement = () => {
+  if (quantity > 1) setQuantity(quantity - 1)
+};
 
  function Carte(props)  {
     return(
-    <div className="mt-5 ms-1 inline-bloc">
+    <div className="cards_container">
+      <div className="All_cards">
         <Row>
         <Col xs = {1} md= {4} lg= {2}>
-<<<<<<< HEAD
-       <Card className="body_card" style={{ width: '17rem' }}>
-            <Card.Img className="Image_Carte" variant="top"  src={props.image}/> 
-            <Card.Body>
-             <Card.Title className="Titre">{props.titre}</Card.Title>
-             <Card.Text className="text">{props.children}</Card.Text>
-             <Button className="boutton">Comander</Button>
-=======
         
-       <Card className="body_card" style={{ width: '18rem' }}>
-            <Card.Img className="Image_Carte" variant="top"  src={props.image}/> 
+        
+       <Card  className="card">
+            <Card.Img className="carteimage" variant="top"  src={props.image}/> 
             <Card.Body>
-             <Card.Title className="Titre">{props.titre}</Card.Title>
-             <Card.Text>
-               {props.children}
-             </Card.Text>
-             <Button className="button" variant="primary">Comander</Button>
->>>>>>> 56bb52035565ed15763bf0129706e024e44928f9
+             <Card.Title className="titre_card">{props.titre}</Card.Title>
+             <Card.Text className="description">{props.texte}</Card.Text>
+             <Card.Text className="prix">{props.prix}</Card.Text>
+             <Button className="boutton">ajouter au panier</Button>
+             <button onClick={decrement}>-</button>
+             <span>{quantity}</span>
+             <button onClick={increment}>+</button>
             </Card.Body>
         </Card>
         </Col>
     </Row>
+    </div>
     </div>
     );
 }

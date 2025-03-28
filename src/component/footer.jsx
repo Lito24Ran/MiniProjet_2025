@@ -1,6 +1,5 @@
 import React from "react";
 import "./footer.css";
-<<<<<<< HEAD
 import icon_Facebook from "../image/icon_facebook.png";
 import icon_mail from "../image/icon_mail.png";
 import icon_lieu from "../image/icon_lieu.png";
@@ -8,21 +7,15 @@ import icon_contact from "../image/icon_contact.png";
 import logo from "../image/logo.png";
 
 function Foot(){
-=======
-import iconFacebook from "../image/icon_facebook.png";
-import iconmail from "../image/icon_mail.png";
-import iconlieu from "../image/icon_lieu.jpg";
-import iconcontact from "../image/icon_contact.jpg";
->>>>>>> 56bb52035565ed15763bf0129706e024e44928f9
 
     return(
         <footer className="StyleFooter">
             <div className="footer_container">
                 <div className="item_ftr">
                 <img src={logo} alt="logo" className="logo_ftr" />
-                <p className="slogon_ftr"> payer avant de consommer ; soyer polit meme si le client est roi :)
-                                           payer avant de consommer ; soyer polit meme si le client est roi :)
-                                           payer avant de consommer ; soyer polit meme si le client est roi :)
+                <p className="slogon_ftr"> payer avant de consommer ; soyer polit meme si le client est roi :)<br/>
+                                           payer avant de consommer ; soyer polit meme si le client est roi :)<br/>
+                                           payer avant de consommer ; soyer polit meme si le client est roi :)<br/>
                                            payer avant de consommer ; soyer polit meme si le client est roi :) </p>
                 </div>
                 <hr />
