@@ -3,31 +3,42 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from "../component/navbar";
 import Carte from "../component/carte.jsx";
 import Stack from 'react-bootstrap/Stack';
-import Burger from '../image/Burger.png'
+import Burger from '../image/Burger.png';
+import Cards from '../component/Card';
+import { createContext, useContext, useState} from "react";
+import { CartContext } from "../context/CartContext";
+import list from './Databurger';
 
 function  MenuBurger (){
-    const prix = 12000;
-   return(
-    <>
-    <Navbar/>
-    <h1 className="nom_categorie">Snack</h1>
-    <Stack direction="horizontal" gap={2}>
+    const { cart, setCart } = useContext(CartContext); 
+
+    const handleClick = (item) => {
+        // handleClick doit gerer le quantite alefa any am panier
+        const existItem = cart.find(produit => produit.id === item.id);
     
-    <Carte titre="Soupe Legume" image= {Burger} >
-        <p style={{color:"orange"}}><strong>{prix}</strong></p>
-        <p>Je suis une soupe 0</p>
-    </Carte>
-    <Carte titre="Soupe Citron" >
-        <p style={{color:"orange"}}><strong>{prix}</strong></p>
-        <p>Je suis une soupe 1</p>
-    </Carte>
-    <Carte titre="Soupe Tongo-tromby">
-        <p style={{color:"orange"}}><strong>{prix}</strong></p>
-        <p>Je suis une soupe 2</p>
-    </Carte>
-    </Stack>
-    </>
-    );
+        if(existItem) {
+          // atao Maj le quantite raha efa misy
+          setCart(cart.map(produit =>
+              produit.id === item.id ? { ...produit, quantity: produit.quantity + item.quantity} : produit
+            ));
+        } else {
+          setCart([...cart, item]);
+        }
+        console.log(item);
+    };
+
+    return (
+        <>
+           <Navbar size={cart.length} /> 
+           <section>
+        {
+            list.map((item)=>(
+                <Cards item={item} key={item.id} handleClick={handleClick} />
+            ))
+        }
+    </section>
+        </>
+    )
 } 
   
 

@@ -77,7 +77,7 @@ function Home(){
         <Image className="imagemenu" src="src\image\pates.png" 
           onMouseOver={(e) => (e.currentTarget.src = "src/image/pates1.png")} 
           onMouseOut={(e) => (e.currentTarget.src = "src/image/pates.png")} 
-          onClick={()=>handleClic("/Jus")}   roundedCircle/> 
+          onClick={()=>handleClic("/Soupe")}   roundedCircle/> 
           
         <span className="SousTitre">Pates</span>
           </div>
@@ -95,7 +95,7 @@ function Home(){
           <Image className="imagemenu" src="src\image\riz.png" 
           onMouseOver={(e) => (e.currentTarget.src = "src/image/riz1.png")} 
           onMouseOut={(e) => (e.currentTarget.src = "src/image/riz.png")} 
-           onClick={()=>handleClic("/soupe")} roundedCircle />
+           onClick={()=>handleClic("/Riz")} roundedCircle />
 
           <span className="SousTitre">riz</span>
           </div>
@@ -104,7 +104,7 @@ function Home(){
           <Image className="imagemenu" src="src\image\dessert.png" 
            onMouseOver={(e) => (e.currentTarget.src = "src/image/dessert1.png")} 
            onMouseOut={(e) => (e.currentTarget.src = "src/image/dessert.png")} 
-           onClick={()=>handleClic("/Soupe")} roundedCircle />
+           onClick={()=>handleClic("/Dessert")} roundedCircle />
 
           <span className="SousTitre">Dessert</span>
           </div>
@@ -113,7 +113,7 @@ function Home(){
           <Image className="imagemenu" src="src\image\boisson.png" 
            onMouseOver={(e) => (e.currentTarget.src = "src/image/boisson1.png")} 
            onMouseOut={(e) => (e.currentTarget.src = "src/image/boisson.png")} 
-           onClick={()=>handleClic("/Riz")} roundedCircle />
+           onClick={()=>handleClic("/Jus")} roundedCircle />
 
           <span className="SousTitre">Boisson</span>
           </div>
