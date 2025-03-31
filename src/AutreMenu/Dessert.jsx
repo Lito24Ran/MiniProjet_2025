@@ -1,11 +1,14 @@
 import React from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Stack from 'react-bootstrap/Stack';
 import Navbar from "../component/navbar";
 import Cards from '../component/Card';
 import { createContext, useContext, useState} from "react";
 import { CartContext } from "../context/CartContext";
-import list from './Datasoupe'
+import list from './DataDessert'
 
-function Soupe () {
+function  Dessert (){
+
     const { cart, setCart } = useContext(CartContext); 
 
     const handleClick = (item) => {
@@ -36,5 +39,5 @@ function Soupe () {
         </>
 
     );
-}
-export default Soupe;
+} 
+export default Dessert;
