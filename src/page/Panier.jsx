@@ -68,9 +68,6 @@ function Panier () {
             <p><b>Le total est :</b>{total} Ariary</p>
     </article>
     <div>
-<<<<<<< HEAD
-        <h1 className="total">Total : {total} Ariary</h1>
-=======
         <h1>Total du commande : {total} Ariary</h1>
         <button style={{color : 'white' , backgroundColor: 'green', borderRadius : '20px', width : '200px'}} onClick={() =>setshow(true)}> Confirmer</button>
         
@@ -81,7 +78,6 @@ function Panier () {
         )}
         {/*<MOdalContext.Provider value={show}>
         </MOdalContext.Provider>*/}
->>>>>>> 3dd8d8b1c3b036f61a5e3a92cb4eb724b5bd8c8f
     </div>
   </div>
             
