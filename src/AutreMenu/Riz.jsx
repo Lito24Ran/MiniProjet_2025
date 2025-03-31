@@ -1,28 +1,48 @@
 import React from "react";
-import  Row  from "react-bootstrap/Row";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import  Col  from "react-bootstrap/Col";
 import Navbar from "../component/navbar";
-import rizlist from './Datariz.js'
-import Cards from "../component/Card.jsx";
+import  Row  from "react-bootstrap/Row";
+import  Col  from "react-bootstrap/Col";
+import Stack from 'react-bootstrap/Stack';
+import Cards from '../component/Card';
+import { createContext, useContext, useState} from "react";
+import { CartContext } from "../context/CartContext";
+import list from './Datariz'
 
-function Riz() {
-    const prix = 12000;
-    return(
+
+function  Riz (){
+
+    const { cart, setCart } = useContext(CartContext); 
+    const handleClick = (item) => {
+        // handleClick doit gerer le quantite alefa any am panier
+        const existItem = cart.find(produit => produit.id === item.id);
+    
+        if(existItem) {
+          // atao Maj le quantite raha efa misy
+          setCart(cart.map(produit =>
+              produit.id === item.id ? { ...produit, quantity: produit.quantity + item.quantity} : produit
+            ));
+        } else {
+          setCart([...cart, item]);
+        }
+        console.log(item);
+    };
+
+    return (
         <>
-        <Navbar/>
-        <h1 className="nom_categorie">Boisson</h1>
-        <Row>
-            <Col lg={6} xs={12} >
+            <Navbar size={cart.length} />
+            <section>
         {
-            rizlist.map((item)=>(
-                <Cards item={item} key={item.id}/>
+            list.map((item)=>(
+                <Cards item={item} key={item.id} handleClick={handleClick} />
             ))
         }
-            </Col>
-        </Row>
-       </>
+    </section>
+        </>
     )
-}
+} 
+  
+
+
 
 export default Riz;

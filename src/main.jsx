@@ -5,7 +5,7 @@ import App from './App.jsx';
 import Home from './page/home.jsx';
 import Soupe from './AutreMenu/Soupe.jsx';
 import MenuBurger from './AutreMenu/Burger.jsx';
-import CarteCrudite from './AutreMenu/Cruditee.jsx';
+import Dessert from './AutreMenu/Dessert.jsx';
 import Riz from './AutreMenu/Riz.jsx';
 import Jus from './AutreMenu/Jus.jsx';
 import Panier from './page/Panier.jsx';
@@ -21,24 +21,24 @@ const router = createBrowserRouter([
         element:<Home/>
       },
       {
-        path:"/Soupe",
-        element:<Soupe/>
+        path:"/Riz",
+        element:<Riz/>
       },
       {
         path:"/Burger",
         element:<MenuBurger/>
       },
       {
-        path:"/Cruditee",
-        element:<CarteCrudite/>
-      },
-      {
-        path:"/Riz",
-        element:<Riz/>
+        path:"/Dessert",
+        element:<Dessert/>
       },
       {
         path:"/Jus",
         element:<Jus/>
+      },
+      {
+        path:"/Soupe",
+        element:<Soupe/>
       },
       {
         path: '/panier',
