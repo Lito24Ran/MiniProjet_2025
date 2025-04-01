@@ -9,33 +9,35 @@
     height: 80px;
     width: 100%;
     top: 0;
-    z-index: 1000;
-    padding: 10px 0;
+    z-index: 10;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     background-color: #f8edd5;
     justify-content: center;
     display: flex;
+    align-items: center;
 }     
 
+.nav_item{
+    width: 100%;
+}
+
 .Navbar_text{
-    margin-top: 20px;
-  padding-left: 600px; 
+   width: 90%;
+  text-align: center;
+  align-items: center;
    font-family: "bauh";
    font-size: 30px;
    color: black;
-   
-   
+   display: inline-block;
+   position: relative;
+   transition: 0.6s ease-in;
+   margin-top: 12px;
 }
-.Navbar_text::after {
-    content: '';
-    width: auto;
-    height: 2px;
-    background: #fdd273;
-    display: block;
-}
+
 .Navbar_text:hover{
-    color: #fdd273;
+   color: #a70000;
+   transform: scale(1.2);
 }
 .logonav {
     width: auto;

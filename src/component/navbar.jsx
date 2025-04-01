@@ -26,7 +26,9 @@ function customerNavbar({size}) {
            </Navbar.Brand>
            <Navbar.Toggle aria-controls="basic-navbar-nav" />
            <Navbar.Collapse id="basic-navbar-nav">
+            <div className="nav_item">
             <p className="Navbar_text">Menu</p>
+            </div>
             <Nav className="ms-auto">
               <Nav.Link as={Link} to="/panier"><img
               src="src\image\panier.png"

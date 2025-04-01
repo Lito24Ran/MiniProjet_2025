@@ -1,7 +1,8 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import './cards.css';
-import { Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Panier from '../page/Panier';
+import produitContext from '../page/home'
 
 
 {/*export const varyContext = createContext();*/}
@@ -18,7 +19,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
     };
 
   return (
+    
     <div className='cards_container'>
+      <img src="src\image\font.png" alt="font" className='font' />
+      
     
       <div className='card'>
       
@@ -28,18 +32,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
               <p className='description'>{description}</p>
               <p className='prix'>{prix} Ar</p>
               <div className="quantity-controls">
-                <button onClick={decrement}>-</button>
+                <button className='decrement' onClick={decrement}>-</button>
                 <span>{quantity}</span>
-                <button onClick={increment}>+</button>
+                <button className='increment' onClick={increment}>+</button>
                 
               </div>
               {/*<varyContext.Provider value={article} className="bouttonA"> */}
                   <button onClick={()=>handleClick({ ...item, quantity})} className='boutton'>Ajouter au panier</button>
               {/*</varyContext.Provider>*/}
         </div>
-
       </div>
-      
     </div>
     
   )
