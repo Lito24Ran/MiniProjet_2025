@@ -1,7 +1,7 @@
 const list = [
     {
       id: 1,
-      nom: "Princi Humburger",
+      nom: "Princi burger",
       description: "Viandes,frommages,Sauce bechamelle",
       prix: 25000,
       img: "src/image/litoburger.jpg",
