@@ -36,7 +36,7 @@ function Panier () {
         setCart(cart.filter(item => item.id !==id));
     }
 
-    let total = 0;
+    let total = 0
     for (let i =0; i<cart.length; i++) {
        total = total + (cart[i].prix * cart[i].quantity)
     }
@@ -65,7 +65,6 @@ function Panier () {
                   </div>
                 
                ))}
-            <p><b>Le total est :</b>{total} Ariary</p>
     </article>
     <div>
         <h1>Total du commande : {total} Ariary</h1>
