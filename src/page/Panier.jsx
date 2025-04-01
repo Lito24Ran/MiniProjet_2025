@@ -19,7 +19,7 @@ function Panier () {
 
     const ConditionalFunc =() => {
         if (cart.length !== 0) {
-            alert('Votre commande est enregitrer veullez patientez !');
+            alert('Votre commande est enregistrer veuillez patientez !');
             setshow(false);
         }
         else alert ('veulliez entrez des produits!');
