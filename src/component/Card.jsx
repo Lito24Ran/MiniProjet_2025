@@ -15,7 +15,7 @@ import produitContext from '../page/home'
 
     const increment = () => setQuantity(quantity + 1);
     const decrement = () => {
-      if (quantity > 1) setQuantity(quantity - 1)
+       (quantity > 1) && setQuantity(quantity - 1)
     };
 
   return (
