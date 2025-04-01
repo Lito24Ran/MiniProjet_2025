@@ -65,7 +65,6 @@ function Panier () {
                   </div>
                 
                ))}
-            <p><b>Le total est :</b>{total} Ariary</p>
     </article>
     <div>
         <h1>Total du commande : {total} Ariary</h1>
