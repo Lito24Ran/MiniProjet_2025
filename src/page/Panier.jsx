@@ -36,7 +36,7 @@ function Panier () {
         setCart(cart.filter(item => item.id !==id));
     }
 
-    let total = 0;s
+    let total = 0
     for (let i =0; i<cart.length; i++) {
        total = total + (cart[i].prix * cart[i].quantity)
     }

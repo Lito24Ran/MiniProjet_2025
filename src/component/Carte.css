@@ -33,6 +33,10 @@
 }   
 .cards_container{
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    margin-bottom: 100px;
 }
 .card {   
     height: 400px;
