@@ -194,11 +194,9 @@ html, body {
     justify-content: center;
     align-items: center;
 }
-@media screen and (max-width: 1024px){ 
+@media (min-width: 768px){ 
     body {
-        width: 100vw;
-        overflow-x: hidden;
-        position: relative;
+        font-size: 18px;
     }
     
 }
