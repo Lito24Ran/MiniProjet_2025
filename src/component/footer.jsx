@@ -1,28 +1,37 @@
 import React from "react";
 import "./footer.css";
-import iconFacebook from "../image/icon_facebook.png";
-import iconmail from "../image/icon_mail.png";
-import iconlieu from "../image/icon_lieu.jpg";
-import iconcontact from "../image/icon_contact.jpg";
+import icon_Facebook from "../image/icon_facebook.png";
+import icon_mail from "../image/icon_mail.png";
+import icon_lieu from "../image/icon_lieu.png";
+import icon_contact from "../image/icon_contact.png";
+import logo from "../image/logo.png";
 
-function Footer(){
+function Foot(){
+
     return(
         <footer className="StyleFooter">
-            
-                <div className="Facebook"><img src="" alt="" />
-                    <p className="Composant1_footer">Facebook</p>
-                    <p className="Composant1_footer">Email</p>
-                  
+            <div className="footer_container">
+                <div className="item_ftr">
+                <p className="slogon_ftr"> payer avant de consommer ; soyer polit meme si le client est roi :)
+                                           payer avant de consommer ; soyer polit meme si le client est roi :) </p>
                 </div>
-                <div className="Style2">
-                    <p className="Composant2_footer">Contact</p>
-                    <p className="Composant2_footer">Lieu</p>
-                    
-                </div>
-                <img src="bolognaise.png" alt="facebook" />
-                <img src="bolognaise.png" alt="gmail" />
-                <img src="bolognaise.png" alt="instagrame" />
+            </div>
+            <div className="footer_3D">
+            <img src={logo} alt="logo" className="logo_ftr" />
+              <h3><div className="item_ftr"><a href="#">
+                  <img src={icon_Facebook}  className="icon_ftr" />
+                         </a>
+                <a href="#">
+                  <img src={icon_mail}  className="icon_ftr" />
+                          </a>
+                <a href="#">
+                  <img src={icon_lieu}  className="icon_ftr" />
+                          </a>
+                <a href="#">
+                  <img src={icon_contact}  className="icon_ftr" />
+                          </a></div></h3>
+            </div>
         </footer>
     );
 }
-export default Footer;
+export default Foot

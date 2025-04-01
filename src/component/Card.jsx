@@ -32,9 +32,9 @@ import produitContext from '../page/home'
               <p className='description'>{description}</p>
               <p className='prix'>{prix} Ar</p>
               <div className="quantity-controls">
-                <button onClick={decrement}>-</button>
+                <button className='decrement' onClick={decrement}>-</button>
                 <span>{quantity}</span>
-                <button onClick={increment}>+</button>
+                <button className='increment' onClick={increment}>+</button>
                 
               </div>
               {/*<varyContext.Provider value={article} className="bouttonA"> */}
