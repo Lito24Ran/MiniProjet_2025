@@ -1,24 +1,24 @@
 const rizlist = [
     {
       id: 1,
-      nom: "hamburger",
-      description: "lorem ipsum dolor sit amet",
+      nom: "riz special malagasy",
+      description: "riz",
       prix: 20000,
-      img: "/src/image/Burger.png",
+      img: "src/image/riz malagasy.jpg",
     },
     {
       id: 2,
-      nom: "Pizza",
+      nom: "bol renverse",
       description: "lorem ipsum dolor sit amet",
       prix: 20000,
-      img: "/src/image/Pizzaimage.jpg",
+      img: "src/image/Riz special.jpg",
     },
     {
       id: 3,
-      nom: "Soupe Legume",
-      description: "lorem ipsum dolor sit amet",
+      nom: "Riz special",
+      description: "riz noir, boullet de viande, tomate",
       prix: 20000,
-      img: "/src/image/imgCrudité.jpeg",
+      img: "src/image/riz noir.jpg",
     },
     
     
