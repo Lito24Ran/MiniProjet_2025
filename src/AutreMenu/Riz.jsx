@@ -1,33 +1,48 @@
 import React from "react";
-import  Row  from "react-bootstrap/Row";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Carte from "../component/carte.jsx";
-import  Col  from "react-bootstrap/Col";
 import Navbar from "../component/navbar";
+import  Row  from "react-bootstrap/Row";
+import  Col  from "react-bootstrap/Col";
+import Stack from 'react-bootstrap/Stack';
+import Cards from '../component/Card';
+import { createContext, useContext, useState} from "react";
+import { CartContext } from "../context/CartContext";
+import list from './Datariz'
 
 
-function Riz() {
-    const prix = 12000;
-    return(
+function  Riz (){
+
+    const { cart, setCart } = useContext(CartContext); 
+    const handleClick = (item) => {
+        // handleClick doit gerer le quantite alefa any am panier
+        const existItem = cart.find(produit => produit.id === item.id);
+    
+        if(existItem) {
+          // atao Maj le quantite raha efa misy
+          setCart(cart.map(produit =>
+              produit.id === item.id ? { ...produit, quantity: produit.quantity + item.quantity} : produit
+            ));
+        } else {
+          setCart([...cart, item]);
+        }
+        console.log(item);
+    };
+
+    return (
         <>
-        <Navbar/>
-        <h1 className="nom_categorie">Boisson</h1>
-        <Row>
-            <Col xs = {12} md = {4} lg = {3} >
-        <Carte Titre="Riz contonais" >
-             <p style={{color:"orange"}}><strong>{prix}</strong></p>
-             <p>Je suis une soupe 0</p>
-        </Carte>
-        </Col>
-        <Col>
-        <Carte Titre="Riz contonais">
-             <p style={{color:"orange"}}><strong>{prix}</strong></p>
-             <p>Je suis une soupe 0</p>
-        </Carte>
-            </Col>
-        </Row>
+            <Navbar size={cart.length} />
+            <section>
+        {
+            list.map((item)=>(
+                <Cards item={item} key={item.id} handleClick={handleClick} />
+            ))
+        }
+    </section>
         </>
-    );
-}
+    )
+} 
+  
+
+
 
 export default Riz;

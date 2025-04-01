@@ -4,7 +4,7 @@ const boissonlist = [
       nom: "hamburger",
       description: "lorem ipsum dolor sit amet",
       prix: 20000,
-      img: "C:\Users\Oracle\Desktop\MiniProjet_2025\src\image\litoburger.jpg",
+      img: "/src/image/SOUPELITO.jpg",
     },
     {
       id: 2,
