@@ -116,3 +116,6 @@
     background-color: transparent;
     border-top-right-radius: 5px;
 }
+.quantity-controls button:hover{
+    background: #D6976B;
+}
