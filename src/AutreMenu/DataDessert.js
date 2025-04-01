@@ -1,4 +1,4 @@
-const snacklist = [
+const DessertList = [
     {
       id: 1,
       nom: "hamburger",
@@ -24,4 +24,4 @@ const snacklist = [
     
  ];
 
-export default snacklist;
+export default DessertList;

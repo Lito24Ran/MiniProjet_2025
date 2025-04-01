@@ -1,8 +1,10 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from "../component/navbar.jsx";
-import Carte from "../component/carte.jsx";
 import Stack from 'react-bootstrap/Stack';
+import snacklist from './Datasnack.js'
+import Cards from "../component/Card.jsx";
+
 
 function  CarteCrudite (){
     const prix = 12000;
@@ -10,21 +12,11 @@ function  CarteCrudite (){
     <>
     <Navbar/>
     <h1 className="nom_categorie">Dessert</h1>
-    <Stack direction="horizontal" gap={2}>
-    
-    <Carte titre="Soupe Legume" >
-        <p style={{color:"orange"}}><strong>{prix}</strong></p>
-        <p>Je suis une soupe 0</p>
-    </Carte>
-    <Carte titre="Soupe Citron" >
-        <p style={{color:"orange"}}><strong>{prix}</strong></p>
-        <p>Je suis une soupe 4</p>
-    </Carte>
-    <Carte titre="Soupe Tongo-tromby">
-        <p style={{color:"orange"}}><strong>{prix}</strong></p>
-        <p>Je suis une soupe 2</p>
-    </Carte>
-    </Stack>
+        {
+            snacklist.map((item)=>(
+                <Cards item={item}/>
+            ))
+        }
     </>
     );
 } 

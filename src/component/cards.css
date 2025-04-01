@@ -107,3 +107,12 @@
     object-fit: contain;
     margin-top: -120px;
 }
+.quantity-controls1 {
+    background-color: transparent;
+    border-top-left-radius: 5px;
+}
+
+.quantity-controls2 {
+    background-color: transparent;
+    border-top-right-radius: 5px;
+}
