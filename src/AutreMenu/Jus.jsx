@@ -4,6 +4,7 @@ import Cards from '../component/Card';
 import { createContext, useContext, useState} from "react";
 import { CartContext } from "../context/CartContext";
 import list from './Databoisson'
+import Cartes from "../component/cartes";
 
 function Jus () {
     const { cart, setCart } = useContext(CartContext); 
@@ -29,7 +30,7 @@ function Jus () {
            <section>
         {
             list.map((item)=>(
-                <Cards item={item} key={item.id} handleClick={handleClick} />
+                <Cartes item={item} key={item.id} handleClick={handleClick} />
             ))
         }
     </section>
