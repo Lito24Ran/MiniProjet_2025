@@ -7,6 +7,7 @@ import Cards from '../component/Card';
 import { createContext, useContext, useState} from "react";
 import { CartContext } from "../context/CartContext";
 import list from './Databurger';
+import Cartes from "../component/cartes";
 
 function  MenuBurger (){
     const { cart, setCart } = useContext(CartContext); 
@@ -32,7 +33,7 @@ function  MenuBurger (){
            <section>
         {
             list.map((item)=>(
-                <Cards item={item} key={item.id} handleClick={handleClick} />
+                <Cartes item={item} key={item.id} handleClick={handleClick} />
             ))
         }
     </section>
