@@ -14,8 +14,7 @@
     margin-right: auto;
     margin-bottom: auto;
 }
-.item_ftr {
-   
+.item_ftr {   
     gap: 10px;
 }
 .icon_ftr {
@@ -66,4 +65,7 @@
     backface-visibility: hidden;
     transform-style: preserve-3d;
     border: 5px orange;
+}
+.slogon_ftr{
+    text-align: center;
 }

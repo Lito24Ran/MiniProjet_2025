@@ -15,7 +15,9 @@ function customerNavbar({size}) {
     return(
         <>
           <Navbar style={{color}} className="Barre_Menu">
+       
          <Container>
+       
            <Navbar.Brand  as={Link} to="/"><img
            src="src\image\ikaly.png"
            alt="logo"
@@ -24,11 +26,12 @@ function customerNavbar({size}) {
            className="logonav"
            />
            </Navbar.Brand>
-           <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          
+                       <Navbar.Toggle aria-controls="basic-navbar-nav" />
            <Navbar.Collapse id="basic-navbar-nav">
-            <div className="nav_item">
-            <p className="Navbar_text">Menu</p>
-            </div>
+              <Nav className="txt">
+            <p  className="Navbar_text" >Menu</p>
+          </Nav>
             <Nav className="ms-auto">
               <Nav.Link as={Link} to="/panier"><img
               src="src\image\panier.png"
