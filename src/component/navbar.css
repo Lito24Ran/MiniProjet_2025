@@ -36,9 +36,11 @@
 }
 
 .Navbar_text:hover{
-   color: #a70000;
+   color: rgb(235, 63, 81);
    transform: scale(1.2);
+   cursor: pointer;
 }
+
 .logonav {
     width: auto;
     height: 130px;
@@ -49,7 +51,7 @@
 .span {
     padding: 0 5px;
     margin-bottom: 2vw;
-    background-color: rgb(233, 8, 8);
+    background-color: rgb(235, 63, 81);
     color: white;
     font-weight: bold;
     border-radius: 20vw;
