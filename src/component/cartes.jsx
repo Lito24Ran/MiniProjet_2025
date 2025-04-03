@@ -21,12 +21,9 @@ import { Row,Col } from 'react-bootstrap';
     };
 
   return (
-    <Row>
-        <Col md = {6} xl={4}>
     <div className='cartes_container'>
-      <img src="src\image\font.png" alt="font" className='font' />
-      
-    
+      <img src="src\image\font.png" alt="font" className="fonts" />
+       <div className='menus'></div>     
       <div className='cartes'>
       
         <img className="cartesimage" src={img} alt="Image" />
@@ -45,9 +42,7 @@ import { Row,Col } from 'react-bootstrap';
               {/*</varyContext.Provider>*/}
         </div>
       </div>
-    </div>
-        </Col>
-    </Row>
+      </div>
     
   )
 }
