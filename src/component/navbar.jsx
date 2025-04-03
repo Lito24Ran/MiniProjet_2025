@@ -33,15 +33,9 @@ function customerNavbar({size}) {
           
                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
            <Navbar.Collapse id="basic-navbar-nav">
-<<<<<<< HEAD
             <div className="nav_item">
             <p className="Navbar_text" onClick={() => handleClic("/Menu")}>Menu</p>
             </div>
-=======
-              <Nav className="txt">
-            <p  className="Navbar_text" >Menu</p>
-          </Nav>
->>>>>>> 171020f6da394815b230e4e18ec8fbe9e1c2b363
             <Nav className="ms-auto">
               <Nav.Link as={Link} to="/panier"><img
               src="src\image\panier.png"
