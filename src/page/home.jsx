@@ -67,9 +67,10 @@ function Home(){
     <Container>
 
       <Row>
-        <p className="text">Explorer notre menu</p><br />
+        <div className="texte">
+        <p className="text">Explorer notre menu</p>
         <p className="texts">Choisissez parmi notre menu varie, compose d'une selection de plats savoreux. Notre mission est de satisfaire vos envies et d'elever votre experience culinaire</p>
-        
+        </div>
         <div className="contenairMenu">
         
          <div className="menu">
