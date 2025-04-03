@@ -14,28 +14,30 @@ return(
       <img src="src\image\back.png" alt="back" className="backimage"/>
     </div>  
          <Carousel className='Carousel'>
-
       <Carousel.Item className='Les_Carousel'>
-        <img className="Carousel_background" src="src\image\car snack.jpg" alt="snack" />
+        <img className="Carousel_background" src="src\image\snack street.jpg" alt="snack" />
         <Carousel.Caption className='caroussel_text_1'>
-          <h3 className='titre'>Snack</h3>
-          <p className='titre_bas'>Avec un de très bon pomme de terre et un peut de sel et du poivre</p>
+          <img src="src\image\street.png" alt="snack" className='img_car1'/>
+          <h3 className='titre'>Snack et Street Food</h3>
+          <p className='titre_bas'>Princi Burger ,  Christo Tacos</p>
         </Carousel.Caption>
       </Carousel.Item>
       
       <Carousel.Item className="Les_Carousel">
       <img className="Carousel_background" src="src\image\car repas.jpg" alt="image2" />
         <Carousel.Caption className='caroussel_text'>
-          <h3 className='titre'>Repas</h3>
-          <p className='titre_bas'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <img src="src\image\viande.png" alt="viandes" className='img_car' />
+          <h3 className='titre'>Specialites Viandes</h3>
+          <p className='titre_bas'>Brochette Lito ,  Kebab Bunny</p>
         </Carousel.Caption>
       </Carousel.Item>
 
       <Carousel.Item className="Les_Carousel">
-        <img className="Carousel_background" src="src\image\car boisson.jpg" alt="soupe" />
+        <img className="Carousel_background" src="src\image\car snack.jpg" alt="soupe" />
         <Carousel.Caption className='caroussel_text_1'>
-          <h3 className='titre'>Soupe </h3>
-          <p className='titre_bas'>Ingrédients: blabla ,blabla</p>
+          <img src="src\image\plats.png" alt="plats" className='img_car1' />
+          <h3 className='titre'>Plats Gourmands</h3>
+          <p className='titre_bas'>Bolog-Naj , Chicken Vic</p>
         </Carousel.Caption>
       </Carousel.Item>
 
