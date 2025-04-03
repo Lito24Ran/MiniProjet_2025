@@ -1,77 +1,109 @@
-
-.body{
-    height: 100vh;
-    height: 100%;
-    position: relative;
-    display: flex;
-   
+.menus{
+ font-size: 100px;
+ color: black;
+ margin-top: 150px;
+ text-align: center;
+   justify-content: center;
+   align-items: center;
+   font-family: "fr";
+   color: black;
+   z-index: 2;
+   animation: float 1s ease-in-out infinite;
 }
+.menus:hover{
+    animation: paused;
+}
+/* @keyframes float{
+    0% {transform: translateY(0) translateX(0);}
+    50% { transform: translateY(-20%) translateX(0);}
+    100% {transform: translateY(0) translateX(0);}
+} */
 
 .All_Cards{
     width: 80%;
     margin: auto;
-    margin-top: 350px;
+    margin-top: 200px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
 }
-
-.carteimage {
-    max-width: 100%;
+.decrement {
+    background-color: transparent;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-right: 5px;
+}
+.increment {
+    background-color: transparent;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-left: 5px;
+}
+.cartesimage {
+    width: 100%;
     image-resolution: 100%;  
-    max-height: 500px;
+    height: 170px;
     padding: 10px;
     overflow: hidden;
     object-fit: cover;
+    image-resolution: 100%;
     position: relative;
     margin-top: 0px;
     border-top-right-radius: 80px;
     border-top-left-radius: 80px;
     border-bottom-right-radius: 50px;
     border-bottom-left-radius: 50px;
-    left: 9%;
+    transition: 0.3s ease-in-out;
 }   
-.cards_container{
+.cartesimage:hover{
+  transform: scale(1.1);
+}
+.cartes_container{
     display: flex;
     justify-content: center;
+    height: 800px;
     flex-wrap: wrap;
     position: relative;
     margin-bottom: 100px;
+    margin-top: -150px;
+    overflow:visible;
 }
-.card {   
+.cartes {   
     height: 400px;
     width: 300px;
     border: .1px solid rgb(0, 0, 0);
     border-radius: 80px;
     overflow: hidden;
     box-shadow: 0px 4px 8px  black;
-    margin: 5px;    
+    margin: 0px;    
     border-color: rgb(255, 255, 254);
     margin-bottom: 20px;
     background-color: #fdd1794f;
     z-index: 1;
 }
 
-.card_text{   
+.cartes_text{   
  text-align: center;
  padding-bottom: 10px;
  position: relative;
 }
-.titre_card{
+.titles_card{
     font-size: 30px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: left;
     padding-left: 15px;
+    width: 100%;
 }
-.description{
+.descriptions{
     font-size: 10;
     font-family: Arial, Helvetica, sans-serif ;
     text-align: left;
     padding-left: 10px;
+    margin-top: -10px;
 }
-.prix{
+.price{
     font-size: 20px;
-    color: #383802;
+    color: #ec8e00;
     padding-left: 25px;
     text-align: left;
 }
@@ -88,11 +120,24 @@
   color: #f8f8f8;
 }
 
-.font{
+.fonts{
     position: absolute;
     z-index: 0;
-    opacity: 15%;
-    display: flex;
+    opacity: 20%;
     object-fit: contain;
-    margin-top: -120px;
+    margin-top: -200px;
+    /* height: 100vh; */
+    z-index: 0;
+}
+.quantite-controls1 {
+    background-color: transparent;
+    border-top-left-radius: 5px;
+}
+
+.quantite-controls2 {
+    background-color: transparent;
+    border-top-right-radius: 5px;
+}
+.quantite-controls button:hover{
+    background: #D6976B;
 }
