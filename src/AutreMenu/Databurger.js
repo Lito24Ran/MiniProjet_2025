@@ -2,23 +2,23 @@ const burgerlist = [
     {
       id: 1,
       nom: "hamburger",
-      description: "lorem ipsum dolor sit amet",
-      prix: 20000,
-      img: "/src/image/Burger.png",
+      description: "boeuf , fromage , salade , tomates",
+      prix: 15000,
+      img: "src/image/litoburger.jpg",
     },
     {
       id: 2,
       nom: "Pizza",
-      description: "lorem ipsum dolor sit amet",
-      prix: 20000,
-      img: "/src/image/Pizzaimage.jpg",
+      description: "Oeuf , fromage, Mozarella",
+      prix: 25000,
+      img: "src/image/pizza italia.jpg",
     },
     {
       id: 3,
-      nom: "Soupe Legume",
-      description: "lorem ipsum dolor sit amet",
-      prix: 20000,
-      img: "/src/image/imgCrudité.jpeg",
+      nom: "Frite",
+      description: "ovy , sauce tomates , chili",
+      prix: 10000,
+      img: "src/image/frite nay.webp",
     },
     
     

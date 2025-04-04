@@ -13,6 +13,18 @@
 .menus:hover{
     animation: paused;
 }
+.menus::after{
+    content: '';
+    width: 8%;
+    height: 3px;
+    margin: auto;
+    margin-top: -1%;
+    display: block;
+    left: 0;
+    right: 0;
+   background: rgb(107, 3, 3);
+    transition: 0.2s linear;
+}
 /* @keyframes float{
     0% {transform: translateY(0) translateX(0);}
     50% { transform: translateY(-20%) translateX(0);}

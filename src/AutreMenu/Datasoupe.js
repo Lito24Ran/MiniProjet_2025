@@ -1,24 +1,25 @@
 const soupelist = [
     {
       id: 1,
-      nom: "hamburger",
-      description: "lorem ipsum dolor sit amet",
-      prix: 20000,
-      img: "/src/image/Burger.png",
+      nom: "Pates seches",
+      description: "spaghetti , oeuf , oignon",
+      prix: 10000,
+      img: "src/image/pates seche.jpg",
     },
     {
       id: 2,
-      nom: "Pizza",
-      description: "lorem ipsum dolor sit amet",
+      nom: "Classic Spaghetti",
+      description: "spaghetti , viande de boeuf, oeuf ",
       prix: 20000,
-      img: "/src/image/Pizzaimage.jpg",
+      img: "src/image/classic pat.jpeg",
     },
     {
       id: 3,
-      nom: "Soupe Legume",
-      description: "lorem ipsum dolor sit amet",
-      prix: 20000,
-      img: "/src/image/imgCrudité.jpeg",
+      nom: "Salade de Fusilli ",
+      description: "Fusilli , Tomates, Parmesan",
+      prix: 15000,
+      img: "src/image/slade.jpeg",
+
     },
     
     
