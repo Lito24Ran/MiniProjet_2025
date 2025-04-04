@@ -8,7 +8,7 @@ const DessertList = [
     },
     {
       id: 2,
-      nom: "Pizza",
+      nom: "Glaces",
       description: "3 boules, ananas ",
       prix: 14000,
       img: "src/image/galce ananas.jpg",
