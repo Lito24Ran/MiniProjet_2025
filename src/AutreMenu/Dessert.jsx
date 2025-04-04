@@ -5,7 +5,8 @@ import Navbar from "../component/navbar";
 import Cartes from "../component/cartes";
 import { createContext, useContext, useState} from "react";
 import { CartContext } from "../context/CartContext";
-import list from './DataDessert'
+import list from './DataDessert';
+import Foot from "../component/footer";
 
 function  Dessert (){
 
@@ -30,16 +31,23 @@ function  Dessert (){
         <>        
         <Navbar size={cart.length} /> 
            <section>
-           <img src="src\image\font.png" alt="font" className="fonts" />
-           <div className='menus'>Dessert</div> 
-           <div className="All_Cards">
-        {
-            list.map((item)=>(
-                <Cartes item={item} key={item.id} handleClick={handleClick} />
-            ))
-        }
-        </div>
-    </section>
+                <img src="src\image\font.png" alt="font" className="fonts" />
+                <div className='menus'>Dessert</div> 
+                <div className="All_Cards">
+                    {
+                        list.map((item)=>(
+                          <Cartes item={item} 
+                                  key={item.id} 
+                                  handleClick={handleClick} />
+                        ))
+                    }
+                </div>
+            </section>
+
+    
+            <footer>
+                <Foot/>
+            </footer>
         </>
 
     );

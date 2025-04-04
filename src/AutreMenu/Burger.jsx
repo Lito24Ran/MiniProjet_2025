@@ -1,12 +1,11 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from "../component/navbar";
-import Stack from 'react-bootstrap/Stack';
-import Burger from '../image/Burger.png';
 import { createContext, useContext, useState} from "react";
 import { CartContext } from "../context/CartContext";
 import list from './Databurger';
 import Cartes from "../component/cartes";
+import Foot from "../component/footer";
 
 function  MenuBurger (){
     const { cart, setCart } = useContext(CartContext); 
@@ -29,17 +28,22 @@ function  MenuBurger (){
     return (
         <>
            <Navbar size={cart.length} /> 
-           <section>
-           <img src="src\image\font.png" alt="font" className="fonts" />
-           <div className='menus'>Snack</div> 
-           <div className="All_Cards">
-        {
-            list.map((item)=>(
-                <Cartes item={item} key={item.id} handleClick={handleClick} />
-            ))
-        }
-        </div>
-    </section>
+            <section>
+                    <img src="src\image\font.png" alt="font" className="fonts" />
+                    <div className='menus'>Snack</div> 
+                <div className="All_Cards">
+                    {
+                        list.map((item)=>(
+                            <Cartes item={item} 
+                                key={item.id} 
+                                handleClick={handleClick} />
+                            ))
+                    }
+                </div>
+            </section>
+            <footer>
+                <Foot/>
+            </footer>
         </>
     )
 } 

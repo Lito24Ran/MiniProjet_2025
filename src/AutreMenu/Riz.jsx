@@ -7,7 +7,8 @@ import Stack from 'react-bootstrap/Stack';
 import Cartes from "../component/cartes";
 import { createContext, useContext, useState} from "react";
 import { CartContext } from "../context/CartContext";
-import list from './Datariz'
+import list from './Datariz';
+import Foot from "../component/footer";
 
 
 function  Riz (){
@@ -32,16 +33,23 @@ function  Riz (){
         <>
             <Navbar size={cart.length} />
             <section>
-            <img src="src\image\font.png" alt="font" className="fonts" />
-            <div className='menus'>Riz</div> 
-            <div className="All_Cards">
-        { 
-            list.map((item)=>(
-                <Cartes item={item} key={item.id} handleClick={handleClick} />
-            ))
-        }
-           </div>
+                <img src="src\image\font.png" alt="font" className="fonts" />
+                <div className='menus'>Riz</div> 
+                <div className="All_Cards">
+                { 
+                    list.map((item)=>(
+                        <Cartes item={item} 
+                                key={item.id} 
+                                handleClick={handleClick} />
+                    ))
+                }
+                </div>
     </section>
+
+    
+            <footer>
+                <Foot/>
+            </footer>
         </>
     )
 } 

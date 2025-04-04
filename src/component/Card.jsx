@@ -29,8 +29,8 @@ import produitContext from '../page/home'
         <img className="carteimage" src={img} alt="Image" />
         <div className='card_text'> 
               <p className='titre_card' >{nom}</p>
-              <p className='description'>{description}</p>
-              <p className='prix'>{prix} Ar</p>
+              <p className='description'><b>Ingredient: </b>{description}</p>
+              <p className='prix'>Prix : <b style={{color :'green'}}>{prix} Ar</b> </p>
               <div className="quantity-controls">
                 <button className='quantity-controls1 ' onClick={decrement}>-</button>
                 <span>{quantity}</span>

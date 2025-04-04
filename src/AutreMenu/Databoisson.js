@@ -1,20 +1,20 @@
 const boissonlist = [
     {
-      id: 1,
+      id: 10,
       nom: "Jus orange",
       description: "orange, eau, citron",
       prix: 10000,
       img: "src/image/boisson1.jpg",
     },
     {
-      id: 2,
+      id: 11,
       nom: "caffe",
       description: "caffe, lait",
       prix: 12000,
       img: "src/image/coffe.jpg",
     },
     {
-      id: 3,
+      id: 12,
       nom: "gallantry whiskey",
       description: "le meilleur des whiskey ",
       prix: 20000,
