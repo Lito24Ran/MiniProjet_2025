@@ -1,20 +1,20 @@
 const rizlist = [
     {
-      id: 1,
+      id: 19,
       nom: "riz special malagasy",
       description: "riz",
       prix: 20000,
       img: "src/image/riz malagasy.jpg",
     },
     {
-      id: 2,
+      id: 20,
       nom: "bol renverse",
-      description: "lorem ipsum dolor sit amet",
+      description: "riz, crevette frit,",
       prix: 20000,
       img: "src/image/Riz special.jpg",
     },
     {
-      id: 3,
+      id: 21,
       nom: "Riz special",
       description: "riz noir, boullet de viande, tomate",
       prix: 20000,

@@ -9,7 +9,7 @@ const list = [
     {
       id: 2,
       nom: "Pizza maison",
-      description: "4 Frommages,Viande,Poulet,Fruits de mer,Mortadelle,Oeufs durs",
+      description: "4Frommages,Viande,Poulet,Fruits de mer,Mortadelle,Oeufs durs",
       prix: 30000,
       img: "src/image/pizzalito.jpg",
     },

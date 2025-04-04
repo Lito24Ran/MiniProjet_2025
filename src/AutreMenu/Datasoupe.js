@@ -1,24 +1,24 @@
 const soupelist = [
     {
-      id: 1,
-      nom: "hamburger",
-      description: "lorem ipsum dolor sit amet",
+      id: 22,
+      nom: "RAMEN",
+      description: "carotte,oignon blanc,huile d'olive,Passata de tomates ",
       prix: 20000,
-      img: "/src/image/Burger.png",
+      img: "src/image/patebolognaise.jpg",
     },
     {
-      id: 2,
-      nom: "Pizza",
-      description: "lorem ipsum dolor sit amet",
+      id: 23,
+      nom: "SOUPE CHINOISE",
+      description: "oignon déshydraté, ail, épices, poudre de sauce soja ",
       prix: 20000,
-      img: "/src/image/Pizzaimage.jpg",
+      img: "src/image/soupe chinoise.jpg",
     },
     {
-      id: 3,
+      id: 24,
       nom: "Soupe Legume",
-      description: "lorem ipsum dolor sit amet",
+      description: "eau, carotte, pomme de terre, CÉLERI-RAVE, tomate, oignon¹ ",
       prix: 20000,
-      img: "/src/image/imgCrudité.jpeg",
+      img: "src/image/Soupe au legume.jpg",
     },
     
     
