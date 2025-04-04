@@ -29,7 +29,7 @@ import { Row,Col } from 'react-bootstrap';
         <img className="cartesimage" src={img} alt="Image" />
         <div className='cartes_text'> 
               <p className='titles_card' >{nom}</p>
-              <p className='descriptions'><b>Incredient:</b> {description}</p>
+              <p className='descriptions'><b>Ingredient:</b> {description}</p>
               <p className='price'> Prix : <b style={{color: 'green'}}>{prix}  Ar</b></p>
               <div className="quantite-controls">
                 <button className='quantite-controls1 ' onClick={decrement}>-</button>
