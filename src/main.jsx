@@ -1,8 +1,9 @@
-import React from 'react';
-import { createBrowserRouter , RouterProvider } from 'react-router-dom';
-import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom';
+import { createRoot } from 'react-dom/client';
+import ReactDOM from "react-dom/client";
 import App from './App.jsx';
-import Home from './page/home.jsx';
+import { CartProvider } from './context/CartContext.jsx';
+/* import Home from './page/home.jsx';
 import Soupe from './AutreMenu/Soupe.jsx';
 import MenuBurger from './AutreMenu/Burger.jsx';
 import Dessert from './AutreMenu/Dessert.jsx';
@@ -10,13 +11,17 @@ import Riz from './AutreMenu/Riz.jsx';
 import Jus from './AutreMenu/Jus.jsx';
 import Menu from './page/Menu.jsx'
 import Panier from './page/Panier.jsx';
-import { CartProvider } from './context/CartContext.jsx';
+ */
 
-const router = createBrowserRouter([
+
+
+/* const router = createBrowserRouter([
   {
+    
     path: "/",
     element: <App/>,
     children: [
+   
       {
         path:"",
         element:<Home/>
@@ -49,14 +54,16 @@ const router = createBrowserRouter([
         path: '/panier',
         element: <Panier />,
       },
-    ]
+     
+    ],
+   
 }
-])
+]) */
 
-createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <BrowserRouter>
     <CartProvider>
-      <RouterProvider router={router}/>
+      <App />
     </CartProvider>
-  </React.StrictMode>,
-)
+  </BrowserRouter>
+  );
