@@ -8,15 +8,15 @@ const router = require("../router/router");
 const methodoverride = require('method-override');
 const cors = require("cors")
 
-
-
-//Eto no fampidirana mongodb
-mongoose.connect('mongodb+srv://randrianaivosonazaria:DWBnfGZshpUcjUoP@cluster0.lt8wfqa.mongodb.net/signIn',);
-const db = mongoose.connection;
-
 app.use(cors());
 app.use(body_Parser.urlencoded({extends:true}));
 app.use(express.json());
+
+//Eto no fampidirana mongodb
+mongoose.connect('mongodb://localhost:27017/GeIt',);
+const db = mongoose.connection;
+
+
 
 app.use(methodoverride("_method"));
 

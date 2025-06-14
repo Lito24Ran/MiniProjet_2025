@@ -13,32 +13,108 @@ function Loginpage() {
     const [email, setEmail] = useState("");
     const [loginemail, SetLoginemail] = useState("")
     const [connecte, setConnecte] = useState(false);
+    const [data, setData] = useState([]);
+    const [existename, setExistname] = useState(false)
+
+    //Eto no nataoko ilay erreur rehetra 
+    const [erreur, setErreur] = useState(false);
+    const [erreunom, setErreurnom] = useState(false);
+    const [errEmail, setErrEmail] = useState(false);
+    const [errpassword, setErreurpassword] = useState(false);
+    //Eto indray erreur an' ilay hoe ts misy @gmail.com
+    const [emailmissing, setEmailmissing] = useState(false);
+    const [missingpass, setMissingpass] = useState(false);
+    const [incorrectemail, setIncorrectemai] = useState(false)
+
+    //Eto no mi naviguer ilay izy
+
+    const navigate = useNavigate();
+    function navigation(path) {
 
 
+        navigate(path)
+    }
+
+    useEffect(() => {
+        const dataComparing = async () => {
+            try {
+                const datafetching = await fetch("http://localhost:1203/dataUser", {
+                    method: 'GET'
+                });
+                const donnefetch = await datafetching.json();
+                //console.log(donnefetch[0].name);
+                setData(donnefetch)
+
+            } catch (error) {
+                console.log("Une erreur c' est produit!");
+
+            }
+
+
+        }
+        dataComparing();
+        //console.log(data[0].email);
+    }, [data])
 
     function handleclicLogin() {
+        console.log(data);
+        //console.log(data[1].email);
 
-        if ((password.trim().length < 8)) {
-            alert("Entrer un mot de passe");
-        } else if (password.trim().includes(("@")) || (password.trim().includes(("#"))) || (password.trim().includes(("$"))) ||
-            (password.trim().includes(("&"))) || (password.trim().includes(("*")))
-        ) {
-            if (name.trim() == "") {
-                alert("Entrer votre nom")
-            } else if (password.trim() == "") {
-                alert("Entrer votre mot de passe")
-            } else if (email.trim() == "") {
-                alert("Entrer votre adresse email!")
+        //Eto no manao condition de login 
+        let j = 0;
+
+        if (name.trim() === "" && email.trim() === "" && password.trim() === "") {
+            /* alert("Entrer les champs") */
+            setErreur(true)
+        }
+        else if (name.trim() == "") {
+            setErreurnom(true);
+        } else if (email.trim() == "") {
+            /* alert("Entrer votre email") */
+            setErrEmail(true);
+        } else if (password.trim() == "") {
+            /*  alert("Entrer votre mot de passe!") */
+            setErreurpassword(true);
+        } else if (!email.trim().includes("@gmail.com")) {
+
+            setEmailmissing(true)
+
+        } else {
+            for (let i = 0; i < data.length; i++) {
+                if (data[i].name === name) {
+                    setExistname(false)
+                    break;
+                } else {
+                    setExistname(true)
+                }
+                j++;
+                //console.log(j);
+
+            }
+            if (existename) {
+                /*  alert("Votre compte existe!"); */
+                if (data[j].email == email) {
+
+                    if (data[j].password === password) {
+                        /*  alert("Votre mot de passe est correcte") */
+                        setConnecte(true)
+                    } else {
+                        /* alert("Votre mot de passe est incorrecte!") */
+                        setMissingpass(true)
+                    }
+                } else {
+
+                    setIncorrectemai(true)
+                }
             }
             else {
-                setLoginPassword(password);
-                setLoginUser(name);
-                SetLoginemail(email);
-                setConnecte(true)
+                /* alert("compte innexistant creer un compte") */
+                setExistname(true)
             }
-        } else {
-            alert("Veuillez mettre un caractere specifique au mot de passe")
         }
+
+
+
     }
 
 
@@ -53,40 +129,33 @@ function Loginpage() {
     function handlechangeEmail(event) {
         setEmail(event.target.value)
     }
-    useEffect(() => {
-        const Userlogin = async () => {
-            const dataSend = await fetch("http://localhost:1203/login", {
-                method: "POST",
-                mode: "cors",
-                headers: {
-                    'content-type': 'application/json',
-                },
-                body: JSON.stringify({
-                    name: loginUser,
-                    password: loginPassword,
-                    email: loginemail
 
-                })
-            })
+    setTimeout(() => {
+        setErreur(false);
+        setErrEmail(false);
+        setErreurpassword(false);
+        setEmailmissing(false);
+        setConnecte(false);
+        setIncorrectemai(false)
+    }, 8000);
 
-
-            const result = await dataSend.json();
-            //console.log("Donne enregistrer : ", result);
-
-        }
-        Userlogin();
-
-    }, [loginUser])
-
-    const navigation = useNavigate()
-
-    useEffect(() => {
-        (connecte) ? console.log("Vous etes identifier") && navigation("/home") : console.log("Une erreur d' un des entres");
-
-    }, [connecte])
 
     return (
         <>
+            {
+
+                useEffect(() => {
+                    if (connecte) {
+                        <p className="SuccesConnexion"> Connexion reussit</p>
+                        alert("Connexion reussit")
+                        setTimeout(() => {
+                            navigation("/home")
+                        }, 1000);
+
+                    };
+
+                }, [connecte])
+            }
 
             <div className="SignIn_container">
                 <div>
@@ -99,11 +168,16 @@ function Loginpage() {
                                 required
                                 size={500} />
                             <div className="underline"></div>
+                            {
+                                (erreur) ? <p className="error" title="champ obligatoire ">!</p> :
+                                    (erreunom) ? <p className="error" title="Entrer votre nom">!</p> :
+                                        (existename) && <p className="compte_introuvable"> creer un compte</p>
+                            }
                             <label htmlFor="nom">Enter your name</label>
                         </div>
                         <br />
                         <div className="inputName">
-                            <input type="text" className="emailLogin"
+                            <input type="text   " className="emailLogin"
                                 required
                                 value={email}
                                 onChange={handlechangeEmail}
@@ -111,6 +185,12 @@ function Loginpage() {
                             />
 
                             <div className="underline"></div>
+                            {
+                                (erreur) ? <p className="error" title="champ obligatoire ">!</p> :
+                                    (errEmail) ? <p className="error" title="Entrer votre email!">!</p> :
+                                        (emailmissing) ? <p className="error" title="Votre adresse email doit etre suivis d' un @gmail.com">!</p> :
+                                            (incorrectemail) && <p className="error" title="Votre adresse email doit etre suivis d' un @gmail.com">!</p>
+                            }
                             <label htmlFor="email">Enter your email</label>
                         </div>
 
@@ -124,26 +204,35 @@ function Loginpage() {
                             />
 
                             <div className="underline"></div>
+                            <div className="underline"></div>
+                            {
+                                (erreur) ? <p className="error" title="champ obligatoire ">!</p> :
+                                    (errpassword) ? <p className="error" title="Votre mot de passe est incorrecte">!</p> :
+                                        (missingpass) && <p className="error" title="Votre mot de passe est incorrecte">!</p>
+                            }
                             <label htmlFor="email">Enter your password</label>
                         </div>
                         <br />
                         <div className="paragraphe">
-                            <p>  <Link> mot de passe oublier?</Link></p>
+                            <p>Forgot password?  <Link> click here</Link></p>
                         </div>
                         <button
                             onClick={handleclicLogin}
                             className="btnLogin"
                         >Login</button>
+                        <div className="paragraphe">
+
+                            <p>Not registered? <Link to={"/SignUp"}>Create an account</Link></p>
+
+                        </div>
                     </div>
-                    <div className="paragraphe">
-                        <p>Not registered? <Link to={"/"}>Create an account</Link></p>
-                    </div>
+
                 </div>
                 <div className="divImage">
                     <div>
-                        <img src="MiniProjet_2025\src\image\image_chef.png" alt="imageDechef" id="imgeLogin" />
+                        <img src="src/image/image_chef.png" alt="imageDechef" id="imgeLogin" />
                     </div>
-                    <h2 style={{ color: "white", position: "relative", right: "80px" }}>Kaly-IT</h2>
+                    <h2 style={{ color: "white", position: "relative", right: "80px" }}>Kalico</h2>
                 </div>
             </div>
 

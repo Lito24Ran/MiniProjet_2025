@@ -26,7 +26,7 @@ function Inscription() {
     const [errnom, setErrnom] = useState(false);
     const [errEmailVide, setErrEmailvide] = useState(false);
     const [errEmail, setErrEmail] = useState(false);
-
+    const [errpasswordchar,setErrpasschar] = useState(false)
 
     const navigate = useNavigate();
 
@@ -46,8 +46,8 @@ function Inscription() {
         }
         else if ((password.trim().length < 8)) {
             setErreurpassword(true)
-        } else if (!password.trim().includes(("@")) || (!password.trim().includes(("#"))) || (!password.trim().includes(("$"))) ||
-            (!password.trim().includes(("&"))) || (!password.trim().includes(("*")))
+        } else if (password.trim().includes(("@")) || (password.trim().includes(("#"))) || (password.trim().includes(("$"))) ||
+            (password.trim().includes(("&"))) || (password.trim().includes(("*")))
         ) {
 
             if (nom.trim() === "") {
@@ -76,7 +76,7 @@ function Inscription() {
 
 
         } else {
-            alert("Veuillez mettre un caractere specifique au mot de passe");
+        /*     alert("Veuillez mettre un caractere specifique au mot de passe"); */
             setErreur(false);
             setErrpasschar(true)
         }
@@ -88,7 +88,8 @@ function Inscription() {
             setErrlevel(false);
             setErrEmailvide(false);
             setErrEmail(false);
-            setErreurpassword(false) 
+            setErreurpassword(false);
+            setErrpasschar(false) 
    
         }, 8000);
 
@@ -145,7 +146,7 @@ function Inscription() {
                                 value={nom}
                                 onChange={handlchange}
                                 required
-                                size={500} />
+                                size={800} />
                             {
                                 (erreur) ? <p className="error" title="champ obligatoire ">!</p> :
                                     (errnom) && <p className="error" title="Entrer un nom">!</p>
@@ -157,9 +158,11 @@ function Inscription() {
 
                         <div className="inputName">
                             <input type="text" className="email"
-                                required
+                                
                                 value={email}
                                 onChange={handlchangeemail}
+                                
+                                required
                             />
                             {
                                 (erreur) ? <p className="error" title="champ obligatoire ">!</p> :
@@ -173,12 +176,16 @@ function Inscription() {
                         <br />
                         <div className="inputName">
                             <input type="password" id="password"
+                               
                                 required
                                 value={password}
-                                onChange={handlchangepassword} />
+                                onChange={handlchangepassword}
+                                
+                                />
                             {
                                 (erreur) ? <p className="error" title="champ obligatoire">!</p> :
-                                (erreurpassword) && <p className="error" title="mot de passe incorrecte">!</p> 
+                                (erreurpassword) ? <p className="error" title="mot de passe incorrecte">!</p> :
+                                (errpasswordchar) && <p className="error" title="caractere specifique requis :@ ou # ou $ ou & ou *">!</p>
                               
                             }
 
@@ -191,10 +198,12 @@ function Inscription() {
                                 required
                                 value={level}
                                 onChange={handlchangeLevel}
+                                
                             />
                             {
                                 (erreur) ? <p className="error" title="champ obligatoire ">!</p> :
-                                    (errlevel) && <p className="error" title="Enter one level with L1,L2 or L3 ">!</p>
+                                (errlevel) && <p className="error" title="Enter one level with L1,L2 or L3 ">!</p>
+                                    
                             }
                             <div className="underline"></div>
                             <label htmlFor="email">Entrer votre niveau</label>
@@ -210,14 +219,14 @@ function Inscription() {
 
 
                         <div className="paragraphe">
-                            <p>Do you have an account? <Link to={"/login"}>clic here</Link></p>
+                            <p>Do you have an account? <Link to={"/"}>clic here</Link></p>
                         </div>
                     </div>
                 </div>
 
                 <div className="divImage">
                     <div>
-                        <img src="MiniProjet_2025\src\image\image_chef.png" alt="imageDechef" id="imgeLogin" />
+                        <img src="src/image/image_chef.png" alt="imageDechef" id="imgeLogin" />
                     </div>
                     <h2 style={{ color: "white", position: "relative", right: "80px" }}>Kaly-IT</h2>
                 </div>

@@ -1,8 +1,13 @@
-body{
+ body{
     height: 100vh;
     width: 100vh; 
-    background-image: linear-gradient(to top right, rgba(166, 29, 113),rgba(239, 130, 35, 1));
-} 
+    background-image : url("src/image/backgroundSignUp1.png");
+    background-size: contain;
+    background-size: 210vh 100vh;
+    background-repeat: no-repeat
+
+     /* linear-gradient(to top right, rgba(166, 29, 113),rgba(239, 130, 35, 1) )*/;
+}  
 /* .container div{
     height: 500px;
     width: 700px;
@@ -125,10 +130,11 @@ span{
     position: relative;
     left: 30px;
 }
-input{
-    outline: none;
-    padding-right: 100px;   
-}
+ input{
+      outline: none; 
+    margin-right: 1000px;
+    
+} 
 .error{
     height: 30px;
     width: 30px;
@@ -141,3 +147,32 @@ input{
     bottom: 1px;
     cursor: pointer;
 }
+.compte_introuvable{
+    width: 100%;
+    height: 200%;
+    position: absolute;
+    bottom: 440%;
+    left: 100%;
+    border: 1px solid rgba(223, 43, 43, 0.811);
+    color: rgb(218, 36, 36);
+    background-color: rgb(230, 231, 232);
+    border-left: 7px solid red;
+    border-radius: 5px;
+    transition: 5s;
+}
+.compte_introuvable:focus{
+    transform: scale(5);
+}
+/* .SuccesConnexion{
+    width: 100%;
+    height: 200%;
+    position: absolute;
+    bottom: 400%;
+    left: 100%;
+    border: 1px solid rgba(64, 223, 43, 0.811);
+    color: rgb(85, 218, 36);
+    background-color: rgb(230, 231, 232);
+    border-left: 7px solid red;
+    border-radius: 5px;
+    transition: 5s;
+} */
