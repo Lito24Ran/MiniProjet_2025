@@ -1,5 +1,5 @@
 import React from "react";
-import {Route,Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Inscription from "./page/Singin";
 import Home from "./page/home";
 import Panier from "./page/Panier";
@@ -20,33 +20,33 @@ function App() {
 
   useEffect(() => {
     if (location.pathname === "/") {
-      document.body.style.backgroundImage = "linear-gradient(to top right, rgba(166, 29, 113),rgba(239, 130, 35, 1))" ;
-    }else if(location.pathname === "/login"){
-      document.body.style.backgroundImage = "linear-gradient(to top right, rgba(166, 29, 113),rgba(239, 130, 35, 1))"
+      document.body.style.backgroundImage =  `{url ("src/image/imageBackgoudSignUp2.png")}`/*src/image/backgroundSignUp1.gif/* "linear-gradient(to top right, rgba(166, 29, 113),rgba(239, 130, 35, 1))" */;
+    } else if (location.pathname === "/SignUp") {
+      document.body.style.backgroundImage = `{url ("src/image/backgroundSignUp1.png")}`
     }
-     else {
+    else {
       document.body.style.backgroundImage = "none";
     }
-  }, [location]);
-  return(
-      <Routes>
-          <Route path="/" element={<Inscription/>}/>
-          <Route path="/login" element={<Loginpage/>}/> 
-          <Route path="/home" element={<Home/>}/>
-          <Route path="/panier" element={<Panier/>}/>
-          <Route path="/Riz" element={<Riz/>}/>
-          <Route path="/Burger" element={<MenuBurger/>}/>
-          <Route path="/Dessert" element={<Dessert/>}/>
-          <Route path="/Jus" element={<Jus/>}/>
-          <Route path="/Menu" element={<Menu/>}/>
-          <Route path="/Soupe" element={<Soupe/>}/>
+  }, [location]); 
+  return (
+    <Routes>
+       <Route path="/" element={<Loginpage />} /> 
+      <Route path="/SignUp" element={<Inscription />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/panier" element={<Panier />} />
+      <Route path="/Riz" element={<Riz />} />
+      <Route path="/Burger" element={<MenuBurger />} />
+      <Route path="/Dessert" element={<Dessert />} />
+      <Route path="/Jus" element={<Jus />} />
+      <Route path="/Menu" element={<Menu />} />
+      <Route path="/Soupe" element={<Soupe />} />
 
 
-      </Routes>
- 
+    </Routes>
+
   )
 
-   
+
 }
 
 export default App;

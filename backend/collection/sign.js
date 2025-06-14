@@ -4,7 +4,7 @@ const { use } = require("react");
 //const bcrypt = require('bcryptjs');
 
 const signup = (req, res, next) => {
-    console.log(req.body);
+    //console.log(req.body);
 
     let Client = new student(
         {
@@ -29,7 +29,7 @@ const signup = (req, res, next) => {
                 message: "Une erreur c' est produit durrant l' enregistrement de donne!"
             })
         })
-    console.log(Client);
+    //console.log(Client);
 
 }
 
@@ -57,23 +57,26 @@ const login = (req, res) => {
 
             } else {
                 console.log("Compte inexistant!");
-                alert("Conpte innexistant")
+                
 
             }
         }
         )
         .catch(error => {
+            console.log("Une erreur c' est produit!");
+            
             res.json({
                 message: "Erreur de connexion"
             })
         })
 }
 
-const dataUser = (res,req) =>{
+const dataUser = (requete,response) =>{
     student.find({})
         .then(user =>{
-            console.log("Voici les donnes de l' utilisateur :", user);
-            res.send(user)
+            console.log("Voici les donnes de l' utilisateur :",);
+            response.send(user);
+            
         })
         .catch(err=>{
             console.log(err);
