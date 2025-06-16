@@ -1,7 +1,7 @@
 const list = [
     {
       id: 1,
-      nom: "Princi Humburger",
+      nom: "Princi burger",
       description: "Viandes,frommages,Sauce bechamelle",
       prix: 25000,
       img: "src/image/litoburger.jpg",
@@ -9,7 +9,7 @@ const list = [
     {
       id: 2,
       nom: "Pizza maison",
-      description: "4 Frommages,Viande,Poulet,Fruits de mer,Mortadelle,Oeufs durs",
+      description: "4Frommages,Viande,Poulet,Fruits de mer,Mortadelle,Oeufs durs",
       prix: 30000,
       img: "src/image/pizzalito.jpg",
     },
@@ -17,7 +17,7 @@ const list = [
       id: 3,
       nom: "Soupe Machirou",
       description: "Viandes,vantans,Filets de poisson",
-      prix: 30000,
+      prix: 20000,
       img: "src/image/SOUPELITO.jpg",
     },
     {
@@ -31,14 +31,14 @@ const list = [
       id: 5,
       nom: "Kebab Bunny",
       description: "Viandes en tranche,Sauce tomate",
-      prix: 20000,
+      prix: 10000,
       img: "src/image/kebab dnl.jpg",
     },
     {
       id: 6,
       nom: "bolog-naj",
       description: "Spaghetti,pure de tomate, mayonnaise,fromage",
-      prix: 10000,
+      prix: 15000,
       img: "src/image/min-sao lito.jpg",
     },
     {
@@ -52,7 +52,7 @@ const list = [
       id: 8,
       nom: "Chicken Vic",
       description: "poulets,sauce tomate pimente",
-      prix: 25000,
+      prix: 20000,
       img: "src/image/nuggets lito.jpg",
     },
     {

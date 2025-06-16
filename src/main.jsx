@@ -8,7 +8,9 @@ import MenuBurger from './AutreMenu/Burger.jsx';
 import Dessert from './AutreMenu/Dessert.jsx';
 import Riz from './AutreMenu/Riz.jsx';
 import Jus from './AutreMenu/Jus.jsx';
+import Menu from './page/Menu.jsx'
 import Panier from './page/Panier.jsx';
+import Login from '../connect/pagelog/login.jsx';
 import { CartProvider } from './context/CartContext.jsx';
 
 const router = createBrowserRouter([
@@ -19,6 +21,10 @@ const router = createBrowserRouter([
       {
         path:"",
         element:<Home/>
+      },
+      {
+        path:"/Login",
+        element:<Login/>
       },
       {
         path:"/Riz",
@@ -39,6 +45,10 @@ const router = createBrowserRouter([
       {
         path:"/Soupe",
         element:<Soupe/>
+      },
+      {
+        path:"/Menu",
+        element:<Menu/>
       },
       {
         path: '/panier',
