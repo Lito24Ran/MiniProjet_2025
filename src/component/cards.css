@@ -45,6 +45,7 @@
     border-bottom-right-radius: 50px;
     border-bottom-left-radius: 50px;
     left: 9%;
+    cursor: pointer;
 }   
 
 .card {   
@@ -60,6 +61,7 @@
     background-color: #fdd1794f;
     z-index: 1;
     margin-bottom: 50px;
+    cursor: pointer;
 }
 
 .card_text{   

@@ -22,7 +22,7 @@ function customerNavbar({size}) {
        
          <Container>
        
-           <Navbar.Brand  as={Link} to="/"><img
+           <Navbar.Brand  as={Link} to="/Home"><img
            src="src\image\ikaly.png"
            alt="logo"
            width="30"

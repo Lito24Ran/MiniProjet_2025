@@ -1,22 +1,18 @@
 import React, { createContext, useState } from "react";
 import Navbar from "../component/navbar";
-import frite from "../image/frite.png";
-import image2 from "../image/image2.png";
 import "./home.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Image from'react-bootstrap/Image';
-import Burger from '../image/burger.png';
 import { useNavigate } from "react-router-dom";
 import SystemeCrousel from "../component/Carousel.jsx";
-import imgCrudité from "../image/imgCrudité.jpeg";
 import Footer from "../component/footer.jsx";
 import list from '../data';
 import Cards from '../component/Card';
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext.jsx";
+import { Link } from "react-router-dom";
 
 export const produitContext = createContext();
 
@@ -60,7 +56,9 @@ function Home(){
         <Image className="imagemenu" src="src\image\pates.png" 
           onMouseOver={(e) => (e.currentTarget.src = "src/image/pates1.png")} 
           onMouseOut={(e) => (e.currentTarget.src = "src/image/pates.png")} 
-          onClick={()=>handleClic("/Soupe")}   roundedCircle/> 
+          onClick={()=>handleClic("/Soupe")}   roundedCircle
+          
+          /> 
           
         <span className="SousTitre">Pates</span>
           </div>
