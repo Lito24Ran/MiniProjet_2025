@@ -1,24 +1,24 @@
 const burgerlist = [
     {
-      id: 1,
+      id: 13,
       nom: "hamburger",
-      description: "lorem ipsum dolor sit amet",
-      prix: 20000,
-      img: "/src/image/Burger.png",
+      description: "pains de forme ronde,un steak haché,salade,tomate,oignon,sauce",
+      prix: 15000,
+      img: "src/image/hamberger.jpg",
     },
     {
-      id: 2,
-      nom: "Pizza",
-      description: "lorem ipsum dolor sit amet",
-      prix: 20000,
-      img: "/src/image/Pizzaimage.jpg",
+      id: 14,
+      nom: "TACOS ITALIENE",
+      description: "fromage cheddar râpé, oignons verts,coquilles pour tacos, crème sure",
+      prix: 12000,
+      img: "src/image/tacos italiene.jpg",
     },
     {
-      id: 3,
-      nom: "Soupe Legume",
-      description: "lorem ipsum dolor sit amet",
-      prix: 20000,
-      img: "/src/image/imgCrudité.jpeg",
+      id: 15,
+      nom: "Frite",
+      description: "Pommes de terre, Huile de canola,sel,poivre",
+      prix: 5000,
+      img: "src/image/photoFrite.jpg",
     },
     
     

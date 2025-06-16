@@ -1,24 +1,24 @@
 const DessertList = [
     {
-      id: 1,
-      nom: "hamburger",
-      description: "lorem ipsum dolor sit amet",
-      prix: 20000,
-      img: "/src/image/Burger.png",
+      id: 16,
+      nom: "Milk chocolat",
+      description: "yaourt, lait, chocolat",
+      prix: 15000,
+      img: "src/image/milkshake.jpg",
     },
     {
-      id: 2,
+      id: 17,
       nom: "Pizza",
-      description: "lorem ipsum dolor sit amet",
-      prix: 20000,
-      img: "/src/image/Pizzaimage.jpg",
+      description: "3 boules, ananas ",
+      prix: 14000,
+      img: "src/image/galce ananas.jpg",
     },
     {
-      id: 3,
-      nom: "Soupe Legume",
-      description: "lorem ipsum dolor sit amet",
-      prix: 20000,
-      img: "/src/image/imgCrudité.jpeg",
+      id: 18,
+      nom: "Mini gateaux",
+      description: "creme chantilli, frambouase ",
+      prix: 21000,
+      img: "src/image/mini gateaux.jpg",
     },
     
     

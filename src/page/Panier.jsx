@@ -67,7 +67,7 @@ function Panier () {
                ))}
     </article>
     <div>
-        <h1>Total du commande : {total} Ariary</h1>
+        <h1 className="total">Total du commande : {total} Ariary</h1>
         <button style={{color : 'white' , backgroundColor: 'green', borderRadius : '20px', width : '200px'}} onClick={() =>setshow(true)}> Confirmer</button>
         
           {

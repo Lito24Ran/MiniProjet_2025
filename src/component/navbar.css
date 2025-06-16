@@ -1,6 +1,6 @@
 @font-face{
-    font-family: "bauh";
-    src: url(../fonts/BAUHS93.TTF);
+    font-family: "fr";
+    src: url(../fonts/FRSCRIPT.TTF);
 }
 .Barre_Menu{
     background-color:white;
@@ -21,27 +21,45 @@
 .nav_item{
     width: 100%;
 }
+.txt{
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
 
 .Navbar_text{
-   width: 90%;
   text-align: center;
-  align-items: center;
-   font-family: "bauh";
-   font-size: 30px;
+   justify-content: center;
+   align-items: center;
+   font-family: "fr";
+   font-size: 60px;
    color: black;
-   display: inline-block;
-   position: relative;
-   transition: 0.6s ease-in;
    margin-top: 12px;
+   cursor: pointer;
 }
 
-.Navbar_text:hover{
-   color: #a70000;
-   transform: scale(1.2);
+.Navbar_text::after{
+   content: '';
+    width: 8%;
+    height: 3px;
+    margin: auto;
+    margin-top: -1%;
+    display: block;
+    left: 0;
+    right: 0;
+   background: rgb(245, 214, 75);
+    transition: 0.2s linear;
 }
+.Navbar_text:hover::after{
+    background: #a70000;
+}
+.Navbar_text:hover{
+  transform: scale(1.1);
+}
+
 .logonav {
     width: auto;
-    height: 130px;
+    height: 140px;
     left: 30px;
     position: relative;
 }
