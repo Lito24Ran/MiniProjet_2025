@@ -62,8 +62,8 @@ import Panier from './page/Panier.jsx';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-    <CartProvider>
+    <cartProvider>
       <App />
-    </CartProvider>
+    </cartProvider>
   </BrowserRouter>
   );
