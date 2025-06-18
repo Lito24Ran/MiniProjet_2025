@@ -157,7 +157,7 @@ function Inscription() {
                         <br />
 
                         <div className="inputName">
-                            <input type="text" className="email"
+                            <input type="email" className="email"
                                 
                                 value={email}
                                 onChange={handlchangeemail}

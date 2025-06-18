@@ -15,15 +15,16 @@ function Panier () {
         setCart(cart.map(item =>
                 item.id === id ? { ...item, quantity: item.quantity +1} : item
             ));
+            
     }
 
     const ConditionalFunc =() => {
-        if (cart.length !== 0) {
+        /* if (cart.length !== 0) {
             alert('Votre commande est enregistrer veuillez patientez !');
             setshow(false);
-        }
-        else alert ('veulliez entrez des produits!');
-        setshow(false);
+        } */
+        if (cart.length === ""){alert ('veulliez entrez des produits!');
+        setshow(false)}; 
     }
 
     const decrease = (id) => {
