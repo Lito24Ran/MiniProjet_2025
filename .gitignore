@@ -24,3 +24,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Fichiers dashboard temporaire
+/src/admin/pages/_dashboard_backup/
+/src/admin/pages/_chart_backup/
+/src/admin/pages/_data_backup/
+/src/admin/pages/_statistique_food_backup/

@@ -1,4 +1,4 @@
-import React from "react";
+ 
 import { Route, Routes } from "react-router-dom";
 import Inscription from "./page/Singin";
 import Home from "./page/home";
@@ -12,6 +12,7 @@ import Menu from './page/Menu.jsx';
 import Loginpage from "./page/login.jsx";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import AppAdmin from "./admin/AppAdmin.jsx";
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
 
   useEffect(() => {
     if (location.pathname === "/") {
-      document.body.style.backgroundImage =  `{url ("src/image/imageBackgoudSignUp2.png")}`/*src/image/backgroundSignUp1.gif/* "linear-gradient(to top right, rgba(166, 29, 113),rgba(239, 130, 35, 1))" */;
+      document.body.style.backgroundImage =  `{url ("src/image/backgroundLogin.png")}`/*src/image/backgroundSignUp1.gif/* "linear-gradient(to top right, rgba(166, 29, 113),rgba(239, 130, 35, 1))" */;
     } else if (location.pathname === "/SignUp") {
       document.body.style.backgroundImage = `{url ("src/image/backgroundSignUp1.png")}`
     }
@@ -40,6 +41,7 @@ function App() {
       <Route path="/Jus" element={<Jus />} />
       <Route path="/Menu" element={<Menu />} />
       <Route path="/Soupe" element={<Soupe />} />
+      <Route path="/admin/*" element={<AppAdmin />} />
 
 
     </Routes>

@@ -27,6 +27,10 @@ import Panier from './page/Panier.jsx';
         element:<Home/>
       },
       {
+        path:"/Login",
+        element:<Login/>
+      },
+      {
         path:"/Riz",
         element:<Riz/>
       },

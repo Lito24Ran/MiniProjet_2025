@@ -13,7 +13,9 @@ function Modal({ oneclose, condition }) {
     //eto no ataoko ilay state an' le condition
 
     const [conditionnameCash, setConditionnameCash] = useState(false);
-
+    const [conditionlevelCash, setConditionlevelCash] = useState(false);
+    const [conditionnameMvola,setConditionnameMvola] = useState(false);
+    const [conditionnumMvola,setConditionnumMvola] = useState(false)
     function inputName(e) {
         setNameCash(e.target.value);
         /* console.log(nameCash); */
@@ -37,19 +39,50 @@ function Modal({ oneclose, condition }) {
         if (nameCash.trim() == "") {
             setConditionnameCash(true);
         } else if (levelModal == "") {
-            alert("Entrer votre niveau")
+            /* alert("Entrer votre niveau"); */
+            setConditionlevelCash(true);
+        }else{
+            if ((!levelModal.trim().includes("L1")) && (!levelModal.trim().includes("L2")) && (!levelModal.trim().includes("L3")) ) {
+                setConditionlevelCash(true);
+            }else{
+                condition()
+            }
+           
         }
     }
 
 
     function conditionMvolaModal() {
         if (nameMvola.trim() == "") {
-            alert("Veuillez entrer votre nom dans le Mvola")
+            /* alert("Veuillez entrer votre nom dans le Mvola"); */
+            setConditionnameMvola(true)
         } else if (number.trim() == "") {
-            alert("Veuillez entrer votre numeros dans le Mvola")
+            setConditionnumMvola(true)
+           /*  alert("Veuillez entrer votre numeros dans le Mvola") */
+        }
+        else{
+            if((!number.trim().includes("034")) && (!number.trim().includes("038"))  ) {
+                setConditionnumMvola(true)
+              
+            }else{
+                if ((number.trim().length < 9) || (number.trim().length > 9)) {
+                    setConditionnumMvola(true)
+                }else{
+                    condition()
+                }
+                 
+            }
+           
         }
     }
 
+    //Eto no mila le erreur 
+    setTimeout(() => {
+        setConditionnameCash(false);
+        setConditionlevelCash(false);
+        setConditionnameMvola(false);
+        setConditionnumMvola(false);
+    }, 8000);
 
     return (
         <>
@@ -65,8 +98,11 @@ function Modal({ oneclose, condition }) {
                         {
                             (showCash) ?
 
-                                (conditionnameCash) ? <p>Enterer un nom</p> :
+                               /*  (conditionnameCash) ? <p>Enterer un nom</p> : */
                                 <div className="inputText">
+                                    {
+                                        (conditionnameCash) && <p className="erreurModal" title="Entrer un nom">!</p> 
+                                    }
                                     <label htmlFor="">Entrer votre Nom</label>
                                     <br />
                                     <input type="text" size={30}
@@ -75,7 +111,11 @@ function Modal({ oneclose, condition }) {
                                         onChange={inputName} />
                                     <br />
                                     <label htmlFor="">Entrer votre niveau</label>
+                                    {
+                                        (conditionlevelCash) && <p className="erreurModal2" title="Entrer votre niveau">!</p>
+                                    }
                                     <br />
+                                    
                                     <input type="text" size={30} name="EntreLevel" id="Level"
                                         value={levelModal}
                                         onChange={inputLevel}
@@ -86,11 +126,14 @@ function Modal({ oneclose, condition }) {
                                         <p>10mn</p>
                                     </div>
                                     <div className="btnSubmit">
-                                        <button id="SubmitBtn" onClick={conditionalModal && condition}>Submit</button>
+                                        <button id="SubmitBtn" onClick={conditionalModal}>Submit</button>
                                     </div>
                                 </div>
                                 :
                                 <div className="inputText">
+                                    {
+                                        (conditionnameMvola) && <p className="erreurModal" title="Entrer un nom">!</p> 
+                                    }
                                     <label htmlFor="">Entrer votre Nom</label>
                                     <br />
                                     <input type="text" size={30}
@@ -98,9 +141,12 @@ function Modal({ oneclose, condition }) {
                                         onChange={inputnameMvola}
                                         required />
                                     <br />
+                                     {
+                                        (conditionnumMvola) && <p className="erreurModal2" title="Entrer votre numero">!</p>
+                                    }
                                     <label htmlFor="">Entrer votre numero Mvola</label>
                                     <br />
-                                    <input type="text" size={30} name="EntreLevel" id="Level"
+                                    <input type="Tel" size={30} name="EntreLevel" id="Level"
                                         onChange={inputNumber}
                                         value={number}
                                         required />
