@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+
+:root {
+  --primary-color: #181b3a;
+  --secondary-color: #01d293;
+  --body-bg: #0b0c28;
+  --foodd-01-bg: linear-gradient(#ef621c, #e1424e);
+  --foodd-02-bg: linear-gradient(#01d293, #56c57a);
+  --foodd-03-bg: #725cff;
+  --foodd-04-bg: #2884ff;
+  --heading-color: #fff;
+  --small-text-color: #808191;
+  --recommend-food01-bg: #e1dfa4;
+  --recommend-food02-bg: #e3ecf1;
+  --recommend-food03-bg: #f4e3e5;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+}
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+.main__layout {
+  padding-top: 70px;
+  margin-left: 260px;
+}
+
+img {
+  width: 100%;
+}
+
+.MuiTableHead-root .MuiTableRow-root .MuiTableCell-root {
+  background-color: #FCC737 !important;
+  color: black !important;
+  font-weight: bold;
+}
+
+
+.MuiTableHead-root .MuiTableCell-root {
+  color: #000000 !important;
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
