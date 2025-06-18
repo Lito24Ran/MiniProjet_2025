@@ -1,179 +1,221 @@
- body{
-    height: 100vh;
-    width: 100vh; 
-    background-image : url("src/image/backgroundLogin.png");
-    background-size: contain;
-    background-size: 210vh 100vh;
-    background-repeat: no-repeat
+ body {
+     height: 100vh;
+     width: 100vh;
+     background-image: url("src/image/backgroundLogin.png");
+     background-size: contain;
+     background-size: 210vh 100vh;
+     background-repeat: no-repeat
+         /* linear-gradient(to top right, rgba(166, 29, 113),rgba(239, 130, 35, 1) )*/
+     ;
+ }
 
-     /* linear-gradient(to top right, rgba(166, 29, 113),rgba(239, 130, 35, 1) )*/;
-}  
-/* .container div{
+ /* .container div{
     height: 500px;
     width: 700px;
   
    
 } */
- 
- .SignIn_container div{
-    margin-right: 500px;
-    font-size: 20px;
-    display: inline-block;
 
-    
-}  
+ .SignIn_container div {
+     margin-right: 500px;
+     font-size: 20px;
+     display: inline-block;
 
 
-.SignIn_container div .inputLogin {
-    margin-top: 90px;
-    height: 200px;
-    width: 300px;
-    margin-left: 200px;
- 
-}
-.SignIn_container div{
-    line-height: 30px;
-    text-align: center;
-    
-}
-
-
-.inputLogin .btnLogin{
-    position: relative;
-    left: 3px;
-    width: 400px;
-    height: 35px;
-    border-radius: 20px;
-    background-color: rgba(149, 11, 255, 1);
-    margin-top: 70px;
-    color: white;
-    
-}
-p{
-    width: 327px;
-    height: 25px;
-} .divImage{
-  
-    position: fixed;
-    top: 110px;
-    left: 900px;
-    height: 490px;
-    width: 490px;
-    
-    z-index: 10; 
  }
 
-.divImage div{
-    height: 390px;
-    width: 400px;
-    background-color: rgba(250, 134, 33, 1);
-    border-radius: 100%;
-}
-#imgeLogin{
-    margin-top: 40px;
-    color: grey;
-    border-radius: 100%;
-    height: 380px;
-    width: 380px;
-    position: relative;
-    right: 8px;
-    bottom: 35px;
-}
-.inputLogin div{
-    height: 40px;
-    width: 100%;
-    position: relative;
-}
-.inputLogin .inputName input{
-    height: 100%;
-    width: 100%;
-    background-color: transparent;
-    border: none;
-    font-size: 17px;
-   
-}
-.inputName input:focus ~ label,
-.inputName input:valid ~ label {
-    transform: translateY(-20px);
-}
-.inputLogin div label{
-    position: absolute;
-    bottom: 15px;
-    left: 0;
-    color: aliceblue;
-    pointer-events: none;
-    transition: all 0.3s ease;
-    font-size: 20px;
-    font-family: initial;
-}
-.inputName{
-    margin-top: 40px;
-}
-.inputLogin div .underline{
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  height: 0.5px;
-  width: 25rem;
-  background-color: rgb(255, 253, 253);
-}
-span{
-    font-size: 25px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 200px;
-    font-variant: inherit;
-}
-.inputLogin .paragraphe{
-    color: rgb(217, 209, 209);
-    font-size: medium;
-    font-weight: lighter;
-    position: relative;
-    left: 30px;
-}
- input{
-    outline: none; 
-    margin-right: 1000px;
-    color: rgba(11, 11, 11, 0.89);
-    
-} 
-.error{
-    height: 30px;
-    width: 30px;
-    background-color: rgba(255, 0, 0, 0.126);
-    border: 1px rgb(221, 15, 15) solid;
-    color: rgb(239, 237, 241);
-    border-radius: 100%;
-    position: absolute;
-    left: 350px;
-    bottom: 1px;
-    cursor: pointer;
-}
-.compte_introuvable{
-    width: 100%;
-    height: 200%;
-    position: absolute;
-    bottom: 440%;
-    left: 100%;
-    border: 1px solid rgba(223, 43, 43, 0.811);
-    color: rgb(218, 36, 36);
-    background-color: rgb(230, 231, 232);
-    border-left: 7px solid red;
-    border-radius: 5px;
-    transition: 5s;
-}
-.compte_introuvable:focus{
-    transform: scale(5);
-}
- .SuccesConnexion{
-    width: 100%;
-    height: 200%;
-    position: absolute;
-    bottom: 400%;
-    left: 100%;
-    border: 1px solid rgba(64, 223, 43, 0.811);
-    color: rgb(85, 218, 36);
-    background-color: rgb(230, 231, 232);
-    border-left: 7px solid rgb(43, 255, 0);
-    border-radius: 5px;
-    transition: 5s;
-} 
+
+ @media (max-width : 1200px) {
+     .SignIn_container div .inputLogin {
+         margin-top: 90px;
+         height: 200px;
+         width: 300px;
+         margin-left: 100px;
+
+     }
+ }
+
+ @media (max-width : 768px) {
+     .SignIn_container div .inputLogin {
+         margin-top: 90px;
+         height: 200px;
+         width: 300px;
+         margin-left: 70px;
+
+     }
+ }
+
+ @media (min-width : 1200px) {
+     .SignIn_container div .inputLogin {
+         margin-top: 90px;
+         height: 200px;
+         width: 300px;
+         margin-left: 200px;
+
+     }
+ }
+
+
+ .SignIn_container div {
+     line-height: 30px;
+     text-align: center;
+
+ }
+
+
+ .inputLogin .btnLogin {
+     position: relative;
+     left: 3px;
+     width: 400px;
+     height: 35px;
+     border-radius: 20px;
+     background-color: rgba(149, 11, 255, 1);
+     margin-top: 70px;
+     color: white;
+
+ }
+
+ p {
+     width: 327px;
+     height: 25px;
+ }
+
+ .divImage {
+
+     position: fixed;
+     top: 110px;
+     left: 900px;
+     height: 490px;
+     width: 490px;
+
+     z-index: 10;
+ }
+
+ .divImage div {
+     height: 390px;
+     width: 400px;
+     background-color: rgba(250, 134, 33, 1);
+     border-radius: 100%;
+ }
+
+ #imgeLogin {
+     margin-top: 40px;
+     color: grey;
+     border-radius: 100%;
+     height: 380px;
+     width: 380px;
+     position: relative;
+     right: 8px;
+     bottom: 35px;
+ }
+
+ .inputLogin div {
+     height: 40px;
+     width: 100%;
+     position: relative;
+ }
+
+ .inputLogin .inputName input {
+     height: 100%;
+     width: 100%;
+     background-color: transparent;
+     border: none;
+     font-size: 17px;
+
+ }
+
+ .inputName input:focus~label,
+ .inputName input:valid~label {
+     transform: translateY(-20px);
+ }
+
+ .inputLogin div label {
+     position: absolute;
+     bottom: 15px;
+     left: 0;
+     color: aliceblue;
+     pointer-events: none;
+     transition: all 0.3s ease;
+     font-size: 20px;
+     font-family: initial;
+ }
+
+ .inputName {
+     margin-top: 40px;
+ }
+
+ .inputLogin div .underline {
+     position: absolute;
+     bottom: 0px;
+     left: 0px;
+     height: 0.5px;
+     width: 25rem;
+     background-color: rgb(255, 253, 253);
+ }
+
+ span {
+     font-size: 25px;
+     font-family: Arial, Helvetica, sans-serif;
+     font-weight: 200px;
+     font-variant: inherit;
+ }
+
+ .inputLogin .paragraphe {
+     color: rgb(217, 209, 209);
+     font-size: medium;
+     font-weight: lighter;
+     position: relative;
+     left: 30px;
+ }
+
+ input {
+     outline: none;
+     margin-right: 1000px;
+     color: rgba(11, 11, 11, 0.89);
+
+ }
+
+ .error {
+     height: 30px;
+     width: 30px;
+     background-color: rgba(255, 0, 0, 0.126);
+     border: 1px rgb(221, 15, 15) solid;
+     color: rgb(239, 237, 241);
+     border-radius: 100%;
+     position: absolute;
+     left: 350px;
+     bottom: 1px;
+     cursor: pointer;
+ }
+
+ .compte_introuvable {
+     width: 100%;
+     height: 200%;
+     position: absolute;
+     bottom: 440%;
+     left: 100%;
+     border: 1px solid rgba(223, 43, 43, 0.811);
+     color: rgb(218, 36, 36);
+     background-color: rgb(230, 231, 232);
+     border-left: 7px solid red;
+     border-radius: 5px;
+     transition: 5s;
+ }
+
+ .compte_introuvable:focus {
+     transform: scale(5);
+ }
+
+ .SuccesConnexion {
+     width: 100%;
+     height: 200%;
+     position: absolute;
+     bottom: 400%;
+     left: 100%;
+     border: 1px solid rgba(64, 223, 43, 0.811);
+     color: rgb(85, 218, 36);
+     background-color: rgb(230, 231, 232);
+     border-left: 7px solid rgb(43, 255, 0);
+     border-radius: 5px;
+     transition: 5s;
+ }
