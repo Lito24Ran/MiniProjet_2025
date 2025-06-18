@@ -1,7 +1,7 @@
  
 
 import { NavLink , useNavigate} from "react-router-dom";
-import navLinks from "../../pages/_data_backup/dummy-data/navLinks";
+import navLinks from "../../dummy-data/navLinks";
 import "./sidebar.css";
 
 const Sidebar = () => {
