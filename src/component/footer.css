@@ -1,112 +1,112 @@
 @font-face {
-    font-family: "comic";
-    src: url(../fonts/COMIC.TTF);
+  font-family: "comic";
+  src: url(../fonts/COMIC.TTF);
 }
-.StyleFooter{
-    position: relative;
-    width: 100%;
-    height: 250px;
-    background-color: #A38772;
-    margin-top:40px ;
-    padding-top: 5px;
-    margin-left: 0px;
+.StyleFooter {
+  position: absolute;
+  width: 100%;
+  height: 22%;
+  background-color: #a38772;
+  margin-top: 10.7%;
+  padding-top: 10%;
+  margin-left: 0px;
+  z-index: 10;
 }
 .logo_ftr {
-    height: 150px;
-    width: auto;
-    margin-right: auto;
-    margin-bottom: auto;
+  height: 150px;
+  width: auto;
+  margin-right: auto;
+  margin-bottom: auto;
 }
-.contact{
-    font-size: 25px;
-    margin-right: 100px;
+.contact {
+  font-size: 25px;
+  margin-right: 100px;
 }
-.contact:hover{
-    color: aliceblue;
+.contact:hover {
+  color: aliceblue;
 }
-.contact::after{
-    content: '';
-    height: 2px;
-    display: block;
-    background: #000000;
+.contact::after {
+  content: "";
+  height: 2px;
+  display: block;
+  background: #000000;
 }
-.contact:hover::after{
-    background: white;
+.contact:hover::after {
+  background: white;
 }
 .icon_ftr:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .icon_ftr {
-    width: 50px;
-    height: auto;
-    border-radius: 10px;
-    margin-right: 100px;
-    transition: 0.3s ease-in-out;
+  width: 50px;
+  height: auto;
+  border-radius: 10px;
+  margin-right: 100px;
+  transition: 0.3s ease-in-out;
 }
-.texte_ftr{
-    padding-inline: 20px;
-    padding-block: 20px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 17px;
-    color: #FBCFD0;
+.texte_ftr {
+  padding-inline: 20px;
+  padding-block: 20px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 17px;
+  color: #fbcfd0;
 }
 .bouton_ftr:hover {
-    border-color: #c4c3c3;
-    color: #c4c3c3;
-    box-shadow: 20xp beige;
-    background-color: #D6976B;
+  border-color: #c4c3c3;
+  color: #c4c3c3;
+  box-shadow: 20xp beige;
+  background-color: #d6976b;
 }
 .StyleFooter p {
-    margin-top: -200px;
-    margin-right: 50px;
-    /* line-height: 1.2; */
-    /* margin-left: 10px; */
-    /* color: #FBCFD0; */
-    background: none;
-    /* font-size: 17px; */
-    font-family: Georgia, 'Times New Roman',   Times, serif;
-    /* margin: 200px; */
-    margin-left: auto;
-    margin-right: auto;
+  margin-top: -200px;
+  margin-right: 50px;
+  /* line-height: 1.2; */
+  /* margin-left: 10px; */
+  /* color: #FBCFD0; */
+  background: none;
+  /* font-size: 17px; */
+  font-family: Georgia, "Times New Roman", Times, serif;
+  /* margin: 200px; */
+  margin-left: auto;
+  margin-right: auto;
 }
 .footer_3D {
-    width: 80%;
-    height: 212px;
-    background: linear-gradient(80deg , #4e4e4e, #9e9e9e);
-    border-radius: 10px;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: -50px;
-    margin-left: auto;
-    margin-right: auto;
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-    border: 5px orange;
+  width: 80%;
+  height: 212px;
+  background: linear-gradient(80deg, #4e4e4e, #9e9e9e);
+  border-radius: 10px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -50px;
+  margin-left: auto;
+  margin-right: auto;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  border: 5px orange;
 }
 
-.item_ftr{
-    text-align: center;
+.item_ftr {
+  text-align: center;
 }
-.txt_ftr{
-    /* margin-top: 220px; */
-    text-align: center;
-    align-items:center;
-    font-size: 0px;
+.txt_ftr {
+  /* margin-top: 220px; */
+  text-align: center;
+  align-items: center;
+  font-size: 0px;
 }
-.txt_ftr h1{
-    font-size: 20px;
-    margin-top: 30px;
-
+.txt_ftr h1 {
+  font-size: 20px;
+  margin-top: 30px;
 }
-.txt_ftr h1{
-    font-size: 20px;
-    margin-top: 20px;
-    font-family: "comic";
+.txt_ftr h1 {
+  font-size: 20px;
+  margin-top: 20px;
+  font-family: "comic";
 }
-.txt_ftr h1  span{
-    color: #fdd273;
-    /* font-family:  */
+.txt_ftr h1 span {
+  color: #fdd273;
+  /* font-family:  */
 }

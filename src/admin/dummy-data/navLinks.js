@@ -1,0 +1,24 @@
+const navLinks = [
+  {
+    path: "/admin/dashboard",
+    icon: "ri-apps-2-line",
+    display: "Dashboard",
+  },
+  {
+    path: "/admin/Commande",
+    icon: "ri-taxi-line",
+    display: "Les Commandes",
+  },
+  {
+    path: "/admin/Products",
+    icon: "ri-shopping-bag-line",
+    display: "Les produits",
+  },
+  {
+    path: "/admin/clients",
+    icon: "ri-clients-2-line",
+    display: "Nos clients",
+  },
+];
+
+export default navLinks;
