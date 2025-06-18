@@ -21,7 +21,7 @@ const Sidebar = () => {
       </div>
 
       <div className="sidebar__content">
-        <div className="menu">
+        <div className="menuAdmin">
           <ul className="nav__list">
             {navLinks.map((item, index) => (
               <li className="nav__item" key={index}>
