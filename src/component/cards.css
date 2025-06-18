@@ -1,113 +1,139 @@
-
-.cards_container{
-    display: flex;
-    justify-content: center;
-    margin-top: 150px;
-}
-.font{
-    position: absolute;
-    opacity: 20%;
-    display: flex;
-    margin-top: -110px;
+.cards_container {
+  display: flex;
+  justify-content: center;
+  margin-top: -5%;
 }
 
-/* .All_Cards{
-    width: 80%;
-    margin: auto;
-    margin-top: 0px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
-} */
-.decrement {
-    background-color: transparent;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    margin-right: 5px;
+.font {
+  position: absolute;
+  opacity: 20%;
+  display: flex;
+  margin-top: -110px;
 }
-.increment {
-    background-color: transparent;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    margin-left: 5px;
-}
+
 .carteimage {
-    max-width: 100%;
-    image-resolution: 100%;  
-    max-height: 500px;
-    padding: 10px;
-    overflow: hidden;
-    object-fit: cover;
-    position: relative;
-    margin-top: 0px;
-    border-top-right-radius: 80px;
-    border-top-left-radius: 80px;
-    border-bottom-right-radius: 50px;
-    border-bottom-left-radius: 50px;
-    left: 9%;
-}   
-
-.card {   
-    height: 400px;
-    width: 300px;
-    border: .1px solid rgb(0, 0, 0);
-    border-radius: 80px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0px 4px 8px  black;
-    margin: 5px;    
-    border-color: rgb(255, 255, 254);
-    background-color: #fdd1794f;
-    z-index: 1;
-    margin-bottom: 50px;
+  width: 100%;
+  image-resolution: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: absolute;
+  margin-top: 0px;
+  left: 10.3%;
+  border-radius: 25px;
+}
+.card {
+  height: 20rem;
+  width: 90%;
+  border: 0.1px solid rgb(0, 0, 0);
+  border-radius: 25px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 4px 8px black;
+  border-color: rgb(255, 255, 254);
+  background-color: #e5d2c7;
+  z-index: 1;
+  margin-bottom: 2%;
+  transition: all 0.5s ease;
+}
+.card:hover .description {
+  opacity: 100%;
+  position: relative;
+}
+.card:hover .ajouter {
+  border-radius: 10px;
+  height: 50px;
+  width: 200px;
+  left: 10px;
+  position: relative;
+  bottom: 0px;
+  border-radius: 20px;
+}
+.card:hover {
+  height: 430px;
+}
+.card_text {
+  text-align: center;
+  padding-bottom: 0px;
+  position: absolute;
+  margin-top: 180px;
+}
+.titre_card {
+  font-size: 25px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  text-align: left;
+  padding-left: 15px;
+  position: relative;
+}
+.description {
+  font-size: 10;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: left;
+  padding-left: 10px;
+  margin-top: 10px;
+  position: absolute;
+  height: 3.7rem;
+  opacity: 0;
 }
 
-.card_text{   
- text-align: center;
- padding-bottom: 10px;
- position: relative;
+.prix {
+  font-size: 20px;
+  color: white;
+  background-color: #ee9045;
+  left: -5%;
+  margin-top: -53%;
+  position: absolute;
+  width: 50%;
+  height: 30px;
+  border-radius: 25%;
+  border-top-left-radius: 0%;
+  border-bottom-right-radius: 0%;
+  padding-left: 5%;
 }
-.titre_card{
-    font-size: 30px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    text-align: left;
-    padding-left: 15px;
+.card:hover .prix {
+  margin-top: -27%;
+  width: 30%;
+  padding-left: 5%;
 }
-.description{
-    font-size: 10;
-    font-family: Arial, Helvetica, sans-serif ;
-    text-align: left;
-    padding-left: 10px;
+.ajouter {
+  border-radius: 10px;
+  height: 50px;
+  width: 120px;
+  position: absolute;
+  left: 150px;
+  bottom: -10px;
+  background-color: #ee9045;
 }
-.prix{
-    font-size: 20px;
-    color: #ebb00f;
-    padding-left: 25px;
-    text-align: left;
+.ajouter:hover {
+  background-color: #d6976b;
 }
-.boutton{
-   border-radius: 100px;
-   background-color: #D6976B;
-   padding: 5px;
-   font-family: 'Times New Roman', Times, serif;
-   transition: 0.3s ease-in-out;
-}
-.boutton:hover{
+.boutton:hover {
   transform: scale(1.1);
   background-color: #503103;
   color: #f8f8f8;
 }
-
-
+.quantity-controls {
+  background-color: #ffffff;
+  width: 120px;
+  border-radius: 100px;
+  left: 5%;
+  position: relative;
+}
 .quantity-controls1 {
-    background-color: transparent;
-    border-top-left-radius: 5px;
+  background-color: transparent;
+  border-radius: 100px;
+  height: 28px;
+  width: 28px;
 }
 
 .quantity-controls2 {
-    background-color: transparent;
-    border-top-right-radius: 5px;
+  background-color: transparent;
+  border-radius: 100px;
 }
-.quantity-controls button:hover{
-    background: #D6976B;
+.quantity-controls button:hover {
+  background: #d6976b;
+}
+span {
+  margin: 20px;
 }

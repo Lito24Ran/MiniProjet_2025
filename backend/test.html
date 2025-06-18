@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Tester API</h2>
+    <button onclick="envoyerCommande()">envoyer une commande</button>
+    <script>
+      function envoyerCommande() {
+        fetch("http://localhost:5000/post"),
+          {
+            method: "POST",
+            Headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              nomClient: "Victorio",
+              telephone: "034555554",
+              plats: [
+                {
+                  nom: "pizza",
+                  quantite: 1,
+                  prix: 10000,
+                },
+              ],
+            }),
+          }.catch((err) => {
+            console.error("erreur:", err);
+            alert("erreur ");
+          });
+      }
+    </script>
+  </body>
+</html>

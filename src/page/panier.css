@@ -1,66 +1,65 @@
-.panier_container{
-    margin-top: 5px;
-    padding: 100px;
-    font-family: Arial, Helvetica, sans-serif;
+.panier_container {
+  margin-top: 5px;
+  padding: 100px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .panier_container h1 {
-   font-size: 24px;
-   margin-bottom: 50px;
+  font-size: 24px;
+  margin-bottom: 50px;
 }
-.cart_box{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 2px solid #4b1903;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 200px;
-    padding-right: 200px;
+.cart_box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #4b1903;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 200px;
+  padding-right: 200px;
 }
-.pan_image{
-    width: 100px;
-    height: 100px;
-    display: flex;
-    margin-right: 10px;
-    align-items: center;
-    border-radius: 10px;
+.pan_image {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  margin-right: 10px;
+  align-items: center;
+  border-radius: 10px;
 }
-.name{
+.name {
   margin: 0;
   font-size: 30px;
   color: black;
-
 }
-.remove{
-    width: 50px;
-    right: -20px;
-    transition: 0.3s ease-in-out;
+.remove {
+  width: 50px;
+  right: -20px;
+  transition: 0.3s ease-in-out;
 }
-.remove:hover{
-    transform: scale(1.1);
+.remove:hover {
+  transform: scale(1.1);
 }
-.prix_pan{
-    font-size: 25px;
-    padding-right: 200px;
+.prix_pan {
+  font-size: 25px;
+  padding-right: 200px;
 }
-.cart_img{
-    align-items:normal;
-    justify-content: center;
+.cart_img {
+  align-items: normal;
+  justify-content: center;
 }
-.bouttons{
-    height: auto;
-    border-radius: 7px;
-    position: relative;
+.bouttons {
+  height: auto;
+  border-radius: 7px;
+  position: relative;
 }
-.bouttons:hover{
-    background-color: brown;
+.bouttons:hover {
+  background-color: brown;
 }
-.quantity{
-    padding: 10px;
+.quantity {
+  padding: 10px;
 }
-.total{
-    position: relative;
-    text-align:end;
-    right: 43vh;
-    margin-top: 20px;
+.total {
+  position: relative;
+  text-align: end;
+  right: 43vh;
+  margin-top: 20px;
 }
