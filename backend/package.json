@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "miniprojet_2025",
   "version": "1.0.0",
   "description": "",
@@ -12,6 +13,24 @@
   "dependencies": {
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
+=======
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "LitoRan",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "method-override": "^3.0.0",
+>>>>>>> 443e61a169a2e9deb6ce978249a906d2ee35558f
     "mongoose": "^8.15.1",
     "nodemon": "^3.1.10"
   }

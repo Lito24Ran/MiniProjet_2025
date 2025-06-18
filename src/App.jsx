@@ -1,13 +1,54 @@
-import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Outlet } from "react-router-dom";
-
+ 
+import { Route, Routes } from "react-router-dom";
+import Inscription from "./page/Singin";
+import Home from "./page/home";
+import Panier from "./page/Panier";
+import Soupe from './AutreMenu/Soupe.jsx';
+import MenuBurger from './AutreMenu/Burger.jsx';
+import Dessert from './AutreMenu/Dessert.jsx';
+import Riz from './AutreMenu/Riz.jsx';
+import Jus from './AutreMenu/Jus.jsx';
+import Menu from './page/Menu.jsx';
+import Loginpage from "./page/login.jsx";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import AppAdmin from "./admin/AppAdmin.jsx";
 
 
 function App() {
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      document.body.style.backgroundImage =  `{url ("src/image/imageBackgoudSignUp2.png")}`/*src/image/backgroundSignUp1.gif/* "linear-gradient(to top right, rgba(166, 29, 113),rgba(239, 130, 35, 1))" */;
+    } else if (location.pathname === "/SignUp") {
+      document.body.style.backgroundImage = `{url ("src/image/backgroundSignUp1.png")}`
+    }
+    else {
+      document.body.style.backgroundImage = "none";
+    }
+  }, [location]); 
   return (
-      <Outlet/>
-  );
+    <Routes>
+       <Route path="/" element={<Loginpage />} /> 
+      <Route path="/SignUp" element={<Inscription />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/panier" element={<Panier />} />
+      <Route path="/Riz" element={<Riz />} />
+      <Route path="/Burger" element={<MenuBurger />} />
+      <Route path="/Dessert" element={<Dessert />} />
+      <Route path="/Jus" element={<Jus />} />
+      <Route path="/Menu" element={<Menu />} />
+      <Route path="/Soupe" element={<Soupe />} />
+      <Route path="/admin/*" element={<AppAdmin />} />
+
+
+    </Routes>
+
+  )
+
+
 }
 
 export default App;
