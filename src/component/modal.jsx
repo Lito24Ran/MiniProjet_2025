@@ -164,10 +164,10 @@ function Modal({ oneclose, condition }) {
                     </div>
                     <div className="price">
                         <div className="title">
-                            <img src="#" alt="logo" />
-                            <h3>Kalico</h3>
+                            <img src="src/image/kalico.png" alt="logo" />
+                            {/* <h3>Kalico</h3> */}
                         </div>
-                        <div className="underlinemoDal"></div>
+                        <div className="underlineModal"></div>
                         <div className="total">
                             <h4>Total : </h4>
                         </div>

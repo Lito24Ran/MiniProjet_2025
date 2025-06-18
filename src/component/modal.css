@@ -175,7 +175,7 @@ input {
 }
 .underlineModal{
     position: absolute;
-    bottom: 50px;
+    bottom: 100px;
     width: 350px;
     border: 0.5px inset black;  
 }
