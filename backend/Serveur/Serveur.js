@@ -16,6 +16,8 @@ app.use(cors());
 app.use(body_Parser.urlencoded({extends:true}));
 app.use(express.json());
 
+app.use("/uploads", express.static("uploads"));
+
 app.use("/clients", clientsRoute);
 app.use("/produits", produitsRoute);
 app.use("/commandes", commandesRoute);

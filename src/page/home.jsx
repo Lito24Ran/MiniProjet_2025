@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect, useContext } from "react";
 import Navbar from "../component/navbar.jsx";
 import frite from "../image/frite.png";
 import image2 from "../image/image2.png";
@@ -12,9 +12,7 @@ import Burger from "../image/burger.png";
 import { useNavigate } from "react-router-dom";
 import SystemeCrousel from "../component/Carousel.jsx";
 import Footer from "../component/footer.jsx";
-import list from "../data";
 import Cards from "../component/Card";
-import { useContext } from "react";
 import { CartContext } from "../context/CartContext.jsx";
 import { Link } from "react-router-dom";
 
@@ -22,15 +20,26 @@ export const produitContext = createContext();
 
 function Home() {
   const navigate = useNavigate();
-
   const { cart, setCart, handleClick } = useContext(CartContext);
+
+  const [produits, setProduits] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:1203/produits")
+      .then((res) => res.json())
+      .then((data) => {
+        const produitsAvecImageUrl = data.map((p) => ({
+          ...p,
+          img: `http://localhost:1203/${p.img}`,
+        }));
+        setProduits(produitsAvecImageUrl);
+      })
+      .catch((err) => console.error("Erreur de chargement des produits :", err));
+  }, []);
 
   const handleClic = (path) => {
     navigate(path);
   };
-
-  //EE VICTORIO TS ATO LAH NO MIASA RAHA ANOVA AN' LE CARTE FA AO ANATY carte.jsx
-  //DE JEREO AO FA EFA MISY CLASSE MARO2 AO D RENY SISA NO ANTSOIN'LAH RAHA TE ANOVA AN' LE BORDER LAH
 
   const prix = 12000;
 
@@ -50,16 +59,16 @@ function Home() {
               <div className="texte">
                 <p className="text">Explorer notre menu</p>
                 <p className="texts">
-                  Choisissez parmi notre menu varie, compose d'une selection de
-                  plats savoreux. Notre mission est de satisfaire vos envies et
-                  d'elever votre experience culinaire
+                  Choisissez parmi notre menu varié, composé d'une sélection de
+                  plats savoureux. Notre mission est de satisfaire vos envies et
+                  d'élever votre expérience culinaire.
                 </p>
               </div>
               <div className="contenairMenu">
                 <div className="menu">
                   <Image
                     className="imagemenu"
-                    src="src\image\pates.png"
+                    src="src/image/pates.png"
                     onMouseOver={(e) =>
                       (e.currentTarget.src = "src/image/pates1.png")
                     }
@@ -69,14 +78,13 @@ function Home() {
                     onClick={() => handleClic("/Soupe")}
                     roundedCircle
                   />
-
-                  <span className="SousTitre">Pates</span>
+                  <span className="SousTitre">Pâtes</span>
                 </div>
 
                 <div className="menu">
                   <Image
                     className="imagemenu"
-                    src="src\image\snack.png"
+                    src="src/image/snack.png"
                     onMouseOver={(e) =>
                       (e.currentTarget.src = "src/image/snack1.png")
                     }
@@ -86,14 +94,13 @@ function Home() {
                     onClick={() => handleClic("/Burger")}
                     roundedCircle
                   />
-
                   <span className="SousTitre">Snack</span>
                 </div>
 
                 <div className="menu">
                   <Image
                     className="imagemenu"
-                    src="src\image\riz.png"
+                    src="src/image/riz.png"
                     onMouseOver={(e) =>
                       (e.currentTarget.src = "src/image/riz1.png")
                     }
@@ -103,14 +110,13 @@ function Home() {
                     onClick={() => handleClic("/Riz")}
                     roundedCircle
                   />
-
-                  <span className="SousTitre">riz</span>
+                  <span className="SousTitre">Riz</span>
                 </div>
 
                 <div className="menu">
                   <Image
                     className="imagemenu"
-                    src="src\image\dessert.png"
+                    src="src/image/dessert.png"
                     onMouseOver={(e) =>
                       (e.currentTarget.src = "src/image/dessert1.png")
                     }
@@ -120,14 +126,13 @@ function Home() {
                     onClick={() => handleClic("/Dessert")}
                     roundedCircle
                   />
-
                   <span className="SousTitre">Dessert</span>
                 </div>
 
                 <div className="menu">
                   <Image
                     className="imagemenu"
-                    src="src\image\boisson.png"
+                    src="src/image/boisson.png"
                     onMouseOver={(e) =>
                       (e.currentTarget.src = "src/image/boisson1.png")
                     }
@@ -137,7 +142,6 @@ function Home() {
                     onClick={() => handleClic("/Jus")}
                     roundedCircle
                   />
-
                   <span className="SousTitre">Boisson</span>
                 </div>
               </div>
@@ -146,15 +150,18 @@ function Home() {
           </Container>
         </div>
       </section>
+
       <div className="All_Cards">
-        {list.map((item) => (
-          <Cards handleClick={handleClick} item={item} key={item.id} />
+        {produits.map((item) => (
+          <Cards handleClick={handleClick} item={item} key={item._id} />
         ))}
       </div>
+
       <footer>
         <Footer />
       </footer>
     </>
   );
 }
+
 export default Home;
