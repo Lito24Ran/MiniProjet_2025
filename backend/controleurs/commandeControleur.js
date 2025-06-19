@@ -1,4 +1,4 @@
-const Commande = require("../models/commande");
+const Commande = require("../model/commande");
 
 //cree comande
 const ajouterCommande = async (req, res) => {

@@ -1,12 +1,19 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CustomTable from '../components/CustomTable';
-import { productsColumns as originalColumns, productsRows as originalRows } from '../data/productsData';
+import { productsColumns as originalColumns } from '../data/productsData';
 import { Modal, Box, Typography, TextField, Button } from '@mui/material';
 
 export default function Products() {
-  const [rows, setRows] = useState(originalRows);
+  const [rows, setRows] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [editingProduct, setEditingProduct] = useState(null);
+
+  useEffect(() => {
+  fetch('http://localhost:1203/produits')
+    .then((res) => res.json())
+    .then((data) => setRows(data))
+    .catch((err) => console.error("Erreur fetch produits:", err));
+}, []);
 
   // Ouvrir modal création (editingProduct null)
   const handleOpenCreate = () => {
