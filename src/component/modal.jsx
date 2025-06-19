@@ -1,12 +1,19 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import './modal.css';
 
 function Modal({ oneclose, condition, totalCommande }) {
     const [showCash, setShowCash] = useState(true);
     //const Supression = useContext(MOdalContext); 
     const [nameCash, setNameCash] = useState('');
+    //Reto no mandray makany @ ny db
+
     const [takeNameCash, setTakeNameCash] = useState('');
-    const [levelModal, setLevelModal] = useState('');
+    const [takelevelCash,setTakelevelCash] = useState('');
+    const [takenameMvola,setTakenameMvola] = useState('');
+    const [takenumMvola,setTakenumMvola] = useState('');
+
+    //atreto no farany ah
+    const [levelCash, setLevelCash] = useState('');
     const [nameMvola, setNameMvola] = useState('');
     const [number, setNumber] = useState('');
 
@@ -14,16 +21,17 @@ function Modal({ oneclose, condition, totalCommande }) {
 
     const [conditionnameCash, setConditionnameCash] = useState(false);
     const [conditionlevelCash, setConditionlevelCash] = useState(false);
-    const [conditionnameMvola,setConditionnameMvola] = useState(false);
-    const [conditionnumMvola,setConditionnumMvola] = useState(false)
+    const [conditionnameMvola, setConditionnameMvola] = useState(false);
+    const [conditionnumMvola, setConditionnumMvola] = useState(false);
+
+
     function inputName(e) {
         setNameCash(e.target.value);
         /* console.log(nameCash); */
 
     }
-
     function inputLevel(e) {
-        setLevelModal(e.target.value)
+        setLevelCash(e.target.value)
     }
 
     function inputnameMvola(e) {
@@ -38,18 +46,40 @@ function Modal({ oneclose, condition, totalCommande }) {
     function conditionalModal(params) {
         if (nameCash.trim() == "") {
             setConditionnameCash(true);
-        } else if (levelModal == "") {
+        } else if (levelCash == "") {
             /* alert("Entrer votre niveau"); */
             setConditionlevelCash(true);
-        }else{
-            if ((!levelModal.trim().includes("L1")) && (!levelModal.trim().includes("L2")) && (!levelModal.trim().includes("L3")) ) {
+        } else {
+            if ((!levelCash.trim().includes("L1")) && (!levelCash.trim().includes("L2")) && (!levelCash.trim().includes("L3"))) {
                 setConditionlevelCash(true);
-            }else{
-                condition()
+            } else {
+                setTakeNameCash(nameCash);
+                setTakelevelCash(levelCash)
+                condition();
+
             }
-           
+
         }
     }
+    useEffect(() => {
+        const payementCash = async() => {
+            const payerCash = await fetch("http://localhost:1203/payement", {
+                method: "POST",
+                mode: "cors",
+                headers: {
+                    'content-type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: takeNameCash,
+                    level: takelevelCash,
+                })
+            })
+             const donneU = await payerCash.json();
+
+        }
+
+        payementCash()
+    }, [takeNameCash])
 
 
     function conditionMvolaModal() {
@@ -58,23 +88,45 @@ function Modal({ oneclose, condition, totalCommande }) {
             setConditionnameMvola(true)
         } else if (number.trim() == "") {
             setConditionnumMvola(true)
-           /*  alert("Veuillez entrer votre numeros dans le Mvola") */
+            /*  alert("Veuillez entrer votre numeros dans le Mvola") */
         }
-        else{
-            if((!number.trim().includes("034")) && (!number.trim().includes("038"))  ) {
+        else {
+            if ((!number.trim().includes("034")) && (!number.trim().includes("038"))) {
                 setConditionnumMvola(true)
-              
-            }else{
-                if ((number.trim().length < 9) || (number.trim().length > 9)) {
+
+            } else {
+                if ((number.trim().length <= 9) && (number.trim().length >= 9)) {
                     setConditionnumMvola(true)
-                }else{
-                    condition()
+                } else {
+                    condition();
+                    setTakenameMvola(nameMvola);
+                    setTakenumMvola(number);
                 }
-                 
+
             }
-           
+
         }
     }
+
+        useEffect(() => {
+        const payementCash = async() => {
+            const payerMvola = await fetch("http://localhost:1203/payementMvola", {
+                method: "POST",
+                mode: "cors",
+                headers: {
+                    'content-type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: takenameMvola,
+                    level: takenumMvola,
+                })
+            })
+             const donneU = await payerMvola.json();
+
+        }
+
+        payementCash()
+    }, [takenameMvola])
 
     //Eto no mila le erreur 
     setTimeout(() => {
@@ -98,10 +150,10 @@ function Modal({ oneclose, condition, totalCommande }) {
                         {
                             (showCash) ?
 
-                               /*  (conditionnameCash) ? <p>Enterer un nom</p> : */
+                                /*  (conditionnameCash) ? <p>Enterer un nom</p> : */
                                 <div className="inputText">
                                     {
-                                        (conditionnameCash) && <p className="erreurModal" title="Entrer un nom">!</p> 
+                                        (conditionnameCash) && <p className="erreurModal" title="Entrer un nom">!</p>
                                     }
                                     <label htmlFor="">Entrer votre Nom</label>
                                     <br />
@@ -115,9 +167,9 @@ function Modal({ oneclose, condition, totalCommande }) {
                                         (conditionlevelCash) && <p className="erreurModal2" title="Entrer votre niveau">!</p>
                                     }
                                     <br />
-                                    
+
                                     <input type="text" size={30} name="EntreLevel" id="Level"
-                                        value={levelModal}
+                                        value={levelCash}
                                         onChange={inputLevel}
                                         required
                                     />
@@ -132,7 +184,7 @@ function Modal({ oneclose, condition, totalCommande }) {
                                 :
                                 <div className="inputText">
                                     {
-                                        (conditionnameMvola) && <p className="erreurModal" title="Entrer un nom">!</p> 
+                                        (conditionnameMvola) && <p className="erreurModal" title="Entrer un nom">!</p>
                                     }
                                     <label htmlFor="">Entrer votre Nom</label>
                                     <br />
@@ -141,7 +193,7 @@ function Modal({ oneclose, condition, totalCommande }) {
                                         onChange={inputnameMvola}
                                         required />
                                     <br />
-                                     {
+                                    {
                                         (conditionnumMvola) && <p className="erreurModal2" title="Entrer votre numero">!</p>
                                     }
                                     <label htmlFor="">Entrer votre numero Mvola</label>
