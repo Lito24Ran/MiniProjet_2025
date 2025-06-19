@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Commande = require("../models/commande");
+const Commande = require("../model/commande");
 const {
   ajouterCommande,
   getCommandes,

@@ -52,7 +52,8 @@ function Panier() {
   return (
     <>
       <Navbar size={cart.length} />
-      <div className="panier_container">
+      <div className="panier_container_main">
+        <div className="panier_container">
         <h1>
           {/* Votre panier{" "} */}
           {/* {cart.length === 0 ? "est vide" : "contient des articles"}. */}
@@ -95,17 +96,21 @@ function Panier() {
           <button
             style={{
               color: "white",
-              backgroundColor: "green",
-              borderRadius: "20px",
+             /*  backgroundColor: "orange", */
+              borderRadius: "20px", 
               width: "200px",
+              height:"55px",
               position:"absolute",
-              right:"30px",
-              fontSize:"30px"
-
+              top:"168.5%",
+              /* left:"200px", */
+              right:"200px", 
+              fontSize:"30px",
+               
             }}
+            id="btnconfirme"
             onClick={() => setshow(true)}
           >
-            {" "}
+            {""}
             Confirmer
           </button>
 
@@ -114,6 +119,7 @@ function Panier() {
               <Modal
                 oneclose={() => setshow(false)}
                 condition={() => ConditionalFunc()}
+                totalCommande={total}
               />,
               document.body
             )}
@@ -121,6 +127,8 @@ function Panier() {
         </MOdalContext.Provider>*/}
         </div>
       </div>
+      </div>
+      
     </>
   );
 }

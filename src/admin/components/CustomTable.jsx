@@ -26,7 +26,7 @@ export default function CustomTable({
     setPage(0);
   };
 
-  // Colonne actions uniquement si on a au moins une fonction
+  // Colonne actions sil y a une fonction
   const hasActions = onEdit || onDelete;
 
   const allColumns = hasActions
