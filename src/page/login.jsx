@@ -25,7 +25,10 @@ function Loginpage() {
     const [emailmissing, setEmailmissing] = useState(false);
     const [missingpass, setMissingpass] = useState(false);
     const [incorrectemail, setIncorrectemai] = useState(false);
-    const [succesConnect, setSuccesConnect] = useState(false)
+    const [succesConnect, setSuccesConnect] = useState(false);
+
+    //Staten' le maso @ password iny
+    const [eye,seteye] = useState(false)
 
     //Eto no mi naviguer ilay izy
 
@@ -130,6 +133,9 @@ function Loginpage() {
     function handlechangeEmail(event) {
         setEmail(event.target.value)
     }
+    function eyefunc() {
+        seteye(true)
+    }
 
     setTimeout(() => {
         setErreur(false);
@@ -201,12 +207,15 @@ function Loginpage() {
 
                         <br />
                         <div className="inputName">
-                            <input type="password" className="passwordLogin"
+                             <button onClick={eyefunc}><img src="#" alt="" /></button> 
+                            <input type="password"  
+                                className="passwordLogin"
                                 required
                                 value={password}
                                 onChange={handlchangepassword}
                                 size={700}
                             />
+                           
 
                             <div className="underline"></div>
                             <div className="underline"></div>

@@ -115,7 +115,7 @@ function Inscription() {
                 },
                 body: JSON.stringify({
                     name: newnom,
-                    email: newemail,
+                    email: newemail,    
                     level: newlevel,
                     password: newpassword
                 })

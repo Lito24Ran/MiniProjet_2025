@@ -22,9 +22,12 @@ function Panier() {
   const ConditionalFunc = () => {
     if (cart.length !== 0) {
       alert("Votre commande est enregistrer veuillez patientez !");
+      setshow(true);
+    } 
+    else {
+      alert("veulliez entrez des produits!");
       setshow(false);
-    } else alert("veulliez entrez des produits!");
-    setshow(false);
+    }
   };
 
   const decrease = (id) => {
@@ -52,10 +55,11 @@ function Panier() {
       <div className="panier_container_main">
         <div className="panier_container">
         <h1>
-          Votre panier{" "}
-          {cart.length === 0 ? "est vide" : "contient des articles"}.
+          {/* Votre panier{" "} */}
+          {/* {cart.length === 0 ? "est vide" : "contient des articles"}. */}
         </h1>
-        <article>
+        <div className="ScrollPanier">
+          <article>
           {cart.map((item) => (
             <div className="cart_box" key={item.id}>
               <div className="cart_img">
@@ -85,18 +89,28 @@ function Panier() {
             </div>
           ))}
         </article>
+        </div>
+        
         <div>
           <h1 className="total">Total du commande : {total} Ariary</h1>
           <button
             style={{
               color: "white",
-              backgroundColor: "green",
-              borderRadius: "20px",
+             /*  backgroundColor: "orange", */
+              borderRadius: "20px", 
               width: "200px",
+              height:"55px",
+              position:"absolute",
+              top:"168.5%",
+              /* left:"200px", */
+              right:"200px", 
+              fontSize:"30px",
+               
             }}
+            id="btnconfirme"
             onClick={() => setshow(true)}
           >
-            {" "}
+            {""}
             Confirmer
           </button>
 
