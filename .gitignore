@@ -33,5 +33,3 @@ dist-ssr
 
 # Ne pas pusher les fichiers d’image
 backend/uploads/*
-# MAIS garder le dossier lui-même
-!backend/uploads/.gitkeep
