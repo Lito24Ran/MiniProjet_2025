@@ -2,9 +2,9 @@
 // npm install multer (dans le dossier backend pour creer un lien entre les images et lo mongodb)
 
 const mongoose = require("mongoose");
-const Produit = require("./model/produits"); // adapte le chemin si besoin
+const Produit = require("./model/produits");
 
-// 🔗 Connexion à ta base locale
+// Connexion à la base locale
 mongoose.connect("mongodb://127.0.0.1:27017/GeIt", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
