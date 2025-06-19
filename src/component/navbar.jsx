@@ -78,7 +78,7 @@ const customerNavbar = ({ size }) => {
         <li>
           <Nav.Link
             as={Link}
-            to="/"
+            to="/home"
             className={({ isActive }) => (isActive ? "active" : "")}
           >
             Home

@@ -157,7 +157,7 @@ function Inscription() {
                         <br />
 
                         <div className="inputName">
-                            <input type="text" className="email"
+                            <input type="email" className="email"
                                 
                                 value={email}
                                 onChange={handlchangeemail}
@@ -228,7 +228,7 @@ function Inscription() {
                     <div>
                         <img src="src/image/image_chef.png" alt="imageDechef" id="imgeLogin" />
                     </div>
-                    <h2 style={{ color: "white", position: "relative", right: "80px" }}>Kaly-IT</h2>
+                    <h2 style={{ color: "white", position: "relative", right: "80px", fontSize:"50px",  }}> <strong>Kalico</strong></h2>
                 </div>
             </div>
 
