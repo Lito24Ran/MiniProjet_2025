@@ -63,3 +63,8 @@
   right: 43vh;
   margin-top: 20px;
 }
+.ScrollPanier{
+  height: 300px;
+  width: auto;
+  overflow-y: scroll ;
+}
