@@ -1,3 +1,5 @@
+// sanabavy fa mamay be tato
+
 import { useEffect, useState } from 'react';
 import CustomTable from '../components/CustomTable';
 import { productsColumns as originalColumns } from '../data/productsData';
@@ -8,11 +10,20 @@ export default function Products() {
   const [openModal, setOpenModal] = useState(false);
   const [editingProduct, setEditingProduct] = useState(null);
 
+  // ✅ Fonction de récupération à réutiliser
+  const fetchProduits = async () => {
+    try {
+      const res = await fetch('http://localhost:1203/produits');
+      const data = await res.json();
+      setRows(data);
+    } catch (err) {
+      console.error("Erreur fetch produits:", err);
+    }
+  };
+
+  // ✅ Appel initial au montage
   useEffect(() => {
-    fetch('http://localhost:1203/produits')
-      .then((res) => res.json())
-      .then((data) => setRows(data))
-      .catch((err) => console.error("Erreur fetch produits:", err));
+    fetchProduits();
   }, []);
 
   const handleOpenCreate = () => {
@@ -21,17 +32,26 @@ export default function Products() {
   };
 
   const handleEdit = (product) => {
-    setEditingProduct(product);
-    setOpenModal(true);
-  };
+  setEditingProduct({ ...product, imgFile: null });
+  setOpenModal(true);
+};
 
   const handleClose = () => {
     setOpenModal(false);
     setEditingProduct(null);
   };
 
-  const handleDelete = (id) => {
-    setRows(rows.filter(row => row._id !== id));
+  const handleDelete = async (id) => {
+    try {
+      const res = await fetch(`http://localhost:1203/produits/${id}`, {
+        method: "DELETE",
+      });
+
+      if (!res.ok) throw new Error("Erreur suppression");
+      await fetchProduits(); // ✅ Recharge propre après suppression
+    } catch (err) {
+      console.error("Erreur delete:", err);
+    }
   };
 
   const handleChange = (e) => {
@@ -39,15 +59,53 @@ export default function Products() {
     setEditingProduct(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
+  const formData = new FormData();
+  formData.append("nom", editingProduct.nom);
+  formData.append("prix", editingProduct.prix);
+  formData.append("quantite", editingProduct.quantite);
+  formData.append("description", editingProduct.description);
+  if (editingProduct.imgFile) {
+    formData.append("img", editingProduct.imgFile);
+  }
+
+  try {
+    let res, updatedProduct;
+
     if (editingProduct._id) {
-      setRows(rows.map(row => (row._id === editingProduct._id ? editingProduct : row)));
+      // 🔁 Mise à jour
+      res = await fetch(`http://localhost:1203/produits/${editingProduct._id}`, {
+        method: "PUT",
+        body: formData,
+      });
     } else {
-      const maxId = rows.length;
-      setRows([...rows, { ...editingProduct, _id: `temp-${maxId}` }]);
+      // ➕ Création
+      res = await fetch("http://localhost:1203/produits", {
+        method: "POST",
+        body: formData,
+      });
     }
+
+    if (!res.ok) throw new Error("Erreur lors de la sauvegarde du produit");
+
+    updatedProduct = await res.json();
+
+    setRows((prev) => {
+      const isEditing = !!editingProduct._id;
+      if (isEditing) {
+        return prev.map((prod) =>
+          prod._id === updatedProduct._id ? updatedProduct : prod
+        );
+      } else {
+        return [...prev, updatedProduct];
+      }
+    });
+
     handleClose();
-  };
+  } catch (err) {
+    console.error("Erreur:", err);
+  }
+};
 
   return (
     <>
@@ -96,6 +154,18 @@ export default function Products() {
             fullWidth label="Description" name="description" margin="normal" multiline rows={3}
             value={editingProduct?.description || ''}
             onChange={handleChange}
+          />
+
+          <input
+            type="file"
+            name="img"
+            accept="image/*"
+            onChange={(e) =>
+              setEditingProduct((prev) => ({
+                ...prev,
+                imgFile: e.target.files[0],
+              }))
+            }
           />
 
           <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 2 }}>

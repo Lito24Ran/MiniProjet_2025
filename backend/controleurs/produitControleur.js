@@ -21,7 +21,7 @@ const addProduit = async (req, res) => {
       prix,
       quantite,
       description,
-      img: imagePath, // sauvegarde de la chemin de l'image
+      img: imagePath, // sauvegarder de la chemin de l'image
     });
 
     await nouveauProduit.save();
@@ -31,4 +31,41 @@ const addProduit = async (req, res) => {
   }
 };
 
-module.exports = { getProduits, addProduit };
+const deleteProduit = async (req, res) => {
+  try {
+    await Produit.findByIdAndDelete(req.params.id);
+    res.status(200).json({ message: "Produit supprimé" });
+  } catch (error) {
+    res.status(500).json({ message: "Erreur suppression produit" });
+  }
+};
+
+// PUT : mise à jour d’un produit
+const updateProduit = async (req, res) => {
+  try {
+    const { nom, prix, quantite, description } = req.body;
+    const imagePath = req.file ? req.file.path : undefined;
+
+    const updated = {
+      nom,
+      prix,
+      quantite,
+      description,
+    };
+
+    if (imagePath) updated.img = imagePath;
+
+    const produit = await Produit.findByIdAndUpdate(req.params.id, updated, {
+      new: true,
+    });
+
+    res.status(200).json(produit);
+  } catch (error) {
+    res.status(500).json({ message: "Erreur lors de la mise à jour du produit" });
+  }
+};
+
+module.exports = { getProduits, addProduit, updateProduit };
+
+
+module.exports = { getProduits, addProduit, deleteProduit, updateProduit };
