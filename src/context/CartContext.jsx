@@ -1,31 +1,35 @@
-import { createContext, useState } from "react";
-
+import { createContext, useEffect, useState } from "react";
 
 export const CartContext = createContext();
 
- 
- export function CartProvider({ children }) {
-    const [cart, setCart] = useState([]);
+export function CartProvider({ children }) {
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem("mon_panier");
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
 
-    const handleClick = (item) => {
-        // handleClick doit gerer le quantite alefa any am panier
-        const existItem = cart.find(produit => produit.id === item.id);
-    
-        if(existItem) {
-          // atao Maj le quantite raha efa misy
-          setCart(cart.map(produit =>
-              produit.id === item.id ? { ...produit, quantity: produit.quantity + item.quantity} : produit
-            ));
-        } else {
-          setCart([...cart, item]);
-        }
-        console.log(item);
-    };
+  useEffect(() => {
+    localStorage.setItem("mon_panier", JSON.stringify(cart));
+  }, [cart]);
 
-    return (
-        <CartContext.Provider value={{ cart, setCart, handleClick }}>
-            {children}
-        </CartContext.Provider>
-    );
+  const handleClick = (item) => {
+    const existItem = cart.find(produit => produit._id === item._id);
+
+    if (existItem) {
+      setCart(cart.map(produit =>
+        produit._id === item._id
+          ? { ...produit, quantity: produit.quantity + item.quantity }
+          : produit
+      ));
+    } else {
+      // S'assurer qu'on a un champ quantity
+      setCart([...cart, { ...item, quantity: item.quantity || 1 }]);
+    }
+  };
+
+  return (
+    <CartContext.Provider value={{ cart, setCart, handleClick }}>
+      {children}
+    </CartContext.Provider>
+  );
 }
-

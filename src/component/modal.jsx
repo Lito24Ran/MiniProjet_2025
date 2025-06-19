@@ -81,6 +81,10 @@ function Modal({ oneclose, condition, totalCommande }) {
         payementCash()
     }, [takeNameCash])
 
+    useEffect(() => {
+  console.log("Total reçu dans le modal :", totalCommande);
+}, [totalCommande]);
+
 
     function conditionMvolaModal() {
         if (nameMvola.trim() == "") {
