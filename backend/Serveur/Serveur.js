@@ -10,13 +10,15 @@ const cors = require("cors")
 
 const clientsRoute = require("../router/clients");
 const produitsRoute = require("../router/produits");
-
+const commandesRoute = require("../router/commandes");
 
 app.use(cors());
 app.use(body_Parser.urlencoded({extends:true}));
 app.use(express.json());
+
 app.use("/clients", clientsRoute);
 app.use("/produits", produitsRoute);
+app.use("/commandes", commandesRoute);
 
 //Eto no fampidirana mongodb
 mongoose.connect('mongodb://localhost:27017/GeIt',);

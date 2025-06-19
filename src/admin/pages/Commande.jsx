@@ -14,11 +14,18 @@ export default function Commande() {
   const [commandes, setCommandes] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:1203/post')
-      .then((res) => res.json())
-      .then((data) => setCommandes(data))
-      .catch((err) => console.error('Erreur fetch commandes:', err));
-  }, []);
+  fetch('http://localhost:1203/commandes')
+    .then((res) => res.json())
+    .then((data) => {
+  if (Array.isArray(data)) {
+    setCommandes(data);
+  } else {
+    console.error("Données invalides reçues:", data);
+    setCommandes([]); // éviter l'erreur map
+  }
+})
+    .catch((err) => console.error('Erreur fetch commandes:', err));
+}, []);
 
 
   const flatCommandes = commandes.map((cmd) => ({
