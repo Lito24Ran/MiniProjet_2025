@@ -20,7 +20,6 @@ export default function Commande() {
       .catch((err) => console.error('Erreur fetch commandes:', err));
   }, []);
 
-  // Transformation optionnelle si tu veux aplatir "plats" dans les lignes
 
   const flatCommandes = commandes.map((cmd) => ({
     ...cmd,
