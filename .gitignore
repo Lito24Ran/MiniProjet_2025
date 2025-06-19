@@ -30,3 +30,8 @@ dist-ssr
 /src/admin/pages/_chart_backup/
 /src/admin/pages/_data_backup/
 /src/admin/pages/_statistique_food_backup/
+
+# Ne pas pusher les fichiers d’image
+backend/uploads/*
+# MAIS garder le dossier lui-même
+!backend/uploads/.gitkeep
