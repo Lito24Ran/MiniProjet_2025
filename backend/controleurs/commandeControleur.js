@@ -5,12 +5,9 @@ const ajouterCommande = async (req, res) => {
   try {
     const nouvelleCommande = new Commande(req.body);
     await nouvelleCommande.save();
-    res.status(201).json({ message: "Commande enregistree avec succes" });
-  } catch (error) {
-    console.error(error);
-    res
-      .status(500)
-      .json({ error: "Erreur lors de l'enregistrement de la commande " });
+    res.status(201).json(nouvelleCommande);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
   }
 };
 

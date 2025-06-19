@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import './modal.css';
+import { CartContext } from '../context/CartContext';
 
 function Modal({ oneclose, condition, totalCommande }) {
+    const { cart } = useContext(CartContext);
     const [showCash, setShowCash] = useState(true);
     //const Supression = useContext(MOdalContext); 
     const [nameCash, setNameCash] = useState('');
@@ -62,24 +64,39 @@ function Modal({ oneclose, condition, totalCommande }) {
         }
     }
     useEffect(() => {
-        const payementCash = async() => {
-            const payerCash = await fetch("http://localhost:1203/payement", {
-                method: "POST",
-                mode: "cors",
-                headers: {
-                    'content-type': 'application/json',
-                },
-                body: JSON.stringify({
-                    name: takeNameCash,
-                    level: takelevelCash,
-                })
-            })
-             const donneU = await payerCash.json();
+  if (takeNameCash) {
+    // Mode Cash
+    fetch("http://localhost:1203/commandes", {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        clientNom: takeNameCash,
+        niveau: takelevelCash,
+        methodePaiement: "Cash",
+        produits: cart,
+        total: totalCommande,
+      })
+    });
+  }
+}, [takeNameCash]);
 
-        }
+useEffect(() => {
+  if (takenameMvola) {
+    // Mode Mvola
+    fetch("http://localhost:1203/commandes", {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        clientNom: takenameMvola,
+        niveau: takenumMvola,
+        methodePaiement: "Mvola",
+        produits: cart,
+        total: totalCommande,
+      })
+    });
+  }
+}, [takenameMvola]);
 
-        payementCash()
-    }, [takeNameCash])
 
     useEffect(() => {
   console.log("Total reçu dans le modal :", totalCommande);
@@ -112,25 +129,7 @@ function Modal({ oneclose, condition, totalCommande }) {
         }
     }
 
-        useEffect(() => {
-        const payementCash = async() => {
-            const payerMvola = await fetch("http://localhost:1203/payementMvola", {
-                method: "POST",
-                mode: "cors",
-                headers: {
-                    'content-type': 'application/json',
-                },
-                body: JSON.stringify({
-                    name: takenameMvola,
-                    level: takenumMvola,
-                })
-            })
-             const donneU = await payerMvola.json();
-
-        }
-
-        payementCash()
-    }, [takenameMvola])
+        
 
     //Eto no mila le erreur 
     setTimeout(() => {

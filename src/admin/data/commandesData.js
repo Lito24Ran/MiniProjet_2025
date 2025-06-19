@@ -1,11 +1,18 @@
-export const commandesColumns = [
-  { id: 'orderId', label: 'Commande ID', minWidth: 120 },
-  { id: 'client', label: 'Client', minWidth: 150 },
-  { id: 'status', label: 'Statut', minWidth: 100 },
+export const columns = [
+  { id: 'clientNom', label: 'Client', minWidth: 150 },
+  { id: 'niveau', label: 'Niveau', minWidth: 100 },
+  { id: 'methodePaiement', label: 'Paiement', minWidth: 100 },
   { id: 'total', label: 'Total', minWidth: 100 },
+  { id: 'date', label: 'Date', minWidth: 150 },
+  { id: 'produitsDisplay', label: 'Produits', minWidth: 300 },
 ];
 
-export const commandesRows = [
-  { orderId: 'CMD001', client: 'Rakoto Jean', status: 'Payée', total: '10 000 Ar' },
-  { orderId: 'CMD002', client: 'Rabe Marie', status: 'En attente', total: '15 000 Ar' },
-];
+// Fonction pour préparer les données
+export function formatCommandes(commandes) {
+  return commandes.map(cmd => ({
+    ...cmd,
+    produitsDisplay: Array.isArray(cmd.produits)
+      ? cmd.produits.map(p => `${p.nom} x${p.quantity} (${p.prix} Ar)`).join(", ")
+      : '',
+  }));
+}
