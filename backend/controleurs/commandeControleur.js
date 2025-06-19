@@ -17,10 +17,11 @@ const ajouterCommande = async (req, res) => {
 //obtenir toutes les commmande
 const getCommandes = async (req, res) => {
   try {
-    const commandes = new Commande.find();
+    const commandes = await Commande.find(); // récupère toutes les commandes
     res.status(200).json(commandes);
-  } catch (error) {
-    res.status(500).json({ error: "Erreur lors de la recuperation" });
+  } catch (err) {
+    console.error("Erreur dans getCommandes:", err);
+    res.status(500).json({ message: "Erreur serveur" });
   }
 };
 
