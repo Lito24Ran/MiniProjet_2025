@@ -18,7 +18,7 @@ const produitSchema = new schema({
     type: String,
   },
   nomClient: {
-    type: String, // On peut aussi utiliser une référence ObjectId vers le modèle Client si besoin plus tard
+    type: String,
   }
 });
 
