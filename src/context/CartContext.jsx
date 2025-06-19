@@ -9,8 +9,11 @@ export function CartProvider({ children }) {
   });
 
   useEffect(() => {
-    localStorage.setItem("mon_panier", JSON.stringify(cart));
-  }, [cart]);
+  const panierSauvegarde = localStorage.getItem("mon_panier");
+  if (panierSauvegarde) {
+    setCart(JSON.parse(panierSauvegarde));
+  }
+}, []);
 
   const handleClick = (item) => {
     const existItem = cart.find(produit => produit._id === item._id);
@@ -22,7 +25,7 @@ export function CartProvider({ children }) {
           : produit
       ));
     } else {
-      // S'assurer qu'on a un champ quantity
+      // faut S'assurer qu'on a un champ  ici hein ?
       setCart([...cart, { ...item, quantity: item.quantity || 1 }]);
     }
   };
