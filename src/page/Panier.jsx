@@ -54,8 +54,8 @@ function Panier() {
       <Navbar size={cart.length} />
       <div className="panier_container">
         <h1>
-          Votre panier{" "}
-          {cart.length === 0 ? "est vide" : "contient des articles"}.
+          {/* Votre panier{" "} */}
+          {/* {cart.length === 0 ? "est vide" : "contient des articles"}. */}
         </h1>
         <div className="ScrollPanier">
           <article>
