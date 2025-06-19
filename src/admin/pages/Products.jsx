@@ -69,7 +69,7 @@ export default function Products() {
       <CustomTable
         columns={originalColumns}
         rows={rows}
-        uniqueKey="id"
+        uniqueKey="_id"
         onEdit={handleEdit}
         onDelete={handleDelete}
       />
