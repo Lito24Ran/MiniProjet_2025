@@ -49,7 +49,8 @@ function Panier() {
   return (
     <>
       <Navbar size={cart.length} />
-      <div className="panier_container">
+      <div className="panier_container_main">
+        <div className="panier_container">
         <h1>
           Votre panier{" "}
           {cart.length === 0 ? "est vide" : "contient des articles"}.
@@ -112,6 +113,8 @@ function Panier() {
         </MOdalContext.Provider>*/}
         </div>
       </div>
+      </div>
+      
     </>
   );
 }
