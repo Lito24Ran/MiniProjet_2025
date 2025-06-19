@@ -104,6 +104,7 @@ function Panier() {
               <Modal
                 oneclose={() => setshow(false)}
                 condition={() => ConditionalFunc()}
+                totalCommande={total}
               />,
               document.body
             )}

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import './modal.css';
 
-function Modal({ oneclose, condition }) {
+function Modal({ oneclose, condition, totalCommande }) {
     const [showCash, setShowCash] = useState(true);
     //const Supression = useContext(MOdalContext); 
     const [nameCash, setNameCash] = useState('');
@@ -169,7 +169,7 @@ function Modal({ oneclose, condition }) {
                         </div>
                         <div className="underlineModal"></div>
                         <div className="total">
-                            <h4>Total : </h4>
+                            <h4>Total : {totalCommande} Ariary</h4>
                         </div>
                     </div>
 
