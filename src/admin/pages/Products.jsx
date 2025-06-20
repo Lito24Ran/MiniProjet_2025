@@ -1,73 +1,128 @@
-import { useState } from 'react';
+// sanabavy fa mamay be tato
+
+import { useEffect, useState } from 'react';
 import CustomTable from '../components/CustomTable';
-import { productsColumns as originalColumns, productsRows as originalRows } from '../data/productsData';
+import { productsColumns as originalColumns } from '../data/productsData';
 import { Modal, Box, Typography, TextField, Button } from '@mui/material';
 
 export default function Products() {
-  const [rows, setRows] = useState(originalRows);
+  const [rows, setRows] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [editingProduct, setEditingProduct] = useState(null);
 
-  // Ouvrir modal création (editingProduct null)
+  // ✅ Fonction de récupération à réutiliser
+  const fetchProduits = async () => {
+    try {
+      const res = await fetch('http://localhost:1203/produits');
+      const data = await res.json();
+      setRows(data);
+    } catch (err) {
+      console.error("Erreur fetch produits:", err);
+    }
+  };
+
+  // ✅ Appel initial au montage
+  useEffect(() => {
+    fetchProduits();
+  }, []);
+
   const handleOpenCreate = () => {
-    setEditingProduct({ id: '', name: '', price: '', description: '' }); // vide pour nouveau produit
+    setEditingProduct({ nom: '', prix: '', quantite: '', description: '' });
     setOpenModal(true);
   };
 
-  // Ouvrir modal édition
   const handleEdit = (product) => {
-    setEditingProduct(product);
-    setOpenModal(true);
-  };
+  setEditingProduct({ ...product, imgFile: null });
+  setOpenModal(true);
+};
 
   const handleClose = () => {
     setOpenModal(false);
     setEditingProduct(null);
   };
 
-  // Supprimer produit
-  const handleDelete = (id) => {
-    setRows(rows.filter(row => row.id !== id));
+  const handleDelete = async (id) => {
+    try {
+      const res = await fetch(`http://localhost:1203/produits/${id}`, {
+        method: "DELETE",
+      });
+
+      if (!res.ok) throw new Error("Erreur suppression");
+      await fetchProduits(); // ✅ Recharge propre après suppression
+    } catch (err) {
+      console.error("Erreur delete:", err);
+    }
   };
 
-  // Changement des champs dans modal
   const handleChange = (e) => {
     const { name, value } = e.target;
     setEditingProduct(prev => ({ ...prev, [name]: value }));
   };
 
-  // Sauvegarder création ou modification
-  const handleSave = () => {
-    if (editingProduct.id) {
-      // Edition produit existant
-      setRows(rows.map(row => (row.id === editingProduct.id ? editingProduct : row)));
+  const handleSave = async () => {
+  const formData = new FormData();
+  formData.append("nom", editingProduct.nom);
+  formData.append("prix", editingProduct.prix);
+  formData.append("quantite", editingProduct.quantite);
+  formData.append("description", editingProduct.description);
+  if (editingProduct.imgFile) {
+    formData.append("img", editingProduct.imgFile);
+  }
+
+  try {
+    let res, updatedProduct;
+
+    if (editingProduct._id) {
+      // 🔁 Mise à jour
+      res = await fetch(`http://localhost:1203/produits/${editingProduct._id}`, {
+        method: "PUT",
+        body: formData,
+      });
     } else {
-      // Création produit - générer un id simple (ex: max id + 1)
-      const maxId = rows.reduce((max, row) => (row.id > max ? row.id : max), 0);
-      setRows([...rows, { ...editingProduct, id: maxId + 1 }]);
+      // ➕ Création
+      res = await fetch("http://localhost:1203/produits", {
+        method: "POST",
+        body: formData,
+      });
     }
+
+    if (!res.ok) throw new Error("Erreur lors de la sauvegarde du produit");
+
+    updatedProduct = await res.json();
+
+    setRows((prev) => {
+      const isEditing = !!editingProduct._id;
+      if (isEditing) {
+        return prev.map((prod) =>
+          prod._id === updatedProduct._id ? updatedProduct : prod
+        );
+      } else {
+        return [...prev, updatedProduct];
+      }
+    });
+
     handleClose();
-  };
+  } catch (err) {
+    console.error("Erreur:", err);
+  }
+};
 
   return (
     <>
-      {/* Bouton pour créer un nouveau produit */}
       <Box sx={{ mb: 2, display: 'flex', justifyContent: 'flex-end' }}>
         <Button variant="contained" color="primary" onClick={handleOpenCreate}>
           Nouveau produit
         </Button>
       </Box>
 
-      {/* Table avec actions edit/delete */}
       <CustomTable
         columns={originalColumns}
         rows={rows}
-        uniqueKey="id"
+        uniqueKey="_id"
         onEdit={handleEdit}
         onDelete={handleDelete}
       />
 
-      {/* Modal création/édition */}
       <Modal open={openModal} onClose={handleClose} aria-labelledby="modal-title">
         <Box sx={{
           position: 'absolute',
@@ -77,16 +132,22 @@ export default function Products() {
           boxShadow: 24, p: 4, borderRadius: 2,
         }}>
           <Typography id="modal-title" variant="h6" gutterBottom>
-            {editingProduct?.id ? 'Modifier le produit' : 'Créer un nouveau produit'}
+            {editingProduct?._id ? 'Modifier le produit' : 'Créer un nouveau produit'}
           </Typography>
+
           <TextField
-            fullWidth label="Nom" name="name" margin="normal"
-            value={editingProduct?.name || ''}
+            fullWidth label="Nom" name="nom" margin="normal"
+            value={editingProduct?.nom || ''}
             onChange={handleChange}
           />
           <TextField
-            fullWidth label="Prix" name="price" margin="normal" type="number"
-            value={editingProduct?.price || ''}
+            fullWidth label="Prix" name="prix" margin="normal" type="number"
+            value={editingProduct?.prix || ''}
+            onChange={handleChange}
+          />
+          <TextField
+            fullWidth label="Quantité" name="quantite" margin="normal" type="number"
+            value={editingProduct?.quantite || ''}
             onChange={handleChange}
           />
           <TextField
@@ -94,10 +155,23 @@ export default function Products() {
             value={editingProduct?.description || ''}
             onChange={handleChange}
           />
+
+          <input
+            type="file"
+            name="img"
+            accept="image/*"
+            onChange={(e) =>
+              setEditingProduct((prev) => ({
+                ...prev,
+                imgFile: e.target.files[0],
+              }))
+            }
+          />
+
           <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 2 }}>
             <Button onClick={handleClose} sx={{ mr: 1 }}>Annuler</Button>
             <Button variant="contained" color="primary" onClick={handleSave}>
-              {editingProduct?.id ? 'Sauvegarder' : 'Créer'}
+              {editingProduct?._id ? 'Sauvegarder' : 'Créer'}
             </Button>
           </Box>
         </Box>

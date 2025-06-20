@@ -1,23 +1,3 @@
-<<<<<<< HEAD
-const express = require("express");
-const connectDB = require("./db/conn");
-const dotenv = require("dotenv").config();
-// const cors = require("cors");
-const postRoute = require("./routes/posts");
-const loadEnv = require("./loadEnvironment");
-const port = 5000;
-
-require("dotenv").config();
-const app = express();
-// app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use("/post", require("./routes/posts"));
-
-connectDB().then(() => {
-  app.listen(port, () => console.log("le serveur a demare au port " + port));
-});
-=======
 const bodyParser = require("body-parser");
 const express = require("express");
 const app = express();
@@ -28,9 +8,19 @@ const router = require("../router/router");
 const methodoverride = require('method-override');
 const cors = require("cors")
 
+const clientsRoute = require("../router/clients");
+const produitsRoute = require("../router/produits");
+const commandesRoute = require("../router/commandes");
+
 app.use(cors());
 app.use(body_Parser.urlencoded({extends:true}));
 app.use(express.json());
+
+app.use("/uploads", express.static("uploads"));
+
+app.use("/clients", clientsRoute);
+app.use("/produits", produitsRoute);
+app.use("/commandes", commandesRoute);
 
 //Eto no fampidirana mongodb
 mongoose.connect('mongodb://localhost:27017/GeIt',);
@@ -60,4 +50,3 @@ app.listen(port,()=>{
     console.log(`Serveur creer avec succes au port ${port} !`);
     
 })
->>>>>>> 443e61a169a2e9deb6ce978249a906d2ee35558f

@@ -43,7 +43,7 @@ const Cards = ({ item, handleClick }) => {
               {description}
             </p>
             <button
-              onClick={() => handleClick({ ...item, quantity })}
+              onClick={() => handleClick({ ...item, quantity: quantity || 1 })}
               className="ajouter"
             >
               Ajouter
