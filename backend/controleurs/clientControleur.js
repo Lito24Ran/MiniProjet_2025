@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Client = require('../models/ClientModel'); // modèle mongoose
+const Client = require('../model/ClientModel'); // modèle mongoose
 
 // GET all clients
 router.get('/', async (req, res) => {
