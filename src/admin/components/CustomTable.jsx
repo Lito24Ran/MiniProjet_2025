@@ -20,7 +20,7 @@ export default function CustomTable({
   // Actions edit/delete
   const hasActions = onEdit || onDelete;
 
-  // Ajoute une colonne action si besoin
+  
   const allColumns = hasActions
     ? [
         ...columns,
