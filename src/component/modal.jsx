@@ -119,9 +119,10 @@ useEffect(() => {
                 if ((number.trim().length <= 9) && (number.trim().length >= 9)) {
                     setConditionnumMvola(true)
                 } else {
-                    condition();
+                    
                     setTakenameMvola(nameMvola);
                     setTakenumMvola(number);
+                    condition();
                 }
 
             }
