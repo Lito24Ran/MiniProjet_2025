@@ -6,14 +6,16 @@
   position: absolute;
   width: 100%;
   height: 22%;
-  background-color: #a38772;
-  margin-top: 10.7%;
+  background-color: #393939;
+  margin-top: 20%;
   padding-top: 10%;
   margin-left: 0px;
   z-index: 10;
 }
 .logo_ftr {
-  height: 150px;
+  height: 60%;
+  margin-left: 2%;
+  margin-top: 0%;
   width: auto;
   margin-right: auto;
   margin-bottom: auto;
@@ -23,7 +25,7 @@
   margin-right: 100px;
 }
 .contact:hover {
-  color: aliceblue;
+  color: rgb(255, 255, 255);
 }
 .contact::after {
   content: "";
@@ -46,17 +48,17 @@
   transition: 0.3s ease-in-out;
 }
 .texte_ftr {
-  padding-inline: 20px;
-  padding-block: 20px;
+  padding-inline: 2%;
+  padding-block: 2%;
   font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 17px;
-  color: #fbcfd0;
+  color: #6d3132;
 }
 .bouton_ftr:hover {
   border-color: #c4c3c3;
-  color: #c4c3c3;
+  color: #cf1111;
   box-shadow: 20xp beige;
-  background-color: #d6976b;
+  background-color: #948979;
 }
 .StyleFooter p {
   margin-top: -200px;
@@ -74,13 +76,13 @@
 .footer_3D {
   width: 80%;
   height: 212px;
-  background: linear-gradient(80deg, #4e4e4e, #9e9e9e);
+  background: linear-gradient(80deg, #858a89, #333446);
   border-radius: 10px;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: -50px;
+  margin-top: -13%;
   margin-left: auto;
   margin-right: auto;
   backface-visibility: hidden;
@@ -99,14 +101,11 @@
 }
 .txt_ftr h1 {
   font-size: 20px;
-  margin-top: 30px;
-}
-.txt_ftr h1 {
-  font-size: 20px;
   margin-top: 20px;
   font-family: "comic";
+  color: #d3d3d3;
 }
 .txt_ftr h1 span {
-  color: #fdd273;
+  color: #ff9d2a;
   /* font-family:  */
 }

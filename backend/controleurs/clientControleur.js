@@ -1,12 +1,15 @@
-  const Client = require("../model/client");
+// controleurs/clientControleur.js
+const Client = require('../model/client');
 
 const getClients = async (req, res) => {
   try {
     const clients = await Client.find();
-    res.status(200).json(clients);
-  } catch (error) {
-    res.status(500).json({ message: "Erreur lors de la récupération des clients" });
+    res.json(clients);
+  } catch (err) {
+    res.status(500).json({ error: 'Erreur serveur lors du fetch des clients' });
   }
 };
 
-module.exports = { getClients };
+module.exports = {
+  getClients,
+};
