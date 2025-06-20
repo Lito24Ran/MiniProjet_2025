@@ -10,12 +10,26 @@ const columns = [
 export default function Clients() {
   const [clients, setClients] = useState([]);
 
-  useEffect(() => {
-    fetch('http://localhost:1203/clients')
-      .then((res) => res.json())
-      .then((data) => setClients(data))
-      .catch((err) => console.error('Erreur fetch clients:', err));
-  }, []);
+      useEffect(() => {
+        const dataComparing = async () => {
+            try {
+                const datafetching = await fetch("http://localhost:1203/dataUser", {
+                    method: 'GET'
+                });
+                const donnefetch = await datafetching.json();
+                //console.log(donnefetch[0].name);
+                setData(donnefetch)
+
+            } catch (error) {
+                console.log("Une erreur c' est produit!");
+
+            }
+
+
+        }
+        dataComparing();
+        //console.log(data[0].email);
+    }, [data])
 
   return <CustomTable columns={columns} rows={clients} uniqueKey="_id" />;
 }
