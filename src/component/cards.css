@@ -44,7 +44,7 @@
   border-radius: 10px;
   height: 50px;
   width: 200px;
-  left: 10px;
+  left: -20px;
   position: relative;
   bottom: 0px;
   border-radius: 20px;
@@ -74,6 +74,7 @@
   margin-top: 10px;
   position: absolute;
   height: 3.7rem;
+  max-width: 88%;
   opacity: 0;
 }
 
@@ -82,9 +83,9 @@
   color: white;
   background-color: #ee9045;
   left: -5%;
-  margin-top: -53%;
+  margin-top: -22.5%;
   position: absolute;
-  width: 50%;
+  width: 30%;
   height: 30px;
   border-radius: 25%;
   border-top-left-radius: 0%;
@@ -92,7 +93,7 @@
   padding-left: 5%;
 }
 .card:hover .prix {
-  margin-top: -27%;
+  margin-top: -22.5%;
   width: 30%;
   padding-left: 5%;
 }
@@ -119,6 +120,8 @@
   border-radius: 100px;
   left: 5%;
   position: relative;
+  justify-items: center;
+  padding-bottom: 1.5%;
 }
 .quantity-controls1 {
   background-color: transparent;
@@ -130,10 +133,14 @@
 .quantity-controls2 {
   background-color: transparent;
   border-radius: 100px;
+  height: 28px;
+  width: 28px;
 }
 .quantity-controls button:hover {
-  background: #d6976b;
+  background: #ee9045;
 }
 span {
   margin: 20px;
+  font-size: 1.5rem;
+  top: 2%;
 }
