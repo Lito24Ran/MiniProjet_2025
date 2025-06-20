@@ -57,65 +57,54 @@ import "./navbar.css";
 // }
 
 const customerNavbar = ({ size }) => {
-  const [isShrinked, setIsShrinked] = useState(false);
-  useEffect(() => {
-    const handlesScroll = () => {
-      if (window.scrollY > 50) {
-        setIsShrinked(true);
-      } else {
-        setIsShrinked(false);
-      }
-    };
-    window.addEventListener("scroll", handlesScroll);
-    return () => window.removeEventListener("scroll", handlesScroll);
-  }, []);
   return (
-    <nav className={`navbar2 ${isShrinked ? "shrinked" : ""}`}>
-      <div className="logo2">
-        <img src="src/image/kalico.png" alt="tsy hita" height="150px" />
-      </div>
-      <ul className="nav-links">
-        <li>
-          <Nav.Link
-            as={Link}
-            to="/home"
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            Home
+    <div className="Barre_Menu">
+      <nav className="navbar2">
+        <div className="logo2">
+          <img src="src/image/kalico.png" alt="tsy hita" height="125px" />
+        </div>
+        <ul className="nav-links">
+          <li>
+            <NavLink as={Link} to="/home">
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              as={Link}
+              to="/Menu"
+              // className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Menu du jour
+            </NavLink>
+          </li>
+        </ul>
+        <Nav className="nav-actions">
+          <Nav.Link as={Link} to="/panier">
+            <img
+              src="src\image\panier.png"
+              alt="panier"
+              width="30"
+              height="30"
+              className="panier"
+            />
           </Nav.Link>
-        </li>
-        <li>
-          <Nav.Link
-            as={Link}
-            to="/Menu"
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            Cantine
+          <span className="span">{size}</span>
+        </Nav>
+        <Nav className="connect">
+          <Nav.Link className="textconnect" as={Link} to="/">
+            {/* se connecter */}
+            <img
+              src="src\image\profil.png"
+              alt="profil"
+              width="30"
+              height="30"
+              className="profil"
+            />
           </Nav.Link>
-        </li>
-      </ul>
-      <Nav className="nav-actions">
-        <Nav.Link as={Link} to="/panier">
-          <img
-            src="src\image\panier.png"
-            alt="panier"
-            width="30"
-            height="30"
-            className="panier"
-          />
-        </Nav.Link>
-        <span className="span">{size}</span>
-        <Nav.Link as={Link} to="/">
-          <img
-            src="src\image\profil.png"
-            alt="profil"
-            width="30"
-            height="30"
-            className="profil"
-          />
-        </Nav.Link>
-      </Nav>
-    </nav>
+        </Nav>
+      </nav>
+    </div>
   );
 };
 
