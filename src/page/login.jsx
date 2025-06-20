@@ -24,7 +24,11 @@ function Loginpage() {
     //Eto indray erreur an' ilay hoe ts misy @gmail.com
     const [emailmissing, setEmailmissing] = useState(false);
     const [missingpass, setMissingpass] = useState(false);
-    const [incorrectemail, setIncorrectemai] = useState(false)
+    const [incorrectemail, setIncorrectemai] = useState(false);
+    const [succesConnect, setSuccesConnect] = useState(false);
+
+    //Staten' le maso @ password iny
+    const [eye,seteye] = useState(false)
 
     //Eto no mi naviguer ilay izy
 
@@ -129,6 +133,9 @@ function Loginpage() {
     function handlechangeEmail(event) {
         setEmail(event.target.value)
     }
+    function eyefunc() {
+        seteye(true)
+    }
 
     setTimeout(() => {
         setErreur(false);
@@ -140,22 +147,24 @@ function Loginpage() {
     }, 8000);
 
 
+    {
+
+        useEffect(() => {
+            if (connecte) {
+                setSuccesConnect(true);
+
+                //alert("Connexion reussit")
+                setTimeout(() => {
+                    navigation("/home")
+                }, 1000);
+
+            };
+
+        }, [connecte])
+    }
+
     return (
         <>
-            {
-
-                useEffect(() => {
-                    if (connecte) {
-                        <p className="SuccesConnexion"> Connexion reussit</p>
-                        alert("Connexion reussit")
-                        setTimeout(() => {
-                            navigation("/home")
-                        }, 1000);
-
-                    };
-
-                }, [connecte])
-            }
 
             <div className="SignIn_container">
                 <div>
@@ -171,7 +180,9 @@ function Loginpage() {
                             {
                                 (erreur) ? <p className="error" title="champ obligatoire ">!</p> :
                                     (erreunom) ? <p className="error" title="Entrer votre nom">!</p> :
-                                        (existename) && <p className="compte_introuvable"> creer un compte</p>
+                                        (succesConnect) ? <p className="SuccesConnexion"> Connexion reussit</p> :
+                                            (existename == true) && <p className="compte_introuvable"> creer un compte</p>
+
                             }
                             <label htmlFor="nom">Enter your name</label>
                         </div>
@@ -196,12 +207,15 @@ function Loginpage() {
 
                         <br />
                         <div className="inputName">
-                            <input type="password" className="passwordLogin"
+                             <button onClick={eyefunc}><img src="#" alt="" /></button> 
+                            <input type="password"  
+                                className="passwordLogin"
                                 required
                                 value={password}
                                 onChange={handlchangepassword}
                                 size={700}
                             />
+                           
 
                             <div className="underline"></div>
                             <div className="underline"></div>
@@ -232,7 +246,7 @@ function Loginpage() {
                     <div>
                         <img src="src/image/image_chef.png" alt="imageDechef" id="imgeLogin" />
                     </div>
-                    <h2 style={{ color: "white", position: "relative", right: "80px" }}>Kalico</h2>
+                    <h2 style={{ color: "white", position: "relative", right: "80px", fontSize:"50px" }}> <strong>Kalico</strong></h2>
                 </div>
             </div>
 

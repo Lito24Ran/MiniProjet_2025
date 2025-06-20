@@ -1,18 +1,21 @@
 const mongoose = require("mongoose");
 
 const commandeSchema = new mongoose.Schema({
-  plats: {
-    nomPlat: String,
-    quantite: Number,
-    prix: Number,
+  clientNom: String,
+  niveau: String,
+  methodePaiement: String,
+  produits: [
+    {
+      nom: String,
+      prix: Number,
+      quantity: Number,
+    }
+  ],
+  total: Number,
+  date: {
+    type: Date,
+    default: Date.now,
   },
-  nomClient: String,
-  numeroCarte: String,
-  numeroTel: String,
-  // date : {
-  //     type: Date,
-  //     default: Date.now.
-  // },
 });
 
 module.exports = mongoose.model("Commande", commandeSchema);
