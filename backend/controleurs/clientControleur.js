@@ -1,15 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const Client = require('../model/ClientModel'); // modèle mongoose
+const Client = require("../model/client");
 
-// GET all clients
-router.get('/', async (req, res) => {
-  try {
-    const clients = await Client.find();
-    res.json(clients);
-  } catch (err) {
-    res.status(500).json({ error: 'Erreur serveur lors du fetch des clients' });
-  }
-});
+const getClients = (req, res) => {
+  Client.find()
+    .then(clients => res.json(clients))
+    .catch(error => res.status(500).json({ message: error.message }));
+};
 
-module.exports = router;
+module.exports = { getClients };
