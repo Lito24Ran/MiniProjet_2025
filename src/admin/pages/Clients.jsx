@@ -11,7 +11,7 @@ export default function Clients() {
   const [clients, setClients] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:1203/clients')
+    fetch('http://localhost:1203/login')
       .then((res) => res.json())
       .then((data) => setClients(data))
       .catch((err) => console.error('Erreur fetch clients:', err));

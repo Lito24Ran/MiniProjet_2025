@@ -207,7 +207,7 @@ function Loginpage() {
 
                         <br />
                         <div className="inputName">
-                             <button onClick={eyefunc}><img src="#" alt="" /></button> 
+                          {/*    <button onClick={eyefunc}><img src="#" alt="" /></button>  */}
                             <input type="password"  
                                 className="passwordLogin"
                                 required

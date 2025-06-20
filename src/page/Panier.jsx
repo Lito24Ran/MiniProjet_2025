@@ -33,8 +33,9 @@ function Panier() {
 
   const ConditionalFunc = () => {
     if (cart.length !== 0) {
-      // alert("Votre commande est enregistrée, veuillez patienter !");
       setshow(true);
+       alert("Votre commande est enregistrée, veuillez patienter !");
+      
     } else {
       alert("Veuillez entrer des produits !");
       setshow(false);
