@@ -24,17 +24,29 @@ function Home() {
 
   const [produits, setProduits] = useState([]);
 
-  useEffect(() => {
+  // 🟢 Fonction de récupération avec tri décroissant
+  const fetchProduits = () => {
     fetch("http://localhost:1203/produits")
       .then((res) => res.json())
       .then((data) => {
-        const produitsAvecImageUrl = data.map((p) => ({
-          ...p,
-          img: `http://localhost:1203/${p.img}`,
-        }));
+        const produitsAvecImageUrl = data
+          .map((p) => ({
+            ...p,
+            img: `http://localhost:1203/${p.img}`,
+          }))
+          .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); // triage decroissant
         setProduits(produitsAvecImageUrl);
       })
       .catch((err) => console.error("Erreur de chargement des produits :", err));
+  };
+
+  useEffect(() => {
+    fetchProduits();
+
+    // ici on Rafraîchir les produit tout les 10 secondes
+    const intervalId = setInterval(fetchProduits, 8000);
+
+    return () => clearInterval(intervalId); // Nettoyage
   }, []);
 
   const handleClic = (path) => {
