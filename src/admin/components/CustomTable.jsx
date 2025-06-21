@@ -17,10 +17,8 @@ export default function CustomTable({
   onEdit,
   onDelete,
 }) {
-  // Actions edit/delete
   const hasActions = onEdit || onDelete;
 
-  
   const allColumns = hasActions
     ? [
         ...columns,
@@ -35,8 +33,8 @@ export default function CustomTable({
     : columns;
 
   return (
-    <Paper sx={{ width: '100%', height: 'calc(100vh - 200px)', overflow: 'auto' }}>
-      <TableContainer>
+    <Paper sx={{ width: '100%' }}>
+      <TableContainer sx={{ maxHeight: 'calc(100vh - 200px)' }}>
         <Table stickyHeader>
           <TableHead>
             <TableRow>
