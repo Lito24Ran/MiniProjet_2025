@@ -40,7 +40,7 @@ Ce README a pour but de faciliter le démarrage et la réalisation du mini-proje
 
 - resoudre le problème de input sur (sign up || log in) il y a debordement de input a cause des data en cache par exemple...
 
-- lorsque on insere un new produits, l'ordre d'affichage devrait être le plus recents dois s'afficher tout en haut, que ce soit dans l'admin et le menu main (ordre decroissant)
+[X] (resolu) lorsque on insere un new produits, l'ordre d'affichage devrait être le plus recents dois s'afficher tout en haut, que ce soit dans l'admin et le menu main (ordre decroissant)
 
 - une barre de recherche en haut du navbar pour filtrer les produits, par exemple on recherche un certains plats selon l'ingredients, et plus on peut mettre un systeme de filtrage sur les produits a afficher comme afficher tout les produits qui ne contient pas cet ingredients.
 
