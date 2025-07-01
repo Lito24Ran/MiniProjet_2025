@@ -54,7 +54,7 @@ function Inscription() {
 
                 setErrnom(true)
             } else if (email.trim() === "") {
-                alert("Entrer une adresse email");
+                /* alert("Entrer une adresse email"); */
                 setErrEmailvide(true)
             } else if (password.trim() === "") {
                 alert("Entrer un mot de passe");
@@ -131,7 +131,10 @@ function Inscription() {
 
     useEffect(() => {
         (connecte) &&
-            navigation("/home")
+            setTimeout(() => {
+                navigation("/home");
+            }, 1000);
+            
     }, [connecte])
 
     return (
@@ -148,8 +151,9 @@ function Inscription() {
                                 required
                                 size={800} />
                             {
-                                (erreur) ? <p className="error" title="champ obligatoire ">!</p> :
-                                    (errnom) && <p className="error" title="Entrer un nom">!</p>
+                                (erreur) ? <p className="error" title="champ obligatoire ">champ obligatoire</p> :
+                                (connecte) ? <p className="SuccesConnexion"> Compte creer avec succes</p>:
+                                    (errnom) && <p className="error" title="Entrer un nom">Entrer un nom</p>
                             }
                             <div className="underline"></div>
                             <label htmlFor="nom">Entrer votre nom</label>
@@ -165,9 +169,9 @@ function Inscription() {
                                 required
                             />
                             {
-                                (erreur) ? <p className="error" title="champ obligatoire ">!</p> :
-                                    (errEmail) ? <p className="error" title="il manque @gmail.com ">!</p> :
-                                        (errEmailVide) && <p className="error" title="entrer votre email">!</p>
+                                (erreur) ? <p className="error" title="champ obligatoire ">Champ obligatoire</p> :
+                                    (errEmail) ? <p className="error" title="il manque @gmail.com ">il manque @gmail.com</p> :
+                                        (errEmailVide) && <p className="error" title="entrer votre email">entrer votre email</p>
 
                             }
                             <div className="underline"></div>
@@ -183,9 +187,9 @@ function Inscription() {
                                 
                                 />
                             {
-                                (erreur) ? <p className="error" title="champ obligatoire">!</p> :
-                                (erreurpassword) ? <p className="error" title="mot de passe incorrecte">!</p> :
-                                (errpasswordchar) && <p className="error" title="caractere specifique requis :@ ou # ou $ ou & ou *">!</p>
+                                (erreur) ? <p className="error" title="champ obligatoire">Champ obligatoires</p> :
+                                (erreurpassword) ? <p className="error" title="mot de passe incorrecte">mot de passe incorrecte!</p> :
+                                (errpasswordchar) && <p className="error" title="caractere specifique requis :@ ou # ou $ ou & ou *">Entrer au moin 1:@ ou # ou $ ou & ou *</p>
                               
                             }
 
@@ -201,8 +205,8 @@ function Inscription() {
                                 
                             />
                             {
-                                (erreur) ? <p className="error" title="champ obligatoire ">!</p> :
-                                (errlevel) && <p className="error" title="Enter one level with L1,L2 or L3 ">!</p>
+                                (erreur) ? <p className="error" title="champ obligatoire ">Champ obligatoire</p> :
+                                (errlevel) && <p className="error" title="Enter un niveau L1,L2 or L3 ">"Enter one level with L1,L2 or L3!</p>
                                     
                             }
                             <div className="underline"></div>

@@ -27,7 +27,7 @@ const Cards = ({ item, handleClick }) => {
             <p className="titre_card">{nom}</p>
 
             <p className="prix">
-              <b>{prix}K Ar</b>{" "}
+              <b>{prix} Ar</b>{" "}
             </p>
             <div className="quantity-controls">
               <button className="quantity-controls1 " onClick={decrement}>

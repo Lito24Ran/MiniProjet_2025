@@ -4,6 +4,7 @@ import "./SignIn.css";
 
 
 
+
 function Loginpage() {
 
     const [name, setName] = useState("");
@@ -28,7 +29,7 @@ function Loginpage() {
     const [succesConnect, setSuccesConnect] = useState(false);
 
     //Staten' le maso @ password iny
-    const [eye,seteye] = useState(false)
+    const [eye, seteye] = useState(false)
 
     //Eto no mi naviguer ilay izy
 
@@ -100,7 +101,7 @@ function Loginpage() {
                 if (data[j].email == email) {
 
                     if (data[j].password === password) {
-                        /*  alert("Votre mot de passe est correcte") */
+                        /*  alert("Votre mot de passe est correcte vous ete connecte") */
                         setConnecte(true)
                     } else {
                         /* alert("Votre mot de passe est incorrecte!") */
@@ -147,21 +148,45 @@ function Loginpage() {
     }, 8000);
 
 
-    {
 
-        useEffect(() => {
-            if (connecte) {
-                setSuccesConnect(true);
 
-                //alert("Connexion reussit")
-                setTimeout(() => {
-                    navigation("/home")
-                }, 1000);
+    useEffect(() => {
+        if (connecte == true) {
+            setLoginUser(name);
+            setLoginPassword(password);
+            SetLoginemail(email);
+            const loginBackend = async () => {
+                try {
+                    const fetchDatalogin = await fetch("http://localhost:1203/login", {
+                        method: "POST",
+                        mode: "cors",
+                        headers: {
+                            'content-type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            name: name,
+                            password: password,
+                            email: email,
+                        })
+                    })
+                } catch (error) {
 
-            };
+                }
+            }
+            loginBackend();
+            setSuccesConnect(true);
 
-        }, [connecte])
-    }
+            //alert("Connexion reussit")
+            setTimeout(() => {
+                navigation("/home")
+            }, 1000);
+        }
+
+
+    }, [connecte])
+
+
+
 
     return (
         <>
@@ -178,10 +203,12 @@ function Loginpage() {
                                 size={500} />
                             <div className="underline"></div>
                             {
-                                (erreur) ? <p className="error" title="champ obligatoire ">!</p> :
-                                    (erreunom) ? <p className="error" title="Entrer votre nom">!</p> :
-                                        (succesConnect) ? <p className="SuccesConnexion"> Connexion reussit</p> :
-                                            (existename == true) && <p className="compte_introuvable"> creer un compte</p>
+                                (existename) ? <p className="compte_introuvable"> creer un compte</p> :
+                                    (succesConnect) ? <p className="SuccesConnexion"> Connexion reussit</p> :
+                                        (erreur) ? <p className="error" title="champ obligatoire ">!</p> :
+                                            (erreunom) && <p className="error" title="Entrer votre nom">!</p>
+
+
 
                             }
                             <label htmlFor="nom">Enter your name</label>
@@ -207,15 +234,15 @@ function Loginpage() {
 
                         <br />
                         <div className="inputName">
-                          {/*    <button onClick={eyefunc}><img src="#" alt="" /></button>  */}
-                            <input type="password"  
+                            {/*    <button onClick={eyefunc}><img src="#" alt="" /></button>  */}
+                            <input type="password"
                                 className="passwordLogin"
                                 required
                                 value={password}
                                 onChange={handlchangepassword}
                                 size={700}
                             />
-                           
+
 
                             <div className="underline"></div>
                             <div className="underline"></div>
@@ -246,7 +273,7 @@ function Loginpage() {
                     <div>
                         <img src="src/image/image_chef.png" alt="imageDechef" id="imgeLogin" />
                     </div>
-                    <h2 style={{ color: "white", position: "relative", right: "80px", fontSize:"50px" }}> <strong>Kalico</strong></h2>
+                    <h2 style={{ color: "white", position: "relative", right: "80px", fontSize: "50px" }}> <strong>Kalico</strong></h2>
                 </div>
             </div>
 

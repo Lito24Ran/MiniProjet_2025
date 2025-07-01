@@ -75,7 +75,7 @@ const customerNavbar = ({ size }) => {
               to="/Menu"
               // className={({ isActive }) => (isActive ? "active" : "")}
             >
-              Menu du jour
+              Menu
             </NavLink>
           </li>
         </ul>
@@ -93,14 +93,14 @@ const customerNavbar = ({ size }) => {
         </Nav>
         <Nav className="connect">
           <Nav.Link className="textconnect" as={Link} to="/">
-            {/* se connecter */}
-            <img
+            se connecter
+            {/* <img
               src="src\image\profil.png"
               alt="profil"
               width="30"
               height="30"
               className="profil"
-            />
+            /> */}
           </Nav.Link>
         </Nav>
       </nav>
