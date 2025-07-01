@@ -35,3 +35,9 @@ Les tâches sont réparties entre les équipes suivantes :
 - Une fois les tâches terminées, chaque équipe devra s'assurer du bon fonctionnement de son travail.
 
 Ce README a pour but de faciliter le démarrage et la réalisation du mini-projet. N'hésitez pas à le consulter en cas de besoin.
+
+##  suggestions de retour UX
+ en tant que use clients.
+
+- il n'est pas obligatoire de passer par le sign up et login avant de consulter les menu, on peut creer un systeme par xemple il y aura un formulaire pour stocker les personnes qui font un ou +eurs commande (par exemple : qlq1 lambda fait cet commande et sera livré ou recuperer qlqpart à une heure precisé)
+

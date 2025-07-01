@@ -5,7 +5,8 @@ const produitSchema = new mongoose.Schema({
   prix: { type: Number, required: true },
   quantite: { type: Number, required: true },
   description: String,
-  img: String,
+  img: String,}, {
+  timestamps: true // cet date et heure a l'instant est necessaire pour bien trier les produits
 });
 
 module.exports = mongoose.model('Produit', produitSchema);

@@ -42,10 +42,13 @@ img {
   width: 100%;
 }
 
-.MuiTableHead-root .MuiTableRow-root .MuiTableCell-root {
+.MuiTableHead-root .MuiTableCell-root {
+  position: sticky;
+  top: 0;
   background-color: #FCC737 !important;
   color: black !important;
   font-weight: bold;
+  z-index: 1;
 }
 
 
