@@ -9,16 +9,24 @@ export default function Products() {
   const [rows, setRows] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [editingProduct, setEditingProduct] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   // ✅ Fonction de récupération à réutiliser
-  const fetchProduits = async () => {
-    try {
-      const res = await fetch('http://localhost:1203/produits');
-      const data = await res.json();
-      setRows(data);
-    } catch (err) {
-      console.error("Erreur fetch produits:", err);
-    }
+  const fetchProduits = () => {
+    setLoading(true);
+    fetch("http://localhost:1203/produits")
+      .then((res) => res.json())
+      .then((data) => {
+        const produitsAvecTri = data.sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+        );
+        setRows(produitsAvecTri);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Erreur de chargement :", err);
+        setLoading(false);
+      });
   };
 
   // ✅ Appel initial au montage
@@ -109,11 +117,26 @@ export default function Products() {
 
   return (
     <>
-      <Box sx={{ mb: 2, display: 'flex', justifyContent: 'flex-end' }}>
-        <Button variant="contained" color="primary" onClick={handleOpenCreate}>
-          Nouveau produit
-        </Button>
-      </Box>
+   <Box sx={{ mb: 2, mt: 2, mr: 4, ml: 4, display: 'flex', justifyContent: 'space-between' }}>
+    <button
+        onClick={fetchProduits}
+        style={{
+          marginBottom: "10px",
+          padding: "6px 12px",
+          backgroundColor: "#007bff",
+          color: "white",
+          border: "none",
+          borderRadius: "4px",
+          cursor: "pointer"
+        }}
+      >
+        🔄 Actualiser
+      </button>
+      <Button variant="contained" color="primary" onClick={handleOpenCreate}>
+        Nouveau produit
+      </Button>
+    </Box>
+
 
       <CustomTable
         columns={originalColumns}

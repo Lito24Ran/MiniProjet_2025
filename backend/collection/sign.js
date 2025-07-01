@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const student = require("../model/model");
+const student = require("../model/client");
 const { use } = require("react");
 //const bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken");

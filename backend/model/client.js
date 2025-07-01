@@ -1,9 +1,28 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-const ClientSchema = new mongoose.Schema({
-  name: String,
-  level: String,
-  date: { type: Date, default: Date.now }
+const utilisateur = new Schema({
+    name: {
+        type: String,
+        required: true,
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    level: {
+        type: String,
+        required: true,
+    },
+    password: {
+        type: String,
+        minlength: 8,
+        required: true,
+    },
+}, {
+    timestamps: true
 });
 
-module.exports = mongoose.model('Client', ClientSchema);
+const student = mongoose.model("eleve", utilisateur);
+module.exports = student;

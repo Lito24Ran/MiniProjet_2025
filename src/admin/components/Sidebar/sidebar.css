@@ -16,6 +16,7 @@
 }
 
 .sidebar__top h2 {
+  margin-top: 25px;
   display: flex;
   align-items: center;
   column-gap: 0.5rem;

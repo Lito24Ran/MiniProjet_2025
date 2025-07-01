@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react';
-import CustomTable from '../components/CustomTable'; // ou Ant Design Table
+import CustomTable from '../components/CustomTable';
 
 const columns = [
   { id: 'name', label: 'Nom', minWidth: 150 },
   { id: 'level', label: 'Niveau', minWidth: 100 },
-  { id: 'date', label: 'Date', minWidth: 150 }
+  { id: 'createdAt', label: 'Date', minWidth: 150 }
 ];
 
 export default function Clients() {
   const [clients, setClients] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:1203/clients')
+    fetch('http://localhost:1203/dataUser')
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data)) setClients(data);
