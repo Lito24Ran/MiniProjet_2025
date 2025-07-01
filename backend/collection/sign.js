@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const student = require("../model/model");
 const { use } = require("react");
 //const bcrypt = require('bcryptjs');
+const jwt = require("jsonwebtoken");
 
 const signup = (req, res, next) => {
     //console.log(req.body);
@@ -48,10 +49,19 @@ const login = (req, res) => {
               
                  if (user.password === password ) {
                     console.log("connexion reussit");
+                    let token = jwt.sign({name : user.name},'UneValeursecrete',{expiresIn:"1h"});
+                    console.log(token);
+                    
+                    res.json(
+                        {
+                            message: "Compte existant",
+                            token
+                        }
+                    )
 
                 } else {
                     console.log("mot de passe introuvable");
-                    alert("Votre mot de passe est introuvable!")
+                    //alert("Votre mot de passe est introuvable!")
 
                 }
 
@@ -71,10 +81,12 @@ const login = (req, res) => {
         })
 }
 
+
+
 const dataUser = (requete,response) =>{
     student.find({})
         .then(user =>{
-            console.log("Voici les donnes de l' utilisateur :",);
+            //console.log("Voici les donnes de l' utilisateur :",);
             response.send(user);
             
         })
