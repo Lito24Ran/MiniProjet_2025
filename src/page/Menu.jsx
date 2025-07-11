@@ -16,6 +16,7 @@ function  Menu (){
     return (
         <>
             <Navbar size={cart.length} />
+            
             <section>
                 <img src="src\image\font.png" alt="font" className="fonts" />
                 <div className='menus'>Menu du jour</div> 
