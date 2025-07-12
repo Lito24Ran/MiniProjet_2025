@@ -177,7 +177,7 @@ function Loginpage() {
             loginBackend();
             setSuccesConnect(true);
 
-            alert("Connexion reussit")
+            /* alert("Connexion reussit") */
             setTimeout(() => {
                 navigation("/home")
             }, 1000);
