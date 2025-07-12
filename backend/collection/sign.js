@@ -57,7 +57,7 @@ const login = (req, res) => {
                         {
                             nom: user.name,
                             email: user.email,
-                            level: user.level
+                            level: user.levelo
                         }     */
                        console.log(
                         {
@@ -133,7 +133,37 @@ const dataUser = (requete, response) => {
         })
 
 }
+
+const ChangePass = (requeste,response) =>{
+    console.log(requeste.body);
+    const getid = requeste.params.id;
+    console.log(getid);
+    
+    let passChange = requeste.body.passChange;
+
+    student.findByIdAndUpdate(getid, {$set : {password: passChange}})
+        .then( change => {
+            response.json({
+                message : "Password updating"
+            })
+            console.log("Password updating");
+            
+        }
+
+        )
+        .catch( err =>{
+            response.json(
+                {message : "Une erreur c' est produit"}
+            )
+            console.log(err);
+            
+        }
+            /* console.log("Une erreur c' est produit") */
+            
+        )
+    
+}
 module.exports = {
-    signup, login, dataUser,Authentification
+    signup, login, dataUser,Authentification,ChangePass
 };
 
