@@ -82,6 +82,17 @@ node importProduitsCategorie.js
 > 📌 Ce script insère les produits dans la collection `produits`, chacun avec un champ `categorie` (`burger`, `riz`, `dessert`, `jus`, `soupe`), ce qui permet un affichage dynamique via des requêtes filtrées.
 
 ---
+### 6. Insérer les produits des menus special
+
+Toujours depuis `backend/` :
+
+```bash
+node importMenuSpecial.js
+```
+
+> 📌 Ce script va insérer automatiquement les plats spéciaux dans la collection produits avec la propriété menuSpecial: true
+
+---
 
 ## 📦 Gestion des images (avec Multer)
 
