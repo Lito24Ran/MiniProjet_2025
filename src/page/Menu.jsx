@@ -1,38 +1,39 @@
-import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useEffect, useState, useContext } from "react";
 import Navbar from "../component/navbar";
-import  Row  from "react-bootstrap/Row";
-import  Col  from "react-bootstrap/Col";
-import Stack from 'react-bootstrap/Stack';
 import Cartes from "../component/cartes";
-import { createContext, useContext, useState} from "react";
+import Foot from "../component/footer";
 import { CartContext } from "../context/CartContext";
-import list from './DataMenu'
 
+function Menu() {
+  const { cart, handleClick } = useContext(CartContext);
+  const [menuSpecial, setMenuSpecial] = useState([]);
 
-function  Menu (){
+  useEffect(() => {
+    fetch("http://localhost:1203/produits/menuSpecial")
+      .then((res) => res.json())
+      .then((data) =>
+        setMenuSpecial(data.map((p) => ({ ...p, img: `http://localhost:1203/${p.img}` })))
+      )
+      .catch((err) => console.error("Erreur fetch menu spécial:", err));
+  }, []);
 
-    const { cart, setCart,handleClick } = useContext(CartContext);
-    return (
-        <>
-            <Navbar size={cart.length} />
-            
-            <section>
-                <img src="src\image\font.png" alt="font" className="fonts" />
-                <div className='menus'>Menu du jour</div> 
-                    <div className="All_Cards">
-                    {
-                        list.map((item)=>(
-                            <Cartes item={item} key={item.id} handleClick={handleClick} />
-            ))
-            }
+  return (
+    <>
+      <Navbar size={cart.length} />
+      <section>
+        <img src="src/image/font.png" alt="font" className="fonts" />
+        <div className="menus">Menu du jour</div>
+        <div className="All_Cards">
+          {menuSpecial.map((item) => (
+            <Cartes key={item._id} item={item} handleClick={handleClick} />
+          ))}
         </div>
-            </section>
-        </>
-    )
-} 
-  
-
-
+      </section>
+      <footer>
+        <Foot />
+      </footer>
+    </>
+  );
+}
 
 export default Menu;

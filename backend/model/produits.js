@@ -6,8 +6,8 @@ const produitSchema = new mongoose.Schema({
   quantite: { type: Number, required: true },
   description: String,
   img: String,
-  categorie: String, // POUR les riz, dessert, jus, ....
-  menuSpecial: { type: Boolean, default: false }, // true si c'est le menu du jour
+  categorie: String,
+  menuSpecial: { type: Boolean, default: false }
 }, {
   timestamps: true
 });

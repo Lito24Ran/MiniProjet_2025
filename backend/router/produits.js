@@ -13,7 +13,7 @@ const upload = multer({ storage });
 // Routes
 router.get("/", getProduits);
 router.get("/categorie/:categorie", getProduitsParCategorie);
-router.get("/menuspecial", getMenuSpecial);
+router.get("/menuSpecial", getMenuSpecial);
 router.post("/", upload.single("img"), addProduit); // ajout avec image
 router.put("/:id", upload.single("img"), updateProduit);
 router.delete("/:id", deleteProduit);
