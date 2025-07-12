@@ -2,8 +2,8 @@ function Dashboard() {
   return (
     <div style={styles.container}>
       <div style={styles.card}>
-        <h1 style={styles.title}>Coming Soon...</h1>
-        <p style={styles.subtitle}>Please wait, this functionnality will be introduce later</p>
+        <h1 style={styles.title}>Arrive bientôt...</h1>
+        <p style={styles.subtitle}>Veuillez attendre, Cet fonctionnalité sera introduit plus tard</p>
       </div>
     </div>
   );
