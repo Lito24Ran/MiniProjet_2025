@@ -1,36 +1,37 @@
-import React from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Navbar from "../component/navbar";
-import Cartes from "../component/cartes";
-import { createContext, useContext, useState} from "react";
 import { CartContext } from "../context/CartContext";
-import list from './Datasoupe';
+import Cartes from "../component/cartes";
 import Foot from "../component/footer";
 
-function Soupe () {
-    const { cart, setCart,handleClick } = useContext(CartContext);
-    return(
-        <>        
-        <Navbar size={cart.length} /> 
-           <section>
-                <img src="src\image\font.png" alt="font" className="fonts" />
-                <div className='menus'>Pates</div> 
-                <div className="All_Cards">
-                {
-                    list.map((item)=>(
-                        <Cartes item={item} 
-                                key={item.id} 
-                                handleClick={handleClick} />
-                            ))
-                }
-                </div>
-            </section>
+function Soupe() {
+  const { cart, handleClick } = useContext(CartContext);
+  const [produits, setProduits] = useState([]);
 
-    
-            <footer>
-                <Foot/>
-            </footer>
-        </>
+  useEffect(() => {
+    fetch("http://localhost:1203/produits/categorie/soupe")
+      .then((res) => res.json())
+      .then((data) =>
+        setProduits(data.map((p) => ({ ...p, img: `http://localhost:1203/${p.img}` })))
+      )
+      .catch((err) => console.error("Erreur chargement Soupe :", err));
+  }, []);
 
-    );
+  return (
+    <>
+      <Navbar size={cart.length} />
+      <section>
+        <img src="src/image/font.png" alt="font" className="fonts" />
+        <div className="menus">Pâtes</div>
+        <div className="All_Cards">
+          {produits.map((item) => (
+            <Cartes key={item._id} item={item} handleClick={handleClick} />
+          ))}
+        </div>
+      </section>
+      <footer><Foot /></footer>
+    </>
+  );
 }
+
 export default Soupe;
