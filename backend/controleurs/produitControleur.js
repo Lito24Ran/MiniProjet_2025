@@ -10,6 +10,26 @@ const getProduits = async (req, res) => {
   }
 };
 
+// GET pour des produits par catégorie
+const getProduitsParCategorie = async (req, res) => {
+  try {
+    const produits = await Produit.find({ categorie: req.params.categorie }).sort({ createdAt: -1 });
+    res.status(200).json(produits);
+  } catch (error) {
+    res.status(500).json({ message: "Erreur lors de la récupération par catégorie" });
+  }
+};
+
+// GET pour le produits du menu spécial
+const getMenuSpecial = async (req, res) => {
+  try {
+    const produits = await Produit.find({ menuSpecial: true }).sort({ createdAt: -1 });
+    res.status(200).json(produits);
+  } catch (error) {
+    res.status(500).json({ message: "Erreur menu spécial" });
+  }
+};
+
 // POST : ajouter un produit avec image
 const addProduit = async (req, res) => {
   try {
@@ -65,7 +85,4 @@ const updateProduit = async (req, res) => {
   }
 };
 
-module.exports = { getProduits, addProduit, updateProduit };
-
-
-module.exports = { getProduits, addProduit, deleteProduit, updateProduit };
+module.exports = { getProduits, addProduit, deleteProduit, updateProduit, getProduitsParCategorie, getMenuSpecial  };
