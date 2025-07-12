@@ -22,6 +22,7 @@ router.get("/aboutClient", AllController.Authentification, async (req, res, next
 })
 router.post("/payement", fandoavamBola.payement);
 router.post("/payementMvola", fandoavamBola.payementMvola);
+router.post("/ChangePass/:id", AllController.ChangePass);
 
 
 module.exports = router;
