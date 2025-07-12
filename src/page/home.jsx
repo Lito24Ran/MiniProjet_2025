@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
-import Navbar from "../component/navbar.jsx";
+import CustomNavbar from "../component/navbar.jsx";
 import frite from "../image/frite.png";
 import image2 from "../image/image2.png";
 import "./home.css";
@@ -37,7 +37,9 @@ function Home() {
           .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); // triage decroissant
         setProduits(produitsAvecImageUrl);
       })
-      .catch((err) => console.error("Erreur de chargement des produits :", err));
+      .catch((err) =>
+        console.error("Erreur de chargement des produits :", err)
+      );
   };
 
   useEffect(() => {
@@ -57,144 +59,140 @@ function Home() {
 
   useEffect(() => {
     async () => {
-      const donneClient = await fetch("http://localhost:1203/aboutClient",
-        {
-          method: "GET",
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("token")
-          }
-        }
-      )
-      .then(data =>{
+      const donneClient = await fetch("http://localhost:1203/aboutClient", {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      }).then((data) => {
         console.log("Donne utilisateur :", data);
-        
-      }
-
-      )
+      });
       donneClient;
-    }
-    
-  }, [])
+    };
+  }, []);
 
   const prix = 12000;
 
   return (
     <>
-      <Navbar size={cart.length} />
-      <header>
-        <div className="carousel">
-          <SystemeCrousel />
+      <div className="HomePage">
+        {/* <Navbar size={cart.length} /> */}
+        <CustomNavbar size={cart.length} />
+        <header>
+          <div className="carousel">
+            <SystemeCrousel />
+          </div>
+        </header>
+
+        <section className="mt-4">
+          <div className="BarreDemenu">
+            <Container>
+              <Row>
+                <div className="texte">
+                  <p className="text">Explorer notre menu</p>
+                  <p className="texts">
+                    Choisissez parmi notre menu varié, composé d'une sélection
+                    de plats savoureux.Notre mission est de satisfaire vos
+                    envies et d'élever votre expérience culinaire.
+                  </p>
+                </div>
+                <div className="contenairMenu">
+                  <div className="menu">
+                    <Image
+                      className="imagemenu"
+                      src="src/image/pates.png"
+                      onMouseOver={(e) =>
+                        (e.currentTarget.src = "src/image/pates1.png")
+                      }
+                      onMouseOut={(e) =>
+                        (e.currentTarget.src = "src/image/pates.png")
+                      }
+                      onClick={() => handleClic("/Soupe")}
+                      roundedCircle
+                    />
+                    <span className="SousTitre">Pâtes</span>
+                  </div>
+
+                  <div className="menu">
+                    <Image
+                      className="imagemenu"
+                      src="src/image/snack.png"
+                      onMouseOver={(e) =>
+                        (e.currentTarget.src = "src/image/snack1.png")
+                      }
+                      onMouseOut={(e) =>
+                        (e.currentTarget.src = "src/image/snack.png")
+                      }
+                      onClick={() => handleClic("/Burger")}
+                      roundedCircle
+                    />
+                    <span className="SousTitre">Snack</span>
+                  </div>
+
+                  <div className="menu">
+                    <Image
+                      className="imagemenu"
+                      src="src/image/riz.png"
+                      onMouseOver={(e) =>
+                        (e.currentTarget.src = "src/image/riz1.png")
+                      }
+                      onMouseOut={(e) =>
+                        (e.currentTarget.src = "src/image/riz.png")
+                      }
+                      onClick={() => handleClic("/Riz")}
+                      roundedCircle
+                    />
+                    <span className="SousTitre">Riz</span>
+                  </div>
+
+                  <div className="menu">
+                    <Image
+                      className="imagemenu"
+                      src="src/image/dessert.png"
+                      onMouseOver={(e) =>
+                        (e.currentTarget.src = "src/image/dessert1.png")
+                      }
+                      onMouseOut={(e) =>
+                        (e.currentTarget.src = "src/image/dessert.png")
+                      }
+                      onClick={() => handleClic("/Dessert")}
+                      roundedCircle
+                    />
+                    <span className="SousTitre">Dessert</span>
+                  </div>
+
+                  <div className="menu">
+                    <Image
+                      className="imagemenu"
+                      src="src/image/boisson.png"
+                      onMouseOver={(e) =>
+                        (e.currentTarget.src = "src/image/boisson1.png")
+                      }
+                      onMouseOut={(e) =>
+                        (e.currentTarget.src = "src/image/boisson.png")
+                      }
+                      onClick={() => handleClic("/Jus")}
+                      roundedCircle
+                    />
+                    <span className="SousTitre">Boisson</span>
+                  </div>
+                </div>
+              </Row>
+              <hr />
+            </Container>
+          </div>
+        </section>
+
+        <div className="All_Cards">
+          {produits.map((item) => (
+            <Cards handleClick={handleClick} item={item} key={item._id} />
+          ))}
         </div>
-      </header>
 
-      <section className="mt-4">
-        <div className="BarreDemenu">
-          <Container>
-            <Row>
-              <div className="texte">
-                <p className="text">Explorer notre menu</p>
-                <p className="texts">
-                  Choisissez parmi notre menu varié, composé d'une sélection de
-                  plats savoureux. Notre mission est de satisfaire vos envies et
-                  d'élever votre expérience culinaire.
-                </p>
-              </div>
-              <div className="contenairMenu">
-                <div className="menu">
-                  <Image
-                    className="imagemenu"
-                    src="src/image/pates.png"
-                    onMouseOver={(e) =>
-                      (e.currentTarget.src = "src/image/pates1.png")
-                    }
-                    onMouseOut={(e) =>
-                      (e.currentTarget.src = "src/image/pates.png")
-                    }
-                    onClick={() => handleClic("/Soupe")}
-                    roundedCircle
-                  />
-                  <span className="SousTitre">Pâtes</span>
-                </div>
-
-                <div className="menu">
-                  <Image
-                    className="imagemenu"
-                    src="src/image/snack.png"
-                    onMouseOver={(e) =>
-                      (e.currentTarget.src = "src/image/snack1.png")
-                    }
-                    onMouseOut={(e) =>
-                      (e.currentTarget.src = "src/image/snack.png")
-                    }
-                    onClick={() => handleClic("/Burger")}
-                    roundedCircle
-                  />
-                  <span className="SousTitre">Snack</span>
-                </div>
-
-                <div className="menu">
-                  <Image
-                    className="imagemenu"
-                    src="src/image/riz.png"
-                    onMouseOver={(e) =>
-                      (e.currentTarget.src = "src/image/riz1.png")
-                    }
-                    onMouseOut={(e) =>
-                      (e.currentTarget.src = "src/image/riz.png")
-                    }
-                    onClick={() => handleClic("/Riz")}
-                    roundedCircle
-                  />
-                  <span className="SousTitre">Riz</span>
-                </div>
-
-                <div className="menu">
-                  <Image
-                    className="imagemenu"
-                    src="src/image/dessert.png"
-                    onMouseOver={(e) =>
-                      (e.currentTarget.src = "src/image/dessert1.png")
-                    }
-                    onMouseOut={(e) =>
-                      (e.currentTarget.src = "src/image/dessert.png")
-                    }
-                    onClick={() => handleClic("/Dessert")}
-                    roundedCircle
-                  />
-                  <span className="SousTitre">Dessert</span>
-                </div>
-
-                <div className="menu">
-                  <Image
-                    className="imagemenu"
-                    src="src/image/boisson.png"
-                    onMouseOver={(e) =>
-                      (e.currentTarget.src = "src/image/boisson1.png")
-                    }
-                    onMouseOut={(e) =>
-                      (e.currentTarget.src = "src/image/boisson.png")
-                    }
-                    onClick={() => handleClic("/Jus")}
-                    roundedCircle
-                  />
-                  <span className="SousTitre">Boisson</span>
-                </div>
-              </div>
-            </Row>
-            <hr />
-          </Container>
-        </div>
-      </section>
-
-      <div className="All_Cards">
-        {produits.map((item) => (
-          <Cards handleClick={handleClick} item={item} key={item._id} />
-        ))}
+        <footer>
+          <Footer />
+        </footer>
       </div>
-
-      <footer>
-        <Footer />
-      </footer>
     </>
   );
 }
