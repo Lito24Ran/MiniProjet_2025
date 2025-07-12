@@ -132,7 +132,7 @@ function Inscription() {
     useEffect(() => {
         (connecte) &&
             setTimeout(() => {
-                navigation("/home");
+                navigation("/");
             }, 1000);
             
     }, [connecte])
