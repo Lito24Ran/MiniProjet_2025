@@ -9,12 +9,22 @@ function MenuBurger() {
   const [produits, setProduits] = useState([]);
 
   useEffect(() => {
+    const fetchBurger = () =>{
     fetch("http://localhost:1203/produits/categorie/burger")
       .then((res) => res.json())
       .then((data) =>
         setProduits(data.map((p) => ({ ...p, img: `http://localhost:1203/${p.img}` })))
       )
       .catch((err) => console.error("Erreur chargement Burger :", err));
+    };
+
+  // Appel initial
+  fetchBurger();
+  // Rafraîchir toutes les 15 secondes
+  const intervalId = setInterval(fetchBurger, 15000);
+
+  // Nettoyage de l'intervalle à la fin
+  return () => clearInterval(intervalId);
   }, []);
 
   return (
