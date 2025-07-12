@@ -63,7 +63,7 @@ export default function CustomTable({
                             onClick={() => onEdit(row)}
                             sx={{ mr: 1 }}
                           >
-                            Edit
+                            Modifier
                           </Button>
                         )}
                         {onDelete && (
@@ -73,7 +73,7 @@ export default function CustomTable({
                             color="error"
                             onClick={() => onDelete(row[uniqueKey])}
                           >
-                            Delete
+                            Retirer
                           </Button>
                         )}
                       </TableCell>

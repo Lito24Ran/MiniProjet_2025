@@ -119,7 +119,7 @@ export default function Products() {
           🔄 Actualiser
         </button>
         <Button variant="contained" color="primary" onClick={handleOpenCreate}>
-          ➕ Nouveau produit
+          Nouveau produit
         </Button>
       </Box>
 

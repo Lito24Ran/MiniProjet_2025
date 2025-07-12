@@ -42,7 +42,7 @@ const Sidebar = () => {
 
         <div className="sidebar__bottom">
           <span onClick={handleLogout} style={{cursor:"pointer"}}>
-            <i className="ri-logout-circle-r-line"></i> Logout
+            <i className="ri-logout-circle-r-line"></i> Sortir
           </span>
         </div>
       </div>
