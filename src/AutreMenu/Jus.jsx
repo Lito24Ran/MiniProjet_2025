@@ -9,12 +9,18 @@ function Jus() {
   const [produits, setProduits] = useState([]);
 
   useEffect(() => {
+    const fetchJus = () => {
     fetch("http://localhost:1203/produits/categorie/jus")
       .then((res) => res.json())
       .then((data) =>
         setProduits(data.map((p) => ({ ...p, img: `http://localhost:1203/${p.img}` })))
       )
       .catch((err) => console.error("Erreur chargement Jus :", err));
+    };
+
+    fetchJus();
+    const intervalId = setInterval(fetchJus, 15000);
+    return () => clearInterval(intervalId);
   }, []);
 
   return (
