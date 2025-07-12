@@ -23,10 +23,10 @@ const getProduitsParCategorie = async (req, res) => {
 // GET pour le produits du menu spécial
 const getMenuSpecial = async (req, res) => {
   try {
-    const produits = await Produit.find({ menuSpecial: true }).sort({ createdAt: -1 });
-    res.status(200).json(produits);
+    const menus = await Produit.find({ menuSpecial: true }).sort({ createdAt: -1 });
+    res.status(200).json(menus);
   } catch (error) {
-    res.status(500).json({ message: "Erreur menu spécial" });
+    res.status(500).json({ message: "Erreur lors de la récupération du menu spécial" });
   }
 };
 
