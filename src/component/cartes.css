@@ -117,9 +117,17 @@
 }
 .price {
   font-size: 20px;
-  color: black;
-  padding-left: 25px;
-  text-align: left;
+  color: white;
+  background-color: #ee9045;
+  left: -2%;
+  margin-top: -22.5%;
+  position: absolute;
+  width: 55%;
+  height: 30px;
+  border-radius: 25%;
+  border-top-left-radius: 0%;
+  border-bottom-right-radius: 0%;
+  padding-left: 5%;
 }
 .boutton {
   border-radius: 100px;
