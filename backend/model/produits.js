@@ -5,8 +5,11 @@ const produitSchema = new mongoose.Schema({
   prix: { type: Number, required: true },
   quantite: { type: Number, required: true },
   description: String,
-  img: String,}, {
-  timestamps: true // cet date et heure a l'instant est necessaire pour bien trier les produits
+  img: String,
+  categorie: String, // POUR les riz, dessert, jus, ....
+  menuSpecial: { type: Boolean, default: false }, // true si c'est le menu du jour
+}, {
+  timestamps: true
 });
 
 module.exports = mongoose.model('Produit', produitSchema);

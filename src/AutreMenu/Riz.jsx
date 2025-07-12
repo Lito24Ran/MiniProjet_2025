@@ -1,46 +1,37 @@
-import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useEffect, useState, useContext } from "react";
 import Navbar from "../component/navbar";
-import  Row  from "react-bootstrap/Row";
-import  Col  from "react-bootstrap/Col";
-import Stack from 'react-bootstrap/Stack';
-import Cartes from "../component/cartes";
-import { createContext, useContext, useState} from "react";
 import { CartContext } from "../context/CartContext";
-import list from './Datariz';
+import Cartes from "../component/cartes";
 import Foot from "../component/footer";
 
+function Riz() {
+  const { cart, handleClick } = useContext(CartContext);
+  const [produits, setProduits] = useState([]);
 
-function  Riz (){
+  useEffect(() => {
+    fetch("http://localhost:1203/produits/categorie/riz")
+      .then((res) => res.json())
+      .then((data) =>
+        setProduits(data.map((p) => ({ ...p, img: `http://localhost:1203/${p.img}` })))
+      )
+      .catch((err) => console.error("Erreur chargement Riz :", err));
+  }, []);
 
-    const { cart, setCart, handleClick } = useContext(CartContext);
-
-    return (
-        <>
-            <Navbar size={cart.length} />
-            <section>
-                <img src="src\image\font.png" alt="font" className="fonts" />
-                <div className='menus'>Riz</div> 
-                <div className="All_Cards">
-                { 
-                    list.map((item)=>(
-                        <Cartes item={item} 
-                                key={item.id} 
-                                handleClick={handleClick} />
-                    ))
-                }
-                </div>
-    </section>
-
-    
-            <footer>
-                <Foot/>
-            </footer>
-        </>
-    )
-} 
-  
-
-
+  return (
+    <>
+      <Navbar size={cart.length} />
+      <section>
+        <img src="src/image/font.png" alt="font" className="fonts" />
+        <div className="menus">Riz</div>
+        <div className="All_Cards">
+          {produits.map((item) => (
+            <Cartes key={item._id} item={item} handleClick={handleClick} />
+          ))}
+        </div>
+      </section>
+      <footer><Foot /></footer>
+    </>
+  );
+}
 
 export default Riz;
