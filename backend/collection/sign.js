@@ -36,29 +36,48 @@ const signup = (req, res, next) => {
 
 const login = (req, res) => {
 
-    console.log(req.body);
+    //console.log(req.body);
 
     let name = req.body.name;
     let password = req.body.password;
     let email = req.body.email;
 
-    student.findOne({ $or: [{ name: name }, {email: email}] })
+    student.findOne({ $or: [{ name: name }, { email: email }] })
 
         .then(user => {
             if (user) {
-              
-                 if (user.password === password ) {
+
+                if (user.password === password) {
                     console.log("connexion reussit");
-                    let token = jwt.sign({name : user.name},'UneValeursecrete',{expiresIn:"1h"});
+                    let token = jwt.sign({ name: user.name }, 'UneValeursecrete', { expiresIn: "1h" });
                     console.log(token);
+
+                    return (
+                        /* res.json(
+                        {
+                            nom: user.name,
+                            email: user.email,
+                            level: user.level
+                        }     */
+                       console.log(
+                        {
+                            nom : user.name,
+                            email : user.email,
+                            level : user.level,   
+                        }
+                       )
+                       
+                    )
+
                     
-                    res.json(
+
+                    /* res.json(
                         {
                             message: "Compte existant",
                             token
                         }
                     )
-
+ */
                 } else {
                     console.log("mot de passe introuvable");
                     //alert("Votre mot de passe est introuvable!")
@@ -67,36 +86,54 @@ const login = (req, res) => {
 
             } else {
                 console.log("Compte inexistant!");
-                
+
 
             }
         }
         )
         .catch(error => {
             console.log("Une erreur c' est produit!");
-            
+
             res.json({
                 message: "Erreur de connexion"
             })
         })
 }
 
+const Authentification = (req, res, next) => {
+    const autHeader = req.headers.authorization;
+
+    const token = autHeader.split(' ')[1];
+
+    if (!token) {
+        return res.sendStatus(401);
+    }
+
+    try {
+        const decoded = jwt.verify(token, "Unevaleursecrete");
+        req.userId = decoded.userId; // On récupère l'ID de l'utilisateur
+        next();
+    } catch (error) {
+        console.log("Une erreur de token qui est inavalide!");
+        
+    }
+}
 
 
-const dataUser = (requete,response) =>{
+const dataUser = (requete, response) => {
     student.find({})
-        .then(user =>{
+        .then(user => {
             //console.log("Voici les donnes de l' utilisateur :",);
             response.send(user);
-            
+
         })
-        .catch(err=>{
+        .catch(err => {
             console.log(err);
-            
+
         })
 
 }
 module.exports = {
-    signup, login,dataUser
+    signup, login, dataUser,Authentification
 };
 

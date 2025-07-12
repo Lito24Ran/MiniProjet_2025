@@ -13,6 +13,8 @@ import Loginpage from "./page/login.jsx";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import AppAdmin from "./admin/AppAdmin.jsx";
+import ForgotPassword from "./page/forgotPass.jsx";
+import ChangePassword from "./page/forgotPassword2.jsx";
 
 
 function App() {
@@ -20,11 +22,13 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.pathname === "/") {
+    if (location.pathname === "/" || location.pathname === "/SignUp" || location.pathname === "/forgotPassword" || location.pathname === "/ChangePassword") {
       document.body.style.backgroundImage =  `{url ("src/image/backgroundLogin.png")}`/*src/image/backgroundSignUp1.gif/* "linear-gradient(to top right, rgba(166, 29, 113),rgba(239, 130, 35, 1))" */;
-    } else if (location.pathname === "/SignUp") {
+    } /* else if (location.pathname === "/SignUp") {
+      document.body.style.backgroundImage = `{ url("src/image/backgroundLogin.png");}`
+    }else if (location.pathname === "/forgotPassword") {
       document.body.style.backgroundImage = `{url ("src/image/backgroundSignUp1.png")}`
-    }
+    } */
     else {
       document.body.style.backgroundImage = "none";
     }
@@ -33,6 +37,8 @@ function App() {
     <Routes>
        <Route path="/" element={<Loginpage />} /> 
       <Route path="/SignUp" element={<Inscription />} />
+      <Route path="/forgotPassword" element={<ForgotPassword />} />
+      <Route path="/ChangePassword" element={<ChangePassword />} />
       <Route path="/home" element={<Home />} />
       <Route path="/panier" element={<Panier />} />
       <Route path="/Riz" element={<Riz />} />

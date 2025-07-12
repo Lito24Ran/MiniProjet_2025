@@ -5,6 +5,7 @@ import "./SignIn.css";
 
 
 
+
 function Loginpage() {
 
     const [name, setName] = useState("");
@@ -176,7 +177,7 @@ function Loginpage() {
             loginBackend();
             setSuccesConnect(true);
 
-            //alert("Connexion reussit")
+            alert("Connexion reussit")
             setTimeout(() => {
                 navigation("/home")
             }, 1000);
@@ -255,7 +256,7 @@ function Loginpage() {
                         </div>
                         <br />
                         <div className="paragraphe">
-                            <p>Forgot password?  <Link> click here</Link></p>
+                            <p>Forgot password?  <Link to={"/forgotPassword"}> click here</Link></p>
                         </div>
                         <button
                             onClick={handleclicLogin}
