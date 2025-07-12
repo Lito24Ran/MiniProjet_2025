@@ -53,6 +53,29 @@ function Home() {
     navigate(path);
   };
 
+  //Ici on fetch l' api pour les donnes d' un client connecter
+
+  useEffect(() => {
+    async () => {
+      const donneClient = await fetch("http://localhost:1203/aboutClient",
+        {
+          method: "GET",
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token")
+          }
+        }
+      )
+      .then(data =>{
+        console.log("Donne utilisateur :", data);
+        
+      }
+
+      )
+      donneClient;
+    }
+    
+  }, [])
+
   const prix = 12000;
 
   return (
