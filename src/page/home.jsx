@@ -19,6 +19,7 @@ function Home() {
   const { cart, handleClick } = useContext(CartContext);
   const [produits, setProduits] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const isSearching = searchQuery.length > 0; // pas compris cet ligne, maybe un derivé de taille pour eviter le debordement
 
   // Recuperation des produits (avec images et leurs format)
   const fetchProduits = () => {
@@ -64,12 +65,15 @@ function Home() {
       <CustomNavbar size={cart.length} onSearchChange={handleSearchSubmit} />
 
         <header>
+        <section className={`animated-section ${isSearching ? "slide-up" : "slide-down"}`}>
           <div className="carousel">
             <SystemeCrousel />
           </div>
+        </section>
         </header>
 
         <section className="mt-4">
+        <section className={`animated-section ${isSearching ? "slide-up" : "slide-down"}`}>
           <div className="BarreDemenu">
             <Container>
               <Row>
@@ -166,10 +170,11 @@ function Home() {
               <hr />
             </Container>
           </div>
+          </section>
         </section>
 
-        {/* Cartes filtrées via la recherche */}
-        <div className="All_Cards">
+        {/* Cartes filtreés via la recherche */}
+        <div className={`All_Cards ${isSearching ? "active-search" : ""}`}>
           {produitsFiltres.length > 0 ? (
             produitsFiltres.map((item) => (
               <Cards handleClick={handleClick} item={item} key={item._id} />

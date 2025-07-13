@@ -175,3 +175,18 @@
   color: gold;
   transform: scale(1.2);
 }
+
+.All_Cards {
+  width: 80%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 3fr));
+  gap: 5rem;
+  position: relative;
+  transition: margin-top 1.4s ease;
+}
+
+
+.All_Cards.active-search {
+  margin-top: 60%; /* ceci c'est jsute pour mettre les cartes en dessous de navbar */
+}
