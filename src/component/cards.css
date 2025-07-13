@@ -94,7 +94,7 @@
 }
 .card:hover .prix {
   margin-top: -22.5%;
-  width: 30%;
+  width: 35%;
   padding-left: 5%;
 }
 .ajouter {
@@ -139,8 +139,39 @@
 .quantity-controls button:hover {
   background: #ee9045;
 }
-span {
+.qtt {
   margin: 20px;
   font-size: 1.5rem;
-  top: 2%;
+}
+.star-container {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  z-index: 3;
+  cursor: pointer;
+  display: flex;
+  gap: 1px;
+}
+
+.star-icon {
+  margin: 0px;
+  font-size: 2rem;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.star {
+  font-size: 2rem;
+  color: #bbb;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.star:hover,
+.star.active {
+  color: gold;
+  transform: scale(1.2);
+}
+.star:hover {
+  color: gold;
+  transform: scale(1.2);
 }
