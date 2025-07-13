@@ -99,7 +99,7 @@ function Loginpage() {
             }
             if (existename) {
                 /*  alert("Votre compte existe!"); */
-                if (data[j].email == email) {
+                if (data[j].email === email) {
 
                     if (data[j].password === password) {
                         /*  alert("Votre mot de passe est correcte vous ete connecte") */
