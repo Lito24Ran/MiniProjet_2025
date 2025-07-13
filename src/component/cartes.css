@@ -25,16 +25,11 @@
   background: rgb(107, 3, 3);
   transition: 0.2s linear;
 }
-/* @keyframes float{
-    0% {transform: translateY(0) translateX(0);}
-    50% { transform: translateY(-20%) translateX(0);}
-    100% {transform: translateY(0) translateX(0);}
-} */
 
 .All_Cards {
   width: 80%;
   margin: auto;
-  margin-top: 100%;
+  margin-top: 10%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 3fr));
   gap: 5rem;
