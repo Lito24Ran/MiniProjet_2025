@@ -9,12 +9,17 @@ function Riz() {
   const [produits, setProduits] = useState([]);
 
   useEffect(() => {
+    const fetchRiz = () => {
     fetch("http://localhost:1203/produits/categorie/riz")
       .then((res) => res.json())
       .then((data) =>
         setProduits(data.map((p) => ({ ...p, img: `http://localhost:1203/${p.img}` })))
       )
       .catch((err) => console.error("Erreur chargement Riz :", err));
+    };
+    fetchRiz();
+    const intervalId = setInterval(fetchRiz, 15000);
+    return () => clearInterval(intervalId);
   }, []);
 
   return (

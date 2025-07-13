@@ -60,7 +60,15 @@ const rechercheProduits = async (req, res) => {
 // POST : ajouter un produit avec image
 const addProduit = async (req, res) => {
   try {
-    const { nom, prix, quantite, description } = req.body;
+    const {
+      nom,
+      prix,
+      quantite,
+      description,
+      categorie,
+      menuSpecial
+    } = req.body;
+
     const imagePath = req.file ? req.file.path : null;
 
     const nouveauProduit = new Produit({
@@ -68,7 +76,9 @@ const addProduit = async (req, res) => {
       prix,
       quantite,
       description,
-      img: imagePath, // sauvegarder de la chemin de l'image
+      img: imagePath,
+      categorie,
+      menuSpecial: menuSpecial === 'true' || menuSpecial === true  // ✅ gère booléen correctement
     });
 
     await nouveauProduit.save();
@@ -90,7 +100,15 @@ const deleteProduit = async (req, res) => {
 // PUT : mise à jour d’un produit
 const updateProduit = async (req, res) => {
   try {
-    const { nom, prix, quantite, description } = req.body;
+    const {
+      nom,
+      prix,
+      quantite,
+      description,
+      categorie,
+      menuSpecial
+    } = req.body;
+
     const imagePath = req.file ? req.file.path : undefined;
 
     const updated = {
@@ -98,9 +116,13 @@ const updateProduit = async (req, res) => {
       prix,
       quantite,
       description,
+      categorie,
+      menuSpecial: menuSpecial === 'true' || menuSpecial === true  // Conversion correcte
     };
 
-    if (imagePath) updated.img = imagePath;
+    if (imagePath) {
+      updated.img = imagePath;
+    }
 
     const produit = await Produit.findByIdAndUpdate(req.params.id, updated, {
       new: true,
@@ -108,6 +130,7 @@ const updateProduit = async (req, res) => {
 
     res.status(200).json(produit);
   } catch (error) {
+    console.error("Erreur update :", error);
     res.status(500).json({ message: "Erreur lors de la mise à jour du produit" });
   }
 };
