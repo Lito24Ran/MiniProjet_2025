@@ -260,3 +260,21 @@ body {
   padding: 20px;
   margin-top: -50px;
 }
+
+.animated-section {
+  transition: transform 1.6s ease-in-out, opacity 0.5s ease;
+  will-change: transform, opacity;
+}
+
+.slide-up {
+  transform: translateY(-150%);
+  opacity: 0;
+  pointer-events: none;
+  height: 0;
+  overflow: hidden;
+}
+
+.slide-down {
+  transform: translateY(0);
+  opacity: 1;
+}
