@@ -22,7 +22,7 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.pathname === "/" || location.pathname === "/SignUp" || location.pathname === "/forgotPassword" || location.pathname === "/ChangePassword") {
+    if (location.pathname === "/" || location.pathname === "/SignUp" || location.pathname === "/forgotPassword" || location.pathname === "/ChangePassword/:id") {
       document.body.style.backgroundImage =  `{url ("src/image/backgroundLogin.png")}`/*src/image/backgroundSignUp1.gif/* "linear-gradient(to top right, rgba(166, 29, 113),rgba(239, 130, 35, 1))" */;
     } /* else if (location.pathname === "/SignUp") {
       document.body.style.backgroundImage = `{ url("src/image/backgroundLogin.png");}`
@@ -38,7 +38,7 @@ function App() {
        <Route path="/" element={<Loginpage />} /> 
       <Route path="/SignUp" element={<Inscription />} />
       <Route path="/forgotPassword" element={<ForgotPassword />} />
-      <Route path="/ChangePassword" element={<ChangePassword />} />
+      <Route path="/ChangePassword/:id" element={<ChangePassword />} />
       <Route path="/home" element={<Home />} />
       <Route path="/panier" element={<Panier />} />
       <Route path="/Riz" element={<Riz />} />
