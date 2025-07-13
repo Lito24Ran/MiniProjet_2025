@@ -1,30 +1,26 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
 import CustomNavbar from "../component/navbar.jsx";
-import frite from "../image/frite.png";
-import image2 from "../image/image2.png";
 import "./home.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
-import Burger from "../image/burger.png";
 import { useNavigate } from "react-router-dom";
 import SystemeCrousel from "../component/Carousel.jsx";
 import Footer from "../component/footer.jsx";
 import Cards from "../component/Card";
 import { CartContext } from "../context/CartContext.jsx";
-import { Link } from "react-router-dom";
 
 export const produitContext = createContext();
 
 function Home() {
   const navigate = useNavigate();
-  const { cart, setCart, handleClick } = useContext(CartContext);
-
+  const { cart, handleClick } = useContext(CartContext);
   const [produits, setProduits] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
-  // 🟢 Fonction de récupération avec tri décroissant
+  // Recuperation des produits (avec images et leurs format)
   const fetchProduits = () => {
     fetch("http://localhost:1203/produits")
       .then((res) => res.json())
@@ -34,7 +30,7 @@ function Home() {
             ...p,
             img: `http://localhost:1203/${p.img}`,
           }))
-          .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); // triage decroissant
+          .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         setProduits(produitsAvecImageUrl);
       })
       .catch((err) =>
@@ -44,40 +40,29 @@ function Home() {
 
   useEffect(() => {
     fetchProduits();
-
-    // ici on Rafraîchir les produit tout les 10 secondes
     const intervalId = setInterval(fetchProduits, 8000);
-
-    return () => clearInterval(intervalId); // Nettoyage
+    return () => clearInterval(intervalId);
   }, []);
 
   const handleClic = (path) => {
     navigate(path);
   };
 
-  //Ici on fetch l' api pour les donnes d' un client connecter
+  const handleSearchSubmit = (query) => {
+    setSearchQuery(query.trim().toLowerCase());
+  };  
 
-  useEffect(() => {
-    async () => {
-      const donneClient = await fetch("http://localhost:1203/aboutClient", {
-        method: "GET",
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      }).then((data) => {
-        console.log("Donne utilisateur :", data);
-      });
-      donneClient;
-    };
-  }, []);
-
-  const prix = 12000;
+  // on affiche les Produits affichés en fonction du filtre de rechercher de produits
+  const produitsFiltres = produits.filter((p) =>
+    p.nom.toLowerCase().includes(searchQuery) ||
+    p.description?.toLowerCase().includes(searchQuery)
+  );
 
   return (
     <>
       <div className="HomePage">
-        {/* <Navbar size={cart.length} /> */}
-        <CustomNavbar size={cart.length} />
+      <CustomNavbar size={cart.length} onSearchChange={handleSearchSubmit} />
+
         <header>
           <div className="carousel">
             <SystemeCrousel />
@@ -92,10 +77,10 @@ function Home() {
                   <p className="text">Explorer notre menu</p>
                   <p className="texts">
                     Choisissez parmi notre menu varié, composé d'une sélection
-                    de plats savoureux.Notre mission est de satisfaire vos
-                    envies et d'élever votre expérience culinaire.
+                    de plats savoureux.
                   </p>
                 </div>
+
                 <div className="contenairMenu">
                   <div className="menu">
                     <Image
@@ -183,10 +168,17 @@ function Home() {
           </div>
         </section>
 
+        {/* Cartes filtrées via la recherche */}
         <div className="All_Cards">
-          {produits.map((item) => (
-            <Cards handleClick={handleClick} item={item} key={item._id} />
-          ))}
+          {produitsFiltres.length > 0 ? (
+            produitsFiltres.map((item) => (
+              <Cards handleClick={handleClick} item={item} key={item._id} />
+            ))
+          ) : (
+            <p style={{ textAlign: "center", marginTop: "2rem" }}>
+              Aucun produit trouvé pour « {searchQuery} ».
+            </p>
+          )}
         </div>
 
         <footer>
