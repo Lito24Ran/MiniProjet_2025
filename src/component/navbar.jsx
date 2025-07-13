@@ -3,13 +3,13 @@ import { Link, NavLink } from "react-router-dom";
 import { Nav } from "react-bootstrap";
 import "./navbar.css";
 
-const CustomNavbar = ({ size }) => {
+const CustomNavbar = ({ size, onSearchChange }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
-      console.log("window.scrollY", window.scrollY);
       setScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
@@ -18,6 +18,12 @@ const CustomNavbar = ({ size }) => {
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setSearchValue(value);
+    onSearchChange(value); // Envoier en direct la recherche au parent
   };
 
   return (
@@ -29,12 +35,8 @@ const CustomNavbar = ({ size }) => {
 
         <div className={`main_list ${menuOpen ? "show_list" : ""}`}>
           <ul className="navlinks">
-            <li>
-              <NavLink to="/home">Accueil</NavLink>
-            </li>
-            <li>
-              <NavLink to="/menu">Menu du jour</NavLink>
-            </li>
+            <li><NavLink to="/home">Accueil</NavLink></li>
+            <li><NavLink to="/menu">Menu du jour</NavLink></li>
           </ul>
 
           <div className="search-container">
@@ -42,26 +44,25 @@ const CustomNavbar = ({ size }) => {
               type="text"
               placeholder="Rechercher..."
               className="search-input"
+              value={searchValue}
+              onChange={handleInputChange} // appel à chaque frappe de recherche
             />
           </div>
+
           <Nav className="panier">
             <Nav.Link as={Link} to="/panier">
               <img src="src/image/panier.png" alt="panier" />
             </Nav.Link>
             <span>{size}</span>
           </Nav>
+
           <Nav className="profile">
             <img src="src/image/profil.png" alt="profil" />
           </Nav>
         </div>
 
-        <span
-          className={`navTrigger ${menuOpen ? "active" : ""}`}
-          onClick={toggleMenu}
-        >
-          <i></i>
-          <i></i>
-          <i></i>
+        <span className={`navTrigger ${menuOpen ? "active" : ""}`} onClick={toggleMenu}>
+          <i></i><i></i><i></i>
         </span>
       </div>
     </nav>
