@@ -2,11 +2,16 @@ body {
   height: 100vh;
   width: 100vh;
   margin-top: 1rem;
-  background-image: url("src/image/backgroundLogin.png");
-  background-size: contain;
-  background-size: 210vh 100vh;
-  background-repeat: no-repeat
-    /* linear-gradient(to top right, rgba(166, 29, 113),rgba(239, 130, 35, 1) )*/;
+  background: linear-gradient(-100deg, #e77f3c, #a61d71, #a61d71, #e77f3c);
+  /* background-image: url("src/image/backgroundLogin.png"); */
+  /* background-size: contain; */
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+  height: 100vh;
+  /* overflow: hidden; */
+  /* background-size: 210vh 100vh; */
+  /* background-repeat: no-repeat */
+  /* linear-gradient(to top right, rgba(166, 29, 113),rgba(239, 130, 35, 1) )*/
 }
 
 /* .container div{
@@ -15,12 +20,24 @@ body {
   
    
 } */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
 .SignIn_container div {
-  margin-right: 500px;
-  font-size: 20px;
+  /* margin-right: 300%; */
+  font-size: 1.5rem;
   display: inline-block;
-  margin-top: 10%;
+  margin-top: 7%;
+  margin-left: 5%;
 }
 
 @media (max-width: 1200px) {
@@ -51,7 +68,7 @@ body {
 }
 
 .SignIn_container div {
-  line-height: 30px;
+  /* line-height: 30px; */
   text-align: center;
 }
 
@@ -221,4 +238,112 @@ input {
 }
 input.inputLogin {
   background-color: green;
+}
+.Rcontener {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none; /* important pour que les clics passent à travers */
+}
+.rond1 {
+  top: 65vh;
+  left: -45vh;
+  position: absolute;
+  height: 60%;
+  width: 45%;
+  animation: float1 6s ease-in-out infinite;
+}
+.rond2 {
+  right: -40vh;
+  position: absolute;
+  height: 60%;
+  width: 45%;
+  top: 65vh;
+  animation: float2 6s ease-in-out infinite;
+}
+.rond3 {
+  right: -25vh;
+  position: absolute;
+  height: 40%;
+  width: 25%;
+  top: 10vh;
+  animation: float3 6s ease-in-out infinite;
+}
+.rond4 {
+  right: 30vh;
+  position: absolute;
+  height: 40%;
+  width: 25%;
+  top: -18vh;
+  animation: float4 6s ease-in-out infinite;
+}
+.rond5 {
+  right: 50vh;
+  position: absolute;
+  height: 40%;
+  width: 25%;
+  top: 80vh;
+  animation: float5 6s ease-in-out infinite;
+}
+@keyframes float1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(60px, -50px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes float2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(40px, -15px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes float3 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-25px, 25px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes float4 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-50px, 60px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes float5 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-20px, -100px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
