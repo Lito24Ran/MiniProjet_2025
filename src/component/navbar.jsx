@@ -1,111 +1,71 @@
 import React, { useEffect, useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import { NavLink } from "react-router-dom";
-import Navbar from "react-bootstrap/Navbar";
-import { useContext } from "react";
-import { CartContext } from "../context/CartContext";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { Nav } from "react-bootstrap";
 import "./navbar.css";
 
-// function customerNavbar({size}) {
-//   const { cart } = useContext(CartContext);
-//   const navigate = useNavigate();
-//   const handleClic = (path) => {
-//     navigate(path);
-//   };
+const CustomNavbar = ({ size }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-//     const color  = "gray";
-//     return(
-//         <>
-//           <Navbar style={{color}} className="Barre_Menu">
+  useEffect(() => {
+    const handleScroll = () => {
+      console.log("window.scrollY", window.scrollY);
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-//          <Container>
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
 
-//            <Navbar.Brand  as={Link} to="/"><img
-//            src="src\image\ikaly.png"
-//            alt="logo"
-//            width="30"
-//            height="30"
-//            className="logonav"
-//            />
-//            </Navbar.Brand>
-
-//                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-//            <Navbar.Collapse id="basic-navbar-nav">
-//             <div className="nav_item">
-//             <p className="Navbar_text" onClick={() => handleClic("/Menu")}>Menu</p>
-//             </div>
-//             <Nav className="ms-auto">
-//               <Nav.Link as={Link} to="/panier"><img
-//               src="src\image\panier.png"
-//               alt="panier"
-//               width="30"
-//               height="30"
-//               className="panier"
-//               />
-//               </Nav.Link>
-//               <span className="span" >{size}</span>
-//             </Nav>
-//            </Navbar.Collapse>
-//          </Container>
-//         </Navbar>
-//         </>
-
-//     )
-// }
-
-const customerNavbar = ({ size }) => {
   return (
-    <div className="Barre_Menu">
-      <nav className="navbar2">
-        <div className="logo2">
-          <img src="src/image/kalico.png" alt="tsy hita" height="125px" />
+    <nav className={`nav ${scrolled ? "nav-scrolled" : ""}`}>
+      <div className="container">
+        <div className="logo">
+          <img src="src/image/kalico.png" alt="logo" />
         </div>
-        <ul className="nav-links">
-          <li>
-            <NavLink as={Link} to="/home">
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              as={Link}
-              to="/Menu"
-              // className={({ isActive }) => (isActive ? "active" : "")}
-            >
-              Menu
-            </NavLink>
-          </li>
-        </ul>
-        <Nav className="nav-actions">
-          <Nav.Link as={Link} to="/panier">
-            <img
-              src="src\image\panier.png"
-              alt="panier"
-              width="30"
-              height="30"
-              className="panier"
+
+        <div className={`main_list ${menuOpen ? "show_list" : ""}`}>
+          <ul className="navlinks">
+            <li>
+              <NavLink to="/home">Accueil</NavLink>
+            </li>
+            <li>
+              <NavLink to="/menu">Menu du jour</NavLink>
+            </li>
+          </ul>
+
+          <div className="search-container">
+            <input
+              type="text"
+              placeholder="Rechercher..."
+              className="search-input"
             />
-          </Nav.Link>
-          <span className="span">{size}</span>
-        </Nav>
-        <Nav className="connect">
-          <Nav.Link className="textconnect" as={Link} to="/">
-            se connecter
-            {/* <img
-              src="src\image\profil.png"
-              alt="profil"
-              width="30"
-              height="30"
-              className="profil"
-            /> */}
-          </Nav.Link>
-        </Nav>
-      </nav>
-    </div>
+          </div>
+          <Nav className="panier">
+            <Nav.Link as={Link} to="/panier">
+              <img src="src/image/panier.png" alt="panier" />
+            </Nav.Link>
+            <span>{size}</span>
+          </Nav>
+          <Nav className="profile">
+            <img src="src/image/profil.png" alt="profil" />
+          </Nav>
+        </div>
+
+        <span
+          className={`navTrigger ${menuOpen ? "active" : ""}`}
+          onClick={toggleMenu}
+        >
+          <i></i>
+          <i></i>
+          <i></i>
+        </span>
+      </div>
+    </nav>
   );
 };
 
-export default customerNavbar;
+export default CustomNavbar;
