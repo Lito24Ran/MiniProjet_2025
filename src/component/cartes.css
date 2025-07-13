@@ -35,18 +35,7 @@
   gap: 5rem;
   position: relative;
 }
-.decrement {
-  background-color: transparent;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  margin-right: 5px;
-}
-.increment {
-  background-color: transparent;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  margin-left: 5px;
-}
+
 .cartesimage {
   width: 100%;
   image-resolution: 100%;
@@ -108,15 +97,15 @@
   font-family: Arial, Helvetica, sans-serif;
   text-align: left;
   padding-left: 10px;
-  margin-top: 40px;
+  margin-top: 60px;
 }
 .price {
   font-size: 20px;
   color: white;
   background-color: #ee9045;
-  left: -2%;
-  margin-top: -22.5%;
-  position: absolute;
+  left: -3%;
+  top: 3rem;
+  /* position: relat?ive; */
   width: 55%;
   height: 30px;
   border-radius: 25%;
@@ -146,14 +135,22 @@
   /* height: 100vh; */
   z-index: 0;
 }
+.quantite-controls {
+  margin-top: 2rem;
+}
 .quantite-controls1 {
   background-color: transparent;
   border-top-left-radius: 5px;
+  width: 10%;
 }
 
 .quantite-controls2 {
   background-color: transparent;
   border-top-right-radius: 5px;
+  width: 10%;
+}
+span {
+  margin: 3%;
 }
 .quantite-controls button:hover {
   background: #d6976b;

@@ -274,12 +274,12 @@ function Inscription() {
             style={{
               color: "white",
               position: "relative",
-              right: "80px",
+              right: "10px",
               fontSize: "50px",
             }}
           >
             {" "}
-            <strong>Kalico</strong>
+            <strong>Kalⁱco</strong>
           </h2>
         </div>
       </div>
