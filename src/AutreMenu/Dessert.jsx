@@ -9,13 +9,19 @@ function Dessert() {
   const [produits, setProduits] = useState([]);
 
   useEffect(() => {
+    const fetchDessert = () => {
     fetch("http://localhost:1203/produits/categorie/dessert")
       .then((res) => res.json())
       .then((data) =>
         setProduits(data.map((p) => ({ ...p, img: `http://localhost:1203/${p.img}` })))
       )
       .catch((err) => console.error("Erreur chargement Dessert :", err));
-  }, []);
+    };
+    
+    fetchDessert();
+    const intervalId = setInterval(fetchDessert, 15000);
+    return () => clearInterval(intervalId);
+    }, []);
 
   return (
     <>

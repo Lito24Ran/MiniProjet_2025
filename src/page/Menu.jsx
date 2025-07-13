@@ -9,12 +9,26 @@ function Menu() {
   const [menuSpecial, setMenuSpecial] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:1203/produits/menuSpecial")
-      .then((res) => res.json())
-      .then((data) =>
-        setMenuSpecial(data.map((p) => ({ ...p, img: `http://localhost:1203/${p.img}` })))
-      )
-      .catch((err) => console.error("Erreur fetch menu spécial:", err));
+    const fetchMenuSpecial = () => {
+      fetch("http://localhost:1203/produits/menuSpecial")
+        .then((res) => res.json())
+        .then((data) =>
+          setMenuSpecial(data.map((p) => ({
+            ...p,
+            img: `http://localhost:1203/${p.img}`,
+          })))
+        )
+        .catch((err) => console.error("Erreur fetch menu spécial:", err));
+    };
+  
+    // Appel initial
+    fetchMenuSpecial();
+  
+    // Rafraîchir toutes les 15 secondes
+    const intervalId = setInterval(fetchMenuSpecial, 15000);
+  
+    // Nettoyage de l'intervalle à la fin
+    return () => clearInterval(intervalId);
   }, []);
 
   return (
