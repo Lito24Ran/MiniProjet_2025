@@ -1,13 +1,12 @@
 body {
   height: 100vh;
-  width: 100vh;
+  width: 100vw;
   margin-top: 1rem;
   background: linear-gradient(-100deg, #e77f3c, #a61d71, #a61d71, #e77f3c);
   /* background-image: url("src/image/backgroundLogin.png"); */
   /* background-size: contain; */
   background-size: 400% 400%;
   animation: gradient 10s ease infinite;
-  height: 100vh;
   /* overflow: hidden; */
   /* background-size: 210vh 100vh; */
   /* background-repeat: no-repeat */
@@ -152,7 +151,7 @@ p {
 .inputLogin div .underline {
   position: absolute;
   bottom: 0px;
-  left: 0px;
+  left: -12px;
   height: 0.5px;
   width: 25rem;
   background-color: rgb(255, 253, 253);
@@ -254,6 +253,7 @@ input.inputLogin {
   position: absolute;
   height: 60%;
   width: 45%;
+  opacity: 40%;
   animation: float1 6s ease-in-out infinite;
 }
 .rond2 {
@@ -262,6 +262,7 @@ input.inputLogin {
   height: 60%;
   width: 45%;
   top: 65vh;
+  opacity: 20%;
   animation: float2 6s ease-in-out infinite;
 }
 .rond3 {
@@ -270,6 +271,7 @@ input.inputLogin {
   height: 40%;
   width: 25%;
   top: 10vh;
+  opacity: 20%;
   animation: float3 6s ease-in-out infinite;
 }
 .rond4 {
@@ -278,6 +280,7 @@ input.inputLogin {
   height: 40%;
   width: 25%;
   top: -18vh;
+  opacity: 20%;
   animation: float4 6s ease-in-out infinite;
 }
 .rond5 {
@@ -286,6 +289,7 @@ input.inputLogin {
   height: 40%;
   width: 25%;
   top: 80vh;
+  opacity: 20%;
   animation: float5 6s ease-in-out infinite;
 }
 @keyframes float1 {
