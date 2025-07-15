@@ -200,3 +200,6 @@ input {
     left: 73%;
     cursor: pointer;
 }
+.nav{
+    z-index: 0;
+}
