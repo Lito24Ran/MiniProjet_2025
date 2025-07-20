@@ -111,6 +111,7 @@ npm install multer
 
 ```bash
 npm install @fortawesome/fontawesome-free
+```
 ---
 
 ## 🚧 Répartition des tâches
