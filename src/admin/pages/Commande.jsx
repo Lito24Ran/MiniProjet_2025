@@ -1,4 +1,3 @@
-// src/pages/Commande.jsx
 import { useEffect, useState } from 'react';
 import CustomTable from '../components/CustomTable';
 import { columns, formatCommandes } from '../data/CommandesData';
