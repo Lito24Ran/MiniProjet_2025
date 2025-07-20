@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom"; // 👈 ajoute useNavigate
 import { Nav } from "react-bootstrap";
 import "./navbar.css";
 
@@ -7,13 +7,27 @@ const CustomNavbar = ({ size, onSearchChange }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [searchValue, setSearchValue] = useState("");
+  const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const profileRef = useRef(null);
+  const navigate = useNavigate(); // 👈 Hook pour la navigation
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    const handleClickOutside = (event) => {
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
+        setShowProfileMenu(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
 
   const toggleMenu = () => {
@@ -23,7 +37,16 @@ const CustomNavbar = ({ size, onSearchChange }) => {
   const handleInputChange = (e) => {
     const value = e.target.value;
     setSearchValue(value);
-    onSearchChange(value); // Envoier en direct la recherche au parent
+    onSearchChange(value);
+  };
+
+  const toggleProfileMenu = () => {
+    setShowProfileMenu(!showProfileMenu);
+  };
+
+  const handleLogout = () => {
+    // Tu peux ajouter ici des actions comme localStorage.clear() si nécessaire
+    navigate("/"); // 👈 Redirige vers la page d’accueil
   };
 
   return (
@@ -35,8 +58,12 @@ const CustomNavbar = ({ size, onSearchChange }) => {
 
         <div className={`main_list ${menuOpen ? "show_list" : ""}`}>
           <ul className="navlinks">
-            <li><NavLink to="/home">Accueil</NavLink></li>
-            <li><NavLink to="/menu">Menu du jour</NavLink></li>
+            <li>
+              <NavLink to="/home">Accueil</NavLink>
+            </li>
+            <li>
+              <NavLink to="/menu">Menu du jour</NavLink>
+            </li>
           </ul>
 
           <div className="search-container">
@@ -45,7 +72,7 @@ const CustomNavbar = ({ size, onSearchChange }) => {
               placeholder="Rechercher..."
               className="search-input"
               value={searchValue}
-              onChange={handleInputChange} // appel à chaque frappe de recherche
+              onChange={handleInputChange}
             />
           </div>
 
@@ -56,13 +83,28 @@ const CustomNavbar = ({ size, onSearchChange }) => {
             <span>{size}</span>
           </Nav>
 
-          <Nav className="profile">
-            <img src="src/image/profil.png" alt="profil" />
-          </Nav>
+          <div className="profile-container" ref={profileRef}>
+            <img
+              src="src/image/profil.png"
+              alt="profil"
+              className="profile-img"
+              onClick={toggleProfileMenu}
+            />
+            {showProfileMenu && (
+              <div className="profile-dropdown">
+                <button onClick={handleLogout}>Se déconnecter</button>
+              </div>
+            )}
+          </div>
         </div>
 
-        <span className={`navTrigger ${menuOpen ? "active" : ""}`} onClick={toggleMenu}>
-          <i></i><i></i><i></i>
+        <span
+          className={`navTrigger ${menuOpen ? "active" : ""}`}
+          onClick={toggleMenu}
+        >
+          <i></i>
+          <i></i>
+          <i></i>
         </span>
       </div>
     </nav>

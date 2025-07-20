@@ -1,202 +1,198 @@
 .Container_MOdal {
-    width: 100%;
-    height: 100%;
-    border: 0 0 10px solid black;
-    background-image: linear-gradient(to bottom left, rgba(253, 136, 33, 1), rgba(220, 14, 227, 0.708));
-    backface-visibility: 100%;
-    position: fixed;
-    bottom: 5px;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    overflow: hidden;
-
+  width: 100%;
+  height: 100%;
+  border: 0 0 10px solid black;
+  background-image: linear-gradient(
+    to bottom left,
+    rgba(253, 136, 33, 1),
+    rgba(220, 14, 227, 0.708)
+  );
+  backface-visibility: 100%;
+  position: fixed;
+  bottom: 5px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
 }
-.Container_MOdal h2{
-    color: white;
-    font-size: 40px;
-    font-weight: 20px;
-    position: absolute;
-    top: 85px;
+.Container_MOdal h2 {
+  color: white;
+  font-size: 40px;
+  font-weight: 20px;
+  position: absolute;
+  top: 85px;
 }
-.Container_MOdal div h1{
-    text-align: center; 
-    height: 40px;
-    width: 40px;
-    border-radius: 100%;
-    color: red;
-    cursor: pointer;
-    position: absolute;
-    right: 10px;
-    bottom: 500px;
-
-    
+.Container_MOdal div h1 {
+  text-align: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  color: red;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  bottom: 500px;
 }
-.Container_MOdal>div {
-    height: 550px;
-    width: 900px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    position: relative;
-    /* overflow: hidden; */
-    position: relative;
-    display: flex;
-    top: 50px;
-    background-color: #eeeae7;
-    border-radius: 30px;
-    border: 2px solid rgb(207, 207, 207);
-    box-shadow: 0 0 1px rgb(176, 176, 176);
-
-
-}
-
-.Container_MOdal>div .butonPayment {
-    height: 500px;
-    width: 500px;
-    background-color: #eeeae7;
-    /* border-left: 1px solid black; */
-
+.Container_MOdal > div {
+  height: 550px;
+  width: 900px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  /* overflow: hidden; */
+  position: relative;
+  display: flex;
+  top: 50px;
+  background-color: #eeeae7;
+  border-radius: 30px;
+  border: 2px solid rgb(207, 207, 207);
+  box-shadow: 0 0 1px rgb(176, 176, 176);
 }
 
-.Container_MOdal>div .butonPayment button {
-    height: 50px;
-    margin-top: 30px;
-    margin-right: 40px;
-    margin-left: 35px;
-    border-radius: 15px;
-    background-color:rgba(190, 193, 195, 0.425) ;
-    color: rgba(253, 136, 33, 1);
-    border: none;
+.Container_MOdal > div .butonPayment {
+  height: 500px;
+  width: 500px;
+  background-color: #eeeae7;
+  /* border-left: 1px solid black; */
 }
-.Container_MOdal>div .butonPayment .active {
+
+.Container_MOdal > div .butonPayment button {
+  height: 50px;
+  margin-top: 30px;
+  margin-right: 40px;
+  margin-left: 35px;
+  border-radius: 15px;
+  background-color: rgba(190, 193, 195, 0.425);
+  color: rgba(253, 136, 33, 1);
+  border: none;
+}
+.Container_MOdal > div .butonPayment .active {
   background-color: rgb(239, 143, 8);
   color: rgb(248, 243, 243);
 }
-.Container_MOdal>div .butonPayment .MvolaPay:active {
+.Container_MOdal > div .butonPayment .MvolaPay:active {
   background-color: rgb(239, 143, 8);
   color: rgb(248, 243, 243);
 }
 
+.Container_MOdal > div .butonPayment .inputText {
+  margin-top: 60px;
+  height: 200px;
+  width: 300px;
+  position: absolute;
+  right: 78px;
 
-
-.Container_MOdal>div .butonPayment .inputText {
-    margin-top: 60px;
-    height: 200px;
-    width: 300px;
-    position: absolute;
-    right: 78px;
-
-    /* background-color: aquamarine; */
+  /* background-color: aquamarine; */
 }
 
 input {
-    margin-top: 10px;
-    border-radius: 10px;
-    height: 40px;
-    background-color: #eeeae779;
-    outline: none;
+  margin-top: 10px;
+  border-radius: 10px;
+  height: 40px;
+  background-color: #eeeae779;
+  outline: none;
 }
 
 .btnSubmit {
-    height: 200px;
-    width: 200px;
-    position: absolute;
-    top: 270px;
-    right: 150px;
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  top: 270px;
+  right: 150px;
 }
 
 .btnSubmit #SubmitBtn {
-    background-color: rgba(253, 136, 33, 1);
-    width: 300px;
-    height: 55px;
-    border-radius: 20px;
-    color: white;
-    cursor: pointer;
-    border: none;
+  background-color: rgba(253, 136, 33, 1);
+  width: 300px;
+  height: 55px;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  border: none;
 }
 
 .btnSubmit #SubmitBtn:hover {
-    background-color: rgba(255, 166, 0, 0.963);
-    color: #eeeae7;
+  background-color: rgba(255, 166, 0, 0.963);
+  color: #eeeae7;
 }
 
 .date {
-    height: 10px;
-    width: 50px;
-    position: absolute;
-    top: 195px;
-    border-bottom: orange;
-
+  height: 10px;
+  width: 50px;
+  position: absolute;
+  top: 195px;
+  border-bottom: orange;
 }
 
 .date p {
-    color: orange;
-    width: 100px;
-    height: 40px;
-    border: none;
-    text-align: center;
-    background-color: rgba(190, 193, 195, 0.425);
-    border-radius: 10px;
-    border-bottom: orange;
+  color: orange;
+  width: 100px;
+  height: 40px;
+  border: none;
+  text-align: center;
+  background-color: rgba(190, 193, 195, 0.425);
+  border-radius: 10px;
+  border-bottom: orange;
 }
 
 input {
-    outline: none;
-    background-color: rgba(190, 193, 195, 0.281);
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom-color: rgba(255, 166, 0, 0.762);
+  outline: none;
+  background-color: rgba(190, 193, 195, 0.281);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom-color: rgba(255, 166, 0, 0.762);
 }
-.price{
-    height: 546px;
-    width: 399px;
-    padding-left: 200px;
-    background-color:rgba(203, 199, 199, 0.763);
-    position: absolute;
-    right: 498px;
-    border-bottom-left-radius: 20px;
-    border-top-left-radius: 20px;
-    
+.price {
+  height: 546px;
+  width: 399px;
+  padding-left: 200px;
+  background-color: rgba(203, 199, 199, 0.763);
+  position: absolute;
+  right: 498px;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
 }
-.price .title{
-    height: 100px;
-    width: 300px;
- 
+.price .title {
+  height: 100px;
+  width: 300px;
 }
-.price .title h3{
-    color: rgb(228, 113, 5);
-    margin-bottom: 20px;
-    text-align: end;
+.price .title h3 {
+  color: rgb(228, 113, 5);
+  margin-bottom: 20px;
+  text-align: end;
 }
-.title img{
-    margin-top: 40px;
+.title img {
+  margin-top: 40px;
 }
-.underlineModal{
-    position: absolute;
-    bottom: 100px;
-    width: 350px;
-    border: 0.5px inset black;  
+.underlineModal {
+  position: absolute;
+  bottom: 100px;
+  width: 350px;
+  border: 0.5px inset black;
 }
-.total{
-    position: absolute;
-    bottom: 50px    ;
+.total {
+  position: absolute;
+  bottom: 50px;
 }
- .butonPayment button img{
-    height: 50px;
-    width: 50px;
-    color: black;
+.butonPayment button img {
+  height: 50px;
+  width: 50px;
+  color: black;
 }
-.erreurModal2{
-    height: 20px;
-    width: 20px;
-    border-radius: 100%;
-    text-align: center;
-    color: red;
-    border: 1px solid red;
-    position: absolute;
-    bottom: 50px;
-    left: 73%;
-    cursor: pointer;
+.erreurModal2 {
+  height: 20px;
+  width: 20px;
+  border-radius: 100%;
+  text-align: center;
+  color: red;
+  border: 1px solid red;
+  position: absolute;
+  bottom: 50px;
+  left: 73%;
+  cursor: pointer;
+}
+.nav {
+  /* z-index: 0; */
 }
