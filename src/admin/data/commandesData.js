@@ -3,11 +3,11 @@ export const columns = [
   { id: 'niveau', label: 'Niveau', minWidth: 100 },
   { id: 'methodePaiement', label: 'Paiement', minWidth: 100 },
   { id: 'total', label: 'Total', minWidth: 100 },
+  { id: 'statut', label: 'Statut', minWidth: 100 }, // ajouter statut sur le format d'afichage
   { id: 'date', label: 'Date', minWidth: 150 },
   { id: 'produitsDisplay', label: 'Produits', minWidth: 300 },
 ];
 
-// Fonction pour préparer les données
 export function formatCommandes(commandes) {
   return commandes.map(cmd => ({
     ...cmd,
