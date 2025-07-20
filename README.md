@@ -101,7 +101,7 @@ node importMenuSpecial.js
 Les images sont gérées avec la librairie [`multer`](https://www.npmjs.com/package/multer).
 Elle permet de sauvegarder les images uploadées dans le dossier `uploads/`.
 
-Installez-la (si ce n’est pas déjà fait) :
+Installez-la (si ce n’est pas déjà fait, Toujours depuis `backend/`) :
 
 ```bash
 npm install multer
