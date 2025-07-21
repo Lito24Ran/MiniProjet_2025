@@ -1,15 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom"; // 👈 ajoute useNavigate
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Nav } from "react-bootstrap";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
 import "./navbar.css";
 
 const CustomNavbar = ({ size, onSearchChange }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [searchValue, setSearchValue] = useState("");
-  const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const [profileMenuOpen, setProfileMenuOpen] = useState(false);
   const profileRef = useRef(null);
-  const navigate = useNavigate(); // 👈 Hook pour la navigation
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,9 +21,10 @@ const CustomNavbar = ({ size, onSearchChange }) => {
 
     const handleClickOutside = (event) => {
       if (profileRef.current && !profileRef.current.contains(event.target)) {
-        setShowProfileMenu(false);
+        setProfileMenuOpen(false);
       }
     };
+
     document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
@@ -41,12 +44,11 @@ const CustomNavbar = ({ size, onSearchChange }) => {
   };
 
   const toggleProfileMenu = () => {
-    setShowProfileMenu(!showProfileMenu);
+    setProfileMenuOpen(!profileMenuOpen);
   };
 
   const handleLogout = () => {
-    // Tu peux ajouter ici des actions comme localStorage.clear() si nécessaire
-    navigate("/"); // 👈 Redirige vers la page d’accueil
+    navigate("/"); // mideconecte
   };
 
   return (
@@ -84,16 +86,43 @@ const CustomNavbar = ({ size, onSearchChange }) => {
           </Nav>
 
           <div className="profile-container" ref={profileRef}>
-            <img
-              src="src/image/profil.png"
-              alt="profil"
-              className="profile-img"
+            <a
+              className={`nav-link dropdown-toggle ${
+                profileMenuOpen ? "toggle-change" : ""
+              }`}
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              aria-expanded={profileMenuOpen ? "true" : "false"}
               onClick={toggleProfileMenu}
-            />
-            {showProfileMenu && (
-              <div className="profile-dropdown">
-                <button onClick={handleLogout}>Se déconnecter</button>
-              </div>
+            >
+              <img
+                src="src/image/Profile.png"
+                alt="profil"
+                className="profile-img"
+              />
+            </a>
+            {profileMenuOpen && (
+              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a className="dropdown-item" href="#">
+                    <i className="fas fa-user fa-fw"></i> Account
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    <i className="fas fa-cogs fa-fw"></i> Settings
+                  </a>
+                </li>
+                <li>
+                  <hr className="dropdown-divider" />
+                </li>
+                <li>
+                  <a className="dropdown-item" href="/" onClick={handleLogout}>
+                    <i className="fas fa-sign-out-alt fa-fw"></i> Log Out
+                  </a>
+                </li>
+              </ul>
             )}
           </div>
         </div>
@@ -102,9 +131,9 @@ const CustomNavbar = ({ size, onSearchChange }) => {
           className={`navTrigger ${menuOpen ? "active" : ""}`}
           onClick={toggleMenu}
         >
-          <i></i>
-          <i></i>
-          <i></i>
+          <i className="line"></i>
+          <i className="line"></i>
+          <i className="line"></i>
         </span>
       </div>
     </nav>
