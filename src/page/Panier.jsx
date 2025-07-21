@@ -10,16 +10,16 @@ function Panier() {
   const [show, setshow] = useState(false);
 
   const increase = (_id) => {
-    setCart(prev =>
-      prev.map(item =>
+    setCart((prev) =>
+      prev.map((item) =>
         item._id === _id ? { ...item, quantity: item.quantity + 1 } : item
       )
     );
   };
 
   const decrease = (_id) => {
-    setCart(prev =>
-      prev.map(item =>
+    setCart((prev) =>
+      prev.map((item) =>
         item._id === _id && item.quantity > 1
           ? { ...item, quantity: item.quantity - 1 }
           : item
@@ -28,14 +28,13 @@ function Panier() {
   };
 
   const removeItem = (_id) => {
-    setCart(prev => prev.filter(item => item._id !== _id));
+    setCart((prev) => prev.filter((item) => item._id !== _id));
   };
 
   const ConditionalFunc = () => {
     if (cart.length !== 0) {
       setshow(true);
-       alert("Votre commande est enregistrée, veuillez patienter !");
-      
+      //  alert("Votre commande est enregistrée, veuillez patienter !");
     } else {
       alert("Veuillez entrer des produits !");
       setshow(false);
@@ -57,17 +56,25 @@ function Panier() {
                     <img src={item.img} className="pan_image" alt="Produit" />
                     <p className="name">{item.nom}</p>
                   </div>
-                  <div>
-                    <button className="bouttons" onClick={() => decrease(item._id)}>
+                  <div className="quantiti">
+                    <button
+                      className="bouttons"
+                      onClick={() => decrease(item._id)}
+                    >
                       -
                     </button>
                     <span className="quantity">{item.quantity}</span>
-                    <button className="bouttons" onClick={() => increase(item._id)}>
+                    <button
+                      className="bouttons"
+                      onClick={() => increase(item._id)}
+                    >
                       +
                     </button>
                   </div>
                   <div>
-                    <span className="prix_pan">{item.prix * item.quantity} Ar</span>
+                    <span className="prix_pan">
+                      {item.prix * item.quantity} Ar
+                    </span>
                     <img
                       src="src/image/remove.png"
                       alt="supp"

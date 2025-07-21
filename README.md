@@ -25,6 +25,7 @@ Ce document détaille les étapes d'installation, de configuration de la base de
    ```bash
    npm run dev
    ```
+
 4. **Lancer le backend**
 
    ```bash
@@ -58,9 +59,9 @@ node mongosh_script.js
 
 Ce script crée les collections suivantes avec des données de test :
 
-* `clients`
-* `produits`
-* `commandes`
+- `clients`
+- `produits`
+- `commandes`
 
 ### 4. Insérer les produits avec image
 
@@ -82,6 +83,7 @@ node importProduitsCategorie.js
 > 📌 Ce script insère les produits dans la collection `produits`, chacun avec un champ `categorie` (`burger`, `riz`, `dessert`, `jus`, `soupe`), ce qui permet un affichage dynamique via des requêtes filtrées.
 
 ---
+
 ### 6. Insérer les produits des menus special
 
 Toujours depuis `backend/` :
@@ -105,6 +107,10 @@ Installez-la (si ce n’est pas déjà fait) :
 npm install multer
 ```
 
+## faite ca dans terminal pour le navbar
+
+```bash
+npm install @fortawesome/fontawesome-free
 ---
 
 ## 🚧 Répartition des tâches
@@ -143,3 +149,4 @@ Les tâches sont réparties entre les équipes suivantes :
   * sans être un utilisateur enregistré.
 
 ---
+```
