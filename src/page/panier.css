@@ -9,7 +9,7 @@ body {
   position: relative;
   right: 0;
   display: flex;
-  flex-direction: row-reverse;
+  /* flex-direction: row-reverse; */
   justify-content: flex-start;
   gap: 3vh;
   margin-top: 7%;
