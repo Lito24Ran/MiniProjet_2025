@@ -41,6 +41,10 @@ function Panier() {
     }
   };
 
+  const DisplayAllOrder = () => {
+    alert("helloooo");
+  }
+
   const total = cart.reduce((acc, item) => acc + item.prix * item.quantity, 0);
 
   return (
@@ -48,6 +52,21 @@ function Panier() {
       <Navbar size={cart.length} />
       <div className="panier_container_main">
         <div className="panier_container">
+        <button
+              style={{
+                color: "white",
+                borderRadius: "20px",
+                width: "300px",
+                height: "55px",
+                position: "absolute",
+                bottom:"55%",
+                fontSize: "30px",
+              }}
+              id="btnconfirme"
+              onClick={DisplayAllOrder}
+            >
+              Vos commandes
+            </button>
           <div className="ScrollPanier">
             <article>
               {cart.map((item) => (
