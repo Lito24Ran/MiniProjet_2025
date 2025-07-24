@@ -35,6 +35,17 @@ Ce document détaille les étapes d'installation, de configuration de la base de
 
 ---
 
+## 📦 Gestion des images (avec Multer)
+
+Les images sont gérées avec la librairie [`multer`](https://www.npmjs.com/package/multer).
+Elle permet de sauvegarder les images uploadées dans le dossier `uploads/`.
+
+Installez-la (si ce n’est pas déjà fait, Toujours depuis `backend/`) :
+
+```bash
+npm install multer
+```
+---
 ## 🧩 Initialisation de la base de données (MongoDB)
 
 ### 1. Lancer MongoDB
@@ -47,70 +58,33 @@ mongod
 
 ### 2. Base de données utilisée
 
-> `GeIt` (c’est le nom de la base MongoDB utilisée)
+> `GeIt` (c’est le nom de la base MongoDB utilisée donc vous devrez le créer avec ce nom pour que l'interaction soit sync)
 
-### 3. Créer les collections avec un script
+### 3. Créer les collections et tout les donnees nécessaires avec ce script
 
 Depuis le dossier `backend/`, exécutez :
 
 ```bash
-node mongosh_script.js
+node resetAndSeed.js
 ```
+(Vous devez vous placez sur le dossier backend)
 
-Ce script crée les collections suivantes avec des données de test :
-
-- `clients`
-- `produits`
-- `commandes`
-
-### 4. Insérer les produits avec image
-
-Assurez-vous d’avoir un dossier `uploads/` (les images doivent y être stockées), puis :
-
+Donc vous devrez faire ceci plus précisement :
 ```bash
 cd backend
-node importProduits.js
+node resetAndSeed.js
 ```
 
-### 5. Insérer les produits classés par catégories
-
-Toujours depuis `backend/` :
-
-```bash
-node importProduitsCategorie.js
-```
-
-> 📌 Ce script insère les produits dans la collection `produits`, chacun avec un champ `categorie` (`burger`, `riz`, `dessert`, `jus`, `soupe`), ce qui permet un affichage dynamique via des requêtes filtrées.
+> 📌 Ce script va vider les anciennes données (reset), puis insèrer des données fraîches (seed), et enfin pour redémarrer ton app sur une base propre.
 
 ---
 
-### 6. Insérer les produits des menus special
-
-Toujours depuis `backend/` :
-
-```bash
-node importMenuSpecial.js
-```
-
-> 📌 Ce script va insérer automatiquement les plats spéciaux dans la collection produits avec la propriété menuSpecial: true
-
----
-
-## 📦 Gestion des images (avec Multer)
-
-Les images sont gérées avec la librairie [`multer`](https://www.npmjs.com/package/multer).
-Elle permet de sauvegarder les images uploadées dans le dossier `uploads/`.
-
-Installez-la (si ce n’est pas déjà fait) :
-
-```bash
-npm install multer
-```
 
 ## faite ca dans terminal pour le navbar
 
 ```bash
 npm install @fortawesome/fontawesome-free
+```
 ---
 
 ## 🚧 Répartition des tâches
