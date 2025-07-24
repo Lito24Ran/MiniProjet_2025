@@ -15,26 +15,29 @@
   width: 100%;
   image-resolution: 100%;
   height: 200px;
-  overflow: hidden;
-  position: absolute;
+  /* overflow: hidden; */
+  /* position: absolute; */
+  object-fit: cover;
   margin-top: 0px;
-  left: 10.3%;
+  margin-left: 10%;
   border-radius: 25px;
 }
 .card {
   height: 20rem;
-  width: 90%;
+  width: 62%;
+  max-width: 60%;
   border: 0.1px solid rgb(0, 0, 0);
   border-radius: 25px;
   overflow: hidden;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   box-shadow: 0px 4px 8px black;
   border-color: rgb(255, 255, 254);
   background-color: #e5d2c7;
   z-index: 1;
-  margin-bottom: 2%;
+  /* margin-bottom: 2%; */
   transition: all 0.5s ease;
+  margin-bottom: 20%;
 }
 .card:hover .description {
   opacity: 100%;
@@ -56,15 +59,18 @@
   text-align: center;
   padding-bottom: 0px;
   position: absolute;
-  margin-top: 180px;
+  margin-top: 3px;
+  width: auto;
 }
 .titre_card {
-  font-size: 25px;
+  font-size: 1.5rem;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   text-align: left;
   padding-left: 15px;
-  position: relative;
+  word-wrap: break-word;
+  width: auto;
+  /* position: relative; */
 }
 .description {
   font-size: 10;
@@ -79,22 +85,23 @@
 }
 
 .prix {
-  font-size: 20px;
+  font-size: 1.2rem;
   color: white;
   background-color: #ee9045;
   left: -5%;
-  margin-top: -22.5%;
+  margin-top: -4.5rem;
   position: absolute;
-  width: 35%;
+  width: auto;
   height: 30px;
+  word-wrap: break-word;
   border-radius: 25%;
   border-top-left-radius: 0%;
   border-bottom-right-radius: 0%;
-  padding-left: 5%;
+  padding-left: 7%;
 }
 .card:hover .prix {
   margin-top: -22.5%;
-  width: 35%;
+  width: 40%;
   padding-left: 5%;
 }
 .ajouter {
@@ -143,50 +150,38 @@
   margin: 20px;
   font-size: 1.5rem;
 }
-.star-container {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  z-index: 3;
-  cursor: pointer;
-  display: flex;
-  gap: 1px;
-}
-
-.star-icon {
-  margin: 0px;
-  font-size: 2rem;
-  color: #ffffff;
-  transition: color 0.3s ease;
-}
-
-.star {
-  font-size: 2rem;
-  color: #bbb;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.star:hover,
-.star.active {
-  color: gold;
-  transform: scale(1.2);
-}
-.star:hover {
-  color: gold;
-  transform: scale(1.2);
-}
 
 .All_Cards {
-  width: 80%;
-  margin: auto;
+  margin: 10% auto;
+  max-width: 80%;
+  align-items: center;
+  /* margin: auto; */
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 3fr));
-  gap: 5rem;
+  grid-template-columns: repeat(3, 2fr);
+  /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+  /* gap: 0rem; */
   position: relative;
   transition: margin-top 1.4s ease;
 }
 
-
 .All_Cards.active-search {
   margin-top: 60%; /* ceci c'est jsute pour mettre les cartes en dessous de navbar */
+}
+@media (max-width: 1024px) {
+  .All_Cards {
+    grid-template-columns: repeat(2, 10fr);
+    /* gap: 5px; */
+    margin: auto;
+    /* margin-left: 3%; */
+  }
+  /* .titre_card {
+    width: auto;
+  } */
+}
+
+@media (max-width: 600px) {
+  .All_Cards {
+    grid-template-columns: 1fr;
+    /* margin-left: 20%; */
+  }
 }
