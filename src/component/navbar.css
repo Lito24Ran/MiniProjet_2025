@@ -5,6 +5,7 @@ body {
   padding: 0;
   font-family: "Quicksand", sans-serif;
   overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .nav {
@@ -16,8 +17,8 @@ body {
   z-index: 999;
   background: transparent;
   transition: background 0.4s ease;
-  display: flex;
-  align-items: center;
+  /* display: flex; */
+  /* align-items: center; */
 }
 
 .nav.nav-scrolled {
@@ -31,14 +32,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wraps;
 }
 
 .logo {
   position: relative;
   z-index: 9999;
-  display: flex;
-  left: -10%;
+  /* display: block; */
+  /* left: -10%; */
+  width: auto;
   align-items: center;
 }
 
@@ -66,7 +67,7 @@ body {
   position: relative;
   margin-top: 0rem;
   min-width: 100%;
-  left: -50%;
+  /* left: -50%; */
 }
 
 .navlinks li {
@@ -90,8 +91,8 @@ body {
 
 /* Barre de recherche */
 .search-container {
-  display: flex;
-  position: relative;
+  /* display: flex; */
+  /* position: relative; */
   margin-left: -50%;
   margin-top: -1rem;
 }
@@ -104,7 +105,7 @@ body {
 }
 
 .profile-container {
-  position: relative;
+  /* position: relative; */
   display: inline-block;
   cursor: pointer;
   display: flex;
@@ -180,16 +181,16 @@ body {
 /* Panier */
 .panier {
   cursor: pointer;
-  position: relative;
+  /* position: ; */
   z-index: 1000;
   display: inline-block;
-  left: 25%;
+  left: 78%;
   width: 100%;
-  margin-top: -17%;
+  margin-top: -2%;
 }
 
 .nav.nav-scrolled .panier img {
-  margin-top: 5.3rem;
+  margin-top: 3.8rem;
 }
 
 .nav.nav-scrolled .panier span {
@@ -203,15 +204,16 @@ body {
 }
 
 .panier span {
-  background: red;
+  background-color: red;
   font-size: 1rem;
   border-radius: 100%;
   height: 22%;
-  width: 20%;
+  width: 1%;
   color: rgb(255, 255, 255);
   margin-left: -1rem;
-  margin-top: 4rem;
+  margin-top: 5rem;
   text-align: center;
+  gap: 0;
   padding-top: -10%;
 }
 
@@ -259,7 +261,7 @@ body {
 }
 
 /* RESPONSIVE */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   .main_list {
     display: none;
     flex-direction: column;
