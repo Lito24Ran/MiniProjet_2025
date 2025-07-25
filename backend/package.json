@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node Serveur/Serveur.js",
+    "start": "node backend/Serveur/Serveur.js",
     "dev": "nodemon Serveur/Serveur.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
