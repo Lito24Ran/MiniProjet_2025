@@ -23,8 +23,21 @@ app.use("/produits", produitsRoute);
 app.use("/commandes", commandesRoute);
 
 //Eto no fampidirana mongodb
-mongoose.connect('mongodb://localhost:27017/GeIt',);
-const db = mongoose.connection;
+
+mongoose.connect(
+    "mongodb+srv://jorojanah:mongoJanahConnection@clusterkalyproject.vu8j3q7.mongodb.net/?retryWrites=true&w=majority&appName=ClusterKalyProject",
+    {
+      dbName: "GeIt"
+    }
+  )
+  .then(() => {
+    console.log("✅ Connexion MongoDB Atlas réussie !");
+  })
+  .catch(err => {
+    console.error("❌ Erreur de connexion :", err);
+  });
+  
+  const db = mongoose.connection;  
 
 
 

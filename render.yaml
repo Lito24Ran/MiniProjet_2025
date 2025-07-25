@@ -1,0 +1,4 @@
+buildCommand: npm install && npm run build
+startCommand: npm run preview
+publishPath: dist
+env: static
