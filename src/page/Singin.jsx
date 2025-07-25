@@ -265,7 +265,7 @@ function Inscription() {
         <div className="divImage">
           <div>
             <img
-              src="./image/image_chef.png"
+              src="/image/image_chef.png"
               alt="imageDechef"
               id="imgeLogin"
             />
@@ -284,11 +284,11 @@ function Inscription() {
         </div>
       </div>
       <div className="Rcontener">
-        <img src="./image/b.png" alt="0" className="rond1" />
-        <img src="./image/b2.png" alt="0" className="rond2" />
-        <img src="./image/b3.png" alt="0" className="rond3" />
-        <img src="./image/b4.png" alt="0" className="rond4" />
-        <img src="./image/b5.png" alt="0" className="rond5" />
+        <img src="/image/b.png" alt="0" className="rond1" />
+        <img src="/image/b2.png" alt="0" className="rond2" />
+        <img src="/image/b3.png" alt="0" className="rond3" />
+        <img src="/image/b4.png" alt="0" className="rond4" />
+        <img src="/image/b5.png" alt="0" className="rond5" />
       </div>
     </>
   );
