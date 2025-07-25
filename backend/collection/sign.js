@@ -3,6 +3,7 @@ const student = require("../model/client");
 const { use } = require("react");
 //const bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken");
+const { data } = require("react-router-dom");
 
 const signup = (req, res, next) => {
     //console.log(req.body);
@@ -51,53 +52,46 @@ const login = (req, res) => {
                     console.log("connexion reussit");
                     let token = jwt.sign({ name: user.name }, 'UneValeursecrete', { expiresIn: "1h" });
                     console.log(token);
-
-                    return (
-                        /* res.json(
+                    console.log(
                         {
                             nom: user.name,
                             email: user.email,
-                            level: user.levelo
-                        }     */
-                       console.log(
-                        {
-                            nom : user.name,
-                            email : user.email,
-                            level : user.level,   
+                            level: user.level,
                         }
-                       )
-                       
                     )
-
                     
+                    if (token) {
+                        return res.sendFile({
+                            nom: user.name,
+                            email: user.email,
+                            level: user.level   
+                        })
 
-                    /* res.json(
-                        {
-                            message: "Compte existant",
-                            token
-                        }
-                    )
- */
-                } else {
-                    console.log("mot de passe introuvable");
-                    //alert("Votre mot de passe est introuvable!")
-
+                    }
                 }
+                res.json(
+                    {
+                        message: "Compte existant",
+                        token
+                    }
+                )
 
             } else {
-                console.log("Compte inexistant!");
-
+                console.log("mot de passe introuvable");
+                //alert("Votre mot de passe est introuvable!")
 
             }
-        }
-        )
-        .catch(error => {
-            console.log("Une erreur c' est produit!");
 
-            res.json({
-                message: "Erreur de connexion"
-            })
-        })
+        } 
+        
+    )
+        .catch (error => {
+    console.log("Une erreur c' est produit!");
+
+    res.json({
+        message: "Erreur de connexion"
+    })
+})
 }
 
 const Authentification = (req, res, next) => {
@@ -115,9 +109,24 @@ const Authentification = (req, res, next) => {
         next();
     } catch (error) {
         console.log("Une erreur de token qui est inavalide!");
-        
+
     }
 }
+const getToken = async (req, res, next) => {
+    try {
+        const reponse = await fetch("http://localhost:1203/login"); // Attendre que la réponse arrive
+        const dataUser = await reponse.json(); // Attendre que la réponse soit convertie en JSON
+        const rawText = await reponse.text(); 
+        console.log("Contenu brut reçu :\n", rawText);
+
+        console.log(dataUser.nom); // Affiche le nom dans la console
+
+        res.send({ nom: dataUser.nom }); // Renvoyer une réponse correcte au client
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Erreur lors de la récupération des données" });
+    }
+};
 
 
 const dataUser = (requete, response) => {
@@ -134,36 +143,36 @@ const dataUser = (requete, response) => {
 
 }
 
-const ChangePass = (requeste,response) =>{
+const ChangePass = (requeste, response) => {
     console.log(requeste.body);
     const getid = requeste.params.id;
     console.log(getid);
-    
+
     let passChange = requeste.body.passChange;
 
-    student.findByIdAndUpdate(getid, {$set : {password: passChange}})
-        .then( change => {
+    student.findByIdAndUpdate(getid, { $set: { password: passChange } })
+        .then(change => {
             response.json({
-                message : "Password updating"
+                message: "Password updating"
             })
             console.log("Password updating");
-            
+
         }
 
         )
-        .catch( err =>{
+        .catch(err => {
             response.json(
-                {message : "Une erreur c' est produit"}
+                { message: "Une erreur c' est produit" }
             )
             console.log(err);
-            
+
         }
             /* console.log("Une erreur c' est produit") */
-            
+
         )
-    
+
 }
 module.exports = {
-    signup, login, dataUser,Authentification,ChangePass
+    signup, login, dataUser, Authentification, ChangePass, getToken
 };
 

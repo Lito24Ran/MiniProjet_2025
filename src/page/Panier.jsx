@@ -8,6 +8,7 @@ import { createPortal } from "react-dom";
 function Panier() {
   const { cart, setCart } = useContext(CartContext);
   const [show, setshow] = useState(false);
+  const [showError,setshowError] = useState(false);
 
   const increase = (_id) => {
     setCart(prev =>
@@ -34,16 +35,21 @@ function Panier() {
   const ConditionalFunc = () => {
     if (cart.length !== 0) {
       setshow(true);
-       alert("Votre commande est enregistrée, veuillez patienter !");
+      
+       /* alert("Votre commande est enregistrée, veuillez patienter !");  */
       
     } else {
-      alert("Veuillez entrer des produits !");
+      /* alert("Veuillez entrer des produits !"); */
       setshow(false);
+      setshowError(true)
     }
   };
 
   const total = cart.reduce((acc, item) => acc + item.prix * item.quantity, 0);
-
+   setTimeout(() => {
+    setshowError(false);
+  }, 8000);
+ 
   return (
     <>
       <Navbar size={cart.length} />
@@ -99,16 +105,20 @@ function Panier() {
               Confirmer
             </button>
 
-            {show &&
+            
+          </div>
+          {(show) ?(
               createPortal(
                 <Modal
                   oneclose={() => setshow(false)}
                   condition={ConditionalFunc}
                   totalCommande={total}
+                  conditionShow ={show}
+                  SetConditionShow = {setshow}
                 />,
                 document.body
-              )}
-          </div>
+              )) :(showError) && 
+            <div className="alert-error"> <strong>Error!</strong> Entrer des produits . </div>}
         </div>
       </div>
     </>

@@ -2,7 +2,7 @@ const navLinks = [
   {
     path: "/admin/dashboard",
     icon: "ri-apps-2-line",
-    display: "Dashboard",
+    display: "Tableau de bord",
   },
   {
     path: "/admin/Commande",
