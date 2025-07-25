@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import './modal.css';
 import { CartContext } from '../context/CartContext';
+import { DEFAULT_BREAKPOINTS } from "react-bootstrap/esm/ThemeProvider";
 
-function Modal({ oneclose, condition, totalCommande }) {
+function Modal({ oneclose, condition, totalCommande, conditionShow, SetConditionShow }) {
     const { cart } = useContext(CartContext);
     const [showCash, setShowCash] = useState(true);
     //const Supression = useContext(MOdalContext); 
@@ -10,9 +11,9 @@ function Modal({ oneclose, condition, totalCommande }) {
     //Reto no mandray makany @ ny db
 
     const [takeNameCash, setTakeNameCash] = useState('');
-    const [takelevelCash,setTakelevelCash] = useState('');
-    const [takenameMvola,setTakenameMvola] = useState('');
-    const [takenumMvola,setTakenumMvola] = useState('');
+    const [takelevelCash, setTakelevelCash] = useState('');
+    const [takenameMvola, setTakenameMvola] = useState('');
+    const [takenumMvola, setTakenumMvola] = useState('');
 
     //atreto no farany ah
     const [levelCash, setLevelCash] = useState('');
@@ -25,6 +26,7 @@ function Modal({ oneclose, condition, totalCommande }) {
     const [conditionlevelCash, setConditionlevelCash] = useState(false);
     const [conditionnameMvola, setConditionnameMvola] = useState(false);
     const [conditionnumMvola, setConditionnumMvola] = useState(false);
+    const [Confirmer, setConfirmer] = useState(false);
 
 
     function inputName(e) {
@@ -56,51 +58,54 @@ function Modal({ oneclose, condition, totalCommande }) {
                 setConditionlevelCash(true);
             } else {
                 setTakeNameCash(nameCash);
-                setTakelevelCash(levelCash)
-                condition();
+                setTakelevelCash(levelCash);
+                setConfirmer(true);
+                /* condition(); */
 
             }
 
         }
     }
     useEffect(() => {
-  if (takeNameCash) {
-    // Mode Cash
-    fetch("http://localhost:1203/commandes", {
-      method: "POST",
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        clientNom: takeNameCash,
-        niveau: takelevelCash,
-        methodePaiement: "Cash",
-        produits: cart,
-        total: totalCommande,
-      })
-    });
-  }
-}, [takeNameCash]);
+        if (takeNameCash) {
+            // Mode Cash
+            fetch("http://localhost:1203/commandes", {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    clientNom: takeNameCash,
+                    niveau: takelevelCash,
+                    methodePaiement: "Cash",
+                    produits: cart,
+                    total: totalCommande,
+                })
+            });
+        }
+    }, [takeNameCash]);
 
-useEffect(() => {
-  if (takenameMvola) {
-    // Mode Mvola
-    fetch("http://localhost:1203/commandes", {
-      method: "POST",
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        clientNom: takenameMvola,
-        niveau: takenumMvola,
-        methodePaiement: "Mvola",
-        produits: cart,
-        total: totalCommande,
-      })
-    });
-  }
-}, [takenameMvola]);
+    useEffect(() => {
+        if (takenameMvola) {
+            // Mode Mvola
+            fetch("http://localhost:1203/commandes", {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    clientNom: takenameMvola,
+                    niveau: takenumMvola,
+                    methodePaiement: "Mvola",
+                    produits: cart,
+                    total: totalCommande,
+                })
+            });
+        }
+    }, [takenameMvola]);
 
 
     useEffect(() => {
-  console.log("Total reçu dans le modal :", totalCommande);
-}, [totalCommande]);
+        console.log("Total reçu dans le modal :", totalCommande);
+    }, [totalCommande]);
+
+    console.log(conditionShow);
 
 
     function conditionMvolaModal() {
@@ -119,10 +124,12 @@ useEffect(() => {
                 if ((number.trim().length <= 9) && (number.trim().length >= 9)) {
                     setConditionnumMvola(true)
                 } else {
-                    
+
                     setTakenameMvola(nameMvola);
                     setTakenumMvola(number);
-                    condition();
+                    setConfirmer(true);
+
+                   /*  condition(); */
                 }
 
             }
@@ -130,7 +137,7 @@ useEffect(() => {
         }
     }
 
-        
+
 
     //Eto no mila le erreur 
     setTimeout(() => {
@@ -138,7 +145,10 @@ useEffect(() => {
         setConditionlevelCash(false);
         setConditionnameMvola(false);
         setConditionnumMvola(false);
+        setConfirmer(false);
     }, 8000);
+    /* 
+        console.log(conditionShow); */
 
     return (
         <>
@@ -178,7 +188,7 @@ useEffect(() => {
                                         required
                                     />
                                     <div className="date">
-                                        <h5>expire</h5>
+                                        <strong> Expire</strong>
                                         <p>10mn</p>
                                     </div>
                                     <div className="btnSubmit">
@@ -218,6 +228,12 @@ useEffect(() => {
 
 
                     </div>
+                    {
+                        (Confirmer) && <div class="alerte-personnalisee alerte-succes">
+                            <strong>Succès !</strong> Commande effectuée avec Succès.
+                        </div>
+
+                    }
                     <div className="price">
                         <div className="title">
                             <img src="src/image/kalico.png" alt="logo" />

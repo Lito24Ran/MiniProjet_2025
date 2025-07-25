@@ -1,7 +1,10 @@
 .panier_container_main {
   position: relative;
+  background-color: #d3d3d3;
 }
-
+body{
+  background-color: #d3d3d3;
+}
 .panier_container {
   position: relative;
   right: 0;
@@ -95,8 +98,8 @@
   right: 200px;
   box-shadow: 0 0 5px rgb(116, 116, 116);
   border-radius: 10px;
-  border: 1px solid rgba(255, 166, 0, 0.984);
-  background-color: rgb(185, 185, 185);
+  /* border: 1px solid rgba(255, 166, 0, 0.984); */
+  /* background-color: rgb(185, 185, 185); */
 }
 #btnconfirme{
   background-color:rgba(253, 136, 33, 1);
@@ -104,4 +107,18 @@
 }
 #btnconfirme:hover{
   background-color: orange;
+}
+.alert-error{
+  background-color: #f8d7da;
+  color: #721c24; 
+  border: 1px solid #f5c6cb;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-family: sans-serif;
+  position: absolute;
+  top: 500px;
+  right: 50px;
+  width: 400px;
+  text-align: center;
 }

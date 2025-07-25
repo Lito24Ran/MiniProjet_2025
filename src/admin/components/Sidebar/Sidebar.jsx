@@ -1,6 +1,4 @@
- 
-
-import { NavLink , useNavigate} from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import navLinks from "../../dummy-data/navLinks";
 import "./sidebar.css";
 
@@ -15,9 +13,7 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="sidebar__top">
-        <h2>
-          KalyCo
-        </h2>
+        <h2>Kalⁱco</h2>
       </div>
 
       <div className="sidebar__content">
@@ -41,8 +37,8 @@ const Sidebar = () => {
         </div>
 
         <div className="sidebar__bottom">
-          <span onClick={handleLogout} style={{cursor:"pointer"}}>
-            <i className="ri-logout-circle-r-line"></i> Logout
+          <span onClick={handleLogout} style={{ cursor: "pointer" }}>
+            <i className="ri-logout-circle-r-line"></i> Sortir
           </span>
         </div>
       </div>

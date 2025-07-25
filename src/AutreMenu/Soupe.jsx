@@ -9,12 +9,18 @@ function Soupe() {
   const [produits, setProduits] = useState([]);
 
   useEffect(() => {
+    const fetchSoupe = () => {
     fetch("http://localhost:1203/produits/categorie/soupe")
       .then((res) => res.json())
       .then((data) =>
         setProduits(data.map((p) => ({ ...p, img: `http://localhost:1203/${p.img}` })))
       )
       .catch((err) => console.error("Erreur chargement Soupe :", err));
+    };
+
+    fetchSoupe();
+    const intervalId = setInterval(fetchSoupe, 15000);
+    return () => clearInterval(intervalId);
   }, []);
 
   return (

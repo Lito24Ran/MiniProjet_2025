@@ -8,6 +8,9 @@ const Cards = ({ item, handleClick }) => {
   const { id, nom, description, prix, img } = item;
   const [article, setarticle] = useState([]);
   const [quantity, setQuantity] = useState(1);
+  const [showStars, setShowStars] = useState(false);
+  const [hoveredStar, setHoveredStar] = useState(-1);
+  const [selectedStar, setSelectedStar] = useState(0);
 
   const increment = () => setQuantity(quantity + 1);
   const decrement = () => {
@@ -17,10 +20,36 @@ const Cards = ({ item, handleClick }) => {
   return (
     <div className="cards_container">
       <img src="src\image\font.png" alt="font" className="font" />
-      <div className="card">
+      <div className="card" onMouseLeave={() => setShowStars(false)}>
         <div className="tete">
           <img className="carteimage" src={img} alt="Image" />
           <img className="avis" src="" alt="avis" />
+        </div>
+        <div
+          className="star-container"
+          onClick={() => setShowStars(!showStars)}
+        >
+          {!showStars ? (
+            <span className="star-icon">★</span>
+          ) : (
+            [...Array(5)].map((_, index) => (
+              <span
+                key={index}
+                className={`star ${
+                  index <= (hoveredStar !== -1 ? hoveredStar : selectedStar - 1)
+                    ? "active"
+                    : ""
+                }`}
+                onMouseEnter={() => setHoveredStar(index)}
+                onMouseLeave={() => setHoveredStar(-1)}
+                onClick={(e) => {
+                  setSelectedStar(index + 1);
+                }}
+              >
+                ★
+              </span>
+            ))
+          )}
         </div>
         <div className="body">
           <div className="card_text">
@@ -33,7 +62,7 @@ const Cards = ({ item, handleClick }) => {
               <button className="quantity-controls1 " onClick={decrement}>
                 -
               </button>
-              <span>{quantity}</span>
+              <span className="qtt">{quantity}</span>
               <button className="quantity-controls2 " onClick={increment}>
                 +
               </button>
