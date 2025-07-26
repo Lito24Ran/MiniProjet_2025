@@ -4,6 +4,7 @@ import Navbar from "../component/navbar";
 import "./panier.css";
 import Modal from "../component/modal";
 import { createPortal } from "react-dom";
+import SimpleDropdown from "../component/SimpleDropdown";
 
 function Panier() {
   const { cart, setCart } = useContext(CartContext);
@@ -52,21 +53,9 @@ function Panier() {
       <Navbar size={cart.length} />
       <div className="panier_container_main">
         <div className="panier_container">
-        <button
-              style={{
-                color: "white",
-                borderRadius: "20px",
-                width: "300px",
-                height: "55px",
-                position: "absolute",
-                bottom:"55%",
-                fontSize: "30px",
-              }}
-              id="btnconfirme"
-              onClick={DisplayAllOrder}
-            >
-              Vos commandes
-            </button>
+        <div style={{ position: "absolute", bottom: "55%" }}>
+          <SimpleDropdown />
+        </div>
           <div className="ScrollPanier">
             <article>
               {cart.map((item) => (
