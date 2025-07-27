@@ -7,7 +7,7 @@ import { createPortal } from "react-dom";
 import SimpleDropdown from "../component/SimpleDropdown";
 
 function Panier() {
-  const { cart, setCart, orderHistory} = useContext(CartContext);
+  const { cart, setCart } = useContext(CartContext);
   const [show, setshow] = useState(false);
 
   const increase = (_id) => {
@@ -54,7 +54,7 @@ function Panier() {
       <div className="panier_container_main">
         <div className="panier_container">
         <div style={{ position: "absolute", bottom: "55%" }}>
-          <SimpleDropdown commandes={orderHistory}/>
+          <SimpleDropdown/>
         </div>
           <div className="ScrollPanier">
             <article>
