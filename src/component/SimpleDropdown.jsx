@@ -27,7 +27,7 @@ export default function SimpleDropdown() {
           setIsLoading(false);
           setOpen(true);
         });
-    }, 5000);
+    }, 1000);
   };
 
   useEffect(() => {
@@ -43,7 +43,7 @@ export default function SimpleDropdown() {
 
   const handleToggleDropdown = () => {
     if (!open) {
-      fetchCommandes(); // lancer fetch avec délai 5000ms si il est fermé
+      fetchCommandes(); // lancer fetch avec délai 1000ms si il est fermé
     } else {
       setOpen(false); // fermer normalement
     }
