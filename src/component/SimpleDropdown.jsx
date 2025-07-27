@@ -1,23 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useContext } from "react";
+import { CartContext } from "../context/CartContext";
+import CommandeDetailModal from "./CommandeDetailModal"; // on importe le modal qu'on va aficher
 import "./dropdown.css";
-
-const options = [
-  "Commande #1",
-  "Commande #2",
-  "Commande #3",
-  "Commande #4",
-  "Commande #5",
-  "Commande #5",
-  "Commande #5",
-  "Commande #5",
-  "Commande #5",
-  "Commande #5",
-  "Commande #5",
-];
 
 export default function SimpleDropdown() {
   const [open, setOpen] = useState(false);
+  const [selectedCommande, setSelectedCommande] = useState(null); // commande selectionnée
   const wrapperRef = useRef(null);
+  const { orderHistory } = useContext(CartContext);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -30,20 +20,31 @@ export default function SimpleDropdown() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const handleCommandeClick = (commande) => {
+    setSelectedCommande(commande);
+  };
+
+  const closeModal = () => {
+    setSelectedCommande(null);
+  };
+
   return (
     <div className="dropdown-wrapper" ref={wrapperRef}>
-      <button
-        className="dropdown-button"
-        onClick={() => setOpen((prev) => !prev)}
-      >
+      <button className="dropdown-button" onClick={() => setOpen((prev) => !prev)}>
         Vos commandes
       </button>
 
       <ul className={`value-list ${open ? "open" : ""}`}>
-        {options.map((option, index) => (
-          <li key={index}>{option}</li>
+        {orderHistory.map((commande, index) => (
+          <li key={index} onClick={() => handleCommandeClick(commande)}>
+            Commande #{orderHistory.length - index}
+          </li>
         ))}
       </ul>
+
+      {selectedCommande && (
+        <CommandeDetailModal commande={selectedCommande} onClose={closeModal} />
+      )}
     </div>
   );
 }
