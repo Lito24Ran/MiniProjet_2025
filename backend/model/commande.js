@@ -21,6 +21,10 @@ const commandeSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  archive: {
+    type: Boolean,
+    default: false,
+  },  
 });
 
 module.exports = mongoose.model("Commande", commandeSchema);

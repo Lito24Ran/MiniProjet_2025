@@ -20,14 +20,13 @@ function CommandeDetailModal({ commande, onClose }) {
   return (
     <div className="modal-overlay">
       <div className="modal-content" ref={modalRef}>
-        <button className="close-button" onClick={onClose}>
+        {/* <button className="close-button" onClick={onClose}>
           ×
-        </button>
+        </button> */}
         <h3>Détails de la commande</h3>
         <p><strong>Nom :</strong> {commande.clientNom}</p>
         <p><strong>Niveau :</strong> {commande.niveau}</p>
         <p><strong>Mode de paiement :</strong> {commande.methodePaiement}</p>
-        <p><strong>Statut :</strong> {commande.status}</p>
         <p><strong>Total :</strong> {commande.total} Ariary</p>
         <h4>Produits :</h4>
         <ul>
