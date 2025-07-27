@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./modal.css";
 import { CartContext } from "../context/CartContext";
+import { useToast } from "../context/ToastContext";
 
 function Modal({ oneclose, condition, totalCommande }) {
   const { cart, setCart, orderHistory, setOrderHistory } = useContext(CartContext);
@@ -8,6 +9,7 @@ function Modal({ oneclose, condition, totalCommande }) {
   //const Supression = useContext(MOdalContext);
   const [nameCash, setNameCash] = useState("");
   //Reto no mandray makany @ ny db
+  const { showToast } = useToast();
 
   const [takeNameCash, setTakeNameCash] = useState("");
   const [takelevelCash, setTakelevelCash] = useState("");
@@ -86,12 +88,12 @@ useEffect(() => {
   .then((savedCommande) => {
     setOrderHistory((prev) => [savedCommande, ...prev]);  
     setCart([]);
-    alert("Commande envoyée avec succès !");
+    showToast("Votre commande est bien reçu, veuillez patienter ! 😉😉😉", "success");
     oneclose();
   })
   .catch((err) => {
     console.error("Erreur lors de l’envoi :", err);
-    alert("Erreur lors de l’envoi de la commande !");
+    showToast("Désolé une erreur est survenu, vous inquitez pas les techniciens vont pas tarder !", "error");
   });
 
   }
@@ -121,12 +123,12 @@ useEffect(() => {
   .then((savedCommande) => {
     setOrderHistory((prev) => [savedCommande, ...prev]);  
     setCart([]);
-    alert("Commande envoyée avec succès !");
+    showToast("Votre commande est bien reçu, veuillez patienter ! 😉😉😉", "success");
     oneclose();
   })
   .catch((err) => {
     console.error("Erreur lors de l’envoi :", err);
-    alert("Erreur lors de l’envoi de la commande !");
+    showToast("Erreur lors de l’envoi de la commande !", "error");
   });
 
   }
@@ -231,7 +233,7 @@ useEffect(() => {
                 </div>
                 <div className="btnSubmit">
                   <button id="SubmitBtn" onClick={conditionalModal}>
-                    Submit
+                    Valider
                   </button>
                 </div>
               </div>

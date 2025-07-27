@@ -26,7 +26,7 @@ export function CartProvider({ children }) {
     localStorage.setItem("historique_commandes", JSON.stringify(orderHistory));
   }, [orderHistory]);
 
-  const handleClick = (item) => {
+  const handleClick = (item, toastFn) => {
     const existItem = cart.find(produit => produit._id === item._id);
     if (existItem) {
       setCart(cart.map(produit =>
@@ -37,7 +37,9 @@ export function CartProvider({ children }) {
     } else {
       setCart([...cart, { ...item, quantity: item.quantity || 1 }]);
     }
-  };
+  
+    if (toastFn) toastFn("Produit ajouté 😋", "success");
+  };  
 
   return (
     <CartContext.Provider

@@ -94,7 +94,6 @@ export default function CustomTable({
     </TableRow>
   ))}
 </TableBody>
-
         </Table>
       </TableContainer>
     </Paper>
