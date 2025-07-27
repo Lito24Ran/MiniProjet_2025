@@ -10,7 +10,12 @@ export function CartProvider({ children }) {
 
   const [orderHistory, setOrderHistory] = useState(() => {
     const saved = localStorage.getItem("historique_commandes");
-    return saved ? JSON.parse(saved) : [];
+    if (!saved) return [];
+
+    // On verifie si chaque commande a un champ status, sinon on ajoute en attente
+    return JSON.parse(saved).map((cmd) =>
+      cmd.status ? cmd : { ...cmd, status: "en attente" }
+    );
   });
 
   useEffect(() => {
@@ -30,7 +35,6 @@ export function CartProvider({ children }) {
           : produit
       ));
     } else {
-      // faut S'assurer qu'on a un champ  ici hein ?
       setCart([...cart, { ...item, quantity: item.quantity || 1 }]);
     }
   };

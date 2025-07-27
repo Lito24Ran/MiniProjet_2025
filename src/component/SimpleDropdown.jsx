@@ -35,11 +35,16 @@ export default function SimpleDropdown() {
       </button>
 
       <ul className={`value-list ${open ? "open" : ""}`}>
-        {orderHistory.map((commande, index) => (
-          <li key={index} onClick={() => handleCommandeClick(commande)}>
-            Commande #{orderHistory.length - index}
-          </li>
-        ))}
+      {orderHistory.map((commande, index) => (
+  <li
+    key={commande.id || index}
+    onClick={() => setSelectedCommande(commande)}
+    style={{ cursor: "pointer" }}
+  >
+    Commande #{orderHistory.length - index} - {commande.status || "en attente"}
+  </li>
+))}
+
       </ul>
 
       {selectedCommande && (
