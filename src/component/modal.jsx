@@ -72,7 +72,7 @@ useEffect(() => {
       produits: cart,
       total: totalCommande,
       date: new Date(),
-      status: "En attente",
+      status: "en attente",
     };    
     fetch("http://localhost:1203/commandes", {
   method: "POST",
@@ -83,8 +83,8 @@ useEffect(() => {
     if (!res.ok) throw new Error("Erreur serveur");
     return res.json();
   })
-  .then(() => {
-    setOrderHistory((prev) => [commande, ...prev]);
+  .then((savedCommande) => {
+    setOrderHistory((prev) => [savedCommande, ...prev]);  
     setCart([]);
     alert("Commande envoyée avec succès !");
     oneclose();
@@ -107,7 +107,7 @@ useEffect(() => {
       produits: cart,
       total: totalCommande,
       date: new Date(),
-      status: "En attente",
+      status: "en attente",
     };    
     fetch("http://localhost:1203/commandes", {
   method: "POST",
@@ -118,8 +118,8 @@ useEffect(() => {
     if (!res.ok) throw new Error("Erreur serveur");
     return res.json();
   })
-  .then(() => {
-    setOrderHistory((prev) => [commande, ...prev]);
+  .then((savedCommande) => {
+    setOrderHistory((prev) => [savedCommande, ...prev]);  
     setCart([]);
     alert("Commande envoyée avec succès !");
     oneclose();
