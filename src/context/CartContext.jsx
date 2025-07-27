@@ -8,16 +8,21 @@ export function CartProvider({ children }) {
     return savedCart ? JSON.parse(savedCart) : [];
   });
 
+  const [orderHistory, setOrderHistory] = useState(() => {
+    const saved = localStorage.getItem("historique_commandes");
+    return saved ? JSON.parse(saved) : [];
+  });
+
   useEffect(() => {
-  const panierSauvegarde = localStorage.getItem("mon_panier");
-  if (panierSauvegarde) {
-    setCart(JSON.parse(panierSauvegarde));
-  }
-}, []);
+    localStorage.setItem("mon_panier", JSON.stringify(cart));
+  }, [cart]);
+
+  useEffect(() => {
+    localStorage.setItem("historique_commandes", JSON.stringify(orderHistory));
+  }, [orderHistory]);
 
   const handleClick = (item) => {
     const existItem = cart.find(produit => produit._id === item._id);
-
     if (existItem) {
       setCart(cart.map(produit =>
         produit._id === item._id
@@ -31,7 +36,9 @@ export function CartProvider({ children }) {
   };
 
   return (
-    <CartContext.Provider value={{ cart, setCart, handleClick }}>
+    <CartContext.Provider
+      value={{ cart, setCart, handleClick, orderHistory, setOrderHistory }}
+    >
       {children}
     </CartContext.Provider>
   );

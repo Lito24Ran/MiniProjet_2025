@@ -3,10 +3,12 @@ const Commande = require("../model/commande");
 //cree comande
 const ajouterCommande = async (req, res) => {
   try {
+    console.log("Reçu :", req.body); //  Tres utile ceci hein
     const nouvelleCommande = new Commande(req.body);
     await nouvelleCommande.save();
     res.status(201).json(nouvelleCommande);
   } catch (err) {
+    console.error("Erreur lors de l’enregistrement :", err); // et aussi ça
     res.status(500).json({ message: err.message });
   }
 };

@@ -3,7 +3,7 @@ import "./modal.css";
 import { CartContext } from "../context/CartContext";
 
 function Modal({ oneclose, condition, totalCommande }) {
-  const { cart } = useContext(CartContext);
+  const { cart, setCart, orderHistory, setOrderHistory } = useContext(CartContext);
   const [showCash, setShowCash] = useState(true);
   //const Supression = useContext(MOdalContext);
   const [nameCash, setNameCash] = useState("");
@@ -62,39 +62,75 @@ function Modal({ oneclose, condition, totalCommande }) {
       }
     }
   }
-  useEffect(() => {
-    if (takeNameCash) {
-      // Mode Cash
-      fetch("http://localhost:1203/commandes", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          clientNom: takeNameCash,
-          niveau: takelevelCash,
-          methodePaiement: "Cash",
-          produits: cart,
-          total: totalCommande,
-        }),
-      });
-    }
-  }, [takeNameCash]);
+  // ici Pour Cash
+useEffect(() => {
+  if (takeNameCash) {
+    const commande = {
+      clientNom: takeNameCash,
+      niveau: takelevelCash,
+      methodePaiement: "Cash",
+      produits: cart,
+      total: totalCommande,
+      date: new Date(),
+      status: "En attente",
+    };    
+    fetch("http://localhost:1203/commandes", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(commande),
+})
+  .then((res) => {
+    if (!res.ok) throw new Error("Erreur serveur");
+    return res.json();
+  })
+  .then(() => {
+    setOrderHistory((prev) => [commande, ...prev]);
+    setCart([]);
+    alert("Commande envoyée avec succès !");
+    oneclose();
+  })
+  .catch((err) => {
+    console.error("Erreur lors de l’envoi :", err);
+    alert("Erreur lors de l’envoi de la commande !");
+  });
 
-  useEffect(() => {
-    if (takenameMvola) {
-      // Mode Mvola
-      fetch("http://localhost:1203/commandes", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          clientNom: takenameMvola,
-          niveau: takenumMvola,
-          methodePaiement: "Mvola",
-          produits: cart,
-          total: totalCommande,
-        }),
-      });
-    }
-  }, [takenameMvola]);
+  }
+}, [takeNameCash]);
+
+  // ici Pour MVola
+useEffect(() => {
+  if (takenameMvola) {
+    const commande = {
+      clientNom: takenameMvola,
+      niveau: takenumMvola,
+      methodePaiement: "Mvola",
+      produits: cart,
+      total: totalCommande,
+      date: new Date(),
+      status: "En attente",
+    };    
+    fetch("http://localhost:1203/commandes", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(commande),
+})
+  .then((res) => {
+    if (!res.ok) throw new Error("Erreur serveur");
+    return res.json();
+  })
+  .then(() => {
+    setOrderHistory((prev) => [commande, ...prev]);
+    setCart([]);
+    alert("Commande envoyée avec succès !");
+    oneclose();
+  })
+  .catch((err) => {
+    console.error("Erreur lors de l’envoi :", err);
+    alert("Erreur lors de l’envoi de la commande !");
+  });
+
+  }
+}, [takenameMvola]);
 
   useEffect(() => {
     console.log("Total reçu dans le modal :", totalCommande);
