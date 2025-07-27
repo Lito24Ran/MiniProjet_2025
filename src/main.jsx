@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import ReactDOM from "react-dom/client";
 import App from './App.jsx';
 import { CartProvider } from './context/CartContext.jsx';
+import { ToastProvider } from './context/ToastContext.jsx';
 /* import Home from './page/home.jsx';
 import Soupe from './AutreMenu/Soupe.jsx';
 import MenuBurger from './AutreMenu/Burger.jsx';
@@ -66,8 +67,10 @@ import Panier from './page/Panier.jsx';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
+    <ToastProvider>
     <CartProvider>
       <App />
     </CartProvider>
+    </ToastProvider>
   </BrowserRouter>
   );
