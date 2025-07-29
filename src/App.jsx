@@ -35,11 +35,11 @@ function App() {
   }, [location]); 
   return (
     <Routes>
-       <Route path="/" element={<Loginpage />} /> 
+       <Route path="/" element={< Home />} /> 
       <Route path="/SignUp" element={<Inscription />} />
       <Route path="/forgotPassword" element={<ForgotPassword />} />
       <Route path="/ChangePassword/:id" element={<ChangePassword />} />
-      <Route path="/home" element={<Home />} />
+      <Route path="/home" element={<Loginpage/>} />
       <Route path="/panier" element={<Panier />} />
       <Route path="/Riz" element={<Riz />} />
       <Route path="/Burger" element={<MenuBurger />} />
