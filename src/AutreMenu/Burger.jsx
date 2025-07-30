@@ -4,7 +4,7 @@ import { CartContext } from "../context/CartContext";
 import Cartes from "../component/cartes";
 import Foot from "../component/footer";
 
-function MenuBurger() {
+function MenuBurger({Userconnecte}) {
   const { cart, handleClick } = useContext(CartContext);
   const [produits, setProduits] = useState([]);
 
@@ -29,7 +29,7 @@ function MenuBurger() {
 
   return (
     <>
-      <Navbar size={cart.length} />
+      <Navbar size={cart.length} UserConnect={Userconnecte} />
       <section>
         <img src="src/image/font.png" alt="font" className="fonts" />
         <div className="menus">Snack</div>

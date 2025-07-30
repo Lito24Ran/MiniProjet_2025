@@ -52,7 +52,7 @@ const CustomNavbar = ({ size, onSearchChange, UserConnect }) => {
     navigate("/"); // mideconecte
   };
 
-/*   console.log("UserConnect:", UserConnect); */
+  /*   console.log("UserConnect:", UserConnect); */
 
   return (
     <nav className={`nav ${scrolled ? "nav-scrolled" : ""}`}>
@@ -89,7 +89,7 @@ const CustomNavbar = ({ size, onSearchChange, UserConnect }) => {
               <span>{size}</span>
             </Nav>
           ) : (
-            <Nav.Link as={Link} to="/login" className="login-link"><p style={{ color: "black", borderRadius: "5px", textAlign: "right" }}>Login</p></Nav.Link>
+            <Nav.Link as={Link} to="/login" className="login-link"><p style={{ backgroundColor: "orange", width: "80px", height: "50px", paddingTop: "10px", color: "white", borderRadius: "5px", textAlign: "center", border: "2px solid #FFA500", borderRadius: "5px" }}>Login</p></Nav.Link>
 
           )
           }
