@@ -23,11 +23,24 @@ const ajouterCommande = async (req, res) => {
   }
 };
 
-//obtenir toutes les commmande
+//obtenir toutes les commandes et supprimer celles expirées (cash > 10mn)
 const getCommandes = async (req, res) => {
   try {
-    const commandes = await Commande.find(); // on ne filtre rien
-    console.log("Commandes trouvées :", commandes);
+    const maintenant = new Date();
+    const limiteExpiration = new Date(maintenant.getTime() - 10 * 60 * 1000); // 10 minutes
+
+    // Supprimer automatiquement les commandes "Cash" expirées
+    const result = await Commande.deleteMany({
+      methodePaiement: "Cash",
+      date: { $lte: limiteExpiration }
+    });
+
+    if (result.deletedCount > 0) {
+      console.log(`${result.deletedCount} commande(s) Cash expirée(s) supprimée(s) automatiquement`);
+    }
+
+    // Ensuite, récupérer les commandes restantes
+    const commandes = await Commande.find();
     res.status(200).json(commandes);
   } catch (err) {
     console.error("Erreur lors de la récupération des commandes :", err);

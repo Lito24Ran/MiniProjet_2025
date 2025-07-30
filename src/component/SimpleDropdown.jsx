@@ -6,7 +6,7 @@ import "./dropdown.css";
 export default function SimpleDropdown() {
   const [open, setOpen] = useState(false);
   const [selectedCommande, setSelectedCommande] = useState(null);
-  const [isLoading, setIsLoading] = useState(false); // état de chargement
+  const [isLoading, setIsLoading] = useState(false); // etat de chargement
   const wrapperRef = useRef(null);
   const { orderHistory, setOrderHistory } = useContext(CartContext);
 
@@ -17,7 +17,9 @@ export default function SimpleDropdown() {
         .then((res) => res.json())
         .then((data) => {
           if (Array.isArray(data)) {
-            setOrderHistory(data);
+            // Trier par date decroissante (plus recent en premier)
+            const sorted = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+            setOrderHistory(sorted);
           }
         })
         .catch((err) =>
@@ -28,7 +30,7 @@ export default function SimpleDropdown() {
           setOpen(true);
         });
     }, 1000);
-  };
+  };  
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -72,9 +74,9 @@ export default function SimpleDropdown() {
             onClick={() => handleCommandeClick(commande)}
             style={{ cursor: "pointer" }}
           >
-            Commande #{orderHistory.length - index} -{" "}
+            Commande #{index + 1} -{" "} 
             {commande.statut || "en attente"}
-          </li>
+          </li> // retriage
         ))}
       </ul>
 

@@ -134,7 +134,8 @@ function Panier({Userconnecte}) {
                 />,
                 document.body
               )) :(showError) && 
-            <div className="alert-error"> <strong>Error!</strong> Entrer des produits . </div>}
+            <div > </div>}
+          
         </div>
       </div>
     </>
@@ -142,3 +143,7 @@ function Panier({Userconnecte}) {
 }
 
 export default Panier;
+
+/**
+ * className="alert-error"> <strong>Error!</strong> Entrer des produits .
+ */
