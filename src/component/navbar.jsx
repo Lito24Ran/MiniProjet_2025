@@ -50,6 +50,9 @@ const CustomNavbar = ({ size, onSearchChange }) => {
   const handleLogout = () => {
     navigate("/"); // mideconecte
   };
+  const handleNavLinkClick = () => {
+    setMenuOpen(false);
+  };
 
   return (
     <nav className={`nav ${scrolled ? "nav-scrolled" : ""}`}>
@@ -61,23 +64,39 @@ const CustomNavbar = ({ size, onSearchChange }) => {
         <div className={`main_list ${menuOpen ? "show_list" : ""}`}>
           <ul className="navlinks">
             <li>
-              <NavLink to="/home">Accueil</NavLink>
+              <NavLink to="/home" onClick={handleNavLinkClick}>
+                Accueil
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/menu">Menu du jour</NavLink>
+              <NavLink to="/menu" onClick={handleNavLinkClick}>
+                Menu du jour
+              </NavLink>
+            </li>
+            <li className="mobile-search">
+              <i className="fas fa-search search-icon"></i>
+              <input
+                type="text"
+                placeholder="Rechercher..."
+                className="search-input"
+                value={searchValue}
+                onChange={handleInputChange}
+              />
             </li>
           </ul>
+        </div>
 
-          <div className="search-container">
-            <input
-              type="text"
-              placeholder="Rechercher..."
-              className="search-input"
-              value={searchValue}
-              onChange={handleInputChange}
-            />
-          </div>
-
+        <div className="search-container">
+          <i className="fas fa-search search-icon"></i>
+          <input
+            type="text"
+            placeholder="Rechercher..."
+            className="search-input"
+            value={searchValue}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="right-side">
           <Nav className="panier">
             <Nav.Link as={Link} to="/panier">
               <img src="src/image/panier.png" alt="panier" />
@@ -102,6 +121,7 @@ const CustomNavbar = ({ size, onSearchChange }) => {
                 className="profile-img"
               />
             </a>
+
             {profileMenuOpen && (
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
@@ -131,9 +151,8 @@ const CustomNavbar = ({ size, onSearchChange }) => {
           className={`navTrigger ${menuOpen ? "active" : ""}`}
           onClick={toggleMenu}
         >
-          <i className="line"></i>
-          <i className="line"></i>
-          <i className="line"></i>
+          {" "}
+          <i className={`fas ${menuOpen ? "fa-times" : "fa-bars"}`}></i>
         </span>
       </div>
     </nav>
