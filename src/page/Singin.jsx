@@ -122,7 +122,8 @@ function Inscription() {
   useEffect(() => {
     connecte &&
       setTimeout(() => {
-        navigation("/");
+     
+        navigation("/login");
       }, 1000);
   }, [connecte]);
 
@@ -256,7 +257,7 @@ function Inscription() {
 
             <div className="paragraphe">
               <p>
-                Do you have an account? <Link to={"/"}>clic here</Link>
+                Do you have an account? <Link to={"/login"}>clic here</Link>
               </p>
             </div>
           </div>
