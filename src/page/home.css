@@ -117,6 +117,151 @@
 .backimage:hover {
   animation-play-state: paused;
 }
+@media (min-width: 768px) and (max-width: 1023px) {
+  .carouselContainer {
+    margin-top: 70%;
+  }
+  .img_car {
+    height: 12rem;
+    width: 12rem;
+    top: 8rem;
+    position: relative;
+    left: -11rem;
+
+    display: block;
+    margin: 0 auto;
+  }
+  .img_car1 {
+    height: 12rem;
+    width: 12rem;
+    top: 7.5rem;
+    position: relative;
+    left: 11rem;
+
+    display: block;
+    margin: 0 auto;
+  }
+
+  .caroussel_text {
+    margin-left: 4rem;
+    top: 8rem;
+    /* margin: 0 auto; */
+  }
+  .caroussel_text_1 {
+    margin: 0 auto;
+    top: -8rem;
+    margin-left: -8rem;
+    /* text-align: center; */
+  }
+
+  .titre {
+    font-size: 2rem;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .titre::after {
+    content: "";
+    width: 44%;
+    height: 2px;
+    left: 8rem;
+    background: #fdedcb;
+    display: flex;
+    position: absolute;
+  }
+  .titre_bas {
+    font-size: 1.2rem;
+    margin-left: 4rem;
+  }
+  .caroussel_text .titre_bas {
+    margin-left: 0;
+  }
+
+  .backimage {
+    display: none;
+  }
+
+  .backcaroussel {
+    position: relative;
+    top: 0;
+    right: 0;
+    transform: none;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+}
+@media (max-width: 767px) {
+  .carouselContainer {
+    margin-top: 70%;
+  }
+  .img_car {
+    height: 8rem;
+    width: 8rem;
+    top: 8rem;
+    position: relative;
+    left: -8rem;
+
+    display: block;
+    margin: 0 auto;
+  }
+  .img_car1 {
+    height: 10rem;
+    width: 8rem;
+    top: 7.5rem;
+    position: relative;
+    left: 10rem;
+
+    display: block;
+    margin: 0 auto;
+  }
+
+  .caroussel_text {
+    margin-left: 4rem;
+    top: 3rem;
+    /* margin: 0 auto; */
+  }
+  .caroussel_text_1 {
+    margin: 0 auto;
+    top: -9rem;
+
+    margin-left: -7rem;
+    /* text-align: center; */
+  }
+
+  .titre {
+    font-size: 2rem;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  .caroussel_text_1 .titre::after {
+    content: "";
+    width: 50%;
+    height: 2px;
+    left: 5rem;
+    background: #fdedcb;
+    display: flex;
+    position: absolute;
+  }
+  .titre::after {
+    content: "";
+    width: 80%;
+    height: 2px;
+    left: 1rem;
+    background: #fdedcb;
+    display: flex;
+    position: absolute;
+  }
+  .titre_bas {
+    font-size: 1.2rem;
+    margin-left: 0rem;
+  }
+  .caroussel_text .titre_bas {
+    margin-left: -5rem;
+  }
+  .backimage {
+    display: none;
+  }
+}
 
 .BarreDemenu {
   height: 70%;
@@ -277,4 +422,69 @@ body {
 .slide-down {
   transform: translateY(0);
   opacity: 1;
+}
+/* ----------- Écran PC (large) ----------- */
+@media screen and (min-width: 1025px) {
+  .contenairMenu {
+    gap: 50px;
+    justify-content: center;
+  }
+
+  .menu {
+    width: 150px;
+    height: 150px;
+  }
+
+  .texts {
+    font-size: 150%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .contenairMenu {
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .menu {
+    width: 120px;
+    height: 120px;
+  }
+  .text {
+    font-size: 120%;
+    left: 5rem;
+    position: relative;
+  }
+  .texts {
+    font-size: 150%;
+  }
+}
+
+@media (max-width: 767px) {
+  .contenairMenu {
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .menu {
+    width: 100px;
+    height: 100px;
+  }
+  .SousTitre {
+    font-size: 80%;
+    position: relative;
+    margin-top: 60%;
+    margin-top: 1rem;
+  }
+  .imagemenu:hover + .SousTitre {
+    animation: none;
+    color: rgb(0, 0, 0);
+  }
+  .text {
+    font-size: 100%;
+    left: 2rem;
+    position: relative;
+  }
+  .texts {
+    font-size: 120%;
+  }
 }
