@@ -40,6 +40,11 @@ function CommandeDetailModal({ commande, onClose }) {
             </li>
           ))}
         </ul>
+        {commande.methodePaiement === "Cash" && (
+          <p style={{ color: "red", fontStyle: "italic" }}>
+             Expire dans 10mn
+           </p>
+          )}
       </div>
     </div>
   );
