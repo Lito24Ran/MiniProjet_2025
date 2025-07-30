@@ -11,15 +11,19 @@ import SystemeCrousel from "../component/Carousel.jsx";
 import Footer from "../component/footer.jsx";
 import Cards from "../component/Card";
 import { CartContext } from "../context/CartContext.jsx";
+import { useToast } from "../context/ToastContext";
+
 
 export const produitContext = createContext();
 
-function Home() {
+function Home({ Userconnecte }) {
   const navigate = useNavigate();
   const { cart, handleClick } = useContext(CartContext);
+  const { showToast } = useToast();
   const [produits, setProduits] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const isSearching = searchQuery.length > 0; // pas compris cet ligne, maybe un derivé de taille pour eviter le debordement
+  
 
   // Recuperation des produits (avec images et leurs format)
   const fetchProduits = () => {
@@ -62,7 +66,7 @@ function Home() {
   return (
     <>
       <div className="HomePage">
-      <CustomNavbar size={cart.length} onSearchChange={handleSearchSubmit} />
+      <CustomNavbar size={cart.length} onSearchChange={handleSearchSubmit} UserConnect={Userconnecte} />
 
         <header>
         <section className={`animated-section ${isSearching ? "slide-up" : "slide-down"}`}>
@@ -177,11 +181,11 @@ function Home() {
         <div className={`All_Cards ${isSearching ? "active-search" : ""}`}>
           {produitsFiltres.length > 0 ? (
             produitsFiltres.map((item) => (
-              <Cards handleClick={handleClick} item={item} key={item._id} />
+              <Cards handleClick={(item) => handleClick(item, showToast)} item={item} key={item._id} />
             ))
           ) : (
             <p style={{ textAlign: "center", marginTop: "2rem" }}>
-              Aucun produit trouvé pour « {searchQuery} ».
+              Aucun produit trouvé pour l'instant « {searchQuery} ».
             </p>
           )}
         </div>

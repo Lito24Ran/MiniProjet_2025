@@ -50,48 +50,50 @@ export default function CustomTable({
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row, i) => (
-              <TableRow hover key={row[uniqueKey] || i}>
-                {allColumns.map((col) => {
-                  if (col.isAction) {
-                    return (
-                      <TableCell key="actions" align="center">
-                        {onEdit && (
-                          <Button
-                            size="small"
-                            variant="outlined"
-                            onClick={() => onEdit(row)}
-                            sx={{ mr: 1 }}
-                          >
-                            Modifier
-                          </Button>
-                        )}
-                        {onDelete && (
-                          <Button
-                            size="small"
-                            variant="outlined"
-                            color="error"
-                            onClick={() => onDelete(row[uniqueKey])}
-                          >
-                            Retirer
-                          </Button>
-                        )}
-                      </TableCell>
-                    );
-                  }
+  {rows.map((row, i) => (
+    <TableRow hover key={row[uniqueKey] || i}>
+      {allColumns.map((col) => {
+        if (col.isAction) {
+          return (
+            <TableCell key="actions" align="center">
+              {onEdit && (
+                <Button
+                  size="small"
+                  variant="outlined"
+                  onClick={() => onEdit(row)}
+                  sx={{ mr: 1 }}
+                >
+                  Modifier
+                </Button>
+              )}
+              {onDelete && (
+                <Button
+                  size="small"
+                  variant="outlined"
+                  color="error"
+                  onClick={() => onDelete(row[uniqueKey])}
+                >
+                  Retirer
+                </Button>
+              )}
+            </TableCell>
+          );
+        }
 
-                  const value = row[col.id];
-                  return (
-                    <TableCell key={col.id} align={col.align || 'left'}>
-                      {col.format && typeof value === 'number'
-                        ? col.format(value)
-                        : value}
-                    </TableCell>
-                  );
-                })}
-              </TableRow>
-            ))}
-          </TableBody>
+        const value = row[col.id];
+        return (
+          <TableCell key={col.id} align={col.align || 'left'}>
+            {col.render
+              ? col.render(value, row)
+              : (col.format && typeof value === 'number'
+                  ? col.format(value)
+                  : value)}
+          </TableCell>
+        );
+      })}
+    </TableRow>
+  ))}
+</TableBody>
         </Table>
       </TableContainer>
     </Paper>
