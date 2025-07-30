@@ -5,7 +5,7 @@ import Foot from "../component/footer";
 import { CartContext } from "../context/CartContext";
 import { useToast } from "../context/ToastContext";
 
-function Menu() {
+function Menu({ Userconnecte }) {
   const { cart, handleClick } = useContext(CartContext);
   const { showToast } = useToast();
   const [menuSpecial, setMenuSpecial] = useState([]);
@@ -35,7 +35,7 @@ function Menu() {
 
   return (
     <>
-      <Navbar size={cart.length} />
+      <Navbar size={cart.length} UserConnect={Userconnecte}/>
       <section>
         <img src="src/image/font.png" alt="font" className="fonts" />
         <div className="menus">Menu du jour</div>
