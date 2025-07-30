@@ -4,7 +4,7 @@ import { CartContext } from "../context/CartContext";
 import Cartes from "../component/cartes";
 import Foot from "../component/footer";
 
-function Jus() {
+function Jus({Userconnecte}) {
   const { cart, handleClick } = useContext(CartContext);
   const [produits, setProduits] = useState([]);
 
@@ -25,7 +25,7 @@ function Jus() {
 
   return (
     <>
-      <Navbar size={cart.length} />
+      <Navbar size={cart.length} UserConnect={Userconnecte}/>
       <section>
         <img src="src/image/font.png" alt="font" className="fonts" />
         <div className="menus">Boisson</div>

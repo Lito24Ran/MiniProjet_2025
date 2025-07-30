@@ -7,7 +7,7 @@ import { createPortal } from "react-dom";
 import SimpleDropdown from "../component/SimpleDropdown";
 import { useToast } from "../context/ToastContext";
 
-function Panier() {
+function Panier({Userconnecte}) {
   const { cart, setCart } = useContext(CartContext);
   const [show, setshow] = useState(false);
   const [showError,setshowError] = useState(false);
@@ -57,7 +57,7 @@ function Panier() {
  
   return (
     <>
-      <Navbar size={cart.length} />
+      <Navbar size={cart.length} UserConnect={Userconnecte}/>
       <div className="panier_container_main">
         <div className="panier_container">
         <div style={{ position: "absolute", bottom: "55%" }}>
