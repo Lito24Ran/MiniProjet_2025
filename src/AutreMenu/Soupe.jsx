@@ -5,7 +5,7 @@ import { useToast } from "../context/ToastContext";
 import Cartes from "../component/cartes";
 import Foot from "../component/footer";
 
-function Soupe() {
+function Soupe({Userconnecte}) {
   const { cart, handleClick } = useContext(CartContext);
   const { showToast } = useToast();
   const [produits, setProduits] = useState([]);
@@ -27,7 +27,7 @@ function Soupe() {
 
   return (
     <>
-      <Navbar size={cart.length} />
+      <Navbar size={cart.length} UserConnect={Userconnecte}/>
       <section>
         <img src="src/image/font.png" alt="font" className="fonts" />
         <div className="menus">Pâtes</div>
