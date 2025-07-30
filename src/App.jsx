@@ -15,14 +15,15 @@ import { useEffect } from "react";
 import AppAdmin from "./admin/AppAdmin.jsx";
 import ForgotPassword from "./page/forgotPass.jsx";
 import ChangePassword from "./page/forgotPassword2.jsx";
+import { useState } from "react";
 
 
 function App() {
 
   const location = useLocation();
-
+  const [connecte, setConnecte] = useState(false);
   useEffect(() => {
-    if (location.pathname === "/" || location.pathname === "/SignUp" || location.pathname === "/forgotPassword" || location.pathname === "/ChangePassword/:id") {
+    if (location.pathname === "/login" || location.pathname === "/SignUp" || location.pathname === "/forgotPassword" || location.pathname === "/ChangePassword/:id") {
       document.body.style.backgroundImage =  `{url ("src/image/backgroundLogin.png")}`/*src/image/backgroundSignUp1.gif/* "linear-gradient(to top right, rgba(166, 29, 113),rgba(239, 130, 35, 1))" */;
     } /* else if (location.pathname === "/SignUp") {
       document.body.style.backgroundImage = `{ url("src/image/backgroundLogin.png");}`
@@ -35,11 +36,11 @@ function App() {
   }, [location]); 
   return (
     <Routes>
-       <Route path="/" element={< Home />} /> 
+       <Route path="/" element={< Home Userconnecte={connecte}   />} /> 
       <Route path="/SignUp" element={<Inscription />} />
       <Route path="/forgotPassword" element={<ForgotPassword />} />
       <Route path="/ChangePassword/:id" element={<ChangePassword />} />
-      <Route path="/home" element={<Loginpage/>} />
+      <Route path="/login" element={<Loginpage setUserConnecte={setConnecte} />} />
       <Route path="/panier" element={<Panier />} />
       <Route path="/Riz" element={<Riz />} />
       <Route path="/Burger" element={<MenuBurger />} />

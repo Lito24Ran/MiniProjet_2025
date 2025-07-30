@@ -8,16 +8,26 @@ export function CartProvider({ children }) {
     return savedCart ? JSON.parse(savedCart) : [];
   });
 
+  const [orderHistory, setOrderHistory] = useState(() => {
+    const saved = localStorage.getItem("historique_commandes");
+    if (!saved) return [];
+
+    // On verifie si chaque commande a un champ status, sinon on ajoute en attente
+    return JSON.parse(saved).map((cmd) =>
+      cmd.status ? cmd : { ...cmd, status: "en attente" }
+    );
+  });
+
   useEffect(() => {
-  const panierSauvegarde = localStorage.getItem("mon_panier");
-  if (panierSauvegarde) {
-    setCart(JSON.parse(panierSauvegarde));
-  }
-}, []);
+    localStorage.setItem("mon_panier", JSON.stringify(cart));
+  }, [cart]);
 
-  const handleClick = (item) => {
+  useEffect(() => {
+    localStorage.setItem("historique_commandes", JSON.stringify(orderHistory));
+  }, [orderHistory]);
+
+  const handleClick = (item, toastFn) => {
     const existItem = cart.find(produit => produit._id === item._id);
-
     if (existItem) {
       setCart(cart.map(produit =>
         produit._id === item._id
@@ -25,13 +35,16 @@ export function CartProvider({ children }) {
           : produit
       ));
     } else {
-      // faut S'assurer qu'on a un champ  ici hein ?
       setCart([...cart, { ...item, quantity: item.quantity || 1 }]);
     }
-  };
+  
+    if (toastFn) toastFn("Produit ajouté 😋", "success");
+  };  
 
   return (
-    <CartContext.Provider value={{ cart, setCart, handleClick }}>
+    <CartContext.Provider
+      value={{ cart, setCart, handleClick, orderHistory, setOrderHistory }}
+    >
       {children}
     </CartContext.Provider>
   );

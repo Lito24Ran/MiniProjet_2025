@@ -4,6 +4,7 @@ const { use } = require("react");
 //const bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken");
 const { data } = require("react-router-dom");
+/* const session = require("express-session"); */
 
 const signup = (req, res, next) => {
     //console.log(req.body);
@@ -52,6 +53,7 @@ const login = (req, res) => {
                     console.log("connexion reussit");
                     let token = jwt.sign({ name: user.name }, 'UneValeursecrete', { expiresIn: "1h" });
                     console.log(token);
+                    res.send(user.name);
                     console.log(
                         {
                             nom: user.name,
@@ -59,15 +61,7 @@ const login = (req, res) => {
                             level: user.level,
                         }
                     )
-                    
-                    if (token) {
-                        return res.sendFile({
-                            nom: user.name,
-                            email: user.email,
-                            level: user.level   
-                        })
 
-                    }
                 }
                 res.json(
                     {
@@ -82,51 +76,19 @@ const login = (req, res) => {
 
             }
 
-        } 
-        
-    )
-        .catch (error => {
-    console.log("Une erreur c' est produit!");
+        }
 
-    res.json({
-        message: "Erreur de connexion"
-    })
-})
+        )
+        .catch(error => {
+            console.log("Une erreur c' est produit!");
+
+            res.json({
+                message: "Erreur de connexion"
+            })
+        })
 }
 
-const Authentification = (req, res, next) => {
-    const autHeader = req.headers.authorization;
 
-    const token = autHeader.split(' ')[1];
-
-    if (!token) {
-        return res.sendStatus(401);
-    }
-
-    try {
-        const decoded = jwt.verify(token, "Unevaleursecrete");
-        req.userId = decoded.userId; // On récupère l'ID de l'utilisateur
-        next();
-    } catch (error) {
-        console.log("Une erreur de token qui est inavalide!");
-
-    }
-}
-const getToken = async (req, res, next) => {
-    try {
-        const reponse = await fetch("http://localhost:1203/login"); // Attendre que la réponse arrive
-        const dataUser = await reponse.json(); // Attendre que la réponse soit convertie en JSON
-        const rawText = await reponse.text(); 
-        console.log("Contenu brut reçu :\n", rawText);
-
-        console.log(dataUser.nom); // Affiche le nom dans la console
-
-        res.send({ nom: dataUser.nom }); // Renvoyer une réponse correcte au client
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: "Erreur lors de la récupération des données" });
-    }
-};
 
 
 const dataUser = (requete, response) => {
@@ -173,6 +135,9 @@ const ChangePass = (requeste, response) => {
 
 }
 module.exports = {
-    signup, login, dataUser, Authentification, ChangePass, getToken
+    signup, 
+    login, 
+    dataUser, 
+    ChangePass, 
 };
 
