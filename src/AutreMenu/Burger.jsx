@@ -1,11 +1,13 @@
 import React, { useEffect, useState, useContext } from "react";
 import Navbar from "../component/navbar";
 import { CartContext } from "../context/CartContext";
+import { useToast } from "../context/ToastContext";
 import Cartes from "../component/cartes";
 import Foot from "../component/footer";
 
 function MenuBurger({Userconnecte}) {
   const { cart, handleClick } = useContext(CartContext);
+  const { showToast } = useToast();
   const [produits, setProduits] = useState([]);
 
   useEffect(() => {
@@ -35,7 +37,7 @@ function MenuBurger({Userconnecte}) {
         <div className="menus">Snack</div>
         <div className="All_Cards">
           {produits.map((item) => (
-            <Cartes key={item._id} item={item} handleClick={handleClick} />
+            <Cartes handleClick={(item) => handleClick(item, showToast)} item={item} key={item._id} />
           ))}
         </div>
       </section>
