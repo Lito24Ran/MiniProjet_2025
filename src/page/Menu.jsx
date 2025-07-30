@@ -3,9 +3,11 @@ import Navbar from "../component/navbar";
 import Cartes from "../component/cartes";
 import Foot from "../component/footer";
 import { CartContext } from "../context/CartContext";
+import { useToast } from "../context/ToastContext";
 
 function Menu({ Userconnecte }) {
   const { cart, handleClick } = useContext(CartContext);
+  const { showToast } = useToast();
   const [menuSpecial, setMenuSpecial] = useState([]);
 
   useEffect(() => {
@@ -39,7 +41,7 @@ function Menu({ Userconnecte }) {
         <div className="menus">Menu du jour</div>
         <div className="All_Cards">
           {menuSpecial.map((item) => (
-            <Cartes key={item._id} item={item} handleClick={handleClick} />
+            <Cartes handleClick={(item) => handleClick(item, showToast)} item={item} key={item._id} />
           ))}
         </div>
       </section>
