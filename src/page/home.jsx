@@ -16,7 +16,7 @@ import { useToast } from "../context/ToastContext";
 
 export const produitContext = createContext();
 
-function Home() {
+function Home({ Userconnecte }) {
   const navigate = useNavigate();
   const { cart, handleClick } = useContext(CartContext);
   const { showToast } = useToast();
@@ -66,7 +66,7 @@ function Home() {
   return (
     <>
       <div className="HomePage">
-      <CustomNavbar size={cart.length} onSearchChange={handleSearchSubmit} />
+      <CustomNavbar size={cart.length} onSearchChange={handleSearchSubmit} UserConnect={Userconnecte} />
 
         <header>
         <section className={`animated-section ${isSearching ? "slide-up" : "slide-down"}`}>

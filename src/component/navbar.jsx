@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Nav } from "react-bootstrap";
-import "@fortawesome/fontawesome-free/css/all.min.css";
+/* import "@fortawesome/fontawesome-free/css/all.min.css"; */
 
 import "./navbar.css";
 
-const CustomNavbar = ({ size, onSearchChange }) => {
+
+const CustomNavbar = ({ size, onSearchChange, UserConnect }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [searchValue, setSearchValue] = useState("");
@@ -51,6 +52,8 @@ const CustomNavbar = ({ size, onSearchChange }) => {
     navigate("/"); // mideconecte
   };
 
+/*   console.log("UserConnect:", UserConnect); */
+
   return (
     <nav className={`nav ${scrolled ? "nav-scrolled" : ""}`}>
       <div className="container">
@@ -61,8 +64,9 @@ const CustomNavbar = ({ size, onSearchChange }) => {
         <div className={`main_list ${menuOpen ? "show_list" : ""}`}>
           <ul className="navlinks">
             <li>
-              <NavLink to="/home">Accueil</NavLink>
+              <NavLink to="/">Accueil</NavLink>
             </li>
+
             <li>
               <NavLink to="/menu">Menu du jour</NavLink>
             </li>
@@ -77,19 +81,24 @@ const CustomNavbar = ({ size, onSearchChange }) => {
               onChange={handleInputChange}
             />
           </div>
+          {UserConnect ? (
+            <Nav className="panier">
+              <Nav.Link as={Link} to="/panier">
+                <img src="src/image/panier.png" alt="panier" />
+              </Nav.Link>
+              <span>{size}</span>
+            </Nav>
+          ) : (
+            <Nav.Link as={Link} to="/login" className="login-link"><p style={{ color: "black", borderRadius: "5px", textAlign: "right" }}>Login</p></Nav.Link>
 
-          <Nav className="panier">
-            <Nav.Link as={Link} to="/panier">
-              <img src="src/image/panier.png" alt="panier" />
-            </Nav.Link>
-            <span>{size}</span>
-          </Nav>
+          )
+          }
+
 
           <div className="profile-container" ref={profileRef}>
             <a
-              className={`nav-link dropdown-toggle ${
-                profileMenuOpen ? "toggle-change" : ""
-              }`}
+              className={`nav-link dropdown-toggle ${profileMenuOpen ? "toggle-change" : ""
+                }`}
               href="#"
               id="navbarDropdown"
               role="button"
