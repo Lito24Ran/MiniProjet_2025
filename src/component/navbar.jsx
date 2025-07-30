@@ -52,7 +52,7 @@ const CustomNavbar = ({ size, onSearchChange, UserConnect }) => {
     navigate("/"); // mideconecte
   };
 
-  console.log("UserConnect:", UserConnect);
+/*   console.log("UserConnect:", UserConnect); */
 
   return (
     <nav className={`nav ${scrolled ? "nav-scrolled" : ""}`}>

@@ -53,7 +53,7 @@ const login = (req, res) => {
                     console.log("connexion reussit");
                     let token = jwt.sign({ name: user.name }, 'UneValeursecrete', { expiresIn: "1h" });
                     console.log(token);
-                    res.send(user.name);
+                   /*  res.send(user.name); */
                     console.log(
                         {
                             nom: user.name,
@@ -135,9 +135,9 @@ const ChangePass = (requeste, response) => {
 
 }
 module.exports = {
-    signup, 
-    login, 
-    dataUser, 
-    ChangePass, 
+    signup,
+    login,
+    dataUser,
+    ChangePass,
 };
 
