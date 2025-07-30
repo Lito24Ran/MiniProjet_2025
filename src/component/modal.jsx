@@ -100,39 +100,38 @@ useEffect(() => {
 }, [takeNameCash]);
 
   // ici Pour MVola
-useEffect(() => {
-  if (takenameMvola) {
-    const commande = {
-      clientNom: takenameMvola,
-      niveau: takenumMvola,
-      methodePaiement: "Mvola",
-      produits: cart,
-      total: totalCommande,
-      date: new Date(),
-      status: "en attente",
-    };    
-    fetch("http://localhost:1203/commandes", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(commande),
-})
-  .then((res) => {
-    if (!res.ok) throw new Error("Erreur serveur");
-    return res.json();
-  })
-  .then((savedCommande) => {
-    setOrderHistory((prev) => [savedCommande, ...prev]);  
-    setCart([]);
-    showToast("Votre commande est bien reçu, veuillez patienter ! 😉😉😉", "success");
-    oneclose();
-  })
-  .catch((err) => {
-    console.error("Erreur lors de l’envoi :", err);
-    showToast("Erreur lors de l’envoi de la commande !", "error");
-  });
-
-  }
-}, [takenameMvola]);
+  useEffect(() => {
+    if (takenameMvola) {
+      const commande = {
+        clientNom: takenameMvola,
+        numero: takenumMvola, // ici on met numero, pas niveau hein
+        methodePaiement: "Mvola",
+        produits: cart,
+        total: totalCommande,
+        date: new Date(),
+        status: "en attente",
+      };
+      fetch("http://localhost:1203/commandes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(commande),
+      })
+        .then((res) => {
+          if (!res.ok) throw new Error("Erreur serveur");
+          return res.json();
+        })
+        .then((savedCommande) => {
+          setOrderHistory((prev) => [savedCommande, ...prev]);
+          setCart([]);
+          showToast("Votre commande est bien reçu, veuillez patienter ! 😉😉😉", "success");
+          oneclose();
+        })
+        .catch((err) => {
+          console.error("Erreur lors de l’envoi :", err);
+          showToast("Erreur lors de l’envoi de la commande !", "error");
+        });
+    }
+  }, [takenameMvola]);  
 
   useEffect(() => {
     console.log("Total reçu dans le modal :", totalCommande);
@@ -276,7 +275,7 @@ useEffect(() => {
                                     </div> */}
                 <div className="btnSubmit">
                   <button id="SubmitBtn" onClick={conditionMvolaModal}>
-                    Submit
+                    Valider
                   </button>
                 </div>
               </div>
