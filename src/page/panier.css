@@ -7,7 +7,7 @@
     height: 100vh;
     overflow: hidden;
     background-color: #d3d3d3;
-    z-index: 0;
+    z-index: 1001;
   }
   
 
@@ -40,6 +40,7 @@ body {
   padding-top: 10px;
   padding-bottom: 30px;
   padding-left: 5%;
+  z-index: 0;
 
 }
 .pan_image {
@@ -77,6 +78,7 @@ body {
 }
 .cart_img {
   align-items: normal;
+  z-index: 1001;
   justify-content: center;
 }
 
@@ -96,13 +98,12 @@ body {
   border-radius: 20%;
 }
 .total {
-  width: 22%;
+  width: 120%;
   height: 50px;
   text-align: center;
-  position: fixed;
-  top: -20%;
-
-  right: 50%;
+  /* position: fixed; */
+  margin-top: -40%;
+margin-left: 150%;
   
   padding-top: 10px;
   
@@ -110,7 +111,7 @@ body {
   border-radius: 10px;
   border: 1px solid rgba(249, 143, 51, 0.789);
   color: white;
-  /* z-index: ; */
+  /* z-index: 999; */
 }
 .ScrollPanier {
   height: 360px;
@@ -122,13 +123,14 @@ body {
   margin-left:32%;
   box-shadow: 0 0 5px rgb(116, 116, 116);
   border-radius: 10px;
+  z-index: 0;
 
 }
 #btnconfirme {
   background-color: rgb(235, 139, 55);
   border: none;
   margin-top: -15%;
-  z-index: 999;
+  z-index: 0;
 
 }
 #btnconfirme:hover {
@@ -142,6 +144,7 @@ body {
   }
   .cart_box {
     width: 100%;
+    z-index: 0;
     padding-left: 0px;
     padding-right: 0px;
   }
@@ -152,19 +155,17 @@ body {
     top: 20%;
   }
   .total {
-    width: 200%;
-    right: 40rem;
-    text-align: center;
-    position: fixed;
-    top: 250%;
-    padding-right: 0px;
-    overflow: hidden;
+    width:22rem;
+    margin-top: -5rem;
+    /* z-index: 1000; */
+    margin-left:-50rem;
   }
   #btnconfirme {
     width: 50%;
     height: 50px;
     position: fixed;
-    margin-top: 120%;
+    margin-left: 1rem;
+    margin-top: -15rem;
 
   }
 
@@ -175,7 +176,9 @@ body {
   }
   .name {
     font-size: 1.3rem;
-    margin-left: -3%;
+    margin-left: 32%;
+    margin-top: -17%;
+    text-align: left;
   }
   .cart_box{
     align-items: center;
@@ -183,15 +186,21 @@ body {
   }
   .quantiti {
     width: 100%;
-    margin-left: -17%;
+    margin-left: -8%;
     font-size: 10%;
+    margin-top: 13%;
     position: fixed;
   }
   .quantity {
-    width: 100%;
-    margin-left: 0%;
-    font-size: 100%;
-    padding: 0.5%;
+   
+      width: auto;
+      margin-left: -15%;
+      font-size: 1rem;
+      margin-top: -7%; 
+      gap: 3rem;
+      display: inline-block;
+      padding: 72px;
+    
 
   }
   .bouttons {
@@ -205,11 +214,16 @@ body {
   }
   .prix_pan {
     font-size: 1.2rem;
-  margin-left: 0%;
+  margin-left: 8%;
+  margin-top: 2%;
     position: fixed;
     text-align: center;
   }
 }
+<<<<<<< HEAD
+.remove {
+margin-top: 5%;
+=======
 .return {
   position: fixed;
   top: 90%;
@@ -241,4 +255,5 @@ body {
   margin: 0;
   line-height: 1.5;
   font-size: 19px
+>>>>>>> dd7ec323173f3b2c679e6548a282b55c8444e607
 }

@@ -16,7 +16,7 @@ const Cards = ({ item, handleClick }) => {
 
   return (
     <div className="cards_container">
-      <img src="src\image\font.png" alt="font" className="font" />
+      {/* <img src="src\image\font.png" alt="font" className="font" /> */}
       <div className="card" onMouseLeave={() => setShowStars(false)}>
         <div className="tete">
           <img className="carteimage" src={img} alt="Image" />
