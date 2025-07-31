@@ -110,6 +110,7 @@ body {
   border-radius: 10px;
   border: 1px solid rgba(249, 143, 51, 0.789);
   color: white;
+  /* z-index: ; */
 }
 .ScrollPanier {
   height: 360px;
@@ -127,6 +128,7 @@ body {
   background-color: rgb(235, 139, 55);
   border: none;
   margin-top: -15%;
+  z-index: 999;
 
 }
 #btnconfirme:hover {

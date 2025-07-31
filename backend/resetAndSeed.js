@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Produit = require("../model/produits");
+const Produit = require("./model/produits");
 
 // === Schémas temporaires pour clients et commandes === //
 const clientSchema = new mongoose.Schema({
