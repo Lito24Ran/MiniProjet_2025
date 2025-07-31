@@ -3,10 +3,12 @@ const Commande = require("../model/commande");
 //cree comande
 const ajouterCommande = async (req, res) => {
   try {
+    console.log("Reçu :", req.body); //  Tres utile ceci hein
     const nouvelleCommande = new Commande(req.body);
     await nouvelleCommande.save();
     res.status(201).json(nouvelleCommande);
   } catch (err) {
+    console.error("Erreur lors de l’enregistrement :", err); // et aussi ça
     res.status(500).json({ message: err.message });
   }
 };
@@ -14,10 +16,11 @@ const ajouterCommande = async (req, res) => {
 //obtenir toutes les commmande
 const getCommandes = async (req, res) => {
   try {
-    const commandes = await Commande.find(); // récupère toutes les commandes
+    const commandes = await Commande.find(); // on ne filtre rien
+    console.log("Commandes trouvées :", commandes);
     res.status(200).json(commandes);
   } catch (err) {
-    console.error("Erreur dans getCommandes:", err);
+    console.error("Erreur lors de la récupération des commandes :", err);
     res.status(500).json({ message: "Erreur serveur" });
   }
 };
@@ -36,24 +39,29 @@ const getCommandeById = async (req, res) => {
 //mofidier une commande
 const updateCommande = async (req, res) => {
   try {
-    const commande = await Commande.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-    });
-    if (!commande) return res.status(404).json({ error: "non trouve" });
-    res.status(200).json(commande);
-  } catch (error) {
-    res.status(500).json({ error: "Erreur de modification" });
+    const updated = await Commande.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+    res.json(updated);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
   }
 };
 
-//suprrimer la commande
-const deleteCommandes = async (req, res) => {
+// Supprimer un commande par Id
+const deleteCommandeById = async (req, res) => {
+  const { id } = req.params;
   try {
-    const result = await Commande.findByIdAndDelete(req.params.id);
-    if (!result) return res.status(404).json({ error: "non trouve" });
-    res.status(200).json({ message: "Commande suprimee" });
-  } catch (error) {
-    res.status(500).json({ error: "Erreur de suppression" });
+    const deleted = await Commande.findByIdAndDelete(id);
+    if (!deleted) {
+      return res.status(404).json({ message: "Commande non trouvée" });
+    }
+    res.status(200).json({ message: "Commande supprimée avec succès" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Erreur serveur" });
   }
 };
 
@@ -62,5 +70,5 @@ module.exports = {
   getCommandes,
   getCommandeById,
   updateCommande,
-  deleteCommandes,
+  deleteCommandeById,
 };
