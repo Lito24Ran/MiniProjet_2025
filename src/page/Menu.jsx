@@ -39,7 +39,7 @@ function Menu({ Userconnecte }) {
       <section>
         <img src="src/image/font.png" alt="font" className="fonts" />
         <div className="menus">Menu du jour</div>
-        <div className="All_Cards">
+        <div className="All_Card">
           {menuSpecial.map((item) => (
             <Cartes handleClick={(item) => handleClick(item, showToast)} item={item} key={item._id} />
           ))}

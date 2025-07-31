@@ -35,7 +35,7 @@ function MenuBurger({Userconnecte}) {
       <section>
         <img src="src/image/font.png" alt="font" className="fonts" />
         <div className="menus">Snack</div>
-        <div className="All_Cards">
+        <div className="All_Card">
           {produits.map((item) => (
             <Cartes handleClick={(item) => handleClick(item, showToast)} item={item} key={item._id} />
           ))}

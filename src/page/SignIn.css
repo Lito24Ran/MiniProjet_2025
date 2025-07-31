@@ -35,7 +35,10 @@ body {
     margin-top: 90px;
     height: 200px;
     width: 300px;
-    margin-left: 100px;
+    margin-left: 200px;
+  }
+  .divImage{
+    opacity: 0;
   }
 }
 

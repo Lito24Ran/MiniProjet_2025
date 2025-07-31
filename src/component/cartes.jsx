@@ -14,6 +14,7 @@ const Cartes = ({ item, handleClick }) => {
   const { id, nom, description, prix, img } = item;
   const [article, setarticle] = useState([]);
   const [quantity, setQuantity] = useState(1);
+  
 
   const increment = () => setQuantity(quantity + 1);
   const decrement = () => {
@@ -31,6 +32,9 @@ const Cartes = ({ item, handleClick }) => {
           <p className='titles_card' >{nom}</p>
           <p className='descriptions'><b>Ingredient:</b> {description}</p>
           <p className='price'> Prix : <b style={{ color: 'green' }}>{prix}  Ar</b></p>
+          <p className="stock_rest">
+              <b>Dispo :    </b>{ item.quantite} 
+            </p>
           <div className="quantite-controls">
             <button className='quantite-controls1 ' onClick={decrement}>-</button>
             <span>{quantity}</span>
