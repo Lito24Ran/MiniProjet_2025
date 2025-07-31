@@ -23,16 +23,22 @@
   background: rgb(107, 3, 3);
   transition: 0.2s linear;
 }
-
-/* .All_Cards {
-  width: 80%;
-  margin: auto;
-  margin-top: 10%;
+.All_Card {
+  margin: 10% auto;
+  max-width: 80%;
+  align-items: center;
+  /* margin: auto; */
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 3fr));
-  gap: 5rem;
+  grid-template-columns: repeat(3, 33%);
+
   position: relative;
-} */
+  transition: margin-top 1.4s ease;
+}
+
+.All_Card.active-search {
+  margin-top: 60%; 
+}
+
 
 .cartesimage {
   width: 100%;
@@ -72,7 +78,7 @@
   box-shadow: 0px 4px 8px black;
   margin: 0px;
   border-color: rgb(255, 255, 254);
-  margin-bottom: 20px;
+
   background-color: #fdd1794f;
   z-index: 1;
 }
@@ -96,11 +102,11 @@
   text-align: left;
   padding-left: 10px;
   margin-top: 60px;
+  width: 100%;
 }
 .price {
   font-size: 20px;
-  color: white;
-  /* background-color: #ee9045; */
+
   left: -3%;
   top: 3rem;
   /* position: relat?ive; */
@@ -125,16 +131,17 @@
 }
 
 .fonts {
-  position: absolute;
+  position: fixed;
   z-index: 0;
   opacity: 20%;
   object-fit: cover;
-  margin-top: -200px;
+  margin-top: 0px;
+  height: 100vh;
   /* height: 100vh; */
   z-index: 0;
 }
 .quantite-controls {
-  margin-top: 2rem;
+  margin-top: 4rem;
 }
 .quantite-controls1 {
   background-color: transparent;
@@ -152,4 +159,36 @@ span {
 }
 .quantite-controls button:hover {
   background: #d6976b;
+}
+.stock_rest {
+  opacity: 1;
+  position: relative;
+  font-size: 1rem;
+  color: #3d3d3d;
+  margin-top: -75px;
+  text-align: right;
+  right: 70px;
+  /* padding-left: 15px; */
+}
+
+@media (max-width: 1024px) {
+  .menus {
+    font-size: 60px;
+    margin-top: 10%;
+  }
+  .cartes_container {
+    margin-top: 50px;
+
+  
+  }
+  .cartes {
+    position: absolute;
+    margin-bottom: -30%;
+  
+  }
+  .All_Card {
+    grid-template-columns: repeat(2, 50%);
+    margin-top: 0%;
+    margin-bottom: -10%;
+  }
 }
