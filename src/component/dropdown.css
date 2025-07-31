@@ -23,7 +23,7 @@
     margin: 10px 0 0;
     background-color: #fff;
     max-height: 0;
-    /* overflow: hidden; */
+    overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
     transition: max-height 0.3s ease-in-out;
@@ -49,6 +49,8 @@
   }  
 
 .loading {
-  margin-left: 20%;
-  top: 50%;
+  
+  position: absolute;
+  margin-left: 35%;
+  margin-top: 25%;
 }

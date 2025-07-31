@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Nav } from "react-bootstrap";
-import "@fortawesome/fontawesome-free/css/all.min.css";
+/* import "@fortawesome/fontawesome-free/css/all.min.css"; */
 
 import "./navbar.css";
 
-const CustomNavbar = ({ size, onSearchChange }) => {
+
+const CustomNavbar = ({ size, onSearchChange, UserConnect }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [searchValue, setSearchValue] = useState("");
@@ -54,6 +55,8 @@ const CustomNavbar = ({ size, onSearchChange }) => {
     setMenuOpen(false);
   };
 
+/*   console.log("UserConnect:", UserConnect); */
+
   return (
     <nav className={`nav ${scrolled ? "nav-scrolled" : ""}`}>
       <div className="container">
@@ -68,6 +71,7 @@ const CustomNavbar = ({ size, onSearchChange }) => {
                 Accueil
               </NavLink>
             </li>
+
             <li>
               <NavLink to="/menu" onClick={handleNavLinkClick}>
                 Menu du jour
@@ -106,9 +110,8 @@ const CustomNavbar = ({ size, onSearchChange }) => {
 
           <div className="profile-container" ref={profileRef}>
             <a
-              className={`nav-link dropdown-toggle ${
-                profileMenuOpen ? "toggle-change" : ""
-              }`}
+              className={`nav-link dropdown-toggle ${profileMenuOpen ? "toggle-change" : ""
+                }`}
               href="#"
               id="navbarDropdown"
               role="button"

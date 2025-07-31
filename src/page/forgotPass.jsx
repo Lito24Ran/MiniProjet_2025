@@ -128,7 +128,7 @@ const ForgotPassword = () => {
                                     >
                                         Submite
                                     </button>
-                                    <p></p><Link to={"/"} style={{ color: "white" }}>⬅️Retour</Link>
+                                    <p></p><Link to={"/login"} style={{ color: "white" }}>⬅️Retour</Link>
                                 {/* </form> */}
                                 {message && <p style={{ marginTop: "15px", color: "green" }}>{message}</p>}
                             </div>

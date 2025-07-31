@@ -10,6 +10,7 @@ import { useToast } from "../context/ToastContext";
 function Panier() {
   const { cart, setCart } = useContext(CartContext);
   const [show, setshow] = useState(false);
+  const [showError,setshowError] = useState(false);
   const { showToast } = useToast();
 
   const increase = (_id) => {
@@ -41,6 +42,7 @@ function Panier() {
     } else {
       showToast("Vous n'avez pas faim? veuiller choisir quelque chose à manger 😊😊😊", "warning");
       setshow(false);
+      setshowError(true)
     }
   };
 
@@ -49,7 +51,10 @@ function Panier() {
   }
 
   const total = cart.reduce((acc, item) => acc + item.prix * item.quantity, 0);
-
+   setTimeout(() => {
+    setshowError(false);
+  }, 8000);
+ 
   return (
     <>
       <Navbar size={cart.length} />
@@ -116,16 +121,20 @@ function Panier() {
               Commander
             </button>
 
-            {show &&
+            
+          </div>
+          {(show) ?(
               createPortal(
                 <Modal
                   oneclose={() => setshow(false)}
                   condition={ConditionalFunc}
                   totalCommande={total}
+                  conditionShow ={show}
+                  SetConditionShow = {setshow}
                 />,
                 document.body
-              )}
-          </div>
+              )) :(showError) && 
+            <div className="alert-error"> <strong>Error!</strong> Entrer des produits . </div>}
         </div>
       </div>
     </>
