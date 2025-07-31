@@ -19,6 +19,7 @@ function Inscription() {
   const [errEmailVide, setErrEmailvide] = useState(false);
   const [errEmail, setErrEmail] = useState(false);
   const [errpasswordchar, setErrpasschar] = useState(false);
+  const [eye, setEye] = useState(false);
 
   const navigate = useNavigate();
 
@@ -127,6 +128,11 @@ function Inscription() {
       }, 1000);
   }, [connecte]);
 
+
+  const togglePassword = () => {
+    setEye(prev => !prev);
+  
+  };
   return (
     <>
       <div className="SignIn_container">
@@ -199,7 +205,7 @@ function Inscription() {
             <br />
             <div className="inputName">
               <input
-                type="password"
+                type={eye?'text':'password'}
                 id="password"
                 required
                 value={password}
@@ -227,6 +233,28 @@ function Inscription() {
               <div className="underline"></div>
               <label htmlFor="password">Crée votre mot de passe</label>
             </div>
+            <button
+              type="button"
+              onClick={togglePassword}
+              style={{
+                height:"30px",
+                width:"50px",
+                backgroundColor: '#f3f4f657',
+                border: '1px solid #ccc',
+                borderRadius: '4px',
+                padding: '8px 12px',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+              }}
+            >
+              {eye ? (
+                <span style={{ color: 'white', fontWeight: 'bold',fontSize:"10px" }}>hide</span>
+              ) : (
+                <span style={{ color: 'white', fontWeight: 'bold',fontSize:"10px" }}>show</span>
+              )}
+            </button>
             <br />
             <div className="inputName">
               <input

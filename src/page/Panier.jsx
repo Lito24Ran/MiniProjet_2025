@@ -68,7 +68,7 @@ useEffect(() => {
     setRedirect(true);
     setTimeout(() => {
        navigation("/login");
-    }, 6000);
+    }, 5000);
    
   }
 }, [back]);
