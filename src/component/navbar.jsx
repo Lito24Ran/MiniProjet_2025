@@ -150,10 +150,18 @@ const CustomNavbar = ({ size, onSearchChange, UserConnect }) => {
       </>
     ) : (
       <li>
-        <Link className="dropdown-item" to="/login" onClick={() => setProfileMenuOpen(false)}>
-          <i className="fas fa-sign-in-alt fa-fw"></i> Login
-        </Link>
-      </li>
+  <Link
+    className="dropdown-item"
+    to="/login"
+    onClick={() => {
+      setProfileMenuOpen(false);
+      setTimeout(() => window.location.reload(), 50); // petit délai la redirection
+    }}
+  >
+    <i className="fas fa-sign-in-alt fa-fw"></i> Login
+  </Link>
+</li>
+
     )}
   </ul>
 )}
