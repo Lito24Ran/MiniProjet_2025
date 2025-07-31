@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Produit = require("./model/produits");
 
 // === Schémas === //
 const produitSchema = new mongoose.Schema({

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Nav } from "react-bootstrap";
-/* import "@fortawesome/fontawesome-free/css/all.min.css"; */
+import "@fortawesome/fontawesome-free/css/all.min.css"; 
 
 import "./navbar.css";
 
@@ -51,6 +51,9 @@ const CustomNavbar = ({ size, onSearchChange, UserConnect }) => {
   const handleLogout = () => {
     navigate("/"); // mideconecte
   };
+  const handleNavLinkClick = () => {
+    setMenuOpen(false);
+  };
 
   /*   console.log("UserConnect:", UserConnect); */
 
@@ -64,36 +67,46 @@ const CustomNavbar = ({ size, onSearchChange, UserConnect }) => {
         <div className={`main_list ${menuOpen ? "show_list" : ""}`}>
           <ul className="navlinks">
             <li>
-              <NavLink to="/">Accueil</NavLink>
+              <NavLink to="/" onClick={handleNavLinkClick}>
+                Accueil
+              </NavLink>
             </li>
 
             <li>
-              <NavLink to="/menu">Menu du jour</NavLink>
+              <NavLink to="/menu" onClick={handleNavLinkClick}>
+                Menu du jour
+              </NavLink>
+            </li>
+            <li className="mobile-search">
+              <i className="fas fa-search search-icon"></i>
+              <input
+                type="text"
+                placeholder="Rechercher..."
+                className="search-input"
+                value={searchValue}
+                onChange={handleInputChange}
+              />
             </li>
           </ul>
+        </div>
 
-          <div className="search-container">
-            <input
-              type="text"
-              placeholder="Rechercher..."
-              className="search-input"
-              value={searchValue}
-              onChange={handleInputChange}
-            />
-          </div>
-          {UserConnect ? (
-            <Nav className="panier">
-              <Nav.Link as={Link} to="/panier">
-                <img src="src/image/panier.png" alt="panier" />
-              </Nav.Link>
-              <span>{size}</span>
-            </Nav>
-          ) : (
-            <Nav.Link as={Link} to="/login" className="login-link"><p style={{ backgroundColor: "orange", width: "80px", height: "50px", paddingTop: "10px", color: "white", borderRadius: "5px", textAlign: "center", border: "2px solid #FFA500", borderRadius: "5px" }}>Login</p></Nav.Link>
-
-          )
-          }
-
+        <div className="search-container">
+          <i className="fas fa-search search-icon"></i>
+          <input
+            type="text"
+            placeholder="Rechercher..."
+            className="search-input"
+            value={searchValue}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="right-side">
+          <Nav className="panier">
+            <Nav.Link as={Link} to="/panier">
+              <img src="src/image/panier.png" alt="panier" />
+            </Nav.Link>
+            <span>{size}</span>
+          </Nav>
 
           <div className="profile-container" ref={profileRef}>
             <a
@@ -111,28 +124,40 @@ const CustomNavbar = ({ size, onSearchChange, UserConnect }) => {
                 className="profile-img"
               />
             </a>
+
             {profileMenuOpen && (
-              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li>
-                  <a className="dropdown-item" href="#">
-                    <i className="fas fa-user fa-fw"></i> Account
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    <i className="fas fa-cogs fa-fw"></i> Settings
-                  </a>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" href="/" onClick={handleLogout}>
-                    <i className="fas fa-sign-out-alt fa-fw"></i> Log Out
-                  </a>
-                </li>
-              </ul>
-            )}
+  <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+    {UserConnect ? (
+      <>
+        <li>
+          <a className="dropdown-item" href="#">
+            <i className="fas fa-user fa-fw"></i> Account
+          </a>
+        </li>
+        <li>
+          <a className="dropdown-item" href="#">
+            <i className="fas fa-cogs fa-fw"></i> Settings
+          </a>
+        </li>
+        <li>
+          <hr className="dropdown-divider" />
+        </li>
+        <li>
+          <a className="dropdown-item" href="/" onClick={handleLogout}>
+            <i className="fas fa-sign-out-alt fa-fw"></i> Log Out
+          </a>
+        </li>
+      </>
+    ) : (
+      <li>
+        <Link className="dropdown-item" to="/login" onClick={() => setProfileMenuOpen(false)}>
+          <i className="fas fa-sign-in-alt fa-fw"></i> Login
+        </Link>
+      </li>
+    )}
+  </ul>
+)}
+
           </div>
         </div>
 
@@ -140,9 +165,8 @@ const CustomNavbar = ({ size, onSearchChange, UserConnect }) => {
           className={`navTrigger ${menuOpen ? "active" : ""}`}
           onClick={toggleMenu}
         >
-          <i className="line"></i>
-          <i className="line"></i>
-          <i className="line"></i>
+          {" "}
+          <i className={`fas ${menuOpen ? "fa-times" : "fa-bars"}`}></i>
         </span>
       </div>
     </nav>
