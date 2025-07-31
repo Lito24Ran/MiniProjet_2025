@@ -104,7 +104,7 @@ function Modal({ oneclose, condition, totalCommande }) {
     if (takenameMvola) {
       const commande = {
         clientNom: takenameMvola,
-        niveau: takenumMvola,
+        numero: takenumMvola, // ici on met numero, pas niveau hein
         methodePaiement: "Mvola",
         produits: cart,
         total: totalCommande,
@@ -130,9 +130,8 @@ function Modal({ oneclose, condition, totalCommande }) {
           console.error("Erreur lors de l’envoi :", err);
           showToast("Erreur lors de l’envoi de la commande !", "error");
         });
-
     }
-  }, [takenameMvola]);
+  }, [takenameMvola]);  
 
   useEffect(() => {
     console.log("Total reçu dans le modal :", totalCommande);
@@ -228,8 +227,8 @@ function Modal({ oneclose, condition, totalCommande }) {
                   required
                 />
                 <div className="date">
-                  <h6>expire</h6>
-                  <p>10mn</p>
+                  <h6>Vous devez payer dans les : </h6>
+                  <p>10 prochain minutes</p>
                 </div>
                 <div className="btnSubmit">
                   <button id="SubmitBtn" onClick={conditionalModal}>
@@ -276,7 +275,7 @@ function Modal({ oneclose, condition, totalCommande }) {
                                     </div> */}
                 <div className="btnSubmit">
                   <button id="SubmitBtn" onClick={conditionMvolaModal}>
-                    Submit
+                    Valider
                   </button>
                 </div>
               </div>

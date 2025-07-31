@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 
 const commandeSchema = new mongoose.Schema({
   clientNom: String,
-  niveau: String,
+  niveau: String, // pour le cash
+  numero: String, // pour Mvola
   methodePaiement: String,
   produits: [
     {
@@ -14,7 +15,7 @@ const commandeSchema = new mongoose.Schema({
   total: Number,
   statut: {
     type: String,
-    enum: ['en attente', 'en cours', 'prêt'], // possibilite des commandes
+    enum: ['en attente', 'en cours', 'prêt'],
     default: 'en attente',
   },
   date: {
@@ -24,7 +25,7 @@ const commandeSchema = new mongoose.Schema({
   archive: {
     type: Boolean,
     default: false,
-  },  
+  },
 });
 
 module.exports = mongoose.model("Commande", commandeSchema);
