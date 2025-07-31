@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Nav } from "react-bootstrap";
-/* import "@fortawesome/fontawesome-free/css/all.min.css"; */
+import "@fortawesome/fontawesome-free/css/all.min.css"; 
 
 import "./navbar.css";
 
@@ -55,7 +55,7 @@ const CustomNavbar = ({ size, onSearchChange, UserConnect }) => {
     setMenuOpen(false);
   };
 
-/*   console.log("UserConnect:", UserConnect); */
+  /*   console.log("UserConnect:", UserConnect); */
 
   return (
     <nav className={`nav ${scrolled ? "nav-scrolled" : ""}`}>
@@ -67,7 +67,7 @@ const CustomNavbar = ({ size, onSearchChange, UserConnect }) => {
         <div className={`main_list ${menuOpen ? "show_list" : ""}`}>
           <ul className="navlinks">
             <li>
-              <NavLink to="/home" onClick={handleNavLinkClick}>
+              <NavLink to="/" onClick={handleNavLinkClick}>
                 Accueil
               </NavLink>
             </li>
@@ -126,27 +126,38 @@ const CustomNavbar = ({ size, onSearchChange, UserConnect }) => {
             </a>
 
             {profileMenuOpen && (
-              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li>
-                  <a className="dropdown-item" href="#">
-                    <i className="fas fa-user fa-fw"></i> Account
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    <i className="fas fa-cogs fa-fw"></i> Settings
-                  </a>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" href="/" onClick={handleLogout}>
-                    <i className="fas fa-sign-out-alt fa-fw"></i> Log Out
-                  </a>
-                </li>
-              </ul>
-            )}
+  <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+    {UserConnect ? (
+      <>
+        <li>
+          <a className="dropdown-item" href="#">
+            <i className="fas fa-user fa-fw"></i> Account
+          </a>
+        </li>
+        <li>
+          <a className="dropdown-item" href="#">
+            <i className="fas fa-cogs fa-fw"></i> Settings
+          </a>
+        </li>
+        <li>
+          <hr className="dropdown-divider" />
+        </li>
+        <li>
+          <a className="dropdown-item" href="/" onClick={handleLogout}>
+            <i className="fas fa-sign-out-alt fa-fw"></i> Log Out
+          </a>
+        </li>
+      </>
+    ) : (
+      <li>
+        <Link className="dropdown-item" to="/login" onClick={() => setProfileMenuOpen(false)}>
+          <i className="fas fa-sign-in-alt fa-fw"></i> Login
+        </Link>
+      </li>
+    )}
+  </ul>
+)}
+
           </div>
         </div>
 

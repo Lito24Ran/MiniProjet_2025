@@ -34,7 +34,7 @@ function Foot() {
           Developée par :
           <>
             {" "}
-            Bug<span>409</span>
+                Bug<span>409</span>
           </>
         </h1>
       </div>

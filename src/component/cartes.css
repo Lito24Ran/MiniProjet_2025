@@ -8,11 +8,9 @@
   font-family: "fr";
   color: black;
   z-index: 2;
-  animation: float 1s ease-in-out infinite;
+
 }
-.menus:hover {
-  animation: paused;
-}
+
 .menus::after {
   content: "";
   width: 8%;
@@ -102,7 +100,7 @@
 .price {
   font-size: 20px;
   color: white;
-  background-color: #ee9045;
+  /* background-color: #ee9045; */
   left: -3%;
   top: 3rem;
   /* position: relat?ive; */
@@ -130,7 +128,7 @@
   position: absolute;
   z-index: 0;
   opacity: 20%;
-  object-fit: contain;
+  object-fit: cover;
   margin-top: -200px;
   /* height: 100vh; */
   z-index: 0;

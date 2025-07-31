@@ -107,5 +107,24 @@
 }
 .txt_ftr h1 span {
   color: #ff9d2a;
+  margin-left: 0.5%;
   /* font-family:  */
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .StyleFooter {
+    height: 30%;
+    margin-top: 10%;
+  }
+  .logo_ftr {
+    height: 50%;
+    width: auto;
+    margin-left: 2%;
+    margin-top: 0%;
+    margin-right: auto;
+    margin-bottom: auto;
+  }
+  .contact {
+    font-size: 20px;
+    margin-right: 100px;
+  }
 }

@@ -28,7 +28,7 @@
   height: 40px;
   width: 40px;
   border-radius: 100%;
-  color: red;
+  color: rgba(152, 149, 149, 0.636);
   cursor: pointer;
   position: absolute;
   right: 10px;
@@ -61,12 +61,14 @@
 .Container_MOdal > div .butonPayment button {
   height: 50px;
   margin-top: 30px;
-  margin-right: 40px;
-  margin-left: 35px;
+  margin-right: 30px;
+  margin-left: 30px;
   border-radius: 15px;
   background-color: rgba(190, 193, 195, 0.425);
   color: rgba(253, 136, 33, 1);
   border: none;
+  position: relative;
+  left: 70px;
 }
 .Container_MOdal > div .butonPayment .active {
   background-color: rgb(239, 143, 8);
@@ -82,13 +84,14 @@
   height: 200px;
   width: 300px;
   position: absolute;
-  right: 78px;
+  right: 100px;
 
   /* background-color: aquamarine; */
 }
 
 input {
   margin-top: 10px;
+  width: 280px;
   border-radius: 10px;
   height: 40px;
   background-color: #eeeae779;
@@ -111,6 +114,8 @@ input {
   color: white;
   cursor: pointer;
   border: none;
+  position: relative;
+  left: 10px;
 }
 
 .btnSubmit #SubmitBtn:hover {
@@ -120,21 +125,22 @@ input {
 
 .date {
   height: 10px;
-  width: 50px;
+  width: 250px;
   position: absolute;
   top: 195px;
   border-bottom: orange;
 }
 
 .date p {
-  color: orange;
-  width: 100px;
-  height: 40px;
+  color: rgb(25, 24, 23);
+  width: 280px;
+  height: 50px;
   border: none;
   text-align: center;
   background-color: rgba(190, 193, 195, 0.425);
   border-radius: 10px;
   border-bottom: orange;
+  padding-top: 10px;
 }
 
 input {
@@ -149,7 +155,7 @@ input {
   height: 546px;
   width: 3%;
   padding-left: 200px;
-  background-color: rgba(203, 199, 199, 0.763);
+  /* background-color: rgba(203, 199, 199, 0.763); */
   position: absolute;
   right: 498px;
   border-bottom-left-radius: 20px;
@@ -159,30 +165,34 @@ input {
   height: 100px;
   width: 300px;
 }
-.price .title h3 {
-  color: rgb(228, 113, 5);
+/* .price .title h3 {
+  color: rgb(8, 8, 8);
   margin-bottom: 20px;
   text-align: end;
 }
 .title img {
   margin-top: 40px;
 }
-.underlineModal {
-  position: absolute;
-  bottom: 100px;
-  width: 350px;
-  border: 0.5px inset black;
-}
-.total {
-  position: absolute;
-  bottom: 50px;
+ */
+ .verticalLineModal{
+  width: 0.5px;
+  height: 500px;
+  background-color: rgba(77, 77, 77, 0.562);
+  position: relative;
+  right: 450px;
+ }
+.totalModal {
+  color: rgba(101, 99, 99, 0.825);
+  position: relative;
+  bottom:-310px;
+  left: 60px;
 }
 .butonPayment button img {
   height: 50px;
   width: 50px;
   color: black;
 }
-.erreurModal2 {
+.errorModal {
   height: 20px;
   width: 20px;
   border-radius: 100%;

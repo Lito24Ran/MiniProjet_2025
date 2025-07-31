@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { useToast } from "../context/ToastContext";
 
 export const CartContext = createContext();
 
@@ -17,6 +18,24 @@ export function CartProvider({ children }) {
       cmd.status ? cmd : { ...cmd, status: "en attente" }
     );
   });
+
+  const { showToast } = useToast();
+  useEffect(() => {
+    const now = new Date();
+    const updatedHistory = orderHistory.filter((cmd) => {
+      if (cmd.methodePaiement === "Cash") {
+        const elapsed = (now - new Date(cmd.date)) / 1000; // en secondes
+        if (elapsed >= 600) {
+          showToast("Commande expirée après 10mn ! 😢", "alert");
+          return false; // on l'enlève du frontend
+        }
+      }
+      return true;
+    });
+    if (updatedHistory.length !== orderHistory.length) {
+      setOrderHistory(updatedHistory);
+    }
+  }, [orderHistory]);
 
   useEffect(() => {
     localStorage.setItem("mon_panier", JSON.stringify(cart));
