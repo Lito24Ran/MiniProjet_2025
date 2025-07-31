@@ -87,7 +87,7 @@ function Loginpage({ setUserConnecte }) {
       if (data[j].email === email) {
 
         if (data[j].password === password) {
-          alert("Votre mot de passe est correcte vous ete connecte")
+          /* alert("Votre mot de passe est correcte vous ete connecte") */
           setConnecte(true);
           setUserConnecte(true);
         } else {
