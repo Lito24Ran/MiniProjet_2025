@@ -220,10 +220,6 @@ margin-left: 150%;
     text-align: center;
   }
 }
-<<<<<<< HEAD
-.remove {
-margin-top: 5%;
-=======
 .return {
   position: fixed;
   top: 90%;
@@ -255,5 +251,4 @@ margin-top: 5%;
   margin: 0;
   line-height: 1.5;
   font-size: 19px
->>>>>>> dd7ec323173f3b2c679e6548a282b55c8444e607
 }
