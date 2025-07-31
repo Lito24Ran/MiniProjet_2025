@@ -68,6 +68,7 @@ useEffect(() => {
     setRedirect(true);
     setTimeout(() => {
        navigation("/login");
+       window.location.reload();
     }, 5000);
    
   }
