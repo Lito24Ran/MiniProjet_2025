@@ -73,7 +73,7 @@ export default function SimpleDropdown() {
             key={commande._id || index}
             onClick={() => handleCommandeClick(commande)}
             style={{ cursor: "pointer" }}
-          >
+          title="cliquez pour plus de details">
             Commande #{index + 1} -{" "} 
             {commande.statut || "en attente"}
           </li> // retriage

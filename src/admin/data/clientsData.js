@@ -1,10 +1,21 @@
-export const clientsColumns = [
-  { id: 'name', label: 'Nom', minWidth: 150 },
-  { id: 'phone', label: 'Téléphone', minWidth: 150 },
-  { id: 'email', label: 'Email', minWidth: 200 },
-];
+export function formatClients(clients) {
+  return clients.map(client => {
+    const dateObj = new Date(client.date);
+    const datePart = dateObj.toLocaleDateString('fr-FR', {
+      timeZone: 'Indian/Antananarivo',
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+    });
+    const timePart = dateObj.toLocaleTimeString('fr-FR', {
+      timeZone: 'Indian/Antananarivo',
+      hour: '2-digit',
+      minute: '2-digit',
+    });
 
-export const clientsRows = [
-  { id: 1, name: 'Rakoto Jean', phone: '0341234567', email: 'rakoto@mail.com' },
-  { id: 2, name: 'Rabe Marie', phone: '0329876543', email: 'rabe@mail.com' },
-];
+    return {
+      ...client,
+      date: `${datePart} à ${timePart}`,
+    };
+  });
+}
