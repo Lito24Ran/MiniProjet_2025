@@ -227,8 +227,8 @@ function Modal({ oneclose, condition, totalCommande }) {
                   required
                 />
                 <div className="date">
-                  <h6>expire</h6>
-                  <p>10mn</p>
+                  <h6>Vous devez payer dans les : </h6>
+                  <p>10 prochain minutes</p>
                 </div>
                 <div className="btnSubmit">
                   <button id="SubmitBtn" onClick={conditionalModal}>
