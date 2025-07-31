@@ -210,3 +210,35 @@ body {
     text-align: center;
   }
 }
+.return {
+  position: fixed;
+  top: 90%;
+  right: 30px;
+  transform: translateY(-50%);
+  background-color: #fef2f2;
+  border-left: 4px solid #dc2626;
+  padding: 20px 25px;
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  color: #333;
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    right: -300px;
+  }
+  to {
+    opacity: 1;
+    right: 30px;
+  }
+}
+
+.return p {
+  margin: 0;
+  line-height: 1.5;
+  font-size: 19px
+}
