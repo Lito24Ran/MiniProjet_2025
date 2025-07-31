@@ -102,7 +102,7 @@
 .price {
   font-size: 20px;
   color: white;
-  background-color: #ee9045;
+  /* background-color: #ee9045; */
   left: -3%;
   top: 3rem;
   /* position: relat?ive; */
