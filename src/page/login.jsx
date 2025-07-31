@@ -25,7 +25,8 @@ function Loginpage({ setUserConnecte }) {
   const [succesConnect, setSuccesConnect] = useState(false);
 
   //Staten' le maso @ password iny
-  const [eye, seteye] = useState(false);
+  const [eye, setEye] = useState(false);
+
 
   //Eto no mi naviguer ilay izy
 
@@ -83,7 +84,7 @@ function Loginpage({ setUserConnecte }) {
       }
     }
     if (existename == false) {
-     /*  alert("Votre compte existe!"); */
+      /*  alert("Votre compte existe!"); */
       if (data[j].email === email) {
 
         if (data[j].password === password) {
@@ -105,234 +106,264 @@ function Loginpage({ setUserConnecte }) {
       setExistname(true)
       setUserConnecte(false);
     }
-     console.log(j);
+    console.log(j);
   }
   /*  j++; */
- 
 
 
 
-function handlchangename(event) {
-  setName(event.target.value);
-}
 
-function handlchangepassword(event) {
-  setPassword(event.target.value);
-}
-
-function handlechangeEmail(event) {
-  setEmail(event.target.value);
-}
-function eyefunc() {
-  seteye(true);
-}
-
-setTimeout(() => {
-  /*    setExistname(false); */
-  setErreur(false);
-  setErrEmail(false);
-  setErreurpassword(false);
-  setEmailmissing(false);
-  setConnecte(false);
-  setIncorrectemail(false);
-
-}, 8000);
-
-useEffect(() => {
-  if (connecte === true) {
-    setLoginUser(name);
-    setLoginPassword(password);
-    SetLoginemail(email);
-    const loginBackend = async () => {
-      try {
-        const fetchDatalogin = await fetch("http://localhost:1203/login", {
-          method: "POST",
-          mode: "cors",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify({
-            name: name,
-            password: password,
-            email: email,
-          }),
-        });
-      } catch (error) { }
-    };
-    loginBackend();
-    setSuccesConnect(true);
-
-    /* alert("Connexion reussit") */
-    setTimeout(() => {
-      navigation("/");
-    }, 1000);
+  function handlchangename(event) {
+    setName(event.target.value);
   }
-}, [connecte]);
+
+  function handlchangepassword(event) {
+    setPassword(event.target.value);
+  }
+
+  function handlechangeEmail(event) {
+    setEmail(event.target.value);
+  }
+  function eyefunc() {
+    setEye(true);
+  }
+
+  setTimeout(() => {
+    /*    setExistname(false); */
+    setErreur(false);
+    setErrEmail(false);
+    setErreurpassword(false);
+    setEmailmissing(false);
+    setConnecte(false);
+    setIncorrectemail(false);
+
+  }, 8000);
+
+  useEffect(() => {
+    if (connecte === true) {
+      setLoginUser(name);
+      setLoginPassword(password);
+      SetLoginemail(email);
+      const loginBackend = async () => {
+        try {
+          const fetchDatalogin = await fetch("http://localhost:1203/login", {
+            method: "POST",
+            mode: "cors",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify({
+              name: name,
+              password: password,
+              email: email,
+            }),
+          });
+        } catch (error) { }
+      };
+      loginBackend();
+      setSuccesConnect(true);
+
+      /* alert("Connexion reussit") */
+      setTimeout(() => {
+        navigation("/");
+      }, 1000);
+    }
+  }, [connecte]);
+
+  const togglePassword = () => {
+    setEye(prev => !prev);
+  
+  };
 
 
-// Export du state 'connecte' vers le composant Navbar via props
-return (
-  <>
-    <div className="SignIn_container">
-      <div>
-        <div className="inputLogin">
-          <h2
-            style={{
-              color: "white",
-              fontSize: "60px",
-              textAlign: "center",
-              marginLeft: "70px",
-              marginBottom: "30px",
-            }}
-          >
-            <strong>Login</strong>
-          </h2>
-          <div className="inputName">
-            <input
-              type="text"
-              className="nom"
-              value={name}
-              onChange={handlchangename}
-              required
-              size={500}
-            />
-            <div className="underline"></div>
-            {existename ? (
-              <p className="compte_introuvable"> creer un compte</p>
-            ) : succesConnect ? (
-              <p className="SuccesConnexion"> Connexion reussit</p>
-            ) : erreur ? (
-              <p className="error" title="champ obligatoire ">
-                champ obligatoire !
-              </p>
-            ) : (
-              erreunom && (
-                <p className="error" title="Entrer votre nom">
-                  Entrer votre nom!
+  // Export du state 'connecte' vers le composant Navbar via props
+  return (
+    <>
+      <div className="SignIn_container">
+        <div>
+          <div className="inputLogin">
+            <h2
+              style={{
+                color: "white",
+                fontSize: "60px",
+                textAlign: "center",
+                marginLeft: "70px",
+                marginBottom: "30px",
+              }}
+            >
+              <strong>Login</strong>
+            </h2>
+            <div className="inputName">
+              <input
+                type="text"
+                className="nom"
+                value={name}
+                onChange={handlchangename}
+                required
+                size={500}
+              />
+              <div className="underline"></div>
+              {existename ? (
+                <p className="compte_introuvable"> creer un compte</p>
+              ) : succesConnect ? (
+                <p className="SuccesConnexion"> Connexion reussit</p>
+              ) : erreur ? (
+                <p className="error" title="champ obligatoire ">
+                  champ obligatoire !
                 </p>
-              )
-            )}
-            <label htmlFor="nom">Enter your name</label>
-          </div>
-          <br />
-          <div className="inputName">
-            <input
-              type="text   "
-              className="emailLogin"
-              required
-              value={email}
-              onChange={handlechangeEmail}
-              size={700}
-            />
+              ) : (
+                erreunom && (
+                  <p className="error" title="Entrer votre nom">
+                    Entrer votre nom!
+                  </p>
+                )
+              )}
+              <label htmlFor="nom">Enter your name</label>
+            </div>
+            <br />
+            <div className="inputName">
+              <input
+                type="text   "
+                className="emailLogin"
+                required
+                value={email}
+                onChange={handlechangeEmail}
+                size={700}
+              />
 
-            <div className="underline"></div>
-            {erreur ? (
-              <p className="error" title="champ obligatoire ">
-                champ obligatoire !
-              </p>
-            ) : errEmail ? (
-              <p className="error" title="Entrer votre email!">
-                Entrer votre email!
-              </p>
-            ) : emailmissing ? (
-              <p
-                className="error"
-                title="Votre adresse email doit etre suivis d' un @gmail.com"
-              >
-                @gmail.com obligatoire  !
-              </p>
-            ) : (
-              incorrectemail && (
+              <div className="underline"></div>
+              {erreur ? (
+                <p className="error" title="champ obligatoire ">
+                  champ obligatoire !
+                </p>
+              ) : errEmail ? (
+                <p className="error" title="Entrer votre email!">
+                  Entrer votre email!
+                </p>
+              ) : emailmissing ? (
                 <p
                   className="error"
                   title="Votre adresse email doit etre suivis d' un @gmail.com"
                 >
-                  @gmail.com obligatoire !
+                  @gmail.com obligatoire  !
                 </p>
-              )
-            )}
-            <label htmlFor="email">Enter your email</label>
-          </div>
+              ) : (
+                incorrectemail && (
+                  <p
+                    className="error"
+                    title="Votre adresse email doit etre suivis d' un @gmail.com"
+                  >
+                    @gmail.com obligatoire !
+                  </p>
+                )
+              )}
+              <label htmlFor="email">Enter your email</label>
+            </div>
 
-          <br />
-          <div className="inputName">
-            {/*    <button onClick={eyefunc}><img src="#" alt="" /></button>  */}
-            <input
-              type="password"
-              className="passwordLogin"
-              required
-              value={password}
-              onChange={handlchangepassword}
-              size={700}
+            <br />
+            <div className="inputName">
+              {/*    <button onClick={eyefunc}><img src="#" alt="" /></button>  */}
+              <input
+                type={(eye) ? 'text' : 'password'}
+                className="passwordLogin"
+                required
+                value={password}
+                onChange={handlchangepassword}
+                size={700}
+              />
+
+
+
+              <div className="underline"></div>
+
+              <div className="underline"></div>
+
+              {erreur ? (
+                <p className="error" title="champ obligatoire ">
+                  champ obligatoire !
+                </p>
+              ) : errpassword ? (
+                <p className="error" title="Votre mot de passe est incorrecte">
+                  Entrer votre mot de passe!
+                </p>
+              ) : (
+                missingpass && (
+                  <p
+                    className="error"
+                    title="Votre mot de passe est incorrecte"
+                  >
+                    mot de passe incorrecte!
+                  </p>
+                )
+              )}
+              <label htmlFor="email">Enter your password</label>
+            </div>
+            <button
+              type="button"
+              onClick={togglePassword}
+              style={{
+                height:"30px",
+                width:"50px",
+                backgroundColor: '#f3f4f66b',
+                border: '1px solid #ccc',
+                borderRadius: '4px',
+                padding: '8px 12px',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+              }}
+            >
+              {eye ? (
+                <span style={{ color: 'white', fontWeight: 'bold',fontSize:"10px" }}>hide</span>
+              ) : (
+                <span style={{ color: 'white', fontWeight: 'bold',fontSize:"10px" }}>show</span>
+              )}
+            </button><br />
+            <div className="paragraphe">
+              <p>
+                Forgot password? <Link to={"/forgotPassword"}> click here</Link>
+              </p>
+            </div>
+            <button onClick={handleclicLogin} className="btnLogin">
+              Login
+            </button>
+            <div className="paragraphe">
+              <p>
+                Not registered? <Link to={"/SignUp"}>Create an account</Link>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="divImage">
+          <div>
+            <img
+              src="src/image/image_chef.png"
+              alt="imageDechef"
+              id="imgeLogin"
             />
-
-            <div className="underline"></div>
-            <div className="underline"></div>
-            {erreur ? (
-              <p className="error" title="champ obligatoire ">
-                champ obligatoire !
-              </p>
-            ) : errpassword ? (
-              <p className="error" title="Votre mot de passe est incorrecte">
-                Entrer votre mot de passe!
-              </p>
-            ) : (
-              missingpass && (
-                <p
-                  className="error"
-                  title="Votre mot de passe est incorrecte"
-                >
-                  mot de passe incorrecte!
-                </p>
-              )
-            )}
-            <label htmlFor="email">Enter your password</label>
           </div>
-          <br />
-          <div className="paragraphe">
-            <p>
-              Forgot password? <Link to={"/forgotPassword"}> click here</Link>
-            </p>
-          </div>
-          <button onClick={handleclicLogin} className="btnLogin">
-            Login
-          </button>
-          <div className="paragraphe">
-            <p>
-              Not registered? <Link to={"/SignUp"}>Create an account</Link>
-            </p>
-          </div>
+          <h2
+            style={{
+              color: "white",
+              position: "relative",
+              right: "10px",
+              fontSize: "50px",
+            }}
+          >
+            {" "}
+            <strong>Kalⁱco</strong>
+          </h2>
         </div>
       </div>
-      <div className="divImage">
-        <div>
-          <img
-            src="src/image/image_chef.png"
-            alt="imageDechef"
-            id="imgeLogin"
-          />
-        </div>
-        <h2
-          style={{
-            color: "white",
-            position: "relative",
-            right: "10px",
-            fontSize: "50px",
-          }}
-        >
-          {" "}
-          <strong>Kalⁱco</strong>
-        </h2>
+      <div className="Rcontener">
+        <img src="src/image/b.png" alt="0" className="rond1" />
+        <img src="src/image/b (2).png" alt="0" className="rond2" />
+        <img src="src/image/b (3).png" alt="0" className="rond3" />
+        <img src="src/image/b (4).png" alt="0" className="rond4" />
+        <img src="src/image/b (5).png" alt="0" className="rond5" />
       </div>
-    </div>
-    <div className="Rcontener">
-      <img src="src/image/b.png" alt="0" className="rond1" />
-      <img src="src/image/b (2).png" alt="0" className="rond2" />
-      <img src="src/image/b (3).png" alt="0" className="rond3" />
-      <img src="src/image/b (4).png" alt="0" className="rond4" />
-      <img src="src/image/b (5).png" alt="0" className="rond5" />
-    </div>
-  </>
-);
+    </>
+  );
 }
 export default Loginpage;
