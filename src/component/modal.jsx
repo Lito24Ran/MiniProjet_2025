@@ -1,13 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./modal.css";
 import { CartContext } from "../context/CartContext";
+import { useToast } from "../context/ToastContext";
 
 function Modal({ oneclose, condition, totalCommande }) {
-  const { cart } = useContext(CartContext);
+  const { cart, setCart, orderHistory, setOrderHistory } = useContext(CartContext);
   const [showCash, setShowCash] = useState(true);
   //const Supression = useContext(MOdalContext);
   const [nameCash, setNameCash] = useState("");
   //Reto no mandray makany @ ny db
+  const { showToast } = useToast();
 
   const [takeNameCash, setTakeNameCash] = useState("");
   const [takelevelCash, setTakelevelCash] = useState("");
@@ -62,39 +64,75 @@ function Modal({ oneclose, condition, totalCommande }) {
       }
     }
   }
-  useEffect(() => {
-    if (takeNameCash) {
-      // Mode Cash
-      fetch("http://localhost:1203/commandes", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          clientNom: takeNameCash,
-          niveau: takelevelCash,
-          methodePaiement: "Cash",
-          produits: cart,
-          total: totalCommande,
-        }),
-      });
-    }
-  }, [takeNameCash]);
+  // ici Pour Cash
+useEffect(() => {
+  if (takeNameCash) {
+    const commande = {
+      clientNom: takeNameCash,
+      niveau: takelevelCash,
+      methodePaiement: "Cash",
+      produits: cart,
+      total: totalCommande,
+      date: new Date(),
+      status: "en attente",
+    };    
+    fetch("http://localhost:1203/commandes", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(commande),
+})
+  .then((res) => {
+    if (!res.ok) throw new Error("Erreur serveur");
+    return res.json();
+  })
+  .then((savedCommande) => {
+    setOrderHistory((prev) => [savedCommande, ...prev]);  
+    setCart([]);
+    showToast("Votre commande est bien reçu, veuillez patienter ! 😉😉😉", "success");
+    oneclose();
+  })
+  .catch((err) => {
+    console.error("Erreur lors de l’envoi :", err);
+    showToast("Désolé une erreur est survenu, vous inquitez pas les techniciens vont pas tarder !", "error");
+  });
 
-  useEffect(() => {
-    if (takenameMvola) {
-      // Mode Mvola
-      fetch("http://localhost:1203/commandes", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          clientNom: takenameMvola,
-          niveau: takenumMvola,
-          methodePaiement: "Mvola",
-          produits: cart,
-          total: totalCommande,
-        }),
-      });
-    }
-  }, [takenameMvola]);
+  }
+}, [takeNameCash]);
+
+  // ici Pour MVola
+useEffect(() => {
+  if (takenameMvola) {
+    const commande = {
+      clientNom: takenameMvola,
+      niveau: takenumMvola,
+      methodePaiement: "Mvola",
+      produits: cart,
+      total: totalCommande,
+      date: new Date(),
+      status: "en attente",
+    };    
+    fetch("http://localhost:1203/commandes", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(commande),
+})
+  .then((res) => {
+    if (!res.ok) throw new Error("Erreur serveur");
+    return res.json();
+  })
+  .then((savedCommande) => {
+    setOrderHistory((prev) => [savedCommande, ...prev]);  
+    setCart([]);
+    showToast("Votre commande est bien reçu, veuillez patienter ! 😉😉😉", "success");
+    oneclose();
+  })
+  .catch((err) => {
+    console.error("Erreur lors de l’envoi :", err);
+    showToast("Erreur lors de l’envoi de la commande !", "error");
+  });
+
+  }
+}, [takenameMvola]);
 
   useEffect(() => {
     console.log("Total reçu dans le modal :", totalCommande);
@@ -195,7 +233,7 @@ function Modal({ oneclose, condition, totalCommande }) {
                 </div>
                 <div className="btnSubmit">
                   <button id="SubmitBtn" onClick={conditionalModal}>
-                    Submit
+                    Valider
                   </button>
                 </div>
               </div>

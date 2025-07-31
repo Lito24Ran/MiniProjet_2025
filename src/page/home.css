@@ -10,6 +10,32 @@
   font-family: "gabriola";
   src: url(../fonts/GABRIOLA.TTF);
 }
+.multi-image {
+  position: fixed;
+  /* width: auto; */
+  /* height: auto; */
+  z-index: 0;
+  opacity: 1;
+}
+
+.im1 {
+  position: fixed;
+  top: 20%;
+  left: -20%;
+  height: 100%;
+  width: 60%;
+}
+
+.im2 {
+  top: 0%;
+  right: 50px;
+}
+
+.im3 {
+  bottom: 100px;
+  left: 100px;
+}
+
 .carouselContainer {
   display: flex;
   justify-content: center;
@@ -446,31 +472,44 @@ body {
   }
 
   .menu {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
   }
   .text {
-    font-size: 120%;
+    font-size: 100%;
     left: 5rem;
     position: relative;
   }
   .texts {
     font-size: 150%;
   }
+  .SousTitre {
+    font-size: 70%;
+ 
+  }
 }
 
 @media (max-width: 767px) {
+  body {
+    overflow-x: hidden;
+    position: relative;
+  }
+  .carouselContainer {
+    margin-top: 70%;
+  }
   .contenairMenu {
-    gap: 10px;
+    gap: 2px;
+    width: 100%;
     justify-content: center;
+
   }
 
   .menu {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
   }
   .SousTitre {
-    font-size: 80%;
+    font-size: 70%;
     position: relative;
     margin-top: 60%;
     margin-top: 1rem;

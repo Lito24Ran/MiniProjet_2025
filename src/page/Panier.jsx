@@ -4,10 +4,13 @@ import Navbar from "../component/navbar";
 import "./panier.css";
 import Modal from "../component/modal";
 import { createPortal } from "react-dom";
+import SimpleDropdown from "../component/SimpleDropdown";
+import { useToast } from "../context/ToastContext";
 
 function Panier() {
   const { cart, setCart } = useContext(CartContext);
   const [show, setshow] = useState(false);
+  const { showToast } = useToast();
 
   const increase = (_id) => {
     setCart((prev) =>
@@ -36,10 +39,14 @@ function Panier() {
       setshow(true);
       //  alert("Votre commande est enregistrée, veuillez patienter !");
     } else {
-      alert("Veuillez entrer des produits !");
+      showToast("Vous n'avez pas faim? veuiller choisir quelque chose à manger 😊😊😊", "warning");
       setshow(false);
     }
   };
+
+  const DisplayAllOrder = () => {
+    alert("helloooo");
+  }
 
   const total = cart.reduce((acc, item) => acc + item.prix * item.quantity, 0);
 
@@ -48,6 +55,9 @@ function Panier() {
       <Navbar size={cart.length} />
       <div className="panier_container_main">
         <div className="panier_container">
+        <div style={{ position: "absolute", bottom: "55%" }}>
+          <SimpleDropdown/>
+        </div>
           <div className="ScrollPanier">
             <article>
               {cart.map((item) => (
@@ -103,7 +113,7 @@ function Panier() {
               id="btnconfirme"
               onClick={ConditionalFunc}
             >
-              Confirmer
+              Commander
             </button>
 
             {show &&
