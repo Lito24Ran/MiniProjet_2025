@@ -16,7 +16,7 @@ import { useToast } from "../context/ToastContext";
 
 export const produitContext = createContext();
 
-function Home({ Userconnecte }) {
+function Home() {
   const navigate = useNavigate();
   const { cart, handleClick } = useContext(CartContext);
   const { showToast } = useToast();
@@ -66,7 +66,14 @@ function Home({ Userconnecte }) {
   return (
     <>
       <div className="HomePage">
-      <CustomNavbar size={cart.length} onSearchChange={handleSearchSubmit} UserConnect={Userconnecte} />
+      <div class="multi-image">
+<img src="src/image/boribory.png" alt="rond" className="im1" />
+{/* <img src="src/image/boribory.png" alt="rond" className="im2" /> */}
+{/* <img src="src/image/boribory.png" alt="rond" className="im3" /> */}
+</div>
+
+
+      <CustomNavbar size={cart.length} onSearchChange={handleSearchSubmit} />
 
         <header>
         <section className={`animated-section ${isSearching ? "slide-up" : "slide-down"}`}>
