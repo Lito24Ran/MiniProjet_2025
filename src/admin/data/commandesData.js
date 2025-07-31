@@ -1,9 +1,10 @@
 export const columns = [
   { id: 'clientNom', label: 'Client', minWidth: 150 },
   { id: 'niveau', label: 'Niveau', minWidth: 100 },
+  { id: 'numero', label: 'Numéro Mvola', minWidth: 130 },
   { id: 'methodePaiement', label: 'Paiement', minWidth: 100 },
   { id: 'total', label: 'Total', minWidth: 100 },
-  { id: 'statut', label: 'Statut', minWidth: 100 }, // ajouter statut sur le format d'afichage
+  { id: 'statut', label: 'Statut', minWidth: 100 },
   { id: 'date', label: 'Date', minWidth: 150 },
   { id: 'produitsDisplay', label: 'Produits', minWidth: 300 },
 ];
@@ -25,10 +26,13 @@ export function formatCommandes(commandes) {
 
     return {
       ...cmd,
+      niveau: cmd.methodePaiement === "Cash" ? (cmd.niveau || " - ") : " - ",
+      numero: cmd.methodePaiement === "Mvola" ? (cmd.numero || " - ") : " - ",
+      total: `${cmd.total} Ariary`,
       date: `${datePart} à ${timePart}`,
       produitsDisplay: Array.isArray(cmd.produits)
         ? cmd.produits.map(p => `${p.nom} x${p.quantity} (${p.prix} Ar)`).join(", ")
         : '',
-    };
+    };    
   });
 }

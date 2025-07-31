@@ -20,8 +20,15 @@ export default function Commande() {
   };
 
   useEffect(() => {
-    fetchCommandes();
+    fetchCommandes(); // appel initial du fetch
+  
+    const intervalId = setInterval(() => {
+      fetchCommandes();
+    }, 10000); // toutes les 10 secondes
+  
+    return () => clearInterval(intervalId); // nettoyage à la destruction du composant
   }, []);
+  
 
   const handleDeleteCommande = (id) => {
     fetch(`http://localhost:1203/commandes/${id}`, {

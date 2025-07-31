@@ -34,18 +34,28 @@ export default function Clients() {
   const [clients, setClients] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:1203/dataUser')
-      .then(res => res.json())
-      .then(data => {
-        if (Array.isArray(data)) {
-          const formatted = formatClients(data);
-          setClients(formatted);
-        } else {
-          console.error('Format inattendu', data);
-        }
-      })
-      .catch(err => console.error('Erreur fetch clients:', err));
-  }, []);
+    const fetchClients = () => {
+      fetch('http://localhost:1203/dataUser')
+        .then(res => res.json())
+        .then(data => {
+          if (Array.isArray(data)) {
+            const formatted = formatClients(data);
+            setClients(formatted);
+          } else {
+            console.error('Format inattendu', data);
+          }
+        })
+        .catch(err => console.error('Erreur fetch clients:', err));
+    };
+  
+    fetchClients(); // appel initial
+  
+    const intervalId = setInterval(() => {
+      fetchClients();
+    }, 10000); // toutes les 10 secondes
+  
+    return () => clearInterval(intervalId);
+  }, []);  
 
   return (
     <CustomTable
