@@ -177,9 +177,9 @@ input {
  .verticalLineModal{
   width: 0.5;
   height: 500px;
-  background-color: black;
+  background-color: rgba(133, 133, 133, 0.726);
   position: relative;
-  right: 420px;
+  right: 450px;
  }
 .totalModal {
   color: rgba(101, 99, 99, 0.825);
