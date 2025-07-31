@@ -41,14 +41,14 @@ function App() {
       <Route path="/forgotPassword" element={<ForgotPassword />} />
       <Route path="/ChangePassword/:id" element={<ChangePassword />} />
       <Route path="/login" element={<Loginpage setUserConnecte={setConnecte} />} />
-      <Route path="/panier" element={<Panier />} />
-      <Route path="/Riz" element={<Riz />} />
-      <Route path="/Burger" element={<MenuBurger />} />
-      <Route path="/Dessert" element={<Dessert />} />
-      <Route path="/Jus" element={<Jus />} />
-      <Route path="/Menu" element={<Menu />} />
-      <Route path="/Soupe" element={<Soupe />} />
-      <Route path="/admin/*" element={<AppAdmin />} />
+      <Route path="/panier" element={<Panier  Userconnecte={connecte} />} />
+      <Route path="/Riz" element={<Riz  Userconnecte={connecte} />} />
+      <Route path="/Burger" element={<MenuBurger  Userconnecte={connecte} />} />
+      <Route path="/Dessert" element={<Dessert  Userconnecte={connecte}/>} />
+      <Route path="/Jus" element={<Jus  Userconnecte={connecte} />} />
+      <Route path="/Menu" element={<Menu Userconnecte={connecte}/>}   />
+      <Route path="/Soupe" element={<Soupe Userconnecte={connecte}/>} />
+      <Route path="/admin/*" element={<AppAdmin Userconnecte={connecte}/>} />
 
 
     </Routes>

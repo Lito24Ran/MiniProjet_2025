@@ -83,8 +83,10 @@
 
 .caroussel_text {
   margin-left: 30rem;
-  margin-top: -50%;
+  /* margin-top: -80%; */
+  top: 10rem;
   display: block;
+  position: fixed;
 }
 .caroussel_text_1 {
   margin-left: -3rem;
@@ -486,6 +488,13 @@ body {
   .SousTitre {
     font-size: 70%;
  
+  }
+  .im1 {
+    position: fixed;
+    top: 5%;
+    left: -40%;
+    height: 80%;
+    width: 80%;
   }
 }
 

@@ -3,21 +3,44 @@ const Commande = require("../model/commande");
 //cree comande
 const ajouterCommande = async (req, res) => {
   try {
-    console.log("Reçu :", req.body); //  Tres utile ceci hein
+    const { methodePaiement, niveau, numero } = req.body;
+
+    // Vérifie les champs en fonction de la méthode de paiement
+    if (methodePaiement === "Cash" && (!niveau || numero)) {
+      return res.status(400).json({ message: "Pour un paiement en espèces, seul le niveau est requis." });
+    }
+
+    if (methodePaiement === "Mvola" && (!numero || niveau)) {
+      return res.status(400).json({ message: "Pour un paiement par Mvola, seul le numéro est requis." });
+    }
+
     const nouvelleCommande = new Commande(req.body);
     await nouvelleCommande.save();
     res.status(201).json(nouvelleCommande);
   } catch (err) {
-    console.error("Erreur lors de l’enregistrement :", err); // et aussi ça
+    console.error("Erreur lors de l’enregistrement :", err);
     res.status(500).json({ message: err.message });
   }
 };
 
-//obtenir toutes les commmande
+//obtenir toutes les commandes et supprimer celles expirées (cash > 10mn)
 const getCommandes = async (req, res) => {
   try {
-    const commandes = await Commande.find(); // on ne filtre rien
-    console.log("Commandes trouvées :", commandes);
+    const maintenant = new Date();
+    const limiteExpiration = new Date(maintenant.getTime() - 10 * 60 * 1000); // 10 minutes
+
+    // Supprimer automatiquement les commandes "Cash" expirées
+    const result = await Commande.deleteMany({
+      methodePaiement: "Cash",
+      date: { $lte: limiteExpiration }
+    });
+
+    if (result.deletedCount > 0) {
+      console.log(`${result.deletedCount} commande(s) Cash expirée(s) supprimée(s) automatiquement`);
+    }
+
+    // Ensuite, récupérer les commandes restantes
+    const commandes = await Commande.find();
     res.status(200).json(commandes);
   } catch (err) {
     console.error("Erreur lors de la récupération des commandes :", err);

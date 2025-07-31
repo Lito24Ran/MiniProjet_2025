@@ -65,74 +65,73 @@ function Modal({ oneclose, condition, totalCommande }) {
     }
   }
   // ici Pour Cash
-useEffect(() => {
-  if (takeNameCash) {
-    const commande = {
-      clientNom: takeNameCash,
-      niveau: takelevelCash,
-      methodePaiement: "Cash",
-      produits: cart,
-      total: totalCommande,
-      date: new Date(),
-      status: "en attente",
-    };    
-    fetch("http://localhost:1203/commandes", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(commande),
-})
-  .then((res) => {
-    if (!res.ok) throw new Error("Erreur serveur");
-    return res.json();
-  })
-  .then((savedCommande) => {
-    setOrderHistory((prev) => [savedCommande, ...prev]);  
-    setCart([]);
-    showToast("Votre commande est bien reçu, veuillez patienter ! 😉😉😉", "success");
-    oneclose();
-  })
-  .catch((err) => {
-    console.error("Erreur lors de l’envoi :", err);
-    showToast("Désolé une erreur est survenu, vous inquitez pas les techniciens vont pas tarder !", "error");
-  });
+  useEffect(() => {
+    if (takeNameCash) {
+      const commande = {
+        clientNom: takeNameCash,
+        niveau: takelevelCash,
+        methodePaiement: "Cash",
+        produits: cart,
+        total: totalCommande,
+        date: new Date(),
+        status: "en attente",
+      };
+      fetch("http://localhost:1203/commandes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(commande),
+      })
+        .then((res) => {
+          if (!res.ok) throw new Error("Erreur serveur");
+          return res.json();
+        })
+        .then((savedCommande) => {
+          setOrderHistory((prev) => [savedCommande, ...prev]);
+          setCart([]);
+          showToast("Votre commande est bien reçu, veuillez patienter ! 😉😉😉", "success");
+          oneclose();
+        })
+        .catch((err) => {
+          console.error("Erreur lors de l’envoi :", err);
+          showToast("Désolé une erreur est survenu, vous inquitez pas les techniciens vont pas tarder !", "error");
+        });
 
-  }
-}, [takeNameCash]);
+    }
+  }, [takeNameCash]);
 
   // ici Pour MVola
-useEffect(() => {
-  if (takenameMvola) {
-    const commande = {
-      clientNom: takenameMvola,
-      niveau: takenumMvola,
-      methodePaiement: "Mvola",
-      produits: cart,
-      total: totalCommande,
-      date: new Date(),
-      status: "en attente",
-    };    
-    fetch("http://localhost:1203/commandes", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(commande),
-})
-  .then((res) => {
-    if (!res.ok) throw new Error("Erreur serveur");
-    return res.json();
-  })
-  .then((savedCommande) => {
-    setOrderHistory((prev) => [savedCommande, ...prev]);  
-    setCart([]);
-    showToast("Votre commande est bien reçu, veuillez patienter ! 😉😉😉", "success");
-    oneclose();
-  })
-  .catch((err) => {
-    console.error("Erreur lors de l’envoi :", err);
-    showToast("Erreur lors de l’envoi de la commande !", "error");
-  });
-
-  }
-}, [takenameMvola]);
+  useEffect(() => {
+    if (takenameMvola) {
+      const commande = {
+        clientNom: takenameMvola,
+        numero: takenumMvola, // ici on met numero, pas niveau hein
+        methodePaiement: "Mvola",
+        produits: cart,
+        total: totalCommande,
+        date: new Date(),
+        status: "en attente",
+      };
+      fetch("http://localhost:1203/commandes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(commande),
+      })
+        .then((res) => {
+          if (!res.ok) throw new Error("Erreur serveur");
+          return res.json();
+        })
+        .then((savedCommande) => {
+          setOrderHistory((prev) => [savedCommande, ...prev]);
+          setCart([]);
+          showToast("Votre commande est bien reçu, veuillez patienter ! 😉😉😉", "success");
+          oneclose();
+        })
+        .catch((err) => {
+          console.error("Erreur lors de l’envoi :", err);
+          showToast("Erreur lors de l’envoi de la commande !", "error");
+        });
+    }
+  }, [takenameMvola]);  
 
   useEffect(() => {
     console.log("Total reçu dans le modal :", totalCommande);
@@ -196,7 +195,7 @@ useEffect(() => {
               /*  (conditionnameCash) ? <p>Enterer un nom</p> : */
               <div className="inputText">
                 {conditionnameCash && (
-                  <p className="erreurModal" title="Entrer un nom">
+                  <p className="errorModal" title="Entrer un nom">
                     !
                   </p>
                 )}
@@ -212,7 +211,7 @@ useEffect(() => {
                 <br />
                 <label htmlFor="">Entrer votre niveau</label>
                 {conditionlevelCash && (
-                  <p className="erreurModal2" title="Entrer votre niveau">
+                  <p className="errorModal" title="Entrer votre niveau">
                     !
                   </p>
                 )}
@@ -228,8 +227,8 @@ useEffect(() => {
                   required
                 />
                 <div className="date">
-                  <h5>expire</h5>
-                  <p>10mn</p>
+                  <h6>Vous devez payer dans les : </h6>
+                  <p>10 prochain minutes</p>
                 </div>
                 <div className="btnSubmit">
                   <button id="SubmitBtn" onClick={conditionalModal}>
@@ -276,20 +275,21 @@ useEffect(() => {
                                     </div> */}
                 <div className="btnSubmit">
                   <button id="SubmitBtn" onClick={conditionMvolaModal}>
-                    Submit
+                    Valider
                   </button>
                 </div>
               </div>
             )}
           </div>
+           <div className="verticalLineModal"></div>
           <div className="price">
             <div className="title">
               <img src="src/image/kalico.png" alt="logo" />
               {/* <h3>Kalico</h3> */}
             </div>
-            <div className="underlineModal"></div>
-            <div className="total">
-              <h4>Total : {totalCommande} Ariary</h4>
+           
+            <div className="totalModal">
+              <h4>Total Acheter : {totalCommande} Ariary</h4>
             </div>
           </div>
         </div>
