@@ -5,7 +5,7 @@ import Panier from "../page/Panier";
 import produitContext from "../page/home";
 
 const Cards = ({ item, handleClick }) => {
-  const { id, nom, description, prix, img } = item;
+  const { id, nom, description, prix, img, quantite } = item;
   const [article, setarticle] = useState([]);
   const [quantity, setQuantity] = useState(1);
 
@@ -16,7 +16,7 @@ const Cards = ({ item, handleClick }) => {
 
   return (
     <div className="cards_container">
-      <img src="src\image\font.png" alt="font" className="font" />
+      {/* <img src="src\image\font.png" alt="font" className="font" /> */}
       <div className="card" onMouseLeave={() => setShowStars(false)}>
         <div className="tete">
           <img className="carteimage" src={img} alt="Image" />
@@ -38,6 +38,10 @@ const Cards = ({ item, handleClick }) => {
                 +
               </button>
             </div>
+            <p className="stock_restant">
+              <b>Dispo :</b> {quantite}
+            </p>
+
             <p className="description">
               <b>Ingredient: </b>
               {description}

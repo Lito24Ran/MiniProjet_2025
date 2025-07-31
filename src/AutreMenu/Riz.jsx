@@ -30,7 +30,7 @@ function Riz({Userconnecte}) {
       <section>
         <img src="src/image/font.png" alt="font" className="fonts" />
         <div className="menus">Riz</div>
-        <div className="All_Cards">
+        <div className="All_Card">
           {produits.map((item) => (
             <Cartes handleClick={(item) => handleClick(item, showToast)} item={item} key={item._id} />
           ))}

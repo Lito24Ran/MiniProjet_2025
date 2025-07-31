@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../context/CartContext";
 import Navbar from "../component/navbar";
 import "./panier.css";
@@ -6,12 +6,15 @@ import Modal from "../component/modal";
 import { createPortal } from "react-dom";
 import SimpleDropdown from "../component/SimpleDropdown";
 import { useToast } from "../context/ToastContext";
+import { useNavigate } from "react-router";
 
-function Panier({Userconnecte}) {
+function Panier({ Userconnecte }) {
   const { cart, setCart } = useContext(CartContext);
   const [show, setshow] = useState(false);
-  const [showError,setshowError] = useState(false);
+  const [showError, setshowError] = useState(false);
   const { showToast } = useToast();
+  const [back, setBack] = useState(false);
+  const [redirect,setRedirect] = useState(false);
 
   const increase = (_id) => {
     setCart((prev) =>
@@ -31,14 +34,25 @@ function Panier({Userconnecte}) {
     );
   };
 
+  const navigate = useNavigate();
+
+  function navigation(path) {
+    navigate(path);
+  }
+
   const removeItem = (_id) => {
     setCart((prev) => prev.filter((item) => item._id !== _id));
   };
+  console.log(Userconnecte);
 
   const ConditionalFunc = () => {
     if (cart.length !== 0) {
-      setshow(true);
-      //  alert("Votre commande est enregistrée, veuillez patienter !");
+
+      if (!Userconnecte) {
+        setBack(true);
+      } else {
+        setshow(true)
+      }
     } else {
       showToast("Vous n'avez pas faim? veuiller choisir quelque chose à manger 😊😊😊", "warning");
       setshow(false);
@@ -49,20 +63,29 @@ function Panier({Userconnecte}) {
   const DisplayAllOrder = () => {
     alert("helloooo");
   }
+useEffect(() => {
+  if (back) {
+    setRedirect(true);
+    setTimeout(() => {
+       navigation("/login");
+    }, 6000);
+   
+  }
+}, [back]);
 
   const total = cart.reduce((acc, item) => acc + item.prix * item.quantity, 0);
-   setTimeout(() => {
+  setTimeout(() => {
     setshowError(false);
   }, 8000);
- 
+
   return (
     <>
-      <Navbar size={cart.length} UserConnect={Userconnecte}/>
+      <Navbar size={cart.length} UserConnect={Userconnecte} />
       <div className="panier_container_main">
         <div className="panier_container">
-        <div style={{ position: "absolute", bottom: "55%" }}>
-          <SimpleDropdown/>
-        </div>
+          <div style={{ position: "absolute", bottom: "55%" }}>
+            <SimpleDropdown />
+          </div>
           <div className="ScrollPanier">
             <article>
               {cart.map((item) => (
@@ -121,21 +144,28 @@ function Panier({Userconnecte}) {
               Commander
             </button>
 
-            
+
           </div>
-          {(show) ?(
-              createPortal(
-                <Modal
-                  oneclose={() => setshow(false)}
-                  condition={ConditionalFunc}
-                  totalCommande={total}
-                  conditionShow ={show}
-                  SetConditionShow = {setshow}
-                />,
-                document.body
-              )) :(showError) && 
-            <div > </div>}
-          
+          {(show) ? (
+            createPortal(
+              <Modal
+                oneclose={() => setshow(false)}
+                condition={ConditionalFunc}
+                totalCommande={total}
+                conditionShow={show}
+                SetConditionShow={setshow}
+              />,
+              document.body
+            )) : (redirect) &&
+          <div className="return" >
+            
+            <p>⚠️ Connectez vous d'abord </p>
+            <br />
+            <p>Redirection vers la page login </p>
+            <br />
+            <p>Veuillez patintez!😊</p>
+           </div>}
+
         </div>
       </div>
     </>

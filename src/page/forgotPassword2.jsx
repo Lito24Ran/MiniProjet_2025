@@ -23,7 +23,7 @@ const ChangePassword = (props) => {
         if (email) {
             /* setMessage("Entrer votre email"); */
             setTakeemail(email);
-            navigate("/");
+            navigate("/login");
 
             // Limpia el campo de correo
         } else {
