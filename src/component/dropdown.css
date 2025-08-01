@@ -54,3 +54,29 @@
   margin-left: 35%;
   margin-top: 25%;
 }
+@media (min-width: 768px) and (max-width: 1023px) {
+.dropdown-button {
+    width: 200px;
+    left: 5%;
+    top: 20%;
+  }
+  
+  .dropdown-wrapper {
+    width: 200px;
+  }
+  
+  .value-list {
+    width: 20%;
+    left: 5.5%;
+    top: 25%;
+  }
+  
+  .value-list li {
+    padding: 0.8rem;
+  }
+  
+  .loading {
+    margin-left: 40%;
+    margin-top: 60%;
+  }
+}
