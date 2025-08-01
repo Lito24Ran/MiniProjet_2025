@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Nav } from "react-bootstrap";
-import "@fortawesome/fontawesome-free/css/all.min.css"; 
+import "@fortawesome/fontawesome-free/css/all.min.css";  
 
 import "./navbar.css";
 

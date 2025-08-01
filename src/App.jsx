@@ -48,7 +48,7 @@ function App() {
       <Route path="/Jus" element={<Jus  Userconnecte={connecte} />} />
       <Route path="/Menu" element={<Menu Userconnecte={connecte}/>}   />
       <Route path="/Soupe" element={<Soupe Userconnecte={connecte}/>} />
-      <Route path="/admin/*" element={<AppAdmin Userconnecte={connecte}/>} />
+      <Route path="/admin/*" element={<AppAdmin />} />
 
 
     </Routes>
