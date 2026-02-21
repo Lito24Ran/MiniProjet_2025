@@ -1,10 +1,6 @@
 const mongoose = require("mongoose");
 const student = require("../model/client");
-const { use } = require("react");
-//const bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken");
-const { data } = require("react-router-dom");
-/* const session = require("express-session"); */
 
 const signup = (req, res, next) => {
     //console.log(req.body);
@@ -37,56 +33,42 @@ const signup = (req, res, next) => {
 }
 
 const login = (req, res) => {
-
-    //console.log(req.body);
-
     let name = req.body.name;
     let password = req.body.password;
     let email = req.body.email;
 
     student.findOne({ $or: [{ name: name }, { email: email }] })
-
         .then(user => {
-            if (user) {
-
-                if (user.password === password) {
-                    console.log("connexion reussit");
-                    let token = jwt.sign({ name: user.name }, 'UneValeursecrete', { expiresIn: "1h" });
-                    console.log(token);
-                   /*  res.send(user.name); */
-                    console.log(
-                        {
-                            nom: user.name,
-                            email: user.email,
-                            level: user.level,
-                        }
-                    )
-
-                }
-                res.json(
-                    {
-                        message: "Compte existant",
-                        token
-                    }
-                )
-
-            } else {
-                console.log("mot de passe introuvable");
-                //alert("Votre mot de passe est introuvable!")
-
+            if (!user) {
+                return res.status(404).json({ message: "Compte introuvable" });
             }
 
-        }
+            if (user.password !== password) {
+                return res.status(401).json({ message: "Mot de passe incorrect" });
+            }
 
-        )
-        .catch(error => {
-            console.log("Une erreur c' est produit!");
+            const token = jwt.sign(
+                { id: user._id, name: user.name, level: user.level },
+                'UneValeursecrete',
+                { expiresIn: "1h" }
+            );
 
             res.json({
-                message: "Erreur de connexion"
-            })
+                message: "Connexion réussie",
+                token,
+                user: {
+                    id: user._id,
+                    name: user.name,
+                    email: user.email,
+                    level: user.level,
+                }
+            });
         })
-}
+        .catch(error => {
+            console.log("Erreur login:", error);
+            res.status(500).json({ message: "Erreur de connexion" });
+        });
+};
 
 
 
@@ -140,4 +122,3 @@ module.exports = {
     dataUser,
     ChangePass,
 };
-

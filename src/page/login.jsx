@@ -42,15 +42,15 @@ function Loginpage({ setUserConnecte }) {
           method: "GET",
         });
         const donnefetch = await datafetching.json();
-        //console.log(donnefetch[0].name);
         setData(donnefetch);
       } catch (error) {
-        console.log("Une erreur c' est produit!");
+        console.log("Une erreur s'est produite lors du chargement des utilisateurs.");
       }
     };
     dataComparing();
-    //console.log(data[0].email);
-  }, [data]);
+    // ✅ Tableau vide : on ne charge qu'UNE seule fois au montage
+    // L'ancien code avait [data] ce qui causait une boucle infinie
+  }, []);
 
   function handleclicLogin() {
     console.log(data);
@@ -158,12 +158,21 @@ function Loginpage({ setUserConnecte }) {
               email: email,
             }),
           });
-        } catch (error) { }
+          const result = await fetchDatalogin.json();
+          // ✅ On sauvegarde le token et les infos user dans localStorage
+          // pour que la session persiste après un rechargement de page
+          if (result.token) {
+            localStorage.setItem("token", result.token);
+            localStorage.setItem("user", JSON.stringify(result.user));
+            setUserConnecte(true);
+          }
+        } catch (error) {
+          console.log("Erreur lors de la connexion au backend:", error);
+        }
       };
       loginBackend();
       setSuccesConnect(true);
 
-      /* alert("Connexion reussit") */
       setTimeout(() => {
         navigation("/");
       }, 1000);

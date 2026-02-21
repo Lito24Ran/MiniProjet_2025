@@ -1,4 +1,3 @@
- 
 import { Route, Routes } from "react-router-dom";
 import Inscription from "./page/Singin";
 import Home from "./page/home";
@@ -21,16 +20,22 @@ import { useState } from "react";
 function App() {
 
   const location = useLocation();
-  const [connecte, setConnecte] = useState(false);
+  // ✅ On lit le localStorage au démarrage pour restaurer la session
+  const [connecte, setConnecte] = useState(() => {
+    const token = localStorage.getItem("token");
+    return !!token;
+  });
+
   useEffect(() => {
-    if (location.pathname === "/login" || location.pathname === "/SignUp" || location.pathname === "/forgotPassword" || location.pathname === "/ChangePassword/:id") {
-      document.body.style.backgroundImage =  `url ("src/image/backgroundLogin.png")`/*src/image/backgroundSignUp1.gif/* "linear-gradient(to top right, rgba(166, 29, 113),rgba(239, 130, 35, 1))" */;
-    } /* else if (location.pathname === "/SignUp") {
-      document.body.style.backgroundImage = `{ url("src/image/backgroundLogin.png");}`
-    }else if (location.pathname === "/forgotPassword") {
-      document.body.style.backgroundImage = `{url ("src/image/backgroundSignUp1.png")}`
-    } */
-    else {
+    if (
+      location.pathname === "/login" ||
+      location.pathname === "/SignUp" ||
+      location.pathname === "/forgotPassword" ||
+      location.pathname.startsWith("/ChangePassword")
+    ) {
+      // Syntaxe CSS correcte pour backgroundImage
+      document.body.style.backgroundImage = `url("src/image/backgroundLogin.png")`;
+    } else {
       document.body.style.backgroundImage = "none";
     }
   }, [location]); 

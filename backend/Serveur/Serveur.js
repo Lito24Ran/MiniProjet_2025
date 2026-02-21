@@ -1,8 +1,7 @@
-const bodyParser = require("body-parser");
 const express = require("express");
 const app = express();
 const port = 1203;
-const body_Parser = require("body-parser");
+const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const router = require("../router/router");
 const methodoverride = require('method-override');
@@ -13,7 +12,7 @@ const produitsRoute = require("../router/produits");
 const commandesRoute = require("../router/commandes");
 
 app.use(cors());
-app.use(body_Parser.urlencoded({extends:true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use("/uploads", express.static("uploads"));

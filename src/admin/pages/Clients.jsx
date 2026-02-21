@@ -32,36 +32,50 @@ function formatClients(clients) {
 
 export default function Clients() {
   const [clients, setClients] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchClients = () => {
       fetch('http://localhost:1203/dataUser')
-        .then(res => res.json())
+        .then(res => {
+          if (!res.ok) throw new Error("Erreur serveur");
+          return res.json();
+        })
         .then(data => {
           if (Array.isArray(data)) {
-            const formatted = formatClients(data);
-            setClients(formatted);
+            setClients(formatClients(data));
+            setError(null);
           } else {
-            console.error('Format inattendu', data);
+            setError("Format de données inattendu.");
           }
         })
-        .catch(err => console.error('Erreur fetch clients:', err));
+        .catch(err => {
+          console.error('Erreur fetch clients:', err);
+          setError("Impossible de charger les clients. Vérifiez que le serveur est démarré.");
+        });
     };
   
-    fetchClients(); // appel initial
-  
-    const intervalId = setInterval(() => {
-      fetchClients();
-    }, 10000); // toutes les 10 secondes
-  
+    fetchClients();
+    const intervalId = setInterval(fetchClients, 10000);
     return () => clearInterval(intervalId);
   }, []);  
 
   return (
-    <CustomTable
-      columns={columns}
-      rows={clients}
-      uniqueKey="_id"
-    />
+    <>
+      {error && (
+        <div style={{
+          background: "#fff3cd", border: "1px solid #ffc107",
+          borderRadius: "0.5rem", padding: "1rem", margin: "1rem",
+          color: "#856404"
+        }}>
+          ⚠️ {error}
+        </div>
+      )}
+      <CustomTable
+        columns={columns}
+        rows={clients}
+        uniqueKey="_id"
+      />
+    </>
   );
 }
