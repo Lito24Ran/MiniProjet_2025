@@ -1,44 +1,10 @@
 const mongoose = require("mongoose");
 const Produit = require("./model/produits");
-
-// === Schémas === //
-const produitSchema = new mongoose.Schema({
-  nom: String,
-  description: String,
-  prix: Number,
-  img: String,
-  quantite: Number,
-  menuSpecial: Boolean,
-  categorie: String,
-}, { timestamps: true });
-
-const eleveSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  level: String,
-});
-
-const commandeSchema = new mongoose.Schema({
-  nomClient: String,
-  numeroCarte: String,
-  numeroTel: String,
-  plats: {
-    nomPlat: String,
-    quantite: Number,
-    prix: Number,
-  },
-});
-
-// === Modèles === //
-const Produit = mongoose.model("Produit", produitSchema);
-const Eleve = mongoose.model("Eleve", eleveSchema);
-const Commande = mongoose.model("Commande", commandeSchema);
+const Eleve = require("./model/client");
+const Commande = require("./model/commande");
 
 // === Connexion à la base GeIt === //
-mongoose.connect("mongodb://127.0.0.1:27017/GeIt", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect("mongodb://127.0.0.1:27017/GeIt");
 
 // === Données === //
 const produitsBase = [
@@ -83,8 +49,8 @@ const produitsCategorie = [
 ];
 
 const eleves = [
-  { name: "Alice", email: "alice@gmail.com", level: "vip" },
-  { name: "Bob", email: "bob@yahoo.fr", level: "normal" },
+  { name: "Alice", email: "alice@gmail.com", level: "vip", password: "alice12345" },
+  { name: "Bob", email: "bob@yahoo.fr", level: "normal", password: "bob123456" },
 ];
 
 const commandes = [

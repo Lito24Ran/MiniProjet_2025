@@ -24,7 +24,7 @@ function App() {
   const [connecte, setConnecte] = useState(false);
   useEffect(() => {
     if (location.pathname === "/login" || location.pathname === "/SignUp" || location.pathname === "/forgotPassword" || location.pathname === "/ChangePassword/:id") {
-      document.body.style.backgroundImage =  `{url ("src/image/backgroundLogin.png")}`/*src/image/backgroundSignUp1.gif/* "linear-gradient(to top right, rgba(166, 29, 113),rgba(239, 130, 35, 1))" */;
+      document.body.style.backgroundImage =  `url ("src/image/backgroundLogin.png")`/*src/image/backgroundSignUp1.gif/* "linear-gradient(to top right, rgba(166, 29, 113),rgba(239, 130, 35, 1))" */;
     } /* else if (location.pathname === "/SignUp") {
       document.body.style.backgroundImage = `{ url("src/image/backgroundLogin.png");}`
     }else if (location.pathname === "/forgotPassword") {
